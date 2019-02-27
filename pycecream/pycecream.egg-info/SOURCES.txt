@@ -1,0 +1,7 @@
+setup.py
+pycecream.egg-info/PKG-INFO
+pycecream.egg-info/SOURCES.txt
+pycecream.egg-info/dependency_links.txt
+pycecream.egg-info/not-zip-safe
+pycecream.egg-info/requires.txt
+pycecream.egg-info/top_level.txt

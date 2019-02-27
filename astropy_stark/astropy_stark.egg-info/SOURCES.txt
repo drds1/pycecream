@@ -1,0 +1,7 @@
+setup.py
+astropy_stark.egg-info/PKG-INFO
+astropy_stark.egg-info/SOURCES.txt
+astropy_stark.egg-info/dependency_links.txt
+astropy_stark.egg-info/not-zip-safe
+astropy_stark.egg-info/requires.txt
+astropy_stark.egg-info/top_level.txt
