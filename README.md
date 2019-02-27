@@ -4,7 +4,9 @@ Includes the astropy_stark and pycecream modules.
 
 Easiest to install these from pip using...
 
-"pip install pycecream". 
+'''
+pip install pycecream
+''' 
 
 This will
 automatically install the astropy_stark library.
