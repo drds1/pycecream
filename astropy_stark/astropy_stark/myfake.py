@@ -212,7 +212,7 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
   #if dtmeanin[i] <= 0 then dont resample just use same timegrid
   dtavenow = dtmeanin[i]
   if (dtavenow > 0):
-   print 'resampling',dtavenow
+   print('resampling',dtavenow)
    datin = np.zeros((ntlc,3))
    datin[:,0] = tlc[idxlo:]
    dout = mrs.myresample('',[''],dtavenow,sampmin=sampmin,sampcode=3,datin=datin)
