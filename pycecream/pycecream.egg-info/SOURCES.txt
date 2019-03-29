@@ -1,4 +1,5 @@
 setup.py
+pycecream/__init__.py
 pycecream.egg-info/PKG-INFO
 pycecream.egg-info/SOURCES.txt
 pycecream.egg-info/dependency_links.txt

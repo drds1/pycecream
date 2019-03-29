@@ -23,6 +23,8 @@ Please also bear in mind that this conversion to python
 is still very new so some bugs will likely appear. Please
 get in touch with these and I will try to fix them asap.
 
+Please cite Starkey et al 2016,17 in publications https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF
+
 Thanks,
 
 David
