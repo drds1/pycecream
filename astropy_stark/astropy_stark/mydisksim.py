@@ -12,8 +12,8 @@
   
 import numpy as np
 import matplotlib.pylab as plt
-import mytemp0 as mt0
-import myplank as mp
+import astropy_stark.mytemp0 as mt0
+import astropy_stark.myplank as mp
 twopi = 2*np.pi
 deg2rad = twopi/360.
 

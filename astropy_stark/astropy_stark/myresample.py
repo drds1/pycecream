@@ -13,7 +13,7 @@
 import numpy as np
 import os
 import sys
-import myrandom as mr
+import astropy_stark.myrandom as mr
 
 
 def myresample(dir,fname,dtave,dtsdin = -0.2, sampmin=0.8,sampcode=3,datin=[]):

@@ -107,6 +107,8 @@ class pycecream:
 
         #copy fortran files to pycecream directory
         os.system('cp '+self.module_path+'/cream_f90.f90 ./'+self.dir_pycecream)
+        print('copying file...')
+        print(self.module_path)
         os.system('cp ' + self.module_path + '/creaminpar.par ./' + self.dir_pycecream)
 
     def add_lc(self,input,

@@ -1,5 +1,7 @@
 setup.py
 pycecream/__init__.py
+pycecream/cream_f90.f90
+pycecream/creaminpar.par
 pycecream.egg-info/PKG-INFO
 pycecream.egg-info/SOURCES.txt
 pycecream.egg-info/dependency_links.txt

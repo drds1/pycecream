@@ -25,27 +25,26 @@ def bnu(wave,temp,mjy=1,ergcmang = 0):
 	BNU = 0.
 	
 	if (temp > 0.0):
-	 X = c1/(wave*temp)
-	 if X > 85:
-		bnuln = 3.*np.log( (c1 / wave) / c2) - X
-		bnu=np.e**(bnuln)
-	 if X < 1e-4:
-		factor= 2. / ( X * ( X + 2. ) )
-		X = X *temp /c2
-		bnu = factor * X**3
-	 if X < 85 and X > 1e-4:
-		factor = 1./ (np.e**(X) - 1.)
-		X = X *temp /c2
-		bnu = factor * X**3
+		X = c1/(wave*temp)
+		if X > 85:
+			bnuln=3.*np.log((c1/wave)/c2)-X
+			bnu=np.e**(bnuln)
+		if X < 1e-4:
+			factor= 2. / ( X * ( X + 2. ) )
+			X = X *temp /c2
+			bnu = factor * X**3
+		if X < 85 and X > 1e-4:
+			factor = 1./ (np.e**(X) - 1.)
+			X = X *temp /c2
+			bnu = factor * X**3
 	else:
-	 bnu = 0.0
+		bnu = 0.0
 	
 	
 	if (mjy == 1):
-	 bnu = bnu * 1.e26# * wave*wave * 3.33564095e7
+		bnu = bnu * 1.e26# * wave*wave * 3.33564095e7
 	elif (ergcmang ==1):
-	 bnu = bnu/3.33564095e-19 / wave/wave
-	
+		bnu = bnu/3.33564095e-19 / wave/wave
 	return(bnu)
 
 
@@ -53,26 +52,6 @@ def bnu(wave,temp,mjy=1,ergcmang = 0):
 
 #if you have an array of EITHER  wav or temp then use the vectorized version
 def bnuvec(wav,temp,mjy=1, ergcmang = 0):
- a = np.vectorize(bnu)
- return( a(wav,temp,mjy=mjy, ergcmang = 0))
+	a = np.vectorize(bnu)
+	return( a(wav,temp,mjy=mjy, ergcmang = 0))
 
-
-	#DATA C1/1.43883E8/
-	#DATA C2/1.95722E5/
-	#BNU = 0.
-	#X = WAVE * TEMP
-	#IF( X.LE.0. ) RETURN
-	#X = C1 / X
-    #  IF( X.LT.1.E-4 ) THEN
-	#FACTOR = 2. / ( X * ( X + 2. ) )
-    #  ELSE IF( X.LT.85. ) THEN
-	#FACTOR = 1. / ( EXP( X ) - 1. )
-    #  ELSE
-	#bnuln = 3. * alog( ( c1 / wave ) / c2 ) - x
-	#bnu = exp( bnuln )
-	#RETURN
-    #  END IF
-	#X = X * TEMP / C2
-	#BNU = FACTOR * X**3
-	#RETURN
-	#END 

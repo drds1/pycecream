@@ -23,15 +23,14 @@
 import numpy as np
 import pylab as plt
 import os
-import mytfb_pycall as tfbpyf90
-import mytfb_quick as tfb
-import myedlum as me
-import myconvolve as mc
-import mydisksim as mds
-import myfake_amp as mfa
-import myrandom as mr
-import mylcgen as mlg
-import myresample as mrs
+import astropy_stark.mytfb_quick as tfb
+import astropy_stark.myedlum as me
+import astropy_stark.myconvolve as mc
+import astropy_stark.mydisksim as mds
+import astropy_stark.myfake_amp as mfa
+import astropy_stark.myrandom as mr
+import astropy_stark.mylcgen as mlg
+import astropy_stark.myresample as mrs
 
 
 def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
@@ -40,7 +39,7 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
            tauhi = 50., diag_plot = 0, iseed = -1,sampmin=0.8,
            meanforcein=[],sdforcein=[],sigforcein = [],
            mean_x = 0., sd_x = 1.,thfwhm = 0.2,
-           thcent = 1.0,fakeplotnorm = 1,pycall = 0,affine=0,
+           thcent = 1.0,fakeplotnorm = 1,affine=0,
            paraffine=[-1,-2,-3,-4],
            dirsave = None,
            naffine=1000,noise_gap=0,
@@ -183,20 +182,8 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
    
    #generate response function
    #print 'before response',i,wavnow,fdiskmean,emdot,embh,wavnow,'response function info',pycall
-   if (pycall == 0):
-    psinow = tfb.pytfb_sub(taunow,embh,emdot,wavnow, degi, t0vin=-1, t0iin = -1, alpha_visc = -0.75, hxsch = 3.0, alpha_irad = -0.75, eta = 0.1, rlosch = 3.0, norm = 1,thcent = thcent, thfwhm = thfwhm)
-   else:
-    psn = tfbpyf90.mytfb_pycall(taunow,wavnow,embh,emdot,degi,slopevisc=-0.75,slopeirad=-0.75,urin=3.0,r0=1.0,eta=0.1,uhx=3.0,tfx=tfx,T0v=T0v,T0x=T0x,sv=sv,sx=sx)
-    taunew = psn[:,0]
-    psinew = psn[:,1]
-    #taunew = psinow[0]
-    if (np.shape(taunew)[0] != ntau):
-     psinow = np.interp(taunow,taunew,psinew)
-    else:
-     psinow = np.array(psinew)
-   
-   #print taunow[:100]
-   #print psinow[:100]
+   psinow = tfb.pytfb_sub(taunow,embh,emdot,wavnow, degi, t0vin=-1, t0iin = -1, alpha_visc = -0.75, hxsch = 3.0, alpha_irad = -0.75, eta = 0.1, rlosch = 3.0, norm = 1,thcent = thcent, thfwhm = thfwhm)
+
    print('after response')
    #raw_input()
    print('')

@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pylab as plt
-import mytemp0 as mt0
+import astropy_stark.mytemp0 as mt0
 import scipy.stats as ss
 
 twopi = np.pi*2

@@ -123,7 +123,7 @@ def tv0(em,emdot,r0=1.0,rinsch=3.0):
  
  if (rinld > r0):
   r0in = np.ceil(rinld/r0)*r0
-  print 'mytemp0.py inner radius bigger than reference radius (Mbh too big)  changing reference radius)'
+  print('mytemp0.py inner radius bigger than reference radius (Mbh too big)  changing reference radius')
  else:
   r0in = r0
  
@@ -177,7 +177,7 @@ def tr(r,t0v,t0i,embh, r0=1,alpha_visc=-0.75,alpha_irad=-0.75,rinsch = 3):
   
  if (rinld > r0):
   r0in = np.ceil(rinld/r0)*r0
-  print 'mytemp0.py inner radius bigger than reference radius (Mbh too big)  changing reference radius)'
+  print('mytemp0.py inner radius bigger than reference radius (Mbh too big)  changing reference radius')
  else:
   r0in = r0
   
