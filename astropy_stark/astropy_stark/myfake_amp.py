@@ -55,7 +55,7 @@ def mfamp(embh,wav,fmjy,tlen,dMpc, z= 0.0):
  sdmjy = np.abs( -0.4 * 10**(-abm*0.4) / a * np.log(10.)  * sdmag )
  
   
- print 'wav, mean_AB, rms_AB ', wav, abm, sdmag,'  <-- report myfake_amp --> mean_mJy, rms_mJy ',fmjy, sdmjy
+ print('wav, mean_AB, rms_AB ', wav, abm, sdmag,'  <-- report myfake_amp --> mean_mJy, rms_mJy ',fmjy, sdmjy)
  
  return(sdmjy)
  

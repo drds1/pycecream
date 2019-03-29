@@ -20,12 +20,12 @@ def mytfb_pycall(tau,wav,uembh,uemdot,deginc,slopevisc=-0.75,slopeirad=-0.75,uri
  if (tfx == 0):
 
   if (iexist == 0 or newversion == 1):
-   print 'compiling...'
+   print('compiling...')
    dirpycallf90 = '/Users/ds207/Documents/standrews/sta/fort/fortcode/delaydist/tfb_pycall.f90'
    os.system('cp '+dirpycallf90+' '+pwd)
    os.system('gfortran tfb_pycall.f90 '+dirfort+'/delaydist/tfb_redshifttest.f90 '+dirfort+'/delaydist/tfb_x.f90 '+dirfort+'/cgs.f90'+' '+dirfort+'/itp2.for '+dirfort+'/ran_new2.f90 -o tfb_pycall.exe')
    newversion = 0
-   print 'done compiling'
+   print('done compiling')
 
   f = open('tfb_pycall.par','w')
   f.write(np.str(wav)+'\n')
@@ -46,12 +46,12 @@ def mytfb_pycall(tau,wav,uembh,uemdot,deginc,slopevisc=-0.75,slopeirad=-0.75,uri
 
   
   if (iexist == 0 or newversion == 1):
-   print 'tfx mode is on!!!'
-   print 'compiling...'
+   print('tfx mode is on!!!')
+   print('compiling...')
    dirpycallf90 = '/Users/ds207/Documents/standrews/sta/fort/fortcode/delaydist/tfx_pycall.f90'
    os.system('cp '+dirpycallf90+' '+pwd)
    os.system('gfortran tfx_pycall.f90 '+dirfort+'/delaydist/tfb_x.f90 '+dirfort+'/myrs2ld.f90 '+dirfort+'/ran_new2.f90 '+dirfort+'/mytr.f90 -o tfx_pycall.exe')
-   print 'done compiling'
+   print('done compiling')
    
   f = open('tfx_pycall.par','w')
   f.write(np.str(wav)+'\n')

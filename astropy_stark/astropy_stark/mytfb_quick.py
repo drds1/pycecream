@@ -266,11 +266,11 @@ def pytfb_sub(taus,embh,emdot,wavang, deginc, t0vin=-1, t0iin = -1, alpha_visc =
   if (oldsmooth == 1):
    sigtau2 = sigtau*sigtau
    
-   print 'ok now it works but is slow'
-   print 'need to find a numpy or scipy gaussian smoothing function'
-   print 'ready made function wil be faster than anything I write down below'
-   print 'was fine for fortran but python prefers ready made smoothing function'
-   print 'google numpy or scipy gaussian filter 1d etc'
+   print('ok now it works but is slow')
+   print('need to find a numpy or scipy gaussian smoothing function')
+   print('ready made function wil be faster than anything I write down below')
+   print('was fine for fortran but python prefers ready made smoothing function')
+   print('google numpy or scipy gaussian filter 1d etc')
    #raw_input()
    #psis_2 = scipy.ndimage.filters.gaussian_filter1d(, sigtau, axis=-1, order=0, output=None, mode='reflect', cval=0.0, truncate=4.0) 
    psis = np.zeros(ntaus)

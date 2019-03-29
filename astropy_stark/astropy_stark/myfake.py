@@ -197,9 +197,9 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
    
    #print taunow[:100]
    #print psinow[:100]
-   print 'after response'
+   print('after response')
    #raw_input()
-   print '' 
+   print('')
    #convolve with response function for each wavelength
    echolc = mc.mc3(tlc,xlc,taunow,psinow)[idxlo:]
     
@@ -236,7 +236,7 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
     a = np.where((tout - tplotlo > tlonow) & (tout - tplotlo < thinow))[0]
     #print a,tlonow, thinow, np.min(tout), np.max(tout),'bug hunt'
     idexc.append(a)
-    print np.min(tout),np.max(tout),'gap bug',tlonow,thinow,len(a),len(idexc)
+    print(np.min(tout),np.max(tout),'gap bug',tlonow,thinow,len(a),len(idexc))
     idinc_gap.append(np.array([j4 for j4 in range(ntout) if j4 not in a]))
    idexc = np.array([j2 for i2 in idexc for j2 in i2]) 
    #idinc = np.arange(ntout)
@@ -245,7 +245,7 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
    idinc = np.array([j3 for j3 in range(ntout) if j3 not in idexc])
    
    ninc = np.shape(idinc)[0]
-   print 'inputting gaps...including ',ninc,' of',ntout,'points'
+   print('inputting gaps...including ',ninc,' of',ntout,'points')
    #raw_input()
    #tout_1stgap = tout[idinc_gap[0]]
    tout = tout[idinc]
@@ -259,7 +259,7 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
   
   
   #if have blr light curve, snr specifies variability amplitude / errobar
-  print wavin
+  print(wavin)
   if (wavin[i] == -1.0):
    fdiskmean = 0
    sdwav = 1.0
@@ -309,7 +309,7 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
   
   #set snr based on sd at each interval rather than globally
   if (noise_gap == 1):
-   print 'noise gap on... setting snr for each interval rather than globally'
+   print('noise gap on... setting snr for each interval rather than globally')
    tlonow = 0.0#tplotlo
    sig = np.ones(np.shape(fnunow)[0])  
    for ig in range(ngap):
@@ -327,7 +327,7 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
     idincnow = np.where((tout > tlonow) & (tout < thinow))[0]
     stdnow   = np.std(fnunow[idincnow])
     meannow  = np.mean(fnunow[idincnow])
-    print ig,'dealing with noise in region',tlonow,thinow,stdnow,meannow
+    print(ig,'dealing with noise in region',tlonow,thinow,stdnow,meannow)
     sig[idincnow] = stdnow/snr[i]
     
     
@@ -341,7 +341,7 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
   fnunow = mr.normdis(nfnunow, fnunow, sig)
   #for i in range(np.shape(fnunow)[0]):
    #print fnunow[i],fnunonoise[i],np.abs(fnunow[i]-fnunonoise[i])/sig[i]
-  print 'sd check n.o points outside error bars (should be ~ 0.32 for gaussian noise)', np.shape( np.where( np.abs(fnunow-fnunonoise)/sig > 1)[0] )[0]/(1.*np.shape(fnunow)[0])
+  print('sd check n.o points outside error bars (should be ~ 0.32 for gaussian noise)', np.shape( np.where( np.abs(fnunow-fnunonoise)/sig > 1)[0] )[0]/(1.*np.shape(fnunow)[0]))
   sigsave.append(sig)
   t_out.append(tout)
   echosave.append(fnunow)#echosave.append(fnunow)
