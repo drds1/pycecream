@@ -1,4 +1,3 @@
-import numpy as np
 import pycecream
 import astropy_stark.myfake as mf
 
@@ -79,6 +78,15 @@ to a new scale for further study elsewhere
 '''
 output_lightcurves = a.get_light_curve_fits(location=None)
 print('output light curves',output_lightcurves.keys())
+
+
+
+'''
+make figures of the fit, posterior, light curves etc
+'''
+a.plot_results(file_prefix='fit_figures')
+
+
 
 # how to install python 3 environment (skip the netcdf4 line) matplotlib should be ok now
 # https://salishsea-meopar-docs.readthedocs.io/en/latest/work_env/python3_conda_environment.html

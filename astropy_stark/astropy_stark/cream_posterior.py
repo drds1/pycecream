@@ -1,21 +1,26 @@
 import numpy as np
 import matplotlib as mpl
 mpl.use('Agg')
-try:
- from cream_pythonsubs import *
-except:
- from mycorner_jul6_16 import *
- from myedlum import *
- from mytemp0 import *
+from astropy_stark.mycorner_jul6_16 import *
+from astropy_stark.myedlum import *
+from astropy_stark.mytemp0 import *
 import matplotlib
 
-font = {'family' : 'normal',
-        'size'   : 20}
+#font = {'family' : 'normal',
+#        'size'   : 20}
+#
+#matplotlib.rc('font', **font)
 
-matplotlib.rc('font', **font)
 
-
-def cream_posterior(dirin,ibin = 2./3,npoints = -1, idT1=2,filepar='outputpars.dat',extents_in=[],header='',idxres=[2,3,4],special=[1,0,0],true=['','',np.log10(0.75)],fsave=''):
+def cream_posterior(dirin,ibin = 2./3,
+                    npoints = -1,
+                    idT1=2,filepar='outputpars.dat',
+                    extents_in=[],
+                    header='',
+                    idxres=[2,3,4],
+                    special=[1,0,0],
+                    true=['','',np.log10(0.75)],
+                    fsave=''):
  #dat = np.loadtxt('/Users/ds207/Documents/standrews/sta/fort/fortcode/mcmcmultiresults/16feb_4151_alls/output_20170228_003/outputpars.dat')
  truei = list(true)
  #stack posterior probability distributions together
@@ -25,7 +30,7 @@ def cream_posterior(dirin,ibin = 2./3,npoints = -1, idT1=2,filepar='outputpars.d
   for dir in dirin:
    try:
     d = np.loadtxt(dir+'/'+filepar,ndmin=2)
-    print dir+'/'+filepar,np.shape(d)
+    print(dir+'/'+filepar,np.shape(d))
     ndown,nalong = np.shape(d)
     idlo = np.int(ibin*ndown) 
     if (ic == 0):
@@ -34,7 +39,7 @@ def cream_posterior(dirin,ibin = 2./3,npoints = -1, idT1=2,filepar='outputpars.d
      dat = np.vstack((dat,d))
     ic = ic + 1 
    except:
-    print 'problem with output parameters in', dir+'/'+filepar
+    print('problem with output parameters in', dir+'/'+filepar)
   dir = dirin[0]
  else:
   dat = np.loadtxt(dirin+'/'+filepar,ndmin=2) 
@@ -142,10 +147,9 @@ def cream_posterior(dirin,ibin = 2./3,npoints = -1, idT1=2,filepar='outputpars.d
 
  
  
- 
- 
+
  dat = dat[:,idxvar]
- 
+
  
  #function to cast number in standard form
  def sci_notation(number, sig_fig=2):
@@ -253,7 +257,7 @@ def cream_posterior(dirin,ibin = 2./3,npoints = -1, idT1=2,filepar='outputpars.d
  else:
   figname = fsave
  
- print 'making posterio plots...cream_posterior', truth_in
+ print('making posterio plots...cream_posterior', truth_in)
  a = corner_1(datcorner[idxlo:,:],plot_contours=0,sigconts=[100.-68],skip = iskip,plot_datapoints=True,sigmedann_pre_in=b,sigmedann_post_in = d, 
  labels=a,extents=c,annotate = extra_an, sigmedann=1, 
  xtxtcoord = 1.25,ytxtcoord=1.05,lbm_in = 0.65,ltr_in = 0.4,xlab_coord=-0.3,ylab_coord=-0.3,
@@ -302,7 +306,7 @@ def cream_posterior(dirin,ibin = 2./3,npoints = -1, idT1=2,filepar='outputpars.d
   labels=ann, title=title, xtxtcoord=1.45,ytxtcoord=0.95,lbm_in = 0.65,ltr_in = 0.4,
   xlab_coord=-1.9,ylab_coord=-1.9,figname = 'posterior_th.pdf')
  except:
-  print 'cannot make top hat posterior plot (maybe no BLR top hat light curves)'
+  print('cannot make top hat posterior plot (maybe no BLR top hat light curves)')
   pass
   
   

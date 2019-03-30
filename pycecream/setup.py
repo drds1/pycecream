@@ -9,23 +9,18 @@ setup(name='pycecream',
       version='1.1.0',
       description='python implementation of the cream accretion disc fitting code '
                   'https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF',
-      url='https://github.com/dstarkey23/academic_projects_public',
+      url='https://github.com/dstarkey23/pycecream',
       author='dstarkey23',
       author_email='ds207@st-andrews.ac.uk',
       license='MIT',
       packages=['pycecream'],
       package_data={'': ['creaminpar.par','cream_f90.f90']},
-      #packages=['fish_forecast'],
       install_requires=[
-      #'scikit-learn',
       'pandas',
       'numpy',
       'matplotlib',
       'scipy',
       'astropy_stark',
       'glob3'
-      #statsmodels',
-      #'pandas'
-      #'prediction_functions',
       ],
       zip_safe=False)

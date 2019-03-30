@@ -45,17 +45,20 @@ def drwsfinf_mc(embh, wav, absM, z = 0.):
 def mfamp(embh,wav,fmjy,tlen,dMpc, z= 0.0):
  abm    = abmag(fmjy)
  absM   = absmag(abm,dMpc)
- 
  taumc  = drwtau_mc(embh,wav,absM)
  sfinf  = drwsfinf_mc(embh, wav, absM, z = z)
- sf_inf = sfinf * np.sqrt( (1. - np.exp(-tlen/taumc)) )
+ if taumc == 0:
+  sf_inf = sfinf
+ else:
+  sf_inf = sfinf * np.sqrt( (1. - np.exp(-tlen/taumc)) )
+
  sdmag = np.abs(sf_inf)/np.sqrt(2)
  #this is the variance in ab magnitudes. Need to change to fluxes
  a = 1./1000/3631
  sdmjy = np.abs( -0.4 * 10**(-abm*0.4) / a * np.log(10.)  * sdmag )
  
   
- print('wav, mean_AB, rms_AB ', wav, abm, sdmag,'  <-- report myfake_amp --> mean_mJy, rms_mJy ',fmjy, sdmjy)
+ #print('wav, mean_AB, rms_AB ', wav, abm, sdmag,'  <-- report myfake_amp --> mean_mJy, rms_mJy ',fmjy, sdmjy)
  
  return(sdmjy)
  

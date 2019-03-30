@@ -6,12 +6,11 @@ from setuptools import setup
 setup(name='astropy_stark',
       version='1.1.6',
       description='random-custom astronomy functions including making fake accretion disk light curves',
-      url='https://github.com/dstarkey23/academic_projects_public',
+      url='https://github.com/dstarkey23/pycecream',
       author='dstarkey23',
       author_email='ds207@st-andrews.ac.uk',
       license='MIT',
       packages=['astropy_stark'],
-      #packages=['fish_forecast'],
       install_requires=[
       'scikit-learn',
       'scipy',
@@ -19,7 +18,6 @@ setup(name='astropy_stark',
       'pandas',
       'numpy',
       'matplotlib',
-      'glob3'
-      #'prediction_functions',
+      'glob3',
       ],
       zip_safe=False)

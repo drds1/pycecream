@@ -1,24 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-from __future__ import print_function, absolute_import, unicode_literals
-
-__all__ = ["corner", "hist2d", "error_ellipse"]
-__version__ = "0.0.6"
-__author__ = "Dan Foreman-Mackey (danfm@nyu.edu)"
-__copyright__ = "Copyright 2013 Daniel Foreman-Mackey"
-__contributors__ = [
-    # Alphabetical by first name.
-    "Adrian Price-Whelan @adrn",
-    "Brendon Brewer @eggplantbren",
-    "Ekta Patel @ekta1224",
-    "Emily Rice @emilurice",
-    "Geoff Ryan @geoffryan",
-    "Kyle Barbary @kbarbary",
-    "Phil Marshall @drphilmarshall",
-    "Pierre Gratier @pirg",
-]
-
 import numpy as np
 import matplotlib.pyplot as pl
 from matplotlib.ticker import MaxNLocator

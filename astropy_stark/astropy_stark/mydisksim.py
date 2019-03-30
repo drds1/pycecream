@@ -31,7 +31,7 @@ def mds(wav,embh,emdot,degi, dl = 70., radlosch=3.0,radhisch=10000., ngrid = 100
  rinld   = radlosch * 2*gnewt*msun*embh/c/c/ld
  if (rinld > r0):
   r0 = np.ceil(rinld/r0)
-  print('mydisksim.py: black hole mass too big for inner radius of 1 light day... expanding to',r0)
+  #print('mydisksim.py: black hole mass too big for inner radius of 1 light day... expanding to',r0)
 
  cosi  = np.cos(deg2rad*degi)
  ldMpc = 1191286169.529

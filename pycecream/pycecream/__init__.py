@@ -2,7 +2,8 @@ import numpy as np
 import pandas as pd
 import os
 import glob
-
+import astropy_stark.cream_lcplot as cream_plot
+import subprocess
 
 class pycecream:
     '''
@@ -326,8 +327,11 @@ class pycecream:
         self.set_tophat()
         self.set_var()
 
-        #compile and run
+        #change to the simulation directory and save the input_lightcurve settings
         os.chdir(self.dir_pycecream)
+        self.lightcurve_input_params.to_csv('./simulation_files/input_lightcurve_settings.csv')
+
+        #compile and run
         os.system(self.fortran_compile_command)
         os.system('./creamrun.exe')
         os.chdir(self.dir_pwd)
@@ -461,6 +465,48 @@ class pycecream:
                            'merged data': self.output_merged_data}
         return(function_output)
 
+
+
+
+    def plot_results(self,file_prefix=None,location=None):
+        '''
+        make plots for all relevant quantities including lightcurves,
+        trace plots, covariance plots etc
+        :return:
+        '''
+        #locate the simulation results (so we can name the pannels on the plots)
+        simulation_dir = self.get_simulation_dir(location=location)
+        self.lightcurve_input_params = pd.read_csv(simulation_dir + '/simulation_files/input_lightcurve_settings.csv')
+
+
+        # file save location
+        if file_prefix is None:
+            title = simulation_dir+'/figures_'
+        else:
+            title = file_prefix+'_'
+
+        cream_plot.lcplot(simulation_dir + '/simulation_files',
+                          title=title,
+                          idburnin=2./3,
+                          justth=0,
+                          justcont=0,
+                          plotinfo=1,
+                          plottrace=0,
+                          plots_per_page=5,
+                          xlclab = 'Time (HJD - 50,000)',
+                          xtflab ='lag (days)',
+                          forcelab=list(self.lightcurve_input_params['name']),
+                          forcelag=[],
+                          sameplotdrive=1,
+                          extents=[],
+                          justnewsig=0,
+                          taumeanplot=1,
+                          tau90plot=0,
+                          postplot=1,
+                          header='',
+                          tauplot0=0,
+                          gplot=1,
+                          true=['','',np.log10(0.75)])
 
 
 

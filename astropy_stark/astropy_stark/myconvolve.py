@@ -41,7 +41,7 @@ def mc3(td,xd,tau,tf):
  #check if driver and tau grid are on same scale, interpolate tf if not
  
  if (dtau != dtgrid):
-  print('myconvolve response and driver not on same time grid, interpolating response function.',dtgrid,dtau)
+  #print('myconvolve response and driver not on same time grid, interpolating response function.',dtgrid,dtau)
   tauint = np.arange(taulo,tauhi+dtgrid,dtgrid)
   tfint  = np.interp(tauint,tau,tf) 
  else:

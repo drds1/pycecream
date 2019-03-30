@@ -369,8 +369,8 @@ def corner_1(xs, weights=None, labels=None, extents=None, truths=None,
             #change x axis labeling if custom option entered
             if (specaxlabin[i] != []):
              ax.set_xticklabels(specaxlabin[i])
-             print 'xtick labels set',specaxlabin[i]
-             print ax.get_xlim()
+             print('xtick labels set',specaxlabin[i])
+             print(ax.get_xlim())
             [l.set_rotation(45) for l in ax.get_xticklabels()]
             if labels is not None:
                 ax.set_xlabel(labels[i])

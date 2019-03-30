@@ -120,7 +120,7 @@ def myresample(dir,fname,dtave,dtsdin = -0.2, sampmin=0.8,sampcode=3,datin=[]):
          datsamp[:,2]=sig[idxsamp]
          
          ttemp_space = datsamp[1:,0]-datsamp[:-1,0]
-         print('min,max,and ave spacing between elements',ttemp_space.min(), ttemp_space.max(), np.mean(ttemp_space))
+         #print('min,max,and ave spacing between elements',ttemp_space.min(), ttemp_space.max(), np.mean(ttemp_space))
  
      
  
@@ -165,8 +165,8 @@ def myresample(dir,fname,dtave,dtsdin = -0.2, sampmin=0.8,sampcode=3,datin=[]):
          ns = len(idxsamp)
          #for i in range(ns):
          # print i,datsamp[i,:]
-         print('min,max,and ave spacing between elements',ttemp_space.min(), ttemp_space.max(), np.mean(ttemp_space))
-         print('locations...',ttemp_space.argmin(),ttemp_space.argmax())
+         #print('min,max,and ave spacing between elements',ttemp_space.min(), ttemp_space.max(), np.mean(ttemp_space))
+         #print('locations...',ttemp_space.argmin(),ttemp_space.argmax())
  
  
      
