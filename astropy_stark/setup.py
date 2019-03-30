@@ -2,9 +2,9 @@ from setuptools import setup
 
 #pip install .
 #python setup.py sdist
-#twine upload dist/astropy_stark-1.1.6.tar.gz
+#twine upload dist/astropy_stark-1.1.7.tar.gz
 setup(name='astropy_stark',
-      version='1.1.6',
+      version='1.1.7',
       description='random-custom astronomy functions including making fake accretion disk light curves',
       url='https://github.com/dstarkey23/pycecream',
       author='dstarkey23',
