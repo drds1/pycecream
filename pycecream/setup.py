@@ -3,10 +3,10 @@ from setuptools import setup
 #uload to pip
 #pip install .
 #python setup.py sdist
-#twine upload dist/pycecream-1.1.1.tar.gz
+#twine upload dist/pycecream-1.1.2.tar.gz
 
 setup(name='pycecream',
-      version='1.1.1',
+      version='1.1.2',
       description='python implementation of the cream accretion disc fitting code '
                   'https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF',
       url='https://github.com/dstarkey23/pycecream',
@@ -24,3 +24,5 @@ setup(name='pycecream',
       'glob3'
       ],
       zip_safe=False)
+
+#jupyter nbconvert --to Markdown ./pycecream_test/test_pycecream.ipynb

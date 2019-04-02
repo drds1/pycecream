@@ -1,6 +1,6 @@
 import numpy as np
-import matplotlib as mpl
-mpl.use('Agg')
+#import matplotlib as mpl
+#mpl.use('Agg')
 from astropy_stark.mycorner_jul6_16 import *
 from astropy_stark.myedlum import *
 from astropy_stark.mytemp0 import *

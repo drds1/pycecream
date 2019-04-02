@@ -12,9 +12,13 @@ Most of these features are used in some form or another from a previous f90 vers
 
 Please send questions to ds207@st-andrews.ac.uk. Though I am currently taking a break from academia and may take some time to respond, I will try to do so as soon as possible.
 
+
 ## Requirements & Installation
 
-Please ensure that you have a gfortran compiler installed. These are fairly easy to install from macports or wget etc. Also a Python version is required (I am using 3.7 but even 2 should be fine). The it's just...
+Please ensure that you have a fortran compiler installed. I use Gfortran. If you have an alternate (e.g ifort), please indicate the standard command used to call the fortran compiler using the ```fortran_caller``` argument (default is ```fortran_caller = gfortran```).
+
+
+command These are fairly easy to install from macports or wget etc. Also a Python version is required (I am using 3.7 but even 2 should be fine). The it's just...
 
 ```
 pip install pycecream
@@ -30,6 +34,7 @@ The example below combines continuum and line light curves and illustrates a cas
 
 ```python
 import astropy_stark.myfake as mf
+import matplotlib.pylab as plt
 
 '''
 mf.myfake arguments are
@@ -56,20 +61,6 @@ synthetic_data = mf.myfake(
 dat = synthetic_data['echo light curves']
 ```
 
-    10000000.0 4000.0 [3.80044793] 100.0
-    check above
-    10000000.0 5000.0 [3.59013442] 100.0
-    check above
-    10000000.0 5000.0 [3.59013442] 100.0
-    check above
-    10000000.0 7000.0 [3.27613616] 100.0
-    check above
-    10000000.0 1.0 [0.] 100.0
-    check above
-    10000000.0 1.0 [0.] 100.0
-    check above
-
-
 #  Section 2: Settup and run PyceCREAM
 
 
@@ -81,9 +72,25 @@ import pycecream
 #instantiate a pycecream object
 a = pycecream.pycecream()
 
+'''
+If you use a fortran compiler other than gfortran please indicate here.
+I just re-enter gfortran here for demonstration purposes even though 
+this is unecassary as gfortran is the default argument.
+'''
+a.fortran_caller = 'gfortran'
+
+
+
 '''Choose an output directory in which to save the results. 
-This will be a new directory that you have not previously created (pycecream will make it automatically).'''
+This will be a new directory that you have not previously created (pycecream will make it automatically).
+
+NOTE: Each new cream simulation must have a new name for "output_directory argument below 
+otherwise an excpetion is raised. This is to prevent accidentally overwriting previous simulations. 
+I might change this in a future version 
+'''
 a.output_directory = 'fit_synthetic_lightcurves'
+
+
 
 '''
 Add each of the light curves in the simulation. 
@@ -99,6 +106,8 @@ a.add_lc(dat[4],name='test line 1',kind='line')
 
 #If we want the same line response function model, set "share_previous_lag"=True
 a.add_lc(dat[5],name='test line 1 (shared)',kind='line',share_previous_lag=True)
+
+
 
 '''
 specify the numnber of MCMC iterations. Normally at least several thousand are necessary but shorter numbers 
@@ -123,9 +132,9 @@ RUN!
 a.run()
 ```
 
-    pycecream path... /anaconda2/lib/python3.7/site-packages/pycecream
+    pycecream path... /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pycecream
     copying file...
-    /anaconda2/lib/python3.7/site-packages/pycecream
+    /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pycecream
                        name  type  wavelength            noise model  \
     0        continuum 4000  line        -1.0  [var, multiplicative]   
     0        continuum 5000  line        -1.0  [var, multiplicative]   
@@ -135,12 +144,12 @@ a.run()
     0  test line 1 (shared)  line        -1.0  [var, multiplicative]   
     
       share previous lag temporary file name      mean  standard deviation  \
-    0              False          line_0.dat  3.797490            0.794469   
-    0              False          line_1.dat  3.587938            0.676241   
-    0              False          line_2.dat  3.577945            0.676849   
-    0              False          line_3.dat  3.274363            0.525168   
-    0              False          line_4.dat -0.001315            0.998040   
-    0               True          line_5.dat -0.016805            1.007878   
+    0              False          line_0.dat  3.800177            0.793420   
+    0              False          line_1.dat  3.588904            0.675142   
+    0              False          line_2.dat  3.584069            0.687543   
+    0              False          line_3.dat  3.277258            0.523908   
+    0              False          line_4.dat -0.002200            0.996427   
+    0               True          line_5.dat -0.019336            1.031171   
     
        tophat centroid  tophat centroid step  tophat width  tophat width step  
     0              0.0                   5.0           2.0                0.0  
@@ -187,21 +196,72 @@ output figures with the output of the "get_MCMC_chains" and "get_light_curve_fit
 a.plot_results(file_prefix='fit_figures')
 
 
+
+
+'''
+figures can also be made on an indivdual basis with axes objects returned from python plotting functions
+'''
+#plot the fitted light curves.
+a.plot_lightcurves()
+plt.show()
+
+
+#plot the driving light curve
+a.plot_driver()
+plt.show()
+
+
+#plot the parameter trace plots
+a.plot_trace()
+plt.show()
+
+
+#plot the covariance parameter plot for the disc parameters
+a.plot_posterior()
+plt.show()
+
+
+
 ```
 
     cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files
-    -15.6706161 [3.79748988 3.79748988 3.79748988 3.79748988 3.79748988] 0
-    -15.6706161 [3.9427321  3.90550876 3.85670638 3.79841065 3.73306203] 1
-    -15.6706161 [3.89735961 3.84639978 3.78582931 3.71821833 3.64591765] 2
-    -15.6706161 [3.53291106 3.49544668 3.45091629 3.40121031 3.34805632] 3
+    -15.6959476 [3.80017686 3.80017686 3.80017686 3.80017686 3.80017686] 0
+    -15.6959476 [3.5889039 3.5889039 3.5889039 3.5889039 3.5889039] 1
+    -15.6959476 [3.58406901 3.58406901 3.58406901 3.58406901 3.58406901] 2
+    -15.6959476 [3.83980441 3.84580898 3.85202885 3.86027217 3.87185311] 3
     making posterior plot.... posterior_fit_figures__1.pdf
     unable to make covariance plot for disc posteriors. Please check at least some of these are set to varyin the fit.
-    fit_synthetic_lightcurves/simulation_files/output_20190330_001/G_plot.pdf
+    fit_synthetic_lightcurves/simulation_files/output_20190402_001/G_plot.pdf
     Nth  6  Ndisk 1
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190402_001
+    -15.6959476 [3.80017686 3.80017686 3.80017686 3.80017686 3.80017686] 0
+    -15.6959476 [3.5889039 3.5889039 3.5889039 3.5889039 3.5889039] 1
+
+
+
+![png](test_pycecream_files/test_pycecream_6_1.png)
+
+
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190402_001
+
+
+
+![png](test_pycecream_files/test_pycecream_6_3.png)
+
+
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190402_001
+
+
+
+![png](test_pycecream_files/test_pycecream_6_5.png)
+
+
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190402_001
 
 
 
 ```python
 # how to install python 3 environment (skip the netcdf4 line) matplotlib should be ok now
 # https://salishsea-meopar-docs.readthedocs.io/en/latest/work_env/python3_conda_environment.html
+
 ```

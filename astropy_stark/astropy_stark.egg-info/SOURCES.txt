@@ -8,6 +8,7 @@ astropy_stark/contlags_calc.py
 astropy_stark/contlags_plot.py
 astropy_stark/cream_lcplot.py
 astropy_stark/cream_mergelc.py
+astropy_stark/cream_plotlibrary.py
 astropy_stark/cream_posterior.py
 astropy_stark/cream_trace.py
 astropy_stark/fakedat_plotinfo.py

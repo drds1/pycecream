@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0830ff99-8db1-492b-b204-e1b67263e7bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../astropy_stark/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../astropy_stark/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pycecream/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pycecream/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0830ff99-8db1-492b-b204-e1b67263e7bf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,17 +13,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../pycecream/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="41" />
+            <state relative-caret-position="399">
+              <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../astropy_stark/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state relative-caret-position="300">
+              <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -45,66 +41,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/myresample.py">
+        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/cream_lcplot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="154" column="28" selection-start-line="154" selection-start-column="28" selection-end-line="154" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/mylcgen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-182">
+            <state relative-caret-position="52">
+              <caret line="12" column="58" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="58" />
               <folding>
-                <element signature="e#124#142#0" expanded="true" />
+                <element signature="e#123#141#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/myrandom.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/cream_plotlibrary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="37" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/myfake_amp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/mydisksim.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-185">
-              <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/myconvolve.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/myedlum.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-start-column="8" selection-end-column="8" />
+            <state relative-caret-position="356">
+              <caret line="308" column="32" selection-start-line="308" selection-start-column="32" selection-end-line="308" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -113,11 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pycall =</find>
-      <find>creaminpa</find>
-      <find>pycecream path</find>
-      <find>print_function</find>
-      <find>absolute_import</find>
       <find>unicode_literals</find>
       <find>fsave</find>
       <find>cream_po</find>
@@ -143,6 +90,11 @@
       <find>print</find>
       <find>mfa.</find>
       <find>fdiskmean</find>
+      <find>filebof</find>
+      <find>nwav =</find>
+      <find>justcont</find>
+      <find>semed</find>
+      <find>ipage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,12 +121,13 @@
         <option value="$PROJECT_DIR$/../astropy_stark/astropy_stark/myfake.py" />
         <option value="$PROJECT_DIR$/../pycecream/setup.py" />
         <option value="$PROJECT_DIR$/../astropy_stark/setup.py" />
+        <option value="$PROJECT_DIR$/../astropy_stark/astropy_stark/cream_plotlibrary.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="18" />
-    <option name="y" value="23" />
+    <option name="x" value="22" />
+    <option name="y" value="48" />
     <option name="width" value="1400" />
     <option name="height" value="814" />
   </component>
@@ -224,8 +177,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="18" y="23" width="1400" height="814" extended-state="0" />
-    <editor active="true" />
+    <frame x="22" y="48" width="1400" height="814" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26435935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -284,16 +236,6 @@
           <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/cream_lcplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="16" />
-          <folding>
-            <element signature="e#123#141#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -391,15 +333,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../pycecream/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="41" />
+        <state relative-caret-position="399">
+          <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../astropy_stark/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="300">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/cream_lcplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="58" />
+          <folding>
+            <element signature="e#123#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../astropy_stark/astropy_stark/cream_plotlibrary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="308" column="32" selection-start-line="308" selection-start-column="32" selection-end-line="308" selection-end-column="32" />
         </state>
       </provider>
     </entry>

@@ -3,7 +3,8 @@ import pandas as pd
 import os
 import glob
 import astropy_stark.cream_lcplot as cream_plot
-import subprocess
+import astropy_stark.cream_plotlibrary as cpl
+import matplotlib.pylab as plt
 
 class pycecream:
     '''
@@ -36,7 +37,8 @@ class pycecream:
 
         #config, path, compiler parameters
         self.module_path = os.path.dirname(os.path.realpath(__file__))
-        self.fortran_compile_command = 'gfortran cream_f90.f90 -o creamrun.exe'
+        self.fortran_caller = 'gfortran'
+        self.fortran_compile_command = self.fortran_caller+' cream_f90.f90 -o creamrun.exe'
         print('pycecream path... ' + self.module_path)
 
         #convention parameters
@@ -465,6 +467,51 @@ class pycecream:
                            'merged data': self.output_merged_data}
         return(function_output)
 
+
+
+    def plot_lightcurves(self,location=None):
+        '''
+        make plots of the light curve fits
+        :return:
+        '''
+        # locate the simulation results
+        simulation_dir = self.get_simulation_dir(location=location)
+        results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
+        a = cpl.plot_library(directory = results_dir)
+        return( a.plot_lightcurves() )
+
+    def plot_trace(self,location=None):
+        '''
+        make plots of the parameter traces
+        :return:
+        '''
+        # locate the simulation results
+        simulation_dir = self.get_simulation_dir(location=location)
+        results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
+        a = cpl.plot_library(directory = results_dir)
+        return( a.plot_trace() )
+
+    def plot_driver(self,location=None):
+        '''
+        make plots of the driving light curve
+        :return:
+        '''
+        # locate the simulation results
+        simulation_dir = self.get_simulation_dir(location=location)
+        results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
+        a = cpl.plot_library(directory = results_dir)
+        return( a.plot_driver() )
+
+    def plot_posterior(self,location=None):
+        '''
+        plot the posterior probability distributions for the accretion disk parameters
+        :return:
+        '''
+        # locate the simulation results
+        simulation_dir = self.get_simulation_dir(location=location)
+        results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
+        a = cpl.plot_library(directory = results_dir)
+        return( a.plot_posterior )
 
 
 
