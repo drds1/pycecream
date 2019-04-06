@@ -1,7 +1,7 @@
 ,name,type,wavelength,noise model,share previous lag,temporary file name,mean,standard deviation,tophat centroid,tophat centroid step,tophat width,tophat width step
-0,continuum 4000,line,-1.0,"['var', 'multiplicative']",False,line_0.dat,3.79749,0.79446906,0.0,5.0,2.0,0.0
-0,continuum 5000,line,-1.0,"['var', 'multiplicative']",False,line_1.dat,3.5879376,0.6762408,0.0,5.1,2.0,0.0
-0,continuum 5000 (b),line,-1.0,"['var', 'multiplicative']",False,line_2.dat,3.5779452,0.676849,0.0,5.2,2.0,0.0
-0,continuum 7000,line,-1.0,"['var', 'multiplicative']",False,line_3.dat,3.2743626,0.5251675,0.0,5.3,2.0,0.0
-0,test line 1,line,-1.0,"['var', 'multiplicative']",False,line_4.dat,-0.0013145462,0.9980396,0.0,5.4,2.0,0.0
-0,test line 1 (shared),line,-1.0,"['var', 'multiplicative']",True,line_5.dat,-0.016804934,1.0078776,0.0,5.4,2.0,0.0
+0,continuum 4000,line,-1.0,"['var', 'multiplicative']",False,line_0.dat,3.8004851,0.79629344,0.0,5.0,2.0,0.0
+0,continuum 5000,line,-1.0,"['var', 'multiplicative']",False,line_1.dat,3.5900733,0.6751323,0.0,5.1,2.0,0.0
+0,continuum 5000 (b),line,-1.0,"['var', 'multiplicative']",False,line_2.dat,3.5933602,0.69678766,0.0,5.2,2.0,0.0
+0,continuum 7000,line,-1.0,"['var', 'multiplicative']",False,line_3.dat,3.2771642,0.52461654,0.0,5.3,2.0,0.0
+0,test line 1,line,-1.0,"['var', 'multiplicative']",False,line_4.dat,-0.00052967475,1.001517,0.0,5.4,2.0,0.0
+0,test line 1 (shared),line,-1.0,"['var', 'multiplicative']",True,line_5.dat,0.003285686,1.0254189,0.0,5.4,2.0,0.0

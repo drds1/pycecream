@@ -144,12 +144,12 @@ a.run()
     0  test line 1 (shared)  line        -1.0  [var, multiplicative]   
     
       share previous lag temporary file name      mean  standard deviation  \
-    0              False          line_0.dat  3.800177            0.793420   
-    0              False          line_1.dat  3.588904            0.675142   
-    0              False          line_2.dat  3.584069            0.687543   
-    0              False          line_3.dat  3.277258            0.523908   
-    0              False          line_4.dat -0.002200            0.996427   
-    0               True          line_5.dat -0.019336            1.031171   
+    0              False          line_0.dat  3.800485            0.796293   
+    0              False          line_1.dat  3.590073            0.675132   
+    0              False          line_2.dat  3.593360            0.696788   
+    0              False          line_3.dat  3.277164            0.524617   
+    0              False          line_4.dat -0.000530            1.001517   
+    0               True          line_5.dat  0.003286            1.025419   
     
        tophat centroid  tophat centroid step  tophat width  tophat width step  
     0              0.0                   5.0           2.0                0.0  
@@ -225,38 +225,44 @@ plt.show()
 ```
 
     cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files
-    -15.6959476 [3.80017686 3.80017686 3.80017686 3.80017686 3.80017686] 0
-    -15.6959476 [3.5889039 3.5889039 3.5889039 3.5889039 3.5889039] 1
-    -15.6959476 [3.58406901 3.58406901 3.58406901 3.58406901 3.58406901] 2
-    -15.6959476 [3.83980441 3.84580898 3.85202885 3.86027217 3.87185311] 3
+    -15.825983 [3.80048513 3.80048513 3.80048513 3.80048513 3.80048513] 0
+    -15.825983 [3.59007335 3.59007335 3.59007335 3.59007335 3.59007335] 1
+    -15.825983 [3.59336019 3.59336019 3.59336019 3.59336019 3.59336019] 2
+    -15.825983 [3.27716422 3.27716422 3.27716422 3.27716422 3.27716422] 3
     making posterior plot.... posterior_fit_figures__1.pdf
     unable to make covariance plot for disc posteriors. Please check at least some of these are set to varyin the fit.
-    fit_synthetic_lightcurves/simulation_files/output_20190402_001/G_plot.pdf
+    fit_synthetic_lightcurves/simulation_files/output_20190406_001/G_plot.pdf
     Nth  6  Ndisk 1
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190402_001
-    -15.6959476 [3.80017686 3.80017686 3.80017686 3.80017686 3.80017686] 0
-    -15.6959476 [3.5889039 3.5889039 3.5889039 3.5889039 3.5889039] 1
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
+    -15.825983 [3.80048513 3.80048513 3.80048513 3.80048513 3.80048513] 0
+    -15.825983 [3.59007335 3.59007335 3.59007335 3.59007335 3.59007335] 1
+    -15.825983 [3.59336019 3.59336019 3.59336019 3.59336019 3.59336019] 2
+    -15.825983 [3.27716422 3.27716422 3.27716422 3.27716422 3.27716422] 3
 
 
 
 ![png](test_pycecream_files/test_pycecream_6_1.png)
 
 
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190402_001
+
+![png](test_pycecream_files/test_pycecream_6_2.png)
+
+
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
 
 
 
-![png](test_pycecream_files/test_pycecream_6_3.png)
+![png](test_pycecream_files/test_pycecream_6_4.png)
 
 
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190402_001
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
 
 
 
-![png](test_pycecream_files/test_pycecream_6_5.png)
+![png](test_pycecream_files/test_pycecream_6_6.png)
 
 
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190402_001
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
 
 
 
