@@ -144,12 +144,12 @@ a.run()
     0  test line 1 (shared)  line        -1.0  [var, multiplicative]   
     
       share previous lag temporary file name      mean  standard deviation  \
-    0              False          line_0.dat  3.800485            0.796293   
-    0              False          line_1.dat  3.590073            0.675132   
-    0              False          line_2.dat  3.593360            0.696788   
-    0              False          line_3.dat  3.277164            0.524617   
-    0              False          line_4.dat -0.000530            1.001517   
-    0               True          line_5.dat  0.003286            1.025419   
+    0              False          line_0.dat  3.797598            0.791625   
+    0              False          line_1.dat  3.588153            0.673253   
+    0              False          line_2.dat  3.587092            0.675741   
+    0              False          line_3.dat  3.276318            0.526072   
+    0              False          line_4.dat -0.001138            0.997945   
+    0               True          line_5.dat  0.016873            1.000851   
     
        tophat centroid  tophat centroid step  tophat width  tophat width step  
     0              0.0                   5.0           2.0                0.0  
@@ -160,7 +160,7 @@ a.run()
     0              0.0                   5.4           2.0                0.0  
 
 
-# Examine the output
+# Section 3: Examine the output
 
 There are 2 output dataframes.
 
@@ -225,30 +225,29 @@ plt.show()
 ```
 
     cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files
-    -15.825983 [3.80048513 3.80048513 3.80048513 3.80048513 3.80048513] 0
-    -15.825983 [3.59007335 3.59007335 3.59007335 3.59007335 3.59007335] 1
-    -15.825983 [3.59336019 3.59336019 3.59336019 3.59336019 3.59336019] 2
-    -15.825983 [3.27716422 3.27716422 3.27716422 3.27716422 3.27716422] 3
+
+
+    /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_axes.py:3199: RuntimeWarning: invalid value encountered in double_scalars
+      low = [thisx - thiserr for thisx, thiserr
+
+
+    -15.6157398 [3.79759836 3.79759836 3.79759836 3.79759836 3.79759836] 0
+    -15.6157398 [2.97298455 2.97860861 2.98250675 2.98431969 2.98378778] 1
+    -15.6157398 [2.98830366 2.99381804 2.99764013 2.9994173  2.99889588] 2
+    -15.6157398 [2.81484246 2.81997252 2.82417488 2.82705927 2.82838535] 3
     making posterior plot.... posterior_fit_figures__1.pdf
     unable to make covariance plot for disc posteriors. Please check at least some of these are set to varyin the fit.
     fit_synthetic_lightcurves/simulation_files/output_20190406_001/G_plot.pdf
     Nth  6  Ndisk 1
     cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
-    -15.825983 [3.80048513 3.80048513 3.80048513 3.80048513 3.80048513] 0
-    -15.825983 [3.59007335 3.59007335 3.59007335 3.59007335 3.59007335] 1
-    -15.825983 [3.59336019 3.59336019 3.59336019 3.59336019 3.59336019] 2
-    -15.825983 [3.27716422 3.27716422 3.27716422 3.27716422 3.27716422] 3
+    -15.6157398 [3.79759836 3.79759836 3.79759836 3.79759836 3.79759836] 0
+    -15.6157398 [2.97298455 2.97860861 2.98250675 2.98431969 2.98378778] 1
+    -15.6157398 [2.98830366 2.99381804 2.99764013 2.9994173  2.99889588] 2
+    -15.6157398 [2.81484246 2.81997252 2.82417488 2.82705927 2.82838535] 3
 
 
 
-![png](test_pycecream_files/test_pycecream_6_1.png)
-
-
-
-![png](test_pycecream_files/test_pycecream_6_2.png)
-
-
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
+![png](test_pycecream_files/test_pycecream_6_3.png)
 
 
 
@@ -266,8 +265,161 @@ plt.show()
 
 
 
+![png](test_pycecream_files/test_pycecream_6_8.png)
+
+
+    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
+
+
+
 ```python
 # how to install python 3 environment (skip the netcdf4 line) matplotlib should be ok now
 # https://salishsea-meopar-docs.readthedocs.io/en/latest/work_env/python3_conda_environment.html
 
+```
+
+# Section 4: Using PyceCREAM to merge light curves only.
+
+In this section, we explore another application of cream, merging light curves. I may for example have light curves taken all at a single wavelength but from different telescopes. I want to calibrate and merge these together using PyceCREAM to then produce a single light curve file to pass onto further analysis elsewhere. 
+
+I will create two example line light curves below seperated by 15 days.
+
+
+```python
+#create the fake data.
+'''
+ For some reason my fake data creator wasnt designed to make multiple line light curves with different lags
+ at the same time so I have faked it out below by recreating the same driver twice using the same random 
+ number seed to create each lag.
+'''
+#this will create two light curves with a standard deviation of 1 and a mean of 0, SNR of 50
+#sampled at 1 and 2 day mean cadence
+lc1 = mf.myfake(
+    [-1.0,-1.0],
+    [50.0,50.],
+    [1.0,2.0],
+    sdforcein=[1.0,1.0],
+    meanforcein = [0.0,0.0],
+    thcent = 5.0,
+    iseed = 12345
+)['echo light curves']
+
+#this will create one further light curve with a standard deviation of 2 and a mean of 5, SNR of 20
+#sampled at 1 day mean cadence. This will have the same lag as the first light curve to indicate the same filter
+#but have a different vertical and noise model to indicate a calibration issue.
+lc2= mf.myfake(
+    [-1.0],
+    [20.0],
+    [1.0],
+    thcent = 5.0,
+    sdforcein=[2.0],
+    meanforcein = [5.0],
+    iseed = 12345
+)['echo light curves']
+linedat = lc1+lc2
+
+
+#plot the light curves here to demonstrate
+fig = plt.figure()
+ax1 = fig.add_subplot(111)
+label = ['telescope 1']*len(lc1) + ['telescope 2']*len(lc2)
+for i in range(len(linedat)):
+    ax1.errorbar(linedat[i][:,0],linedat[i][:,1],linedat[i][:,2],ls=None)
+ax1.set_xlabel('time (days)')
+ax1.set_ylabel('flux arbitrary units')
+plt.legend()
+plt.show()
+
+
+```
+
+
+![png](test_pycecream_files/test_pycecream_9_0.png)
+
+
+## Initialise the cream instance and configure for merge mode 
+
+I dont bother here with all the setup commands like a.fortran_caller. Please see Section 2 for the cream system configuration settings (these tend to be unecessary anyway). 
+
+
+```python
+
+#instantiate a pycecream object
+a = pycecream.pycecream()
+
+a.output_directory = 'merge_line_lightcurves'
+
+
+'''
+add the light curves. This is where the difference lies. Remember the first 2 light curves from linedat
+are from one telescope and the 3rd is from another. We want to merge these together
+'''
+
+'''We add the line light curves in the same way as before but
+first we force the default line lag step size to be zero, and then make all the subsequent 
+light curves share this lag. This has the effect of forcing the pycecream not to fit a lag
+(or at least a delta function forced on zero) and only optimize the noise model.
+'''
+a.p_linelag_centroids_step = 0.0
+a.add_lc(linedat[0],name='line 1 (telescope 1)',kind='line')
+a.add_lc(linedat[0],name='line 2 (telescope 1)',kind='line',share_previous_lag=True)
+a.add_lc(linedat[0],name='line 3 (telescope 2)',kind='line',share_previous_lag=True)
+
+
+
+'''
+RUN!
+'''
+a.run()
+
+```
+
+# Configurable parameters
+
+Here is a list of all creams default parameters. Modify these after instantiting a pycecream object. By defaut for example, pycecream does not optimise the inclination and assumes face-on. To change this, begin with, 
+
+
+```
+a = pycecream.pycecream()
+a.p_inclination_step = 0.1 
+```
+
+This will alter the cosine inclination step size to 0.1. To fix the inclination at some other value (e.g 30 degrees) but not optimise use,
+
+```
+a.p_inclination = 30.0
+a.p_inclination_step = 0.0 
+```
+
+
+
+```python
+#global non-fitted parameters
+
+'''Below is the upper fourier frequency limit in cycles per day. Lower this if you have sparesely 
+sampled data or the fit is taking too long. Going less than 0.3 days tends to mess up 
+inferences on disk inclination
+'''
+self.high_frequency = 0.5
+
+self.redshift = 0.0
+self.bh_mass = 1.e7
+self.bh_efficieny = 0.1
+self.N_iterations = 1000
+self.lag_lims = [-10.0,50.0] #the window for the response function
+
+#fitted parameters
+self.p_inclination = 0.0
+self.p_inclination_step = 0.0
+self.p_accretion_rate = 0.1
+self.p_accretion_rate_step = 0.0
+self.p_viscous_slope = 0.75
+self.p_viscous_slope_step = 0.0
+self.p_extra_variance_step = 0.1
+
+#non configureable parameters. Dont usually mess with these
+self.p_linelag_centroids_start = 0.0
+self.p_linelag_centroids_step = 5.0
+self.p_linelag_widths_start    = 2.0
+self.p_linelag_widths_step = 0.0
 ```

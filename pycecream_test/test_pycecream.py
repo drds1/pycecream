@@ -39,8 +39,6 @@
 import astropy_stark.myfake as mf
 import matplotlib.pylab as plt
 
-
-
 '''
 mf.myfake arguments are
 
@@ -74,7 +72,6 @@ dat = synthetic_data['echo light curves']
 
 
 import pycecream
-
 
 #instantiate a pycecream object
 a = pycecream.pycecream()
@@ -158,6 +155,7 @@ a.run()
 
 # In[3]:
 
+
 '''
 Get the mcmc chains and output fits. 
 Each of these arguments come with a "location" argument where you can point to a 
@@ -172,7 +170,7 @@ make figures of the fit, posterior, light curves etc. file prefix tells the code
 The figure plotting is somewhat primitive and is a relic of when I still used cream. You may prefer to use your own
 output figures with the output of the "get_MCMC_chains" and "get_light_curve_fits" functions above.
 '''
-#a.plot_results(file_prefix='fit_figures')
+a.plot_results(file_prefix='fit_figures')
 
 
 
@@ -180,8 +178,7 @@ output figures with the output of the "get_MCMC_chains" and "get_light_curve_fit
 '''
 figures can also be made on an indivdual basis with axes objects returned from python plotting functions
 '''
-input()
-#plot the fit to the light curves
+#plot the fitted light curves.
 a.plot_lightcurves()
 plt.show()
 
@@ -207,11 +204,4 @@ plt.show()
 
 # how to install python 3 environment (skip the netcdf4 line) matplotlib should be ok now
 # https://salishsea-meopar-docs.readthedocs.io/en/latest/work_env/python3_conda_environment.html
-
-
-# In[6]:
-
-
-a.plot_lightcurves()
-plt.show()
 

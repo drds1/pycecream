@@ -246,9 +246,9 @@ def myfake(wavin, snr, dtmeanin, embh = 1.e7, degi = 0.0,
   
   
   #if have blr light curve, snr specifies variability amplitude / errobar
-  if (wavin[i] == -1.0):
-   fdiskmean = 0
-   sdwav = 1.0
+  #if (wavin[i] == -1.0):
+  # fdiskmean = 0
+  # sdwav = 1.0
    
   if (wavnow == 0.0):
    fdiskmean = mean_x
