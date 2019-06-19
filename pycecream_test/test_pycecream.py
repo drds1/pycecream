@@ -106,7 +106,8 @@ a.add_lc(dat[2], name = 'continuum 5000 (b)',background_offset_start=[10.0,0.0],
 a.add_lc(dat[3], name = 'continuum 7000',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
 
 #If adding a line light curve, must indicate using the "kind" argument
-a.add_lc(dat[4],name='test line 1',kind='line',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
+a.add_lc(dat[4],name='test line 1',kind='line',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5],
+         )
 
 #If we want the same line response function model, set "share_previous_lag"=True
 a.add_lc(dat[5],name='test line 1 (shared)',kind='line',share_previous_lag=True,background_offset_start=[10.0,3.3],vertical_scaling_start=[2.0,0.5])
@@ -117,7 +118,7 @@ a.add_lc(dat[5],name='test line 1 (shared)',kind='line',share_previous_lag=True,
 specify the numnber of MCMC iterations. Normally at least several thousand are necessary but shorter numbers 
 can be used just to check everything is working is done here.
 '''
-a.N_iterations=40
+a.N_iterations=400
 
 '''
 specify the step sizes for the fit parameters. 
@@ -135,73 +136,74 @@ RUN!
 '''
 a.run()
 
-
-# # Examine the output
-# 
-# There are 2 output dataframes.
-# 
-# ## 1) output_lightcurves = a.get_light_curve_fits():
-# This a dictionary of 3 data frames.
-# 
-#     1.1) output_lightcurves['model']: standard time, model, error envelope for each file
-# 
-#     1.2) output_lightcurves['merged model'] AS above but with the error bars, vertical and horrizontal scalings applied relative to the reference model. Not sure but I think the reference model defaults to the first occurence of a particular wavelength in the order that it was added in self.add_lc
-# 
-#     1.3) output_lightcurves['merged data'] DICTIONARY (since the input data light curves can be different sizes) The same transformations but applied to the input light curve data. useful if using cream only to merge the orriginal light curves from different telescopes to a new scale for further study elsewhere
-# 
-# ## 2) output_chains = a.get_MCMC_chains(): 
-# These are the MCMC chains for each parameter.
-# 
-
-# In[3]:
-
-
-'''
-Get the mcmc chains and output fits. 
-Each of these arguments come with a "location" argument where you can point to a 
-previous simulation and recover the outputs. 
-If this is left blank we default to the current simulation
-'''
-output_chains = a.get_MCMC_chains(location = None)
-output_lightcurves = a.get_light_curve_fits(location = None)
-
-'''
-make figures of the fit, posterior, light curves etc. file prefix tells the code where you want to save the output.
-The figure plotting is somewhat primitive and is a relic of when I still used cream. You may prefer to use your own
-output figures with the output of the "get_MCMC_chains" and "get_light_curve_fits" functions above.
-'''
-a.plot_results(file_prefix='fit_figures')
-
-
-
-
-'''
-figures can also be made on an indivdual basis with axes objects returned from python plotting functions
-'''
-#plot the fitted light curves.
-a.plot_lightcurves()
-plt.show()
-
-
-#plot the driving light curve
-a.plot_driver()
-plt.show()
-
-
-#plot the parameter trace plots
-a.plot_trace()
-plt.show()
-
-
-#plot the covariance parameter plot for the disc parameters
-a.plot_posterior()
-plt.show()
-
-
-
-# In[4]:
-
-
-# how to install python 3 environment (skip the netcdf4 line) matplotlib should be ok now
-# https://salishsea-meopar-docs.readthedocs.io/en/latest/work_env/python3_conda_environment.html
-
+#
+## # Examine the output
+##
+## There are 2 output dataframes.
+##
+## ## 1) output_lightcurves = a.get_light_curve_fits():
+## This a dictionary of 3 data frames.
+##
+##     1.1) output_lightcurves['model']: standard time, model, error envelope for each file
+##
+##     1.2) output_lightcurves['merged model'] AS above but with the error bars, vertical and horrizontal scalings applied relative to the reference model. Not sure but I think the reference model defaults to the first occurence of a particular wavelength in the order that it was added in self.add_lc
+##
+##     1.3) output_lightcurves['merged data'] DICTIONARY (since the input data light curves can be different sizes) The same transformations but applied to the input light curve data. useful if using cream only to merge the orriginal light curves from different telescopes to a new scale for further study elsewhere
+##
+## ## 2) output_chains = a.get_MCMC_chains():
+## These are the MCMC chains for each parameter.
+##
+#
+## In[3]:
+#
+#
+#'''
+#Get the mcmc chains and output fits.
+#Each of these arguments come with a "location" argument where you can point to a
+#previous simulation and recover the outputs.
+#If this is left blank we default to the current simulation
+#'''
+#output_chains = a.get_MCMC_chains(location = None)
+#output_lightcurves = a.get_light_curve_fits(location = None)
+#
+#'''
+#make figures of the fit, posterior, light curves etc. file prefix tells the code where you want to save the output.
+#The figure plotting is somewhat primitive and is a relic of when I still used cream. You may prefer to use your own
+#output figures with the output of the "get_MCMC_chains" and "get_light_curve_fits" functions above.
+#'''
+#a.plot_results(file_prefix='fit_figures')
+#
+#
+#
+#
+#'''
+#figures can also be made on an indivdual basis with axes objects returned from python plotting functions
+#'''
+##plot the fitted light curves.
+#a.plot_lightcurves()
+#plt.show()
+#
+#
+##plot the driving light curve
+#a.plot_driver()
+#plt.show()
+#
+#
+##plot the parameter trace plots
+#a.plot_trace()
+#plt.show()
+#
+#
+##plot the covariance parameter plot for the disc parameters
+#a.plot_posterior()
+#plt.show()
+#
+#
+#
+## In[4]:
+#
+#
+## how to install python 3 environment (skip the netcdf4 line) matplotlib should be ok now
+## https://salishsea-meopar-docs.readthedocs.io/en/latest/work_env/python3_conda_environment.html
+#
+#

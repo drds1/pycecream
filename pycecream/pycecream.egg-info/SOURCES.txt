@@ -5,9 +5,11 @@ dist/pycecream-1.0.1.tar.gz
 dist/pycecream-1.1.0.tar.gz
 dist/pycecream-1.1.1.tar.gz
 dist/pycecream-1.1.2.tar.gz
+dist/pycecream-1.1.3.tar.gz
 pycecream/__init__.py
 pycecream/__init__.pyc
 pycecream/cream_f90.f90
+pycecream/cream_old_f90.f90
 pycecream/cream_trace.py
 pycecream/creaminpar.par
 pycecream.egg-info/PKG-INFO
@@ -22,4 +24,5 @@ pycecream/.idea/modules.xml
 pycecream/.idea/pycecream.iml
 pycecream/.idea/vcs.xml
 pycecream/.idea/workspace.xml
+pycecream/.idea/libraries/R_User_Library.xml
 pycecream/__pycache__/__init__.cpython-37.pyc

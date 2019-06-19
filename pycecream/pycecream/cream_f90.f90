@@ -9880,7 +9880,7 @@ else
 varexpandparm(ilc) = abs(varexpandparm(ilc))
 endif
 
-if (varexpandparm(ilc) .eq. 0) varexpandsteplog(ilc) =0
+if (varexpandsteplog(ilc) .eq. 0) varexpandsteplog(ilc) =0
 enddo
 close(1)
 endif

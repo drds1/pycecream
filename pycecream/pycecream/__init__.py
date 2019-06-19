@@ -254,18 +254,23 @@ class pycecream:
         content[idlaglim] = np.str(self.lag_lims[0]) + ' ' + np.str(self.lag_lims[1]) + '       ! lower and upper lag limits'
         content[idplot] = np.str(int(np.ceil(self.N_iterations / 4.0)))
 
-        #deal with multiplicative step sizes
-        step_multiplicative = list(self.lightcurve_input_params['noise model'].map(set(['multiplicative']).issubset))
+        #deal with multiplicative step sizes J.Hernandez fix with some 'multiplicative' requests sometimes ignored
+        turn_on_multiplicative_noise = 'F'
+        step_multiplicative = []
+        for kk in self.lightcurve_input_params['noise model'].values:
+            step_multiplicative.append('multiplicative' in kk)
         step = []
         for i in range(self.count_lightcurves):
             if step_multiplicative[i] is True:
                 step.append(0.1)
+                turn_on_multiplicative_noise = 'T'
             else:
                 step.append(0.0)
         a = ''.join([np.str(step[i]) + ' ' for i in range(self.count_lightcurves)])
         content[idsig] = a
         a = ''.join([np.str(1.0) + ' ' for i in range(self.count_lightcurves)])
         content[idsig - 1] = a
+        content[idsig - 2] = turn_on_multiplicative_noise
 
         #write updated creaminpar.par file
         f = open(self.dir_pycecream+'/creaminpar.par', 'w')
@@ -330,9 +335,13 @@ class pycecream:
         '''
         f = open(self.dir_pycecream+'/'+self.dir_sim + '/cream_var.par', 'w')
         for i in range(self.count_lightcurves):
-            f.write('0.0 ')
-            f.write(np.str( self.p_extra_variance_step*
-                            self.lightcurve_input_params['standard deviation'].values[i]) +'\n')
+            if ('var' in self.lightcurve_input_params['noise model'].iloc[i]):
+                f.write('0.1 ')
+                f.write(np.str(self.p_extra_variance_step *
+                               self.lightcurve_input_params['standard deviation'].values[i]) + '\n')
+            else:
+                f.write('0.0 0.0\n')
+
         f.close()
 
 
