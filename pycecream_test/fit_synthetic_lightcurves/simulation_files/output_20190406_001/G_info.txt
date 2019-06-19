@@ -1,1 +1,0 @@
-N_freq_tot	N_freq_eff	N_non_freq	cisq(med)	cisq(med)/(N_non_freq + N_freq_eff)98 17 25 93.21707595238095

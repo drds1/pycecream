@@ -81,7 +81,7 @@ class pycecream:
                             'share previous lag','temporary file name',
                             'mean', 'standard deviation', 'tophat centroid',
                             'tophat centroid step', 'tophat width',
-                            'tophat width step'
+                            'tophat width step','background offset start','vertical scaling start'
         ])
         self.global_input_params = pd.DataFrame(columns = [
             'redshift','BH mass','BH efficiency','upper fourier frequency',''
@@ -119,7 +119,9 @@ class pycecream:
                wavelength = -1.0,
                expand_errors = ['var','multiplicative'],
                name = None,
-               share_previous_lag = False):
+               share_previous_lag = False,
+               background_offset_start=[-1.,-1.],
+               vertical_scaling_start=[-1.,-1.]):
         '''
         This is the go to command to add a new light curve into the
         simulation.
@@ -189,13 +191,15 @@ class pycecream:
                                   tophat_centroid,
                                   tophat_centroid_step,
                                   tophat_width,
-                                  tophat_width_step
+                                  tophat_width_step,
+                                  background_offset_start,
+                                  vertical_scaling_start
                                   ],
                      index=['name', 'type', 'wavelength', 'noise model',
                             'share previous lag','temporary file name',
                             'mean', 'standard deviation', 'tophat centroid',
                             'tophat centroid step', 'tophat width',
-                            'tophat width step']).T
+                            'tophat width step','background offset start','vertical scaling start']).T
 
         self.lightcurve_input_params = pd.DataFrame(pd.concat([self.lightcurve_input_params,df]))
         self.lightcurve_input_params['wavelength']= \
@@ -269,6 +273,7 @@ class pycecream:
             f.write(fn + '\n')
         f.close()
 
+
     def set_creamnames(self):
         '''
         set the creamnames.dat file summarising the file names and wavelengths
@@ -280,6 +285,21 @@ class pycecream:
             f.write("'"+self.lightcurve_input_params['temporary file name'].values[i]+"' "+
                     np.str(self.lightcurve_input_params['wavelength'].values[i])+"\n")
 
+        f.close()
+
+
+    def set_start_offsert_vertical(self):
+        '''
+        initialise the start paramters for the offser and vertial scaling parameters
+        :return:
+        '''
+        #write the default offset and vertical scaling parameters
+        f = open(self.dir_pycecream+'/'+self.dir_sim+'/offsetstretch_fix.par', 'w')
+        n = len(self.lightcurve_input_params)
+        for i in range(n):
+            os,os_step = self.lightcurve_input_params.iloc[i]['background offset start']
+            v, v_step = self.lightcurve_input_params.iloc[i]['vertical scaling start']
+            f.write(str(os)+','+str(os_step)+','+str(v)+','+str(v_step) + '\n')
         f.close()
 
 
@@ -328,6 +348,7 @@ class pycecream:
         self.set_creamnames()
         self.set_tophat()
         self.set_var()
+        self.set_start_offsert_vertical()
 
         #change to the simulation directory and save the input_lightcurve settings
         os.chdir(self.dir_pycecream)

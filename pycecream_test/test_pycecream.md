@@ -61,9 +61,13 @@ synthetic_data = mf.myfake(
 dat = synthetic_data['echo light curves']
 ```
 
-#  Section 2: Settup and run PyceCREAM
+#  Section 2: Setup and run PyceCREAM
 
+The script below gives an example on how to set up and run a sample pycecream simulation on a mixture of continuum light curves. Note at the bottom of this doccument some commands for configuring starting parameters and their step sizes (e.g for inclination accretion rate etc).
 
+A new feature (17/06/2019) is the option to set the starting values and step sizes for the background offset term of each lightcurve. This was previously initialised to the mean with a stepsize equal to the standard deviation of the light curve data but can now be configured with the 'background_offset_start' when adding each new light curve. This is a list of 2 numbers with the first being the start value and the second corresponding to the step size.
+
+The same feature is available for the starting vertical 'stretch' parameter for each light curve with the argument set to 'vertical_scaling_start'. The default values of [-1,-1] for these arguments will use the standard starting settings for these parameters.
 
 
 ```python
@@ -96,7 +100,9 @@ a.output_directory = 'fit_synthetic_lightcurves'
 Add each of the light curves in the simulation. 
 In this case we are using the "dat" output from the synthetic data above.
 '''
-a.add_lc(dat[0], name = 'continuum 4000')
+a.add_lc(dat[0], name = 'continuum 4000',
+         background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5]))
+
 a.add_lc(dat[1], name = 'continuum 5000')
 a.add_lc(dat[2], name = 'continuum 5000 (b)')
 a.add_lc(dat[3], name = 'continuum 7000')

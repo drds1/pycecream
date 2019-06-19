@@ -1,5 +1,12 @@
+.DS_Store
 setup.py
+dist/pycecream-1.0.0.tar.gz
+dist/pycecream-1.0.1.tar.gz
+dist/pycecream-1.1.0.tar.gz
+dist/pycecream-1.1.1.tar.gz
+dist/pycecream-1.1.2.tar.gz
 pycecream/__init__.py
+pycecream/__init__.pyc
 pycecream/cream_f90.f90
 pycecream/cream_trace.py
 pycecream/creaminpar.par
@@ -9,3 +16,10 @@ pycecream.egg-info/dependency_links.txt
 pycecream.egg-info/not-zip-safe
 pycecream.egg-info/requires.txt
 pycecream.egg-info/top_level.txt
+pycecream/.idea/encodings.xml
+pycecream/.idea/misc.xml
+pycecream/.idea/modules.xml
+pycecream/.idea/pycecream.iml
+pycecream/.idea/vcs.xml
+pycecream/.idea/workspace.xml
+pycecream/__pycache__/__init__.cpython-37.pyc

@@ -1,1 +1,0 @@
- ./output_20190406_001,, NLC=6, mmdot, whi =0.5

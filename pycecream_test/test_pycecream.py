@@ -100,16 +100,16 @@ a.output_directory = 'fit_synthetic_lightcurves'
 Add each of the light curves in the simulation. 
 In this case we are using the "dat" output from the synthetic data above.
 '''
-a.add_lc(dat[0], name = 'continuum 4000')
-a.add_lc(dat[1], name = 'continuum 5000')
-a.add_lc(dat[2], name = 'continuum 5000 (b)')
-a.add_lc(dat[3], name = 'continuum 7000')
+a.add_lc(dat[0], name = 'continuum 4000',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
+a.add_lc(dat[1], name = 'continuum 5000',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
+a.add_lc(dat[2], name = 'continuum 5000 (b)',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
+a.add_lc(dat[3], name = 'continuum 7000',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
 
 #If adding a line light curve, must indicate using the "kind" argument
-a.add_lc(dat[4],name='test line 1',kind='line')
+a.add_lc(dat[4],name='test line 1',kind='line',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
 
 #If we want the same line response function model, set "share_previous_lag"=True
-a.add_lc(dat[5],name='test line 1 (shared)',kind='line',share_previous_lag=True)
+a.add_lc(dat[5],name='test line 1 (shared)',kind='line',share_previous_lag=True,background_offset_start=[10.0,3.3],vertical_scaling_start=[2.0,0.5])
 
 
 
