@@ -255,7 +255,15 @@ class pycecream:
         content[idplot] = np.str(int(np.ceil(self.N_iterations / 4.0)))
 
         #deal with multiplicative step sizes
-        step_multiplicative = list(self.lightcurve_input_params['noise model'].map(set(['multiplicative']).issubset))
+        #original way of finding the multiplicative flag in noise model. Didn't worked properly.
+        #returned all False flags, thus no fitting for step sizes.
+        #step_multiplicative = list(self.lightcurve_input_params['noise model'].map(set(['multiplicative']).issubset))
+        
+        # NEW way of finding the multiplicative flag in noise model. Could be more pythonised.
+        step_multiplicative = []
+        for kk in  self.lightcurve_input_params['noise model'].values:
+            step_multiplicative.append('multiplicative' in kk[0])
+        
         step = []
         for i in range(self.count_lightcurves):
             if step_multiplicative[i] is True:
@@ -327,13 +335,26 @@ class pycecream:
         creates the file instructing cream how to treat the extra variance parameters
         (starting parameter values and step sizes)
         :return:
+        
+        History:
+        J. Hernandez Santisteban. Now it correctly sets the var parameter when added
+        to the noise model. Previously all were zeros and no added variance was included.
         '''
         f = open(self.dir_pycecream+'/'+self.dir_sim + '/cream_var.par', 'w')
+        # >> Juan change to check for var in noise model
+        step_var = []
+        for kk in self.lightcurve_input_params['noise model'].values:
+            step_var.append('var' in kk[0])
+        #print('>> Juan: ',step_var)
         for i in range(self.count_lightcurves):
-            f.write('0.0 ')
+            if step_var[i] == True:
+                f.write('0.1 ')
+            else:
+                f.write('0.0 ')
             f.write(np.str( self.p_extra_variance_step*
                             self.lightcurve_input_params['standard deviation'].values[i]) +'\n')
         f.close()
+
 
 
 
