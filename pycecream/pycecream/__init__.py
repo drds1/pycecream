@@ -471,7 +471,7 @@ class pycecream:
             if count == 0:
                 output_merged_data['time']=dat[:,0]
             output_merged_data[name+' data'] = dat[:,1]
-            output_merged_data[name+' uncerts'] = dat[:, 2]
+            output_merged_data[name+' uncerts'] = dat[:, 3]
             count = count + 1
         self.output_merged_data = output_merged_data
 
