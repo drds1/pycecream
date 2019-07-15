@@ -7959,7 +7959,7 @@ real kascale,dl0scale,galscale,dltemp,trv,trr,offsetscale,ur0scale,pfirst,logp0r
 real p0,w0,f,w0steplog,p0steplog,p_ave,w_ave,w_sum,trscalea,trscaleb,pfurstep,p0root,a,&
 dtmin,dtmintemp,sdev, sigmmdot, pri_sigmmdot_log, pri_mmdotmean_log, deginc_cut,&
 dt_new,dt_temp,atemp,po,pn,tnow,amps,ampc,w0test,wnow,amp0, dwn, crapcent, crapfwhm,&
-pricream_par, pricream_step
+pricream_par, pricream_step,overide_os,overide_osstep,overide_st,overide_ststep
 
 real,allocatable,dimension(:):: galflux,echo_sk,echo_ck,echo_sigsk,echo_sigck, test_x
 character(10) ctest_no,strcatwhi,strcatnlc
@@ -9880,7 +9880,7 @@ else
 varexpandparm(ilc) = abs(varexpandparm(ilc))
 endif
 
-if (varexpandparm(ilc) .eq. 0) varexpandsteplog(ilc) =0
+if (varexpandsteplog(ilc) .eq. 0) varexpandsteplog(ilc) =0
 enddo
 close(1)
 endif
@@ -10196,6 +10196,22 @@ call system('cp ../cream_affine.par ./')
 
 
 
+!overide the standard step sizes for the background and offset parameters
+inquire(file='../offsetstretch_fix.par',exist=CREAM_th_ex)
+if (CREAM_th_ex) then
+open(unit=1,file='../offsetstretch_fix.par')
+do ilc=1,NLC
+read(1,*) overide_os,overide_osstep,overide_st,overide_ststep
+if (overide_os .ne. -1.0) then
+p(NPoffsetidx+ilc-1) = overide_os
+pscale(NPoffsetidx+ilc-1) = overide_osstep
+end if
+if (overide_st .ne. -1.0) then
+p(NPscaleidx +ilc -1) = overide_st/rms1
+pscale(NPscaleidx+ilc-1) = overide_st/rms1 * overide_ststep
+end if
+end do
+end if
 
 
 

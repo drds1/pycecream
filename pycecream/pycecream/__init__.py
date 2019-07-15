@@ -121,7 +121,10 @@ class pycecream:
                name = None,
                share_previous_lag = False,
                background_offset_start=[-1.,-1.],
-               vertical_scaling_start=[-1.,-1.]):
+               vertical_scaling_start=[-1.,-1.],
+               background_offset_prior = None,
+               vertical_scaling_prior = None
+    ):
         '''
         This is the go to command to add a new light curve into the
         simulation.
@@ -131,7 +134,12 @@ class pycecream:
         :param wavelength: The centroid wavelength of the contuum light curve
         :param expand_errors:
         :param share_previous_lag:
-        :param name: optional to set name for a light curve to annotate on plots and in data frames
+        :param name: optional to set name for a light curve to annotate on plots and in data frames.
+        :param background_offset_start:[value,stepsize] start value and step size for the background offset parameter.
+        Leave as default [-1.,-1.] to ignore.
+        :param vertical_scaling_start: as above but for vertical scaling parameter.
+        :param background_offset_prior: [mean,sd] of gaussian prior. Leave as None to ignore priors
+        :param vertical_scaling_prior: as above but for the vertical scaling parameter
         :return:
         '''
         #set up the directory structure if first call
@@ -193,13 +201,16 @@ class pycecream:
                                   tophat_width,
                                   tophat_width_step,
                                   background_offset_start,
-                                  vertical_scaling_start
+                                  vertical_scaling_start,
+                                  background_offset_prior,
+                                  vertical_scaling_prior
                                   ],
                      index=['name', 'type', 'wavelength', 'noise model',
                             'share previous lag','temporary file name',
                             'mean', 'standard deviation', 'tophat centroid',
                             'tophat centroid step', 'tophat width',
-                            'tophat width step','background offset start','vertical scaling start']).T
+                            'tophat width step','background offset start','vertical scaling start',
+                            'background offset prior','vertical scaling prior']).T
 
         self.lightcurve_input_params = pd.DataFrame(pd.concat([self.lightcurve_input_params,df]))
         self.lightcurve_input_params['wavelength']= \
@@ -293,6 +304,39 @@ class pycecream:
         f.close()
 
 
+    def set_priors(self):
+        '''
+        apply the priors in vertical offset and scaling if required
+        :return:
+        '''
+        custom_priors = False
+        idp = [8, 7]
+        dfp = [self.lightcurve_input_params['background offset prior'],
+               self.lightcurve_input_params['vertical scaling prior']]
+
+        for i in range(self.count_lightcurves):
+            for ip in range(len(idp)):
+                if (dfp[ip].iloc[i] is not None):
+                    custom_priors = True
+                    break
+        #pricream_idxnow, pricream_par, pricream_step, pricream_mean(i), pricream_sd(i)
+        if custom_priors is True:
+            f = open(self.dir_pycecream + '/' + self.dir_sim + '/pricream.par', 'w')
+            for i in range(self.count_lightcurves):
+                for ip in range(len(idp)):
+                    idxprior = idp[ip]
+                    dfn = dfp[ip]
+                    if (dfn.iloc[i] is not None):
+                        prior_centroid,prior_scale = dfn.iloc[i]
+                    else:
+                        prior_centroid,prior_scale = [-1.0,-1.0]
+                    line = np.str(idxprior) + ' -1.0 -1.0 ' + np.str(prior_centroid) + ' ' + np.str(prior_scale)
+                    f.write(line+'\n')
+            f.close()
+
+
+
+
     def set_start_offsert_vertical(self):
         '''
         initialise the start paramters for the offser and vertial scaling parameters
@@ -358,6 +402,7 @@ class pycecream:
         self.set_tophat()
         self.set_var()
         self.set_start_offsert_vertical()
+        self.set_priors()
 
         #change to the simulation directory and save the input_lightcurve settings
         os.chdir(self.dir_pycecream)

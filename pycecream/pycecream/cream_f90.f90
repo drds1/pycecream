@@ -7951,7 +7951,7 @@ real delsigproptocenttemp,delsigproptocentsig_square,delsigproptocentbof,dt,len1
 real onst,alpha,umbh,inc,cosinc,alphascale,wavelength,stretch1,rms1,dummy, wavobs_temp,&
 betascale,osout
 integer idx,numline,starttime,endtime,NWest,numreject,num_p0_av,idircheck,iprob, Ndattemp, Ntemp
-integer pgopen,idsigexp,idvarexp,inl,n_lim
+integer pgopen,idsigexp,idvarexp,inl,n_lim,idscale,idos
 
 !! real functions
 real medspac,rang,med,cisq,ran3,inttemp,rmstemp,rms,trash,bofnew1,bofnew2,bofnew3,bofnew4,dl0
@@ -9638,6 +9638,8 @@ open(unit = 1, file = '../pricream.par')
 
 idsigexp = 0
 idvarexp = 0
+idos = 0
+idscale = 0
 do i = 1,npricream
 read(1,*) pricream_idxnow, pricream_par, pricream_step, pricream_mean(i), pricream_sd(i)
 
@@ -9678,6 +9680,20 @@ pricream_idx(i) = NPvarexpandidx + idvarexp
 if (pricream_par .ne. -1) p(NPvarexpandidx+idvarexp) = pricream_par
 if (pricream_step .ne. -1) pscale(NPvarexpandidx+idvarexp) = pricream_step
 idvarexp = idvarexp + 1
+
+else if (pricream_idxnow .eq. -7) then
+
+pricream_idx(i) = NPscaleidx + idscale
+if (pricream_par .ne. -1) p(NPscaleidx+idscale) = pricream_par
+if (pricream_step .ne. -1) pscale(NPscaleidx+idscale) = pricream_step
+idscale = idscale + 1
+
+else if (pricream_idxnow .eq. -8) then
+
+pricream_idx(i) = NPoffsetidx + idos
+if (pricream_par .ne. -1) p(NPoffsetidx+idos) = pricream_par
+if (pricream_step .ne. -1) pscale(NPoffsetidx+idos) = pricream_step
+idos = idos + 1
 
 else
 

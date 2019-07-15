@@ -107,6 +107,8 @@ a.add_lc(dat[3], name = 'continuum 7000',background_offset_start=[10.0,0.0],vert
 
 #If adding a line light curve, must indicate using the "kind" argument
 a.add_lc(dat[4],name='test line 1',kind='line',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5],
+         vertical_scaling_prior=[0.0,0.1],
+         background_offset_prior=[5.0,0.0001]
          )
 
 #If we want the same line response function model, set "share_previous_lag"=True
