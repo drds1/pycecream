@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="" />
+    <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammain_export.f90">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="870">
               <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
               <folding>
                 <marker date="1563198060319" expanded="true" signature="61648:62008" ph="..." />
@@ -55,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammod_export.f90">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
+            <state relative-caret-position="72120">
               <caret line="4808" column="29" selection-start-line="4808" selection-start-column="17" selection-end-line="4808" selection-end-column="29" />
             </state>
           </provider>
@@ -64,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="137" column="77" selection-start-line="137" selection-start-column="77" selection-end-line="137" selection-end-column="77" />
+            <state relative-caret-position="466">
+              <caret line="646" column="31" selection-start-line="646" selection-start-column="31" selection-end-line="646" selection-end-column="31" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -76,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="75">
+              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -85,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="111" column="10" lean-forward="true" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
+            <state relative-caret-position="188">
+              <caret line="160" column="66" selection-start-line="160" selection-end-line="160" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -118,6 +120,11 @@
       <find>pricream_sd(</find>
       <find>vertical_scaling_prior</find>
       <find>add_lc</find>
+      <find>fluxflux</find>
+      <find>merged_data</find>
+      <find>model</find>
+      <find>a.N</find>
+      <find>get_light_curve_fits</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -133,22 +140,23 @@
         <option value="$PROJECT_DIR$/../academic_projects_public/cream_export/prep_cream.py" />
         <option value="$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammain_export.f90" />
         <option value="$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py" />
-        <option value="$PROJECT_DIR$/../academic_projects_public/pycecream/setup.py" />
         <option value="$PROJECT_DIR$/../academic_projects_public/pycecream/pycecream/__init__.py" />
+        <option value="$PROJECT_DIR$/../academic_projects_public/pycecream/setup.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="218" />
-    <option name="y" value="47" />
-    <option name="width" value="996" />
-    <option name="height" value="796" />
+    <option name="x" value="693" />
+    <option name="y" value="23" />
+    <option name="width" value="720" />
+    <option name="height" value="816" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,7 +179,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -203,10 +210,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="218" y="47" width="996" height="796" extended-state="0" />
+    <frame x="693" y="23" width="720" height="816" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.031446543" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.044247787" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -219,7 +226,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.320442" />
       <window_info anchor="bottom" id="Python Console" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -249,6 +256,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/output_20190619_001/outputpars2.dat" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/creaminpar.par" />
+    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/pricream.par" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/export_pycecream.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -266,9 +274,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../academic_projects_public/cream_export/prep_cream_nopgplot_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammain_export.f90">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="870">
           <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
           <folding>
             <marker date="1563198060319" expanded="true" signature="61648:62008" ph="..." />
@@ -278,32 +293,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammod_export.f90">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
+        <state relative-caret-position="72120">
           <caret line="4808" column="29" selection-start-line="4808" selection-start-column="17" selection-end-line="4808" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../academic_projects_public/cream_export/prep_cream_nopgplot_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/pricream.par">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="111" column="10" lean-forward="true" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
+        <state relative-caret-position="188">
+          <caret line="160" column="66" selection-start-line="160" selection-end-line="160" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="137" column="77" selection-start-line="137" selection-start-column="77" selection-end-line="137" selection-end-column="77" />
+        <state relative-caret-position="466">
+          <caret line="646" column="31" selection-start-line="646" selection-start-column="31" selection-end-line="646" selection-end-column="31" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -312,8 +317,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state relative-caret-position="75">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
         </state>
       </provider>
     </entry>

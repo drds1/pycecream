@@ -100,10 +100,31 @@ a.output_directory = 'fit_synthetic_lightcurves'
 Add each of the light curves in the simulation. 
 In this case we are using the "dat" output from the synthetic data above.
 '''
-a.add_lc(dat[0], name = 'continuum 4000',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
-a.add_lc(dat[1], name = 'continuum 5000',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
-a.add_lc(dat[2], name = 'continuum 5000 (b)',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
-a.add_lc(dat[3], name = 'continuum 7000',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5])
+a.add_lc(dat[0],
+         kind='continuum',
+         wavelength=4000.,
+         name = 'continuum 4000',
+         background_offset_start=[10.0,0.0],
+         vertical_scaling_start=[2.0,0.5])
+a.add_lc(dat[1],
+         name = 'continuum 5000',
+         kind='continuum',
+         wavelength=5000.,
+         background_offset_start=[10.0,0.0],
+         vertical_scaling_start=[2.0,0.5])
+a.add_lc(dat[2],
+         name = 'continuum 5000 (b)',
+         kind='continuum',
+         wavelength = 5000.,
+         background_offset_start=[10.0,0.0],
+         vertical_scaling_start=[2.0,0.5])
+
+a.add_lc(dat[3],
+         name = 'continuum 7000',
+         kind='continuum',
+         wavelength=7000.,
+         background_offset_start=[10.0,0.0],
+         vertical_scaling_start=[2.0,0.5])
 
 #If adding a line light curve, must indicate using the "kind" argument
 a.add_lc(dat[4],name='test line 1',kind='line',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5],
@@ -120,7 +141,7 @@ a.add_lc(dat[5],name='test line 1 (shared)',kind='line',share_previous_lag=True,
 specify the numnber of MCMC iterations. Normally at least several thousand are necessary but shorter numbers 
 can be used just to check everything is working is done here.
 '''
-a.N_iterations=400
+a.N_iterations=100
 
 '''
 specify the step sizes for the fit parameters. 
@@ -137,6 +158,8 @@ print(a.lightcurve_input_params)
 RUN!
 '''
 a.run()
+op = a.get_flux_flux_analysis(plotfile='fluxflux.pdf',xlim=[-4,4])
+plt.show()
 
 #
 ## # Examine the output

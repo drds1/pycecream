@@ -1,10 +1,10 @@
 Metadata-Version: 1.0
 Name: pycecream
-Version: 1.2.3
+Version: 1.2.4
 Summary: python implementation of the cream accretion disc fitting code https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF
 Home-page: https://github.com/dstarkey23/pycecream
 Author: dstarkey23
 Author-email: ds207@st-andrews.ac.uk
 License: MIT
-Description: add gaussian priors to lightcurve background offset and vertical scaling parameters
+Description: Adds the pycecream.get_flux_flux_analysis feature. Bug fixed merged data output dataframe to display the time stamps for all the merged lightcurve data points.
 Platform: UNKNOWN

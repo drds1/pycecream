@@ -104,11 +104,15 @@ a.output_directory = 'fit_synthetic_lightcurves'
 Add each of the light curves in the simulation. 
 In this case we are using the "dat" output from the synthetic data above.
 '''
-a.add_lc(dat[0], name = 'continuum 4000',
+a.add_lc(dat[0], name = 'continuum 4000',wavelength = 4000.0,
+         kind='continuum',
          background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5]))
 
-a.add_lc(dat[1], name = 'continuum 5000')
-a.add_lc(dat[2], name = 'continuum 5000 (b)')
+a.add_lc(dat[1], wavelength = 5000.0, kind = 'continuum',
+         name = 'continuum 5000')
+
+a.add_lc(dat[2], wavelength = 5000.0, kind = 'continuum',
+         name = 'continuum 5000 (b)')
 
 
 '''
@@ -119,6 +123,8 @@ Each of these is a list of teo elements. The first element is the mean level and
 second element is the standard deviation.
 '''
 a.add_lc(dat[3], name = 'continuum 7000',
+         wavelength = 7000.0,
+         kind = 'continumm',
          vertical_scaling_prior=[0.0,0.1],
          background_offset_prior=[5.0,0.0001]
         )
@@ -186,16 +192,16 @@ a.run()
 
 There are 2 output dataframes.
 
-## 1) output_lightcurves = a.get_light_curve_fits():
+## 3.1) output_lightcurves = a.get_light_curve_fits():
 This a dictionary of 3 data frames.
 
-    1.1) output_lightcurves['model']: standard time, model, error envelope for each file
+    1) output_lightcurves['model']: standard time, model, error envelope for each file
 
-    1.2) output_lightcurves['merged model'] AS above but with the error bars, vertical and horrizontal scalings applied relative to the reference model. Not sure but I think the reference model defaults to the first occurence of a particular wavelength in the order that it was added in self.add_lc
+    2) output_lightcurves['merged model'] AS above but with the error bars, vertical and horrizontal scalings applied relative to the reference model. Not sure but I think the reference model defaults to the first occurence of a particular wavelength in the order that it was added in self.add_lc
 
-    1.3) output_lightcurves['merged data'] DICTIONARY (since the input data light curves can be different sizes) The same transformations but applied to the input light curve data. useful if using cream only to merge the original light curves from different telescopes to a new scale for further study elsewhere
+    3) output_lightcurves['merged data'] DICTIONARY (since the input data light curves can be different sizes) The same transformations but applied to the input light curve data. useful if using cream only to merge the original light curves from different telescopes to a new scale for further study elsewhere.
 
-## 2) output_chains = a.get_MCMC_chains(): 
+## 3.2) output_chains = a.get_MCMC_chains(): 
 These are the MCMC chains for each parameter.
 
 
@@ -293,11 +299,46 @@ plt.show()
     cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
 
 
+## 3.3: Flux-flux analysis
+
+This is similar to Figure xx of Starkey et al 2017. We will plot the model-infered driving light curve flux as a function of the echo light curve fluxes to validate use of the linear echo model. This should be a straight line for all continuum wavelengths assuming that continuum variability is indeed driven by a central source of irradiation. The cream-inferred driving light curve is a proxy for that central irradiating source.
+
+The flux-flux analysis will return a dictionary containing the slopes, intercepts and covariance matricess of a linear fit between the model-inferred driver and response light curves for each wavelength.
+
+It will also return the interpolated x and y points used to generate the fit parameters for each of these wavelengths.
+
+
+
 
 ```python
-# how to install python 3 environment (skip the netcdf4 line) matplotlib should be ok now
-# https://salishsea-meopar-docs.readthedocs.io/en/latest/work_env/python3_conda_environment.html
+op = a.get_flux_flux_analysis(plotfile='fluxflux.pdf',xlim=[-4,4])
 
+'''
+We can perform this fit on a previous simulation and 
+skip the full MCMC analysis by specifying the location 
+of the pycecream folder for a previous run.
+
+e.g
+a = pycecream.pycecream()
+op = a.get_flux_flux_analysis(
+location='../pycecream_sims/NGC5548')
+'''
+```
+
+For those using this on previous simulations that used
+an earlier fortran cream version, this feature is somewhat
+backwards compatible. Just make a folder tree like this
+
+'target/simulation_dir'
+
+In this folder, drop the output_YYYYMMDD_00X output folder
+from a previous cream run. Then use pycecream as follows
+
+
+
+```python
+a = pycecream.pycecream()
+op = a.get_flux_flux_analysis(location='target')
 ```
 
 # Section 4: Using PyceCREAM to merge light curves only.
@@ -356,7 +397,7 @@ plt.show()
 ```
 
 
-![png](test_pycecream_files/test_pycecream_9_0.png)
+![png](test_pycecream_files/test_pycecream_12_0.png)
 
 
 ## Initialise the cream instance and configure for merge mode 

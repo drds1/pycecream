@@ -501,7 +501,6 @@ class pycecream:
             output_merged_model[name+' uncerts'] = dat[:, 2]
             count = count + 1
         self.output_merged_model = pd.DataFrame(output_merged_model)
-
         '''
         the merged data points for each file (this just takes the
         original light curves and applies the errorbar rescaling,
@@ -513,8 +512,7 @@ class pycecream:
         for tf in self.lightcurve_input_params['temporary file name'].values:
             dat = np.loadtxt(results_dir+'/plots/merged_dat_'+tf+'.dat')
             name = self.lightcurve_input_params['name'].values[count]
-            if count == 0:
-                output_merged_data['time']=dat[:,0]
+            output_merged_data[name+' time']=dat[:,0]
             output_merged_data[name+' data'] = dat[:,1]
             output_merged_data[name+' uncerts'] = dat[:, 3]
             count = count + 1
@@ -533,6 +531,17 @@ class pycecream:
             output_model[name + ' uncerts'] = dat_sig[:, count + 1]
             count = count + 1
         self.output_model = pd.DataFrame(output_model)
+
+
+        '''
+        append the driving light curve to the output_model dataframe
+        '''
+        driver = np.loadtxt(results_dir+'/plots/modeldrive.dat')
+        timemod = self.output_model['time'].values
+        drivemoditp = np.interp(timemod,driver[:,0],driver[:,1])
+        drivemodsigitp = np.interp(timemod,driver[:,0],driver[:,2])
+        self.output_model.insert(loc=1,column='driver',value = drivemoditp)
+        self.output_model.insert(loc=2, column='driver uncerts', value=drivemodsigitp)
 
         '''
         condense into a dictionary for output
@@ -630,6 +639,70 @@ class pycecream:
                           gplot=1,
                           true=['','',np.log10(0.75)])
 
+
+
+
+    def get_flux_flux_analysis(self,plotfile = None,location=None,xlim=[-4,4]):
+        '''
+        perform the flux flux analysis on the fit to estimate the host-galaxy and disk spectrum
+        :return:
+        '''
+        op = self.get_light_curve_fits(location=location)
+        data = op['merged data']
+        model = op['merged model']
+        cols = list(model.columns)[1:]
+        cols = [c for c in cols if 'uncerts' not in c]
+        tmod = model.values[:,0]
+        model = model[cols]
+        t = op['model'][['time','driver']]#self.get_light_curve_fits()
+        time,driver = t.values[:,0],t.values[:,1]
+        driver = np.interp(tmod,time,driver)
+        idsort = np.argsort(driver)
+        driver_sort = driver[idsort]
+        op = {}
+        fig = plt.figure()
+        ax1 = fig.add_subplot(111)
+        for c in cols:
+            c5 = c[:-5]
+            print(model.columns)
+            flux_m = model[c].values
+            flux_m_sort = flux_m[idsort]
+            flux_d = data[c5+'data']
+            driver_d_itp = np.interp(flux_d,flux_m_sort,driver_sort)
+            time_d = data[c5+'time']
+            sig_d  = data[c5+'uncerts']
+            try:
+                fit = np.polyfit(driver_d_itp,flux_d,w=1./sig_d**2,deg=1,cov=True)
+                slope,intercept = fit[0]
+                cov = fit[1]
+            except:
+                slope,intercept = [0]*2
+                cov = np.nan
+            op[c5+'slope'] = slope
+            op[c5+'intercept'] = intercept
+            op[c5+'covariance'] = cov
+            op[c5+'driver interp'] = driver_d_itp
+            op[c5+'data flux'] = flux_d
+            op[c5+'data uncerts'] = sig_d
+            xres = np.linspace(xlim[0],xlim[1],100)
+            yres = intercept + xres*slope
+            ax1.plot(xres,yres)
+            line, = ax1.plot(xres,yres,label = c)
+            ax1.errorbar(driver_d_itp, flux_d,sig_d, marker='o',label=None,
+                         color=line.get_color(),linestyle=None)
+            ax1.scatter(driver_d_itp, flux_d,c=line.get_color(),label=None)
+
+
+        ax1.set_xlabel(r'$X(t)$')
+        ax1.set_ylabel(r'$\int f_\nu \left( \lambda , t - \tau \right) \psi \left( \tau \right) d \tau $')
+        ax1.set_xlim(xlim)
+        plt.tight_layout()
+        plt.legend()
+        if plotfile is not None:
+            plt.savefig(plotfile)
+        op['plot fig'] = fig
+        op['plot ax'] = ax1
+        return(op)
 
 
 
