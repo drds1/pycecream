@@ -7951,7 +7951,7 @@ real delsigproptocenttemp,delsigproptocentsig_square,delsigproptocentbof,dt,len1
 real onst,alpha,umbh,inc,cosinc,alphascale,wavelength,stretch1,rms1,dummy, wavobs_temp,&
 betascale,osout
 integer idx,numline,starttime,endtime,NWest,numreject,num_p0_av,idircheck,iprob, Ndattemp, Ntemp
-integer pgopen,idsigexp,idvarexp,inl,n_lim
+integer pgopen,idsigexp,idvarexp,inl,n_lim,idscale,idos
 
 !! real functions
 real medspac,rang,med,cisq,ran3,inttemp,rmstemp,rms,trash,bofnew1,bofnew2,bofnew3,bofnew4,dl0
@@ -7959,7 +7959,7 @@ real kascale,dl0scale,galscale,dltemp,trv,trr,offsetscale,ur0scale,pfirst,logp0r
 real p0,w0,f,w0steplog,p0steplog,p_ave,w_ave,w_sum,trscalea,trscaleb,pfurstep,p0root,a,&
 dtmin,dtmintemp,sdev, sigmmdot, pri_sigmmdot_log, pri_mmdotmean_log, deginc_cut,&
 dt_new,dt_temp,atemp,po,pn,tnow,amps,ampc,w0test,wnow,amp0, dwn, crapcent, crapfwhm,&
-pricream_par, pricream_step
+pricream_par, pricream_step,overide_os,overide_osstep,overide_st,overide_ststep
 
 real,allocatable,dimension(:):: galflux,echo_sk,echo_ck,echo_sigsk,echo_sigck, test_x
 character(10) ctest_no,strcatwhi,strcatnlc
@@ -9638,6 +9638,8 @@ open(unit = 1, file = '../pricream.par')
 
 idsigexp = 0
 idvarexp = 0
+idos = 0
+idscale = 0
 do i = 1,npricream
 read(1,*) pricream_idxnow, pricream_par, pricream_step, pricream_mean(i), pricream_sd(i)
 
@@ -9678,6 +9680,20 @@ pricream_idx(i) = NPvarexpandidx + idvarexp
 if (pricream_par .ne. -1) p(NPvarexpandidx+idvarexp) = pricream_par
 if (pricream_step .ne. -1) pscale(NPvarexpandidx+idvarexp) = pricream_step
 idvarexp = idvarexp + 1
+
+else if (pricream_idxnow .eq. -7) then
+
+pricream_idx(i) = NPscaleidx + idscale
+if (pricream_par .ne. -1) p(NPscaleidx+idscale) = pricream_par
+if (pricream_step .ne. -1) pscale(NPscaleidx+idscale) = pricream_step
+idscale = idscale + 1
+
+else if (pricream_idxnow .eq. -8) then
+
+pricream_idx(i) = NPoffsetidx + idos
+if (pricream_par .ne. -1) p(NPoffsetidx+idos) = pricream_par
+if (pricream_step .ne. -1) pscale(NPoffsetidx+idos) = pricream_step
+idos = idos + 1
 
 else
 
@@ -9880,7 +9896,7 @@ else
 varexpandparm(ilc) = abs(varexpandparm(ilc))
 endif
 
-if (varexpandparm(ilc) .eq. 0) varexpandsteplog(ilc) =0
+if (varexpandsteplog(ilc) .eq. 0) varexpandsteplog(ilc) =0
 enddo
 close(1)
 endif
@@ -10196,6 +10212,22 @@ call system('cp ../cream_affine.par ./')
 
 
 
+!overide the standard step sizes for the background and offset parameters
+inquire(file='../offsetstretch_fix.par',exist=CREAM_th_ex)
+if (CREAM_th_ex) then
+open(unit=1,file='../offsetstretch_fix.par')
+do ilc=1,NLC
+read(1,*) overide_os,overide_osstep,overide_st,overide_ststep
+if (overide_os .ne. -1.0) then
+p(NPoffsetidx+ilc-1) = overide_os
+pscale(NPoffsetidx+ilc-1) = overide_osstep
+end if
+if (overide_st .ne. -1.0) then
+p(NPscaleidx +ilc -1) = overide_st/rms1
+pscale(NPscaleidx+ilc-1) = overide_st/rms1 * overide_ststep
+end if
+end do
+end if
 
 
 

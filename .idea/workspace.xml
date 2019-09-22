@@ -13,82 +13,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../academic_projects_public/export_pycecream.py">
+        <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="84" selection-start-line="7" selection-start-column="84" selection-end-line="7" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../academic_projects_public/cream_export/prep_cream.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2085">
-              <caret line="141" column="20" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../academic_projects_public/cream_export/prep_cream_nopgplot_2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="18" selection-start-column="18" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammain_export.f90">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
-              <folding>
-                <marker date="1563198060319" expanded="true" signature="61648:62008" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammod_export.f90">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72120">
-              <caret line="4808" column="29" selection-start-line="4808" selection-start-column="17" selection-end-line="4808" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream/pycecream/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="646" column="31" selection-start-line="646" selection-start-column="31" selection-end-line="646" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="415">
+              <caret line="160" column="66" selection-start-line="160" selection-end-line="160" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream/setup.py">
+        <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/logistic_regression/logreg_quick/test_logreg_2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="160" column="66" selection-start-line="160" selection-end-line="160" selection-end-column="66" />
+            <state relative-caret-position="349">
+              <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,8 +37,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lightcurve_input_params</find>
-      <find>p(NPoffset</find>
       <find>p(NPoffsetidx</find>
       <find>p(NPscal</find>
       <find>self.lightcurve_in</find>
@@ -125,6 +63,10 @@
       <find>model</find>
       <find>a.N</find>
       <find>get_light_curve_fits</find>
+      <find>set_regre</find>
+      <find>print</find>
+      <find>'score'</find>
+      <find>flux</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -142,11 +84,14 @@
         <option value="$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py" />
         <option value="$PROJECT_DIR$/../academic_projects_public/pycecream/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/../academic_projects_public/pycecream/setup.py" />
+        <option value="$PROJECT_DIR$/../../github_datascience/projects/arma_experiment/arma_experiment.py" />
+        <option value="$PROJECT_DIR$/../../github_datascience/projects/regressor_comparison/regressors_2.py" />
+        <option value="$PROJECT_DIR$/../../github_datascience/projects/logistic_regression/logreg_quick/test_logreg_2.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="693" />
+    <option name="x" value="530" />
     <option name="y" value="23" />
     <option name="width" value="720" />
     <option name="height" value="816" />
@@ -156,7 +101,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,6 +123,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,8 +155,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="693" y="23" width="720" height="816" extended-state="0" />
-    <editor active="true" />
+    <frame x="530" y="23" width="720" height="816" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.044247787" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -244,16 +188,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/cream_var.par" />
-    <entry file="file://$PROJECT_DIR$/pycecream/pycecream/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="180" selection-start-line="180" selection-end-line="180" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/output_20190619_001/outputpars2.dat" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/creaminpar.par" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/pricream.par" />
@@ -264,9 +198,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pycecream/pycecream/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="704" column="18" lean-forward="true" selection-start-line="644" selection-start-column="4" selection-end-line="704" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/arma_experiment/arma_experiment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/regressor_comparison/regressors_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="307" column="7" selection-start-line="307" selection-start-column="7" selection-end-line="307" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/cream_export/prep_cream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2085">
+        <state relative-caret-position="415">
           <caret line="141" column="20" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -283,7 +247,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammain_export.f90">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
+        <state relative-caret-position="437">
           <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
           <folding>
             <marker date="1563198060319" expanded="true" signature="61648:62008" ph="..." />
@@ -293,21 +257,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/mcmcmulti3/creammod_export.f90">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72120">
+        <state relative-caret-position="437">
           <caret line="4808" column="29" selection-start-line="4808" selection-start-column="17" selection-end-line="4808" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="160" column="66" selection-start-line="160" selection-end-line="160" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
+        <state relative-caret-position="415">
           <caret line="646" column="31" selection-start-line="646" selection-start-column="31" selection-end-line="646" selection-end-column="31" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -318,7 +275,24 @@
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="160" column="66" selection-start-line="160" selection-end-line="160" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/logistic_regression/logreg_quick/test_logreg_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

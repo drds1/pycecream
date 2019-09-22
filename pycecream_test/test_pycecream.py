@@ -38,6 +38,7 @@
 
 import astropy_stark.myfake as mf
 import matplotlib.pylab as plt
+import numpy as np
 
 '''
 mf.myfake arguments are
@@ -94,7 +95,10 @@ I might change this in a future version
 '''
 a.output_directory = 'fit_synthetic_lightcurves'
 
-
+#test the merging by adding offset to dat1
+d1 = np.array(dat[1])
+d1[:,1] = d1[:,1] - np.mean(d1[:,1]) + 232.
+dat[1] = d1
 
 '''
 Add each of the light curves in the simulation. 
@@ -103,28 +107,28 @@ In this case we are using the "dat" output from the synthetic data above.
 a.add_lc(dat[0],
          kind='continuum',
          wavelength=4000.,
-         name = 'continuum 4000',
-         background_offset_start=[10.0,0.0],
-         vertical_scaling_start=[2.0,0.5])
+         name = 'continuum 4000')
+         #background_offset_start=[10.0,0.0],
+         #vertical_scaling_start=[2.0,0.5])
 a.add_lc(dat[1],
          name = 'continuum 5000',
          kind='continuum',
-         wavelength=5000.,
-         background_offset_start=[10.0,0.0],
-         vertical_scaling_start=[2.0,0.5])
+         wavelength=5000.)
+         #background_offset_start=[10.0,0.0],
+         #vertical_scaling_start=[2.0,0.5])
 a.add_lc(dat[2],
          name = 'continuum 5000 (b)',
          kind='continuum',
-         wavelength = 5000.,
-         background_offset_start=[10.0,0.0],
-         vertical_scaling_start=[2.0,0.5])
+         wavelength = 5000.)
+         #background_offset_start=[10.0,0.0],
+         #vertical_scaling_start=[2.0,0.5])
 
 a.add_lc(dat[3],
          name = 'continuum 7000',
          kind='continuum',
-         wavelength=7000.,
-         background_offset_start=[10.0,0.0],
-         vertical_scaling_start=[2.0,0.5])
+         wavelength=7000.)
+         #background_offset_start=[10.0,0.0],
+         #vertical_scaling_start=[2.0,0.5])
 
 #If adding a line light curve, must indicate using the "kind" argument
 a.add_lc(dat[4],name='test line 1',kind='line',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5],
