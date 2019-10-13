@@ -10,9 +10,11 @@ dist/pycecream-1.2.0.tar.gz
 dist/pycecream-1.2.1.tar.gz
 dist/pycecream-1.2.2.tar.gz
 dist/pycecream-1.2.3.tar.gz
+dist/pycecream-1.2.4.tar.gz
 pycecream/__init__.py
 pycecream/__init__.pyc
 pycecream/cream_f90.f90
+pycecream/cream_f90_220919.f90
 pycecream/cream_old_f90.f90
 pycecream/cream_trace.py
 pycecream/creaminpar.par

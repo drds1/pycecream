@@ -2232,21 +2232,35 @@ xref_bar = xres_bar
 xref_std = xres_std
 endif
 
+!light curves have all been transformed to by sub mean and divide sd
+!undo transformation first
+ave_trans = ave_overflow(ilc)
+sd_trans = sd_overflow(ilc)
+
+
+
 !make merged data light curves
 fname_tit= file_lc_in(ilc)
 fname_savelc = 'merged_dat_'//trim(adjustl(fname_tit))//'.dat'
+
 open(unit = 2,file = trim(adjustl(fname_savelc)))
 do its = lo(ilc),hi(ilc)
-xnew = (x(its) - xres_bar)*xref_std/xres_std + xref_bar
-signew = err(its)*xref_bar/xref_std
-sigmodnew = ervar(its)*xref_bar/xref_std
+    xt = x(its)*sd_trans + ave_trans
+xnew = (xt - xres_bar)*xref_std/xres_std + xref_bar
+signew = err(its)*sd_trans*xref_bar/xref_std
+sigmodnew = ervar(its)*sd_trans*xref_bar/xref_std
 if (sigrej) then
 write(2,*) t(its), xnew, signew,sigmodnew, sigrej_mark_save(its)
 else
-write(2,*) t(its), x(its), err(its),ervar(its), 0
+    write(2,*) t(its), xnew, signew,sigmodnew, 0
+!write(2,*) t(its), x(its), err(its),ervar(its), 0
 endif
 enddo
 close(2)
+
+!write(*,*) trim(adjustl(fname_savelc)),xc/Nc
+!write(*,*) isharelc(ilc),ilc,xref_bar,xres_bar,xref_std,xres_std
+!read(*,*)
 
 !make merged model light curves
 fname_tit= file_lc_in(ilc)
@@ -2254,7 +2268,7 @@ fname_savelc = 'merged_mod_'//trim(adjustl(fname_tit))//'.dat'
 open(unit = 2,file = trim(adjustl(fname_savelc)))
 do its = interpidxmin,interpidxmax
 xnew = (echosave(its,ilc) - xres_bar)*xref_std/xres_std + xref_bar
-signew = sigechosave(its,ilc)*xref_bar/xref_std
+signew = sigechosave(its,ilc)*sd_trans*xref_bar/xref_std
 write(2,*) tgrid(its), xnew, signew
 enddo
 close(2)
