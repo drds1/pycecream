@@ -71,7 +71,7 @@ A new feature (17/06/2019) is the option to set the starting values and step siz
 The same feature is available for the starting vertical 'stretch' parameter for each light curve with the argument set to 'vertical_scaling_start'. The default values of [-1,-1] for these arguments will use the standard starting settings for these parameters.
 
 ## Vertical scaling and background offset priors
-We can now also add priors to pycecream's offset level and vertical scaling parameters using the "background_offset_prior" and "vertical_scaling_prior" arguments shown below.
+We can now also add priors to pycecream's offset level and vertical scaling parameters using the `background_offset_prior` and `vertical_scaling_prior` arguments shown below.
 
 
 ```python
@@ -188,6 +188,15 @@ a.run()
     0              0.0                   5.4           2.0                0.0  
 
 
+## Rescaling Error Bars
+
+Pycecream has two parameters for each light curve that aim to rescale incorrectly-specified error bars. These produce new error bars from the nominal values by optimising a `var` and `f` parameter in
+
+$\sigma_{new} = \sqrt{ (f \sigma_{old})^2 + var }$.
+
+Note than one `var` and `f` parameter is fitted for each light curve input from the `.add_lc` function. These parameters are enabled by default. To turn these off, set the argument `expand_errors=[]` in the `.add_lc` function.
+
+
 # Section 3: Examine the output
 
 There are 2 output dataframes.
@@ -202,7 +211,7 @@ This a dictionary of 3 data frames.
     3) output_lightcurves['merged data'] DICTIONARY (since the input data light curves can be different sizes) The same transformations but applied to the input light curve data. useful if using cream only to merge the original light curves from different telescopes to a new scale for further study elsewhere.
 
 ## 3.2) output_chains = a.get_MCMC_chains(): 
-These are the MCMC chains for each parameter.
+These are the MCMC chains for each parameter. Parameters are given in the data frame headers but include the error bar rescaling parameters discussed above. These are designated `[light curve name] m noise` and `[light curve name] var noise` for the multiplicative and extra variance parameter respectively.
 
 
 
