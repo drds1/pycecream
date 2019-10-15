@@ -2247,8 +2247,8 @@ open(unit = 2,file = trim(adjustl(fname_savelc)))
 do its = lo(ilc),hi(ilc)
     xt = x(its)*sd_trans + ave_trans
 xnew = (xt - xres_bar)*xref_std/xres_std + xref_bar
-signew = err(its)*sd_trans*xref_bar/xref_std
-sigmodnew = ervar(its)*sd_trans*xref_bar/xref_std
+signew = err(its)*sd_trans*xref_std/xres_std
+sigmodnew = ervar(its)*sd_trans*xref_std/xres_std
 if (sigrej) then
 write(2,*) t(its), xnew, signew,sigmodnew, sigrej_mark_save(its)
 else
@@ -2268,7 +2268,7 @@ fname_savelc = 'merged_mod_'//trim(adjustl(fname_tit))//'.dat'
 open(unit = 2,file = trim(adjustl(fname_savelc)))
 do its = interpidxmin,interpidxmax
 xnew = (echosave(its,ilc) - xres_bar)*xref_std/xres_std + xref_bar
-signew = sigechosave(its,ilc)*sd_trans*xref_bar/xref_std
+signew = sigechosave(its,ilc)*sd_trans*xref_std/xres_std
 write(2,*) tgrid(its), xnew, signew
 enddo
 close(2)
