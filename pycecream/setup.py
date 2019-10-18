@@ -3,14 +3,14 @@ from setuptools import setup
 #upload to pip
 #pip install .
 #python setup.py sdist
-#twine upload dist/pycecream-1.3.3.tar.gz
+#twine upload dist/pycecream-1.3.4.tar.gz
 
 setup(name='pycecream',
-      version='1.3.3',
+      version='1.3.4',
       description='python implementation of the cream accretion disc fitting code '
                   'https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF'
       ,
-      long_description= 'bug fix with rescaled-merged error bars',
+      long_description= 'bug fix (model) rescaled-merged error bars (data rescaled error bars ok)',
       url='https://github.com/dstarkey23/pycecream',
       author='dstarkey23',
       author_email='ds207@st-andrews.ac.uk',

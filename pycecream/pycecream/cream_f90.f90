@@ -2268,7 +2268,7 @@ fname_savelc = 'merged_mod_'//trim(adjustl(fname_tit))//'.dat'
 open(unit = 2,file = trim(adjustl(fname_savelc)))
 do its = interpidxmin,interpidxmax
 xnew = (echosave(its,ilc) - xres_bar)*xref_std/xres_std + xref_bar
-signew = sigechosave(its,ilc)*sd_trans*xref_std/xres_std
+signew = sigechosave(its,ilc)*xref_std/xres_std
 write(2,*) tgrid(its), xnew, signew
 enddo
 close(2)
