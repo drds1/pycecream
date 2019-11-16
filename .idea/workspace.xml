@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycecream/pycecream.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/pycecream.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycecream/pycecream.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/pycecream.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycecream/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/setup.py" afterDir="false" />
-    </list>
+    <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +13,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2370">
+            <state relative-caret-position="415">
               <caret line="160" column="3" selection-start-line="160" selection-end-line="160" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -36,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -102,13 +106,14 @@
         <option value="$PROJECT_DIR$/../../github_datascience/projects/arma_experiment/arma_experiment.py" />
         <option value="$PROJECT_DIR$/../../github_datascience/projects/regressor_comparison/regressors_2.py" />
         <option value="$PROJECT_DIR$/../../github_datascience/projects/logistic_regression/logreg_quick/test_logreg_2.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="530" />
+    <option name="x" value="130" />
     <option name="y" value="23" />
-    <option name="width" value="720" />
+    <option name="width" value="1120" />
     <option name="height" value="816" />
   </component>
   <component name="ProjectView">
@@ -116,6 +121,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,22 +129,10 @@
               <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -170,9 +164,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="530" y="23" width="720" height="816" extended-state="0" />
+    <frame x="130" y="23" width="1120" height="816" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.044247787" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22634508" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -284,13 +279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2370">
-          <caret line="160" column="3" selection-start-line="160" selection-end-line="160" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/logistic_regression/logreg_quick/test_logreg_2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1230">
@@ -308,6 +296,20 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/test_pycecream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="160" column="3" selection-start-line="160" selection-end-line="160" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
         </state>
       </provider>
     </entry>
