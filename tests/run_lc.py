@@ -19,13 +19,9 @@ class test_pc:
         make fake lightcurves
         :return:
         mf.myfake arguments are
-
         wavelengths: enter the wavelengths (-1 indicates an emission line light curve modelled with a top-hat response),
-
         snr: set the signal-to-noise relative to light curve rms
-
         cadence:set the mean cadence
-
         top hat centroid: set the centroid for the top-hat (I think thats what this does but the line lag
         thing is still newish so Im used to just making continuum light curve)
         '''
