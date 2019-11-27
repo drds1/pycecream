@@ -2,107 +2,96 @@ import pycecream
 import astropy_stark.myfake as mf
 import matplotlib.pylab as plt
 import unittest
+import os
+
+
+def get_synthetic_data():
+
+    finished = False
+    '''input arguments'''
+    fake_wavelength = [4680.0,4686.0,4720.,4720.,
+                       7480.0,7760.,7764.0,7764.0,-1.0]
+    fake_snr = [50.0,30.0,50.,30.,50.0,50.0,50.0,30.0,10.]
+    fake_cadence = [1.0]*len(fake_snr)
 
 
 
-class Test_synthetic_data:
+    synthetic_data = mf.myfake(
+    fake_wavelength,
+    fake_snr,
+    fake_cadence,
+    thcent = 20.0
+    )
+    dat = synthetic_data['echo light curves']
+
+    name = ['continuum 4680',
+            'continuum 4686',
+            'continuum 4720',
+            'continuum 4720  (Telescope 2)',
+            'continuum 7480',
+            'continuum 7760',
+            'continuum 7764',
+            'continuum 7764 (Telescope 2)',
+            'line 0  (MgII)'
+            ]
+
+    share_previous_lag = [False,False,False,True,
+                          False,False,False,True,
+                          False]
+
+    kind = ['continuum']*(len(dat)-1) + ['line']
+    test_data = {'lightcurve':dat,
+                 'name':name,
+                 'kind':kind,
+                 'wavelength':fake_wavelength,
+                 'share_previous_lag':share_previous_lag}
+
+    return test_data
 
 
-    def test_gen_fake(self):
-        '''
-        make fake lightcurves
-        :return:
-        mf.myfake arguments are
 
-        wavelengths: enter the wavelengths (-1 indicates an emission line light curve modelled with a top-hat response),
 
-        snr: set the signal-to-noise relative to light curve rms
+class Test_synthetic_data(unittest.TestCase):
 
-        cadence:set the mean cadence
 
-        top hat centroid: set the centroid for the top-hat (I think thats what this does but the line lag
-        thing is still newish so Im used to just making continuum light curve)
-        '''
+    def test_synthetic_data(self):
 
         finished = False
-        self.fake_wavelength = [-1.0,4680.0,4686.0,4720.,4720.,7480.0,7760.,7764.0,7764.0]
-        self.fake_snr = [10.,50.0,30.0,50.,30.,50.0,50.0,50.0,30.0]
-        self.fake_cadence = [1.0]*len(self.fake_snr)
-
-
-        synthetic_data = mf.myfake(
-        self.fake_wavelength,
-        self.fake_snr,
-        self.fake_cadence,
-        thcent = 20.0
-        )
-        self.dat = synthetic_data['echo light curves']
-        finished = True
-        self.assertEqual(finished, True)
-
-
-
-
-
-
-class Test_run_pycecream(synthetic_data,unittest.TestCase):
-
-    def test_run_pycecream(self):
-        '''
-        test pycecream using yasamans script
-        :return:
-        '''
-        finished = False
-        cream_lc0, cream_lc1, cream_lc4, cream_lc2, cream_lc3, cream_lc8, cream_lc5, cream_lc6, cream_lc7 = self.dat
-
-
+        '''input arguments'''
+        synthetic_data = get_synthetic_data()
 
         a = pycecream.pycecream()
+        a.output_directory = 'test_pycecream'
 
         #step accretion rate?
         a.p_accretion_rate_step = 0.1
-
-        # MgII Line lightcurve
-        a.add_lc(cream_lc0, name='line 0  (MgII)', kind='line')
         a.p_linelag_centroids_step = 0.0
-        # g-band photometric lightcurves
-        a.add_lc(cream_lc1,name='continuum (Bok)', kind='continuum', wavelength = 4680)
-        a.add_lc(cream_lc2,name='continuum 4720 (CFHT 1)',kind='continuum', wavelength  = 4720, share_previous_lag=True)
-        a.add_lc(cream_lc3,name='continuum 4720 (CFHT 2)',kind='continuum', wavelength = 4720, share_previous_lag=True)
-        a.add_lc(cream_lc4,name='continuum 4686  (SynthPhot)',kind='continuum', wavelength = 4686, share_previous_lag=True)
-        # i-band photometric lightcurves
-        a.add_lc(cream_lc5,name='continuum (Bok)', kind='continuum', wavelength= 7760, share_previous_lag = True)
-        a.add_lc(cream_lc6,name='continuum (CFHT 1)',kind='continuum', wavelength = 7764, share_previous_lag=True)
-        a.add_lc(cream_lc7,name='continuum (CFHT 2)',kind='continuum', wavelength = 7764, share_previous_lag=True)
-        a.add_lc(cream_lc8,name='continuum (SynthPhot)',kind='continuum', wavelength = 7480,share_previous_lag=True)
+
+        ndata = len(synthetic_data['name'])
+
+        for i in range(ndata):
+            a.add_lc(synthetic_data['lightcurve'][i],
+                     name=synthetic_data['name'][i],
+                     kind = synthetic_data['kind'][i],
+                     wavelength=synthetic_data['wavelength'][i],
+                     share_previous_lag=synthetic_data['share_previous_lag'][i])
         a.hi_frequency = 0.5
         a.N_iterations = 20
         a.run()
 
-        self.pc = a
 
-        finished = True
-        self.assertEqual(finished, True)
-
-
-
-
-
-    def test_post_run(self):
         '''
-        analyse output
-        :return:
+        post run
         '''
-        finished = False
-        self.output_chains = self.pc.get_MCMC_chains(location=None)
-        self.output_lightcurves = self.pc.get_light_curve_fits(location=None)
+        output_chains = a.get_MCMC_chains(location=None)
+        output_lightcurves = a.get_light_curve_fits(location=None)
         '''
         Check the input settings are ok prior to running
         '''
-        print(self.pc.lightcurve_input_params)
-
+        print(a.lightcurve_input_params)
         finished = True
-        self.assertEqual(finished, True)
+        self.assertEqual(finished,True)
+        os.system('rm -rf test_pycecream')
 
 
 if __name__ == '__main__':

@@ -1,3 +1,6 @@
+#pydocmd build
+#pydocmd serve
+
 site_name: pycecream
 repo_url: https://github.com/dstarkey23/pycecream
 generate:

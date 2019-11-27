@@ -3,26 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/example_line_continuum/resamp_" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/example_line_continuum/run_lc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fitinfo_fit_figures__1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fluxflux.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/page_0_lcplot_fit_figures__1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/page_1_lcplot_fit_figures__1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pydocmd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pydocmd.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resamp_" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_pycecream.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_12_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_6_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_6_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_6_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_6_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_6_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_6_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_6_8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_files/test_pycecream_9_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_tophat_0lag.ipynb" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,16 +27,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/build_docs.sh">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/deploy_docs.sh">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/serve_docs.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -63,22 +36,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
+        <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="128" column="3" selection-start-line="128" selection-start-column="3" selection-end-line="128" selection-end-column="3" />
+            <state relative-caret-position="1275">
+              <caret line="85" column="46" selection-start-line="10" selection-start-column="4" selection-end-line="85" selection-end-column="46" />
               <folding>
-                <element signature="e#2508#2541#0" expanded="true" />
+                <element signature="e#0#16#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
+        <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+            <state relative-caret-position="260">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -87,19 +60,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
+        <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+            <state relative-caret-position="279">
+              <caret line="44" column="13" lean-forward="true" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/pydocmd.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <entry file="file://$PROJECT_DIR$/docs/_build/pydocmd/pycecream.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -183,16 +157,16 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/pydocmd.yml" />
-        <option value="$PROJECT_DIR$/docs/pydocmd.yml" />
         <option value="$PROJECT_DIR$/examples/test_pycecream.py" />
-        <option value="$PROJECT_DIR$/tests/test_pycecream.py" />
         <option value="$PROJECT_DIR$/tests/run_lc.py" />
+        <option value="$PROJECT_DIR$/docs/pydocmd.yml" />
+        <option value="$PROJECT_DIR$/tests/test_pycecream.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="526" />
-    <option name="y" value="23" />
+    <option name="x" value="667" />
+    <option name="y" value="24" />
     <option name="width" value="720" />
     <option name="height" value="816" />
   </component>
@@ -200,7 +174,36 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="_build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -237,10 +240,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="526" y="23" width="720" height="816" extended-state="0" />
+    <frame x="667" y="24" width="720" height="816" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.23376623" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23303835" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -411,34 +414,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/pydocmd.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/autogen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/build_docs.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/deploy_docs.sh">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/serve_docs.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/example_line_continuum/run_lc.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -464,17 +441,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
+    <entry file="file://$PROJECT_DIR$/docs/build_docs.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/autogen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+        <state relative-caret-position="-527">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/_build/pydocmd/pycecream.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/_build/pydocmd/index.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-343" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/pydocmd.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/serve_docs.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+        <state relative-caret-position="1275">
+          <caret line="85" column="46" selection-start-line="10" selection-start-column="4" selection-end-line="85" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="44" column="13" lean-forward="true" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
