@@ -1,0 +1,12 @@
+site_name: pycecream
+repo_url: https://github.com/dstarkey23/pycecream
+generate:
+  - pycecream.md:
+      - pycecream
+pages:
+  - Home: index.md << ../README.md
+  - pycecream: pycecream.md
+theme:
+  name: readthedocs
+  collapse_navigation: true
+  search_index_only: false

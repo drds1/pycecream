@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Home - pycecream</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> pycecream</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#pycecream">PyceCREAM</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#requirements-installation">Requirements &amp; Installation</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#section-1-generate-synthetic-light-curves">Section 1: Generate Synthetic Light Curves</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-2-setup-and-run-pycecream">Section 2: Setup and run PyceCREAM</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#vertical-scaling-and-background-offset-start-positions-and-steps">Vertical scaling and background offset start positions and steps</a></li>
+        
+            <li><a class="toctree-l3" href="#vertical-scaling-and-background-offset-priors">Vertical scaling and background offset priors</a></li>
+        
+            <li><a class="toctree-l3" href="#rescaling-error-bars">Rescaling Error Bars</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#section-3-examine-the-output">Section 3: Examine the output</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#31-output_lightcurves-aget_light_curve_fits">3.1) output_lightcurves = a.get_light_curve_fits():</a></li>
+        
+            <li><a class="toctree-l3" href="#32-output_chains-aget_mcmc_chains">3.2) output_chains = a.get_MCMC_chains():</a></li>
+        
+            <li><a class="toctree-l3" href="#33-flux-flux-analysis">3.3: Flux-flux analysis</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#section-4-using-pycecream-to-merge-light-curves-only">Section 4: Using PyceCREAM to merge light curves only.</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#initialise-the-cream-instance-and-configure-for-merge-mode">Initialise the cream instance and configure for merge mode</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#configurable-parameters">Configurable parameters</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="pycecream/">pycecream</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">pycecream</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dstarkey23/pycecream/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="pycecream">PyceCREAM</h1>
+<p>Here is a python implementation of my accretion disc and emission line lightcurve-fitting code (previously CREAM). This guide briefly covers generating synthetic data and calling a new pycecream object to ingest and fit the accretion disc model (or emission line model) to a set of input light curves. I also demonstrate how to access the output of the pycecream fit. The output includes the fitted light curves, any new light curve data points after merging, fitted response functions and parameter MCMC chain histories for the disc and/or tophat response parameters.</p>
+<p>Most of these features are used in some form or another from a previous f90 version of this code (CREAM) in the following literature</p>
+<ul>
+<li>Grier et al in prep</li>
+<li>Grier et al 2018    https://iopscience.iop.org/article/10.3847/1538-4357/aa98dc/pdf</li>
+<li>Starkey et al 2017  https://ui.adsabs.harvard.edu/#abs/arXiv:1611.06051</li>
+<li>Starkey et al 2016  https://ui.adsabs.harvard.edu/#abs/arXiv:1511.06162</li>
+</ul>
+<p>Please send questions to ds207@st-andrews.ac.uk. Though I am currently taking a break from academia and may take some time to respond, I will try to do so as soon as possible.</p>
+<h2 id="requirements-installation">Requirements &amp; Installation</h2>
+<p>Please ensure that you have a fortran compiler installed. I use Gfortran. If you have an alternate (e.g ifort), please indicate the standard command used to call the fortran compiler using the <code>fortran_caller</code> argument (default is <code>fortran_caller = gfortran</code>).</p>
+<p>command These are fairly easy to install from macports or wget etc. Also a Python version is required (I am using 3.7 but even 2 should be fine). The it's just...</p>
+<pre><code>pip install pycecream
+</code></pre>
+
+<h1 id="section-1-generate-synthetic-light-curves">Section 1: Generate Synthetic Light Curves</h1>
+<p>In this example we generate 4 disk light curves and 2 emission-line light curves modeled as a top-hat with a 20-day lag. The code below generates a list where each index contains an Nx3 numpy array for each light curve. The 3 vertical axis for each light curve are the time, flux and noise respectively (query synthetic_data['echo lightcurves'][0] for an example of the format required when inputting your own light curve data).</p>
+<p>The example below combines continuum and line light curves and illustrates a case in which you may have two of the same emission line (and so want to fit with the same response function model) but observed from different telescopes that require separate noise models.</p>
+<pre><code class="python">import astropy_stark.myfake as mf
+import matplotlib.pylab as plt
+
+'''
+mf.myfake arguments are
+
+wavelengths: enter the wavelengths (-1 indicates an emission line light curve modelled with a top-hat response),
+
+snr: set the signal-to-noise relative to light curve rms
+
+cadence:set the mean cadence
+
+top hat centroid: set the centroid for the top-hat (I think thats what this does but the line lag 
+thing is still newish so Im used to just making continuum light curve)
+'''
+
+
+synthetic_data = mf.myfake(
+    [4000.0,5000.0,5000.0,7000.0,-1.0,-1.0],
+    [50.0,50.0,10.0,50.0,50,10.],
+    [1.0,1.0,2.0,1.0,1.0,3.0],
+    thcent = 20.0
+)
+
+'''This recovers the synthetic data'''
+dat = synthetic_data['echo light curves']
+</code></pre>
+
+<h1 id="section-2-setup-and-run-pycecream">Section 2: Setup and run PyceCREAM</h1>
+<p>The script below gives an example on how to set up and run a sample pycecream simulation on a mixture of continuum light curves. Note at the bottom of this document some commands for configuring starting parameters and their step sizes (e.g for inclination accretion rate etc).</p>
+<p>A new feature (17/06/2019) is the option to set the starting values and step sizes for the background offset term of each lightcurve. This was previously initialised to the mean with a step size equal to the standard deviation of the light curve data but can now be configured with the 'background_offset_start' when adding each new light curve. This is a list of 2 numbers with the first being the start value and the second corresponding to the step size.</p>
+<h2 id="vertical-scaling-and-background-offset-start-positions-and-steps">Vertical scaling and background offset start positions and steps</h2>
+<p>The same feature is available for the starting vertical 'stretch' parameter for each light curve with the argument set to 'vertical_scaling_start'. The default values of [-1,-1] for these arguments will use the standard starting settings for these parameters.</p>
+<h2 id="vertical-scaling-and-background-offset-priors">Vertical scaling and background offset priors</h2>
+<p>We can now also add priors to pycecream's offset level and vertical scaling parameters using the <code>background_offset_prior</code> and <code>vertical_scaling_prior</code> arguments shown below.</p>
+<pre><code class="python">import pycecream
+
+#instantiate a pycecream object
+a = pycecream.pycecream()
+
+'''
+If you use a fortran compiler other than gfortran please indicate here.
+I just re-enter gfortran here for demonstration purposes even though 
+this is unecassary as gfortran is the default argument.
+'''
+a.fortran_caller = 'gfortran'
+
+
+
+'''Choose an output directory in which to save the results. 
+This will be a new directory that you have not previously created (pycecream will make it automatically).
+
+NOTE: Each new cream simulation must have a new name for &quot;output_directory argument below 
+otherwise an excpetion is raised. This is to prevent accidentally overwriting previous simulations. 
+I might change this in a future version 
+'''
+a.output_directory = 'fit_synthetic_lightcurves'
+
+
+
+'''
+Add each of the light curves in the simulation. 
+In this case we are using the &quot;dat&quot; output from the synthetic data above.
+'''
+a.add_lc(dat[0], name = 'continuum 4000',wavelength = 4000.0,
+         kind='continuum',
+         background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5]))
+
+a.add_lc(dat[1], wavelength = 5000.0, kind = 'continuum',
+         name = 'continuum 5000')
+
+a.add_lc(dat[2], wavelength = 5000.0, kind = 'continuum',
+         name = 'continuum 5000 (b)')
+
+
+'''
+Here, we are going to show pycecreams prior feature. It is now possible to add priors to the 
+offset level and vertical scaling parameters for each light curve. These will configured using
+the &quot;vertical_scaling_prior&quot;, and &quot;background_offset_prior&quot; arguments.
+Each of these is a list of teo elements. The first element is the mean level and the 
+second element is the standard deviation.
+'''
+a.add_lc(dat[3], name = 'continuum 7000',
+         wavelength = 7000.0,
+         kind = 'continumm',
+         vertical_scaling_prior=[0.0,0.1],
+         background_offset_prior=[5.0,0.0001]
+        )
+
+#If adding a line light curve, must indicate using the &quot;kind&quot; argument
+a.add_lc(dat[4],name='test line 1',kind='line')
+
+#If we want the same line response function model, set &quot;share_previous_lag&quot;=True
+a.add_lc(dat[5],name='test line 1 (shared)',kind='line',share_previous_lag=True)
+
+
+
+'''
+specify the numnber of MCMC iterations. Normally at least several thousand are necessary but shorter numbers 
+can be used just to check everything is working is done here.
+'''
+a.N_iterations=40
+
+'''
+specify the step sizes for the fit parameters. 
+Here we are setting the accretion rate step size to vary by ~ 0.1 solar masses per year.
+'''
+a.p_accretion_rate_step = 0.1
+
+'''
+Check the input settings are ok prior to running
+'''
+print(a.lightcurve_input_params)
+
+'''
+RUN!
+'''
+a.run()
+</code></pre>
+
+<pre><code>pycecream path... /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pycecream
+copying file...
+/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pycecream
+                   name  type  wavelength            noise model  \
+0        continuum 4000  line        -1.0  [var, multiplicative]   
+0        continuum 5000  line        -1.0  [var, multiplicative]   
+0    continuum 5000 (b)  line        -1.0  [var, multiplicative]   
+0        continuum 7000  line        -1.0  [var, multiplicative]   
+0           test line 1  line        -1.0  [var, multiplicative]   
+0  test line 1 (shared)  line        -1.0  [var, multiplicative]
+
+  share previous lag temporary file name      mean  standard deviation  \
+0              False          line_0.dat  3.797598            0.791625   
+0              False          line_1.dat  3.588153            0.673253   
+0              False          line_2.dat  3.587092            0.675741   
+0              False          line_3.dat  3.276318            0.526072   
+0              False          line_4.dat -0.001138            0.997945   
+0               True          line_5.dat  0.016873            1.000851
+
+   tophat centroid  tophat centroid step  tophat width  tophat width step  
+0              0.0                   5.0           2.0                0.0  
+0              0.0                   5.1           2.0                0.0  
+0              0.0                   5.2           2.0                0.0  
+0              0.0                   5.3           2.0                0.0  
+0              0.0                   5.4           2.0                0.0  
+0              0.0                   5.4           2.0                0.0
+</code></pre>
+<h2 id="rescaling-error-bars">Rescaling Error Bars</h2>
+<p>Pycecream has two parameters for each light curve that aim to rescale incorrectly-specified error bars. These produce new error bars from the nominal values by optimising a <code>var</code> and <code>f</code> parameter in</p>
+<p>$\sigma_{new} = \sqrt{ (f \sigma_{old})^2 + var }$.</p>
+<p>Note than one <code>var</code> and <code>f</code> parameter is fitted for each light curve input from the <code>.add_lc</code> function. These parameters are enabled by default. To turn these off, set the argument <code>expand_errors=[]</code> in the <code>.add_lc</code> function.</p>
+<h1 id="section-3-examine-the-output">Section 3: Examine the output</h1>
+<p>There are 2 output dataframes.</p>
+<h2 id="31-output_lightcurves-aget_light_curve_fits">3.1) output_lightcurves = a.get_light_curve_fits():</h2>
+<p>This a dictionary of 3 data frames.</p>
+<pre><code>1) output_lightcurves['model']: standard time, model, error envelope for each file
+
+2) output_lightcurves['merged model'] AS above but with the error bars, vertical and horrizontal scalings applied relative to the reference model. Not sure but I think the reference model defaults to the first occurence of a particular wavelength in the order that it was added in self.add_lc
+
+3) output_lightcurves['merged data'] DICTIONARY (since the input data light curves can be different sizes) The same transformations but applied to the input light curve data. useful if using cream only to merge the original light curves from different telescopes to a new scale for further study elsewhere.
+</code></pre>
+<h2 id="32-output_chains-aget_mcmc_chains">3.2) output_chains = a.get_MCMC_chains():</h2>
+<p>These are the MCMC chains for each parameter. Parameters are given in the data frame headers but include the error bar rescaling parameters discussed above. These are designated <code>[light curve name] m noise</code> and <code>[light curve name] var noise</code> for the multiplicative and extra variance parameter respectively.</p>
+<pre><code class="python">'''
+Get the mcmc chains and output fits. 
+Each of these arguments come with a &quot;location&quot; argument where you can point to a 
+previous simulation and recover the outputs. 
+If this is left blank we default to the current simulation
+'''
+output_chains = a.get_MCMC_chains(location = None)
+output_lightcurves = a.get_light_curve_fits(location = None)
+
+'''
+make figures of the fit, posterior, light curves etc. file prefix tells the code where you want to save the output.
+The figure plotting is somewhat primitive and is a relic of when I still used cream. You may prefer to use your own
+output figures with the output of the &quot;get_MCMC_chains&quot; and &quot;get_light_curve_fits&quot; functions above.
+'''
+a.plot_results(file_prefix='fit_figures')
+
+
+
+
+'''
+figures can also be made on an indivdual basis with axes objects returned from python plotting functions
+'''
+#plot the fitted light curves.
+a.plot_lightcurves()
+plt.show()
+
+
+#plot the driving light curve
+a.plot_driver()
+plt.show()
+
+
+#plot the parameter trace plots
+a.plot_trace()
+plt.show()
+
+
+#plot the covariance parameter plot for the disc parameters
+a.plot_posterior()
+plt.show()
+
+
+
+</code></pre>
+
+<pre><code>cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files
+
+
+/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/matplotlib/axes/_axes.py:3199: RuntimeWarning: invalid value encountered in double_scalars
+  low = [thisx - thiserr for thisx, thiserr
+
+
+-15.6157398 [3.79759836 3.79759836 3.79759836 3.79759836 3.79759836] 0
+-15.6157398 [2.97298455 2.97860861 2.98250675 2.98431969 2.98378778] 1
+-15.6157398 [2.98830366 2.99381804 2.99764013 2.9994173  2.99889588] 2
+-15.6157398 [2.81484246 2.81997252 2.82417488 2.82705927 2.82838535] 3
+making posterior plot.... posterior_fit_figures__1.pdf
+unable to make covariance plot for disc posteriors. Please check at least some of these are set to varyin the fit.
+fit_synthetic_lightcurves/simulation_files/output_20190406_001/G_plot.pdf
+Nth  6  Ndisk 1
+cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
+-15.6157398 [3.79759836 3.79759836 3.79759836 3.79759836 3.79759836] 0
+-15.6157398 [2.97298455 2.97860861 2.98250675 2.98431969 2.98378778] 1
+-15.6157398 [2.98830366 2.99381804 2.99764013 2.9994173  2.99889588] 2
+-15.6157398 [2.81484246 2.81997252 2.82417488 2.82705927 2.82838535] 3
+</code></pre>
+<p><img alt="png" src="test_pycecream_files/test_pycecream_6_3.png" /></p>
+<p><img alt="png" src="test_pycecream_files/test_pycecream_6_4.png" /></p>
+<pre><code>cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
+</code></pre>
+<p><img alt="png" src="test_pycecream_files/test_pycecream_6_6.png" /></p>
+<pre><code>cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
+</code></pre>
+<p><img alt="png" src="test_pycecream_files/test_pycecream_6_8.png" /></p>
+<pre><code>cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
+</code></pre>
+<h2 id="33-flux-flux-analysis">3.3: Flux-flux analysis</h2>
+<p>This is similar to Figure xx of Starkey et al 2017. We will plot the model-infered driving light curve flux as a function of the echo light curve fluxes to validate use of the linear echo model. This should be a straight line for all continuum wavelengths assuming that continuum variability is indeed driven by a central source of irradiation. The cream-inferred driving light curve is a proxy for that central irradiating source.</p>
+<p>The flux-flux analysis will return a dictionary containing the slopes, intercepts and covariance matricess of a linear fit between the model-inferred driver and response light curves for each wavelength.</p>
+<p>It will also return the interpolated x and y points used to generate the fit parameters for each of these wavelengths.</p>
+<pre><code class="python">op = a.get_flux_flux_analysis(plotfile='fluxflux.pdf',xlim=[-4,4])
+
+'''
+We can perform this fit on a previous simulation and 
+skip the full MCMC analysis by specifying the location 
+of the pycecream folder for a previous run.
+
+e.g
+a = pycecream.pycecream()
+op = a.get_flux_flux_analysis(
+location='../pycecream_sims/NGC5548')
+'''
+</code></pre>
+
+<p>For those using this on previous simulations that used
+an earlier fortran cream version, this feature is somewhat
+backwards compatible. Just make a folder tree like this</p>
+<p>'target/simulation_dir'</p>
+<p>In this folder, drop the output_YYYYMMDD_00X output folder
+from a previous cream run. Then use pycecream as follows</p>
+<pre><code class="python">a = pycecream.pycecream()
+op = a.get_flux_flux_analysis(location='target')
+</code></pre>
+
+<h1 id="section-4-using-pycecream-to-merge-light-curves-only">Section 4: Using PyceCREAM to merge light curves only.</h1>
+<p>In this section, we explore another application of cream, merging light curves. I may for example have light curves taken all at a single wavelength but from different telescopes. I want to calibrate and merge these together using PyceCREAM to then produce a single light curve file to pass onto further analysis elsewhere. </p>
+<p>I will create two example line light curves below separated by 15 days.</p>
+<pre><code class="python">#create the fake data.
+'''
+ For some reason my fake data creator wasnt designed to make multiple line light curves with different lags
+ at the same time so I have faked it out below by recreating the same driver twice using the same random 
+ number seed to create each lag.
+'''
+#this will create two light curves with a standard deviation of 1 and a mean of 0, SNR of 50
+#sampled at 1 and 2 day mean cadence
+lc1 = mf.myfake(
+    [-1.0,-1.0],
+    [50.0,50.],
+    [1.0,2.0],
+    sdforcein=[1.0,1.0],
+    meanforcein = [0.0,0.0],
+    thcent = 5.0,
+    iseed = 12345
+)['echo light curves']
+
+#this will create one further light curve with a standard deviation of 2 and a mean of 5, SNR of 20
+#sampled at 1 day mean cadence. This will have the same lag as the first light curve to indicate the same filter
+#but have a different vertical and noise model to indicate a calibration issue.
+lc2= mf.myfake(
+    [-1.0],
+    [20.0],
+    [1.0],
+    thcent = 5.0,
+    sdforcein=[2.0],
+    meanforcein = [5.0],
+    iseed = 12345
+)['echo light curves']
+linedat = lc1+lc2
+
+
+#plot the light curves here to demonstrate
+fig = plt.figure()
+ax1 = fig.add_subplot(111)
+label = ['telescope 1']*len(lc1) + ['telescope 2']*len(lc2)
+for i in range(len(linedat)):
+    ax1.errorbar(linedat[i][:,0],linedat[i][:,1],linedat[i][:,2],ls=None)
+ax1.set_xlabel('time (days)')
+ax1.set_ylabel('flux arbitrary units')
+plt.legend()
+plt.show()
+
+
+</code></pre>
+
+<p><img alt="png" src="test_pycecream_files/test_pycecream_12_0.png" /></p>
+<h2 id="initialise-the-cream-instance-and-configure-for-merge-mode">Initialise the cream instance and configure for merge mode</h2>
+<p>I don't bother here with all the setup commands like a.fortran_caller. Please see Section 2 for the cream system configuration settings (these tend to be unnecessary anyway). </p>
+<pre><code class="python">
+#instantiate a pycecream object
+a = pycecream.pycecream()
+
+a.output_directory = 'merge_line_lightcurves'
+
+
+'''
+add the light curves. This is where the difference lies. Remember the first 2 light curves from linedat
+are from one telescope and the 3rd is from another. We want to merge these together
+'''
+
+'''We add the line light curves in the same way as before but
+first we force the default line lag step size to be zero, and then make all the subsequent 
+light curves share this lag. This has the effect of forcing the pycecream not to fit a lag
+(or at least a delta function forced on zero) and only optimize the noise model.
+'''
+a.p_linelag_centroids_step = 0.0
+a.add_lc(linedat[0],name='line 1 (telescope 1)',kind='line')
+a.add_lc(linedat[0],name='line 2 (telescope 1)',kind='line',share_previous_lag=True)
+a.add_lc(linedat[0],name='line 3 (telescope 2)',kind='line',share_previous_lag=True)
+
+
+
+'''
+RUN!
+'''
+a.run()
+
+</code></pre>
+
+<h1 id="configurable-parameters">Configurable parameters</h1>
+<p>Here is a list of all creams default parameters. Modify these after instantiating a pycecream object. By default for example, pycecream does not optimise the inclination and assumes face-on. To change this, begin with, </p>
+<pre><code>a = pycecream.pycecream()
+a.p_inclination_step = 0.1 
+</code></pre>
+
+<p>This will alter the cosine inclination step size to 0.1. To fix the inclination at some other value (e.g 30 degrees) but not optimise use,</p>
+<pre><code>a.p_inclination = 30.0
+a.p_inclination_step = 0.0 
+</code></pre>
+
+<pre><code class="python">#global non-fitted parameters
+
+'''Below is the upper fourier frequency limit in cycles per day. Lower this if you have sparesely 
+sampled data or the fit is taking too long. Going less than 0.3 days tends to mess up 
+inferences on disk inclination
+'''
+self.high_frequency = 0.5
+
+self.redshift = 0.0
+self.bh_mass = 1.e7
+self.bh_efficieny = 0.1
+self.N_iterations = 1000
+self.lag_lims = [-10.0,50.0] #the window for the response function
+
+#fitted parameters
+self.p_inclination = 0.0
+self.p_inclination_step = 0.0
+self.p_accretion_rate = 0.1
+self.p_accretion_rate_step = 0.0
+self.p_viscous_slope = 0.75
+self.p_viscous_slope_step = 0.0
+self.p_extra_variance_step = 0.1
+
+#non configureable parameters. Dont usually mess with these
+self.p_linelag_centroids_start = 0.0
+self.p_linelag_centroids_step = 5.0
+self.p_linelag_widths_start    = 2.0
+self.p_linelag_widths_step = 0.0
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pycecream/" class="btn btn-neutral float-right" title="pycecream">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dstarkey23/pycecream/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="pycecream/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-11-27 11:30:03
+-->

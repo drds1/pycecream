@@ -15,7 +15,7 @@ setup(name='pycecream',
       author='dstarkey23',
       author_email='ds207@st-andrews.ac.uk',
       license='MIT',
-      packages=['pycecream','astropy_stark'],
+      packages=['pycecream'],
       package_data={'': ['creaminpar.par','cream_f90.f90']},
       install_requires=[
       'pandas',
