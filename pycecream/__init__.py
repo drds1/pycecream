@@ -124,6 +124,8 @@ class pycecream:
                kind = 'line',
                wavelength = -1.0,
                expand_errors = ['var','multiplicative'],
+               extra_variance_prior = [-1.0,-1.0],
+               multiplicative_errorbar_prior = [-1.0,-1.0],
                name = None,
                share_previous_lag = False,
                background_offset_start=[-1.,-1.],
@@ -211,7 +213,10 @@ class pycecream:
 
 
         #update the lightcurve_input_params table of records
-        df = pd.DataFrame(data = [name_ann,kind,wavelength,expand_errors,share_previous_lag,fname,
+        df = pd.DataFrame(data = [name_ann,kind,wavelength,expand_errors,
+                                  extra_variance_prior,
+                                  multiplicative_errorbar_prior,
+                                  share_previous_lag,fname,
                                   np.mean(dat[:,1]), np.std(dat[:,1]),
                                   tophat_centroid,
                                   tophat_centroid_step,
@@ -227,6 +232,7 @@ class pycecream:
                                   vertical_scaling_prior
                                   ],
                      index=['name', 'type', 'wavelength', 'noise model',
+                            'extra variance prior','multiplicative errorbar prior',
                             'share previous lag','temporary file name',
                             'mean', 'standard deviation', 'tophat centroid',
                             'tophat centroid step',
@@ -337,9 +343,13 @@ class pycecream:
         :return:
         '''
         custom_priors = False
-        idp = [8, 7]
+        idp = [-8, -7, -5, -6]
         dfp = [self.lightcurve_input_params['background offset prior'],
-               self.lightcurve_input_params['vertical scaling prior']]
+               self.lightcurve_input_params['vertical scaling prior'],
+               self.lightcurve_input_params['multiplicative errorbar prior'],
+               self.lightcurve_input_params['extra variance prior']]
+
+
 
         for i in range(self.count_lightcurves):
             for ip in range(len(idp)):
