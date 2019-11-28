@@ -76,6 +76,16 @@ We can now also add priors to pycecream's offset level and vertical scaling para
 ## Top-hat line lag priors 
 We can also add lags on the top hat centroid and width parameters for line light curve lags. This is done using the `tophat_centroid_prior` and `tophat_width_prior` arguments (see example below e.g `tophat_centroid_prior = [10,2]` is a gausian prior with width centroid 10 and width 2). The default arguments [0.0,-1.0] do not use the prior.
 
+## Noise model priors
+We can also add priors on the multiplicative and extra-variance error bar rescaling by supplying the `extra_variance_prior` and `multiplicative_errorbar_prior` arguments (see example below). Ignore these to ignore the prior or supply a list where the first entry is the Gaussian prior centroid and the second element is the Gaussian prior standard deviation.
+
+```
+pycecream.add_lc(dat[2], wavelength = 5000.0, kind = 'continuum',
+         name = 'continuum 5000 (b)',
+         extra_variance_prior = [0.1,1.0],
+         multiplicative_errorbar_prior = [10.0,0.0000001])
+```
+
 
 ```python
 import pycecream
@@ -109,13 +119,19 @@ In this case we are using the "dat" output from the synthetic data above.
 '''
 a.add_lc(dat[0], name = 'continuum 4000',wavelength = 4000.0,
          kind='continuum',
-         background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5]))
+         background_offset_start=[10.0,0.0],
+         vertical_scaling_start=[2.0,0.5]))
 
 a.add_lc(dat[1], wavelength = 5000.0, kind = 'continuum',
          name = 'continuum 5000')
 
+#add priors on the error bar rescaling by supplying the 
+#extra_variance_prior and multiplicative_errorbar_prior 
+#arguments
 a.add_lc(dat[2], wavelength = 5000.0, kind = 'continuum',
-         name = 'continuum 5000 (b)')
+         name = 'continuum 5000 (b)',
+         extra_variance_prior = [0.1,1.0],
+         multiplicative_errorbar_prior = [10.0,0.0000001])
 
 
 '''
@@ -206,7 +222,7 @@ Pycecream has two parameters for each light curve that aim to rescale incorrectl
 
 $\sigma_{new} = \sqrt{ (f \sigma_{old})^2 + var }$.
 
-Note than one `var` and `f` parameter is fitted for each light curve input from the `.add_lc` function. These parameters are enabled by default. To turn these off, set the argument `expand_errors=[]` in the `.add_lc` function.
+Note than one `var` and `f` parameter is fitted for each light curve input from the `.add_lc` function. These parameters are enabled by default. To turn these off, set the argument `expand_errors=[]` in the `.add_lc` function. Gaussian priors can also be added to these parameters using the `extra_variance_prior` and `multiplicative_errorbar_prior` arguments to the `.add_lc` function. 
 
 
 # Section 3: Examine the output
