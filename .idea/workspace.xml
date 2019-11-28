@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/fluxflux.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/examples/fluxflux.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/examples/resamp_" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/test_pycecream.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/test_pycecream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/.ipynb_checkpoints/test_pycecream-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.ipynb_checkpoints/test_pycecream-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/test_pycecream.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/test_pycecream.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="154" column="3" selection-start-line="154" selection-start-column="3" selection-end-line="154" selection-end-column="3" />
+            <state relative-caret-position="183">
+              <caret line="103" selection-start-line="103" selection-end-line="104" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -192,7 +191,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="244" y="23" width="1113" height="816" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15126051" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -445,8 +443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="154" column="3" selection-start-line="154" selection-start-column="3" selection-end-line="154" selection-end-column="3" />
+        <state relative-caret-position="183">
+          <caret line="103" selection-start-line="103" selection-end-line="104" selection-end-column="57" />
         </state>
       </provider>
     </entry>
