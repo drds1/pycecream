@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/fluxflux.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/examples/fluxflux.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/examples/resamp_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/test_pycecream.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/test_pycecream.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/test_pycecream.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/test_pycecream.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
+            <state relative-caret-position="240">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
@@ -57,14 +61,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="388" column="47" selection-start-line="388" selection-start-column="47" selection-end-line="388" selection-end-column="47" />
+            <state relative-caret-position="-7635">
+              <caret line="231" column="51" selection-start-line="231" selection-start-column="51" selection-end-line="231" selection-end-column="51" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="113" column="3" lean-forward="true" selection-start-line="113" selection-start-column="3" selection-end-line="113" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -126,11 +139,11 @@
       <find>'score'</find>
       <find>flux</find>
       <find>test_p</find>
-      <find>vertical_offset_scaling</find>
       <find>prior</find>
       <find>p_linelag_widths_start</find>
       <find>tophat</find>
       <find>tophat centroid prior width</find>
+      <find>vertical_offset_scaling</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -158,19 +171,19 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/pydocmd.yml" />
-        <option value="$PROJECT_DIR$/examples/test_pycecream.py" />
         <option value="$PROJECT_DIR$/tests/run_lc.py" />
         <option value="$PROJECT_DIR$/docs/pydocmd.yml" />
         <option value="$PROJECT_DIR$/tests/test_pycecream.py" />
         <option value="$USER_HOME$/Desktop/test_func.py" />
         <option value="$PROJECT_DIR$/pycecream/__init__.py" />
+        <option value="$PROJECT_DIR$/examples/test_pycecream.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="667" />
+    <option name="x" value="236" />
     <option name="y" value="23" />
-    <option name="width" value="720" />
+    <option name="width" value="1151" />
     <option name="height" value="816" />
   </component>
   <component name="ProjectView">
@@ -243,10 +256,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="667" y="23" width="720" height="816" extended-state="0" />
+    <frame x="236" y="23" width="1151" height="816" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23893805" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14607754" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -402,16 +415,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/example_line_continuum/run_lc.py" />
     <entry file="file://$PROJECT_DIR$/examples/example_line_continuum/resamp_" />
-    <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="128" column="3" selection-start-line="128" selection-start-column="3" selection-end-line="128" selection-end-column="3" />
-          <folding>
-            <element signature="e#2508#2541#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/build_docs.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -478,16 +481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/test_func.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -497,11 +490,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="388" column="47" selection-start-line="388" selection-start-column="47" selection-end-line="388" selection-end-column="47" />
+        <state relative-caret-position="-7635">
+          <caret line="231" column="51" selection-start-line="231" selection-start-column="51" selection-end-line="231" selection-end-column="51" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="113" column="3" lean-forward="true" selection-start-line="113" selection-start-column="3" selection-end-line="113" selection-end-column="3" />
         </state>
       </provider>
     </entry>

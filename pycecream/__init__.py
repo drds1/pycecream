@@ -229,7 +229,7 @@ class pycecream:
                      index=['name', 'type', 'wavelength', 'noise model',
                             'share previous lag','temporary file name',
                             'mean', 'standard deviation', 'tophat centroid',
-                            'tophat centroid step',                                  tophat_centroid_prior_cent,
+                            'tophat centroid step',
                             'tophat centroid prior cent',
                             'tophat centroid prior width',
                             'tophat width',

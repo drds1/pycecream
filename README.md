@@ -73,6 +73,9 @@ The same feature is available for the starting vertical 'stretch' parameter for 
 ## Vertical scaling and background offset priors
 We can now also add priors to pycecream's offset level and vertical scaling parameters using the `background_offset_prior` and `vertical_scaling_prior` arguments shown below.
 
+## Top-hat line lag priors 
+We can also add lags on the top hat centroid and width parameters for line light curve lags. This is done using the `tophat_centroid_prior` and `tophat_width_prior` arguments (see example below e.g `tophat_centroid_prior = [10,2]` is a gausian prior with width centroid 10 and width 2). The default arguments [0.0,-1.0] do not use the prior.
+
 
 ```python
 import pycecream
@@ -130,10 +133,19 @@ a.add_lc(dat[3], name = 'continuum 7000',
         )
 
 #If adding a line light curve, must indicate using the "kind" argument
-a.add_lc(dat[4],name='test line 1',kind='line')
+#configure priors on the top-hat lag parameters using 
+# the 'tophat_centroid_prior', 'tophat_width_prior' arguments
+#e.g tophat_centroid_prior = [10,2] is a gausian prior with width
+# centroid 10 and width 2.
+#The default arguments [0.0,-1.0] ignore this prior
+a.add_lc(dat[4],name='test line 1',kind='line',
+         tophat_width_prior=[0.0, -0.1],
+         tophat_centroid_prior=[12.4, 0.00000001])
 
-#If we want the same line response function model, set "share_previous_lag"=True
-a.add_lc(dat[5],name='test line 1 (shared)',kind='line',share_previous_lag=True)
+#If we want the same line response function model, 
+# set "share_previous_lag"=True
+a.add_lc(dat[5],name='test line 1 (shared)',kind='line',
+         share_previous_lag=True)
 
 
 
