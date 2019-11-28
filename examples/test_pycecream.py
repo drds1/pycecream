@@ -99,7 +99,11 @@ a.add_lc(dat[3],
          #vertical_scaling_start=[2.0,0.5])
 
 #If adding a line light curve, must indicate using the "kind" argument
-a.add_lc(dat[4],name='test line 1',kind='line',background_offset_start=[10.0,0.0],vertical_scaling_start=[2.0,0.5],
+a.add_lc(dat[4],name='test line 1',kind='line',
+         background_offset_start=[10.0,0.0],
+         extra_variance_prior = [0.1,1.0],
+         multiplicative_errorbar_prior = [10.0,0.0000001],
+         vertical_scaling_start=[2.0,0.5],
          vertical_scaling_prior=[0.0,0.1],
          background_offset_prior=[5.0,0.0001],
          tophat_width_prior=[0.0, -0.1],
@@ -136,12 +140,18 @@ op = a.get_flux_flux_analysis(plotfile='fluxflux.pdf',xlim=[-4,4])
 plt.show()
 
 
-
+'''
+get chains
+'''
+chains = a.get_MCMC_chains()
+cols = list(chains.columns)
+fcols = [c for c in cols if 'noise m ' in c]
+fchains = chains[fcols]
 
 
 '''
 clean up output directory DONT DO FOR REAL SIMULATION 
 AS THIS DELETES ALL RESULTS
 '''
-#import os
-#os.system('rm -rf '+output_directory)
+import os
+os.system('rm -rf '+output_directory)
