@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: pycecream
-Version: 1.3.5
+Version: 1.3.6
 Summary: python implementation of the cream accretion disc fitting code https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF
 Home-page: https://github.com/dstarkey23/pycecream
 Author: dstarkey23
 Author-email: ds207@st-andrews.ac.uk
 License: MIT
-Description: add priors to tophat line lag centroid and width parameters in .add_lc function
+Description: add priors to noise model parameters in .add_lc function
 Platform: UNKNOWN
 Provides-Extra: tests

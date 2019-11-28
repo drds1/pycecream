@@ -3,14 +3,14 @@ from setuptools import setup
 #upload to pip
 #pip install .
 #python setup.py sdist
-#twine upload dist/pycecream-1.3.5.tar.gz
+#twine upload dist/pycecream-1.3.6.tar.gz
 
 setup(name='pycecream',
-      version='1.3.5',
+      version='1.3.6',
       description='python implementation of the cream accretion disc fitting code '
                   'https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF'
       ,
-      long_description= 'add priors to tophat line lag centroid and width parameters in .add_lc function',
+      long_description= 'add priors to noise model parameters in .add_lc function',
       url='https://github.com/dstarkey23/pycecream',
       author='dstarkey23',
       author_email='ds207@st-andrews.ac.uk',
