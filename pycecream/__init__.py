@@ -80,8 +80,14 @@ class pycecream:
                             'name', 'type', 'wavelength', 'noise model',
                             'share previous lag','temporary file name',
                             'mean', 'standard deviation', 'tophat centroid',
-                            'tophat centroid step', 'tophat width',
-                            'tophat width step','background offset start','vertical scaling start'
+                            'tophat centroid step',
+                            'tophat centroid prior cent',
+            'tophat centroid prior width',
+            'tophat width',
+            'tophat width step',
+            'tophat width prior cent',
+            'tophat width prior width',
+            'background offset start','vertical scaling start'
         ])
         self.global_input_params = pd.DataFrame(columns = [
             'redshift','BH mass','BH efficiency','upper fourier frequency',''
@@ -123,7 +129,14 @@ class pycecream:
                background_offset_start=[-1.,-1.],
                vertical_scaling_start=[-1.,-1.],
                background_offset_prior = None,
-               vertical_scaling_prior = None
+               vertical_scaling_prior = None,
+               tophat_centroid = None,
+               tophat_centroid_step = None,
+               tophat_centroid_prior = [0.0,-1.0],
+               tophat_width = None,
+               tophat_width_step = None,
+               tophat_width_prior=[0.0, -0.1],
+
     ):
         '''
         This is the go to command to add a new light curve into the
@@ -182,10 +195,14 @@ class pycecream:
         configure the line lag settings (if sharing the same response function as the previous line
         should then use the same step size else increment by a small positive number e.g 0.1       
         '''
-        tophat_centroid      = self.p_linelag_centroids_start
-        tophat_centroid_step = self.p_linelag_centroids_step
-        tophat_width         = self.p_linelag_widths_start
-        tophat_width_step    = self.p_linelag_widths_step
+        if tophat_centroid is None:
+            tophat_centroid      = self.p_linelag_centroids_start
+        if tophat_centroid_step is None:
+            tophat_centroid_step = self.p_linelag_centroids_step
+        if tophat_width is None:
+            tophat_width         = self.p_linelag_widths_start
+        if tophat_width_step is None:
+            tophat_width_step    = self.p_linelag_widths_step
 
         if share_previous_lag is False:
             tophat_centroid_step = tophat_centroid_step + 0.1*self.count_lightcurves
@@ -198,8 +215,12 @@ class pycecream:
                                   np.mean(dat[:,1]), np.std(dat[:,1]),
                                   tophat_centroid,
                                   tophat_centroid_step,
+                                  tophat_centroid_prior[0],
+                                  tophat_centroid_prior[1],
                                   tophat_width,
                                   tophat_width_step,
+                                  tophat_width_prior[0],
+                                  tophat_width_prior[1],
                                   background_offset_start,
                                   vertical_scaling_start,
                                   background_offset_prior,
@@ -208,8 +229,14 @@ class pycecream:
                      index=['name', 'type', 'wavelength', 'noise model',
                             'share previous lag','temporary file name',
                             'mean', 'standard deviation', 'tophat centroid',
-                            'tophat centroid step', 'tophat width',
-                            'tophat width step','background offset start','vertical scaling start',
+                            'tophat centroid step',                                  tophat_centroid_prior_cent,
+                            'tophat centroid prior cent',
+                            'tophat centroid prior width',
+                            'tophat width',
+                            'tophat width step',
+                            'tophat width prior cent',
+                            'tophat width prior width',
+                            'background offset start','vertical scaling start',
                             'background offset prior','vertical scaling prior']).T
 
         self.lightcurve_input_params = pd.DataFrame(pd.concat([self.lightcurve_input_params,df]))
@@ -362,10 +389,15 @@ class pycecream:
         for i in range(self.count_lightcurves):
             f.write(
                 np.str(self.lightcurve_input_params['tophat centroid'].values[i]) + ' ' +
-            np.str(self.lightcurve_input_params['tophat centroid step'].values[i]) + ' 0.0 -1.0 '+
+            np.str(self.lightcurve_input_params['tophat centroid step'].values[i]) + ' ' +
+                np.str(self.lightcurve_input_params['tophat centroid prior cent'].values[i]) + ' ' +
+                np.str(self.lightcurve_input_params['tophat centroid prior width'].values[i]) + ' ' +
             np.str(self.lightcurve_input_params['tophat width'].values[i]) + ' ' +
-            np.str(self.lightcurve_input_params['tophat width step'].values[i]) + ' 0.0 -1.0\n'
+            np.str(self.lightcurve_input_params['tophat width step'].values[i]) + ' '+
+                np.str(self.lightcurve_input_params['tophat width prior cent'].values[i]) + ' ' +
+                np.str(self.lightcurve_input_params['tophat width prior width'].values[i]) + '\n'
             )
+
         f.close()
 
 
