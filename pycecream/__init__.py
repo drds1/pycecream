@@ -44,6 +44,7 @@ class pycecream:
         #convention parameters
         self.output_directory = 'pycecream'
         self.append_date_to_output_directory = False
+        self.save_ALL_parameters = True
 
         #global non-fitted parameters
         self.redshift = 0.0
@@ -157,6 +158,9 @@ class pycecream:
         :param vertical_scaling_prior: as above but for the vertical scaling parameter
         :return:
         '''
+        #assertion errors
+        assert(type(share_previous_lag) == bool)
+
         #set up the directory structure if first call
         if self.count_lightcurves == 0:
             self.setup_directory_structure()
@@ -279,6 +283,7 @@ class pycecream:
         idplot = 4
         idlaglim = 13
         idhifreq = 9
+        idallparsave = 2
 
         #modify and write the creaminpar.par file as needed
         with open(self.dir_pycecream+'/creaminpar.par') as f:
@@ -316,11 +321,16 @@ class pycecream:
         content[idsig - 1] = a
         content[idsig - 2] = turn_on_multiplicative_noise
 
+        # decide whether to record all Fourier parameters (possible bad for storage space)
+        if self.save_ALL_parameters == True:
+            content[idallparsave] = 'F T'
+
         #write updated creaminpar.par file
         f = open(self.dir_pycecream+'/creaminpar.par', 'w')
         for fn in content:
             f.write(fn + '\n')
         f.close()
+
 
 
     def set_creamnames(self):
@@ -513,6 +523,35 @@ class pycecream:
         self.output_parameters = pd.DataFrame(data = p_output,columns = p_output_names)
 
         return(self.output_parameters)
+
+
+    def get_MCMC_fourier_chains(self,location = None):
+        '''
+        retrieve the fourier parameters
+        :param location:
+        :return:
+        '''
+        #locate the simulation results
+        simulation_dir = self.get_simulation_dir(location=location)
+        results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
+
+        #try loading fourier chains
+        fourier_info = np.loadtxt(results_dir + '/cream_gvalues.dat',skiprows = 1)
+        self.fourier_info = pd.DataFrame(fourier_info,columns = ['angular frequency','prior std',
+                                                                 'gvalue sine','gvalue cos'])
+        ang_freq = list(self.fourier_info['angular frequency'])
+        Nfreq = len(self.fourier_info)
+        dat_fourier = pd.DataFrame(np.loadtxt(results_dir + '/CREAM_allpars_BIG.dat')[:, :2*Nfreq])
+        fourier_cols_sine = ['sine '+str(af) for af in ang_freq]
+        fourier_cols_cos = ['cos ' + str(af) for af in ang_freq]
+        fourier_cols = []
+        for i in range(len(fourier_cols_sine)):
+            fourier_cols.append(fourier_cols_sine[i])
+            fourier_cols.append(fourier_cols_cos[i])
+        dat_fourier.columns = fourier_cols
+
+        return {'fourier_chains':dat_fourier,
+                'fourier_stats':fourier_info}
 
 
 

@@ -4,6 +4,7 @@ matplotlib
 scipy
 astropy_stark
 glob3
+PyQt5
 
 [tests]
 nose2==0.9.1

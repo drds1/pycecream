@@ -3,3 +3,4 @@ pycecream/.DS_Store
 pycecream_test/.DS_Store
 .idea
 .idea/workspace
+*venv*

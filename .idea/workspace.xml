@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.3.5.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/pycecream-1.3.5.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/fluxflux.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/examples/fluxflux.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/examples/resamp_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/test_pycecream.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/test_pycecream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/test_pycecream_tophat_0lag.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/test_pycecream_tophat_0lag.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pycecream.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycecream.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resamp_" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +21,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+            <state relative-caret-position="60">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -28,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-479">
-              <caret line="472" column="23" selection-start-line="472" selection-start-column="17" selection-end-line="472" selection-end-column="23" />
+            <state relative-caret-position="252">
+              <caret line="553" column="30" selection-start-line="553" selection-start-column="17" selection-end-line="553" selection-end-column="30" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -38,10 +52,54 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pycecream/creaminpar.par">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="106" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="322">
+              <caret line="151" selection-start-line="151" selection-end-line="151" />
+              <folding>
+                <element signature="e#40#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="71">
+              <caret line="6588" column="8" lean-forward="true" selection-start-line="6588" selection-start-column="8" selection-end-line="6588" selection-end-column="8" />
+              <folding>
+                <marker date="1574937164334" expanded="true" signature="23902:24042" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="24135:24169" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="24740:24795" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="25192:25312" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="27489:27616" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="31822:31896" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="33538:33605" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="34053:34171" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="34369:34539" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="34897:34996" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="35198:35283" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="63330:63402" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="64162:64245" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="345024:345227" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="348535:348581" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="353817:353878" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="353903:353962" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="354080:354148" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="360452:360498" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="368988:369024" ph="..." />
+                <marker date="1574937164334" expanded="true" signature="369240:369308" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,21 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cream_var</find>
-      <find>var</find>
-      <find>share previous lag</find>
-      <find>prio</find>
-      <find>pricream</find>
-      <find>pricream_idx</find>
-      <find>pricream_mean(</find>
-      <find>pricream_sd</find>
-      <find>idsigexp</find>
-      <find>pricream_sd(</find>
-      <find>vertical_scaling_prior</find>
-      <find>add_lc</find>
-      <find>fluxflux</find>
-      <find>merged_data</find>
-      <find>model</find>
       <find>a.N</find>
       <find>get_light_curve_fits</find>
       <find>set_regre</find>
@@ -80,6 +123,21 @@
       <find>expand_errors</find>
       <find>multiplicative errorbar prior</find>
       <find>chains</find>
+      <find>psafe</find>
+      <find>psafe(</find>
+      <find>plo(</find>
+      <find>.lt. 0</find>
+      <find>_pri(</find>
+      <find>lightcurve_input_params['tophat centroid step']</find>
+      <find>tophat_centroid_step</find>
+      <find>all pa</find>
+      <find>creaminpar.par</find>
+      <find>get_</find>
+      <find>cream_fur</find>
+      <find>frequenc</find>
+      <find>BIGsave</find>
+      <find>get_mcmc</find>
+      <find>tophat_centroid_s</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -101,7 +159,6 @@
         <option value="$PROJECT_DIR$/../../github_datascience/projects/regressor_comparison/regressors_2.py" />
         <option value="$PROJECT_DIR$/../../github_datascience/projects/logistic_regression/logreg_quick/test_logreg_2.py" />
         <option value="$PROJECT_DIR$/CONTRIBUTING.md" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/docs/examples/1_china.py" />
         <option value="$PROJECT_DIR$/CODE_OF_CONDUCT.md" />
         <option value="$PROJECT_DIR$/requirements.txt" />
@@ -110,14 +167,16 @@
         <option value="$PROJECT_DIR$/docs/pydocmd.yml" />
         <option value="$PROJECT_DIR$/tests/test_pycecream.py" />
         <option value="$USER_HOME$/Desktop/test_func.py" />
+        <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
         <option value="$PROJECT_DIR$/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/examples/test_pycecream.py" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="244" />
+    <option name="x" value="-15" />
     <option name="y" value="23" />
     <option name="width" value="1113" />
     <option name="height" value="816" />
@@ -127,6 +186,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,13 +208,17 @@
             <path>
               <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -192,10 +256,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="244" y="23" width="1113" height="816" extended-state="0" />
+    <frame x="-15" y="23" width="1113" height="816" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15126051" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16806723" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -223,26 +287,8 @@
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/output_20190619_001/outputpars2.dat" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/creaminpar.par" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/pricream.par" />
-    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/arma_experiment/arma_experiment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/regressor_comparison/regressors_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="307" column="7" selection-start-line="307" selection-start-column="7" selection-end-line="307" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/arma_experiment/arma_experiment.py" />
+    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/regressor_comparison/regressors_2.py" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/cream_export/prep_cream.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
@@ -306,13 +352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/examples/1_china.py" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/export_pycecream.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -328,16 +367,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/logistic_regression/logreg_quick/test_logreg_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/logistic_regression/logreg_quick/test_logreg_2.py" />
     <entry file="file://$PROJECT_DIR$/docs/examples/pyceream_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -421,10 +451,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pycecream/creaminpar.par">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-479">
-          <caret line="472" column="23" selection-start-line="472" selection-start-column="17" selection-end-line="472" selection-end-column="23" />
+        <state relative-caret-position="252">
+          <caret line="553" column="30" selection-start-line="553" selection-start-column="17" selection-end-line="553" selection-end-column="30" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -433,15 +484,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="322">
+          <caret line="151" selection-start-line="151" selection-end-line="151" />
+          <folding>
+            <element signature="e#40#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
+    <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        <state relative-caret-position="71">
+          <caret line="6588" column="8" lean-forward="true" selection-start-line="6588" selection-start-column="8" selection-end-line="6588" selection-end-column="8" />
+          <folding>
+            <marker date="1574937164334" expanded="true" signature="23902:24042" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="24135:24169" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="24740:24795" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="25192:25312" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="27489:27616" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="31822:31896" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="33538:33605" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="34053:34171" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="34369:34539" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="34897:34996" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="35198:35283" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="63330:63402" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="64162:64245" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="345024:345227" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="348535:348581" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="353817:353878" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="353903:353962" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="354080:354148" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="360452:360498" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="368988:369024" ph="..." />
+            <marker date="1574937164334" expanded="true" signature="369240:369308" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

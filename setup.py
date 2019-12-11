@@ -3,14 +3,14 @@ from setuptools import setup
 #upload to pip
 #pip install .
 #python setup.py sdist
-#twine upload dist/pycecream-1.3.6.tar.gz
+#twine upload dist/pycecream-1.3.8.tar.gz
 
 setup(name='pycecream',
-      version='1.3.6',
+      version='1.3.8',
       description='python implementation of the cream accretion disc fitting code '
                   'https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF'
       ,
-      long_description= 'add priors to noise model parameters in .add_lc function',
+      long_description= 'now saves all parameters inc fourier terms',
       url='https://github.com/dstarkey23/pycecream',
       author='dstarkey23',
       author_email='ds207@st-andrews.ac.uk',
@@ -23,7 +23,8 @@ setup(name='pycecream',
       'matplotlib',
       'scipy',
       'astropy_stark',
-      'glob3'
+      'glob3',
+      'PyQt5'
       ],
 extras_require={
         'tests': [

@@ -144,6 +144,7 @@ plt.show()
 get chains
 '''
 chains = a.get_MCMC_chains()
+fourier_chains = a.get_MCMC_fourier_chains()
 cols = list(chains.columns)
 fcols = [c for c in cols if 'noise m ' in c]
 fchains = chains[fcols]
