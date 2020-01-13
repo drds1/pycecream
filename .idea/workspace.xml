@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="" />
+    <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -31,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-512">
-              <caret line="551" lean-forward="true" selection-start-line="551" selection-end-line="551" />
+            <state relative-caret-position="283">
+              <caret line="444" column="10" selection-start-line="444" selection-start-column="10" selection-end-line="444" selection-end-column="10" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -52,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-480">
-              <caret line="106" column="26" lean-forward="true" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
+            <state relative-caret-position="15">
+              <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
               <folding>
                 <element signature="e#40#73#0" expanded="true" />
               </folding>
@@ -64,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="6588" column="8" selection-start-line="6588" selection-start-column="8" selection-end-line="6588" selection-end-column="8" />
+            <state relative-caret-position="223">
+              <caret line="8151" column="10" selection-start-line="8151" selection-end-line="8151" selection-end-column="10" />
               <folding>
                 <marker date="1574937164334" expanded="true" signature="23902:24042" ph="..." />
                 <marker date="1574937164334" expanded="true" signature="24135:24169" ph="..." />
@@ -97,17 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>a.N</find>
-      <find>get_light_curve_fits</find>
-      <find>set_regre</find>
-      <find>print</find>
-      <find>'score'</find>
-      <find>flux</find>
-      <find>test_p</find>
-      <find>prior</find>
-      <find>p_linelag_widths_start</find>
-      <find>tophat</find>
-      <find>tophat centroid prior width</find>
       <find>vertical_offset_scaling</find>
       <find>expand_errors</find>
       <find>multiplicative errorbar prior</find>
@@ -127,6 +119,17 @@
       <find>get_mcmc</find>
       <find>BIGsave</find>
       <find>tophat_centroid_s</find>
+      <find>poly</find>
+      <find>NPpoly</find>
+      <find>NPpolytot</find>
+      <find>tref_poly</find>
+      <find>creaminpar_bg</find>
+      <find>bgvary</find>
+      <find>background_po</find>
+      <find>polyin</find>
+      <find>polyin_pri</find>
+      <find>set_var</find>
+      <find>set_backgr</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -157,15 +160,15 @@
         <option value="$PROJECT_DIR$/tests/test_pycecream.py" />
         <option value="$USER_HOME$/Desktop/test_func.py" />
         <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
-        <option value="$PROJECT_DIR$/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/examples/test_pycecream.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/pycecream/__init__.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-15" />
+    <option name="x" value="99" />
     <option name="y" value="23" />
     <option name="width" value="1113" />
     <option name="height" value="816" />
@@ -175,7 +178,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -208,6 +210,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -245,9 +248,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-15" y="23" width="1113" height="816" extended-state="0" />
+    <frame x="99" y="23" width="1113" height="816" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16806723" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17086835" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -439,10 +443,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pycecream/creaminpar.par">
+    <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        <state relative-caret-position="330">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -453,10 +457,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pycecream/creaminpar.par">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
+          <folding>
+            <element signature="e#40#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="6588" column="8" selection-start-line="6588" selection-start-column="8" selection-end-line="6588" selection-end-column="8" />
+        <state relative-caret-position="223">
+          <caret line="8151" column="10" selection-start-line="8151" selection-end-line="8151" selection-end-column="10" />
           <folding>
             <marker date="1574937164334" expanded="true" signature="23902:24042" ph="..." />
             <marker date="1574937164334" expanded="true" signature="24135:24169" ph="..." />
@@ -483,27 +504,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/test_pycecream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-480">
-          <caret line="106" column="26" lean-forward="true" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
-          <folding>
-            <element signature="e#40#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-512">
-          <caret line="551" lean-forward="true" selection-start-line="551" selection-end-line="551" />
+        <state relative-caret-position="283">
+          <caret line="444" column="10" selection-start-line="444" selection-start-column="10" selection-end-line="444" selection-end-column="10" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

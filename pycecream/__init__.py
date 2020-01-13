@@ -139,8 +139,7 @@ class pycecream:
                tophat_width = None,
                tophat_width_step = None,
                tophat_width_prior=[0.0, -0.1],
-
-    ):
+               background_polynomials = None):
         '''
         This is the go to command to add a new light curve into the
         simulation.
@@ -156,6 +155,8 @@ class pycecream:
         :param vertical_scaling_start: as above but for vertical scaling parameter.
         :param background_offset_prior: [mean,sd] of gaussian prior. Leave as None to ignore priors
         :param vertical_scaling_prior: as above but for the vertical scaling parameter
+        :param background_polynomials: add variable background list of starting coefficients for each level of polynomial
+        (advise [0.1,0.1] to add a quadratic polynomial )
         :return:
         '''
         #assertion errors
@@ -233,7 +234,8 @@ class pycecream:
                                   background_offset_start,
                                   vertical_scaling_start,
                                   background_offset_prior,
-                                  vertical_scaling_prior
+                                  vertical_scaling_prior,
+                                  background_polynomials
                                   ],
                      index=['name', 'type', 'wavelength', 'noise model',
                             'extra variance prior','multiplicative errorbar prior',
@@ -247,7 +249,8 @@ class pycecream:
                             'tophat width prior cent',
                             'tophat width prior width',
                             'background offset start','vertical scaling start',
-                            'background offset prior','vertical scaling prior']).T
+                            'background offset prior','vertical scaling prior',
+                            'background_polynomials']).T
 
         self.lightcurve_input_params = pd.DataFrame(pd.concat([self.lightcurve_input_params,df]))
         self.lightcurve_input_params['wavelength']= \
@@ -421,6 +424,29 @@ class pycecream:
         f.close()
 
 
+    def set_background_polynomials(self):
+        '''
+        allows a smooth background function to be fitted to each light curve alongside lamppost model
+        If background_polynomial parameters not configured then this function does nothing
+        :return:
+        '''
+        all_polys = self.lightcurve_input_params['background_polynomials']
+        NPpoly = 0
+        Nwavs = len(self.lightcurve_input_params)
+        for p in all_polys:
+            if p is not None:
+                NPpoly = max(NPpoly,len(p))
+        poly_coefs = np.zeros((Nwavs,NPpoly))
+        if NPpoly > 0:
+            f = open(self.dir_pycecream + '/' + self.dir_sim + '/creaminpar_bg.par', 'w')
+            f.write(str(NPpoly)+'\n')
+            f.write(' '.join(['0.0']*NPpoly)+'\n')
+            for i in range(Nwavs):
+                x = list(poly_coefs[i,:])
+                f.write(' '.join([str(xx) for xx in x])+'\n')
+                f.write(' '.join(['0.0']*NPpoly)+'\n') #no priors allowed
+
+
 
 
     def set_var(self):
@@ -453,6 +479,7 @@ class pycecream:
         self.set_creamnames()
         self.set_tophat()
         self.set_var()
+        self.set_background_polynomials()
         self.set_start_offsert_vertical()
         self.set_priors()
 
