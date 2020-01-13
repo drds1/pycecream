@@ -433,10 +433,18 @@ class pycecream:
         all_polys = self.lightcurve_input_params['background_polynomials']
         NPpoly = 0
         Nwavs = len(self.lightcurve_input_params)
+        # need a 2D array of polynomial coefficients but may user specifies these as a list
+        # of variable lengths take maximum length and set other coeffs to 0
         for p in all_polys:
             if p is not None:
                 NPpoly = max(NPpoly,len(p))
         poly_coefs = np.zeros((Nwavs,NPpoly))
+        for i in range(Nwavs):
+            if all_polys[i] is not None:
+                Npoly_now = len(all_polys[i])
+                poly_coefs[i,:Npoly_now] = all_polys[i]
+
+        #populate the cream file creaminpar_bg.par
         if NPpoly > 0:
             f = open(self.dir_pycecream + '/' + self.dir_sim + '/creaminpar_bg.par', 'w')
             f.write(str(NPpoly)+'\n')
