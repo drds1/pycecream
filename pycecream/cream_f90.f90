@@ -4299,7 +4299,7 @@ endif
 !write(*,*) ip,iteration,ilc, xgridop(100:110)
 !read(*,*)
 if (bgvary) then
-write(*,*) ip,'chchch',NPpolyidx,Nppolyidx+NPpolytot,NP
+!write(*,*) ip,'chchch',NPpolyidx,Nppolyidx+NPpolytot,NP
 if ((ip .ge. NPpolyidx) .and. (ip .lt. NPpolyidx+Nppolytot)) then
 
 
@@ -4315,8 +4315,8 @@ do itg = 1,Ntgrid
 fchange = (poly_new - poly_old)*(tgrid(itg) - tref_poly(ilc_poly_now))**power
 x_bg = bg_now(itg)  + fchange
 bg_save(itg,ilc_poly_now) =  x_bg
-write(*,*) x_bg, fchange, poly_new,poly_old,'cehcing shit'
-read(*,*)
+!write(*,*) x_bg, fchange, poly_new,poly_old,'cehcing shit'
+!read(*,*)
 !if (ip .ge. NPpolyidx) write(*,*) tgrid(itg),bg_now(itg),x_bg,'polycalc',poly_old,poly_new,&
 !ilc_poly_now,ip,NPpolyidx,NPpoly
 enddo

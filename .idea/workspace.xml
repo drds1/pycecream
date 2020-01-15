@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/examples/resamp_" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycecream/cream_f90.f90" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/cream_f90.f90" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="446" column="50" selection-start-line="446" selection-start-column="50" selection-end-line="446" selection-end-column="50" />
+            <state relative-caret-position="-1865">
+              <caret line="442" column="13" selection-start-line="442" selection-start-column="13" selection-end-line="442" selection-end-column="13" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -42,10 +45,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/test_pycecream_background_polynomials.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-199">
+            <state relative-caret-position="15">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
@@ -78,30 +90,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="8151" column="10" selection-start-line="8151" selection-end-line="8151" selection-end-column="10" />
+            <state relative-caret-position="110">
+              <caret line="4318" column="1" selection-start-line="4318" selection-start-column="1" selection-end-line="4318" selection-end-column="1" />
               <folding>
-                <marker date="1574937164334" expanded="true" signature="23902:24042" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="24135:24169" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="24740:24795" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="25192:25312" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="27489:27616" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="31822:31896" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="33538:33605" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="34053:34171" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="34369:34539" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="34897:34996" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="35198:35283" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="63330:63402" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="64162:64245" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="345024:345227" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="348535:348581" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="353817:353878" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="353903:353962" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="354080:354148" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="360452:360498" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="368988:369024" ph="..." />
-                <marker date="1574937164334" expanded="true" signature="369240:369308" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="23902:24042" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="24135:24169" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="24740:24795" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="25192:25312" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="27489:27616" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="31822:31896" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="33538:33605" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="34053:34171" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="34369:34539" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="34897:34996" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="35198:35283" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="63330:63402" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="64162:64245" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="345027:345230" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="348538:348584" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="353820:353881" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="353906:353965" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="354083:354151" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="360455:360501" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="368991:369027" ph="..." />
+                <marker date="1579117711189" expanded="true" signature="369243:369311" ph="..." />
               </folding>
             </state>
           </provider>
@@ -111,8 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vertical_offset_scaling</find>
-      <find>expand_errors</find>
       <find>multiplicative errorbar prior</find>
       <find>chains</find>
       <find>psafe</find>
@@ -141,6 +151,8 @@
       <find>polyin_pri</find>
       <find>set_var</find>
       <find>set_backgr</find>
+      <find>cehcing</find>
+      <find>background_polynom</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -170,18 +182,19 @@
         <option value="$PROJECT_DIR$/docs/pydocmd.yml" />
         <option value="$PROJECT_DIR$/tests/test_pycecream.py" />
         <option value="$USER_HOME$/Desktop/test_func.py" />
-        <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
         <option value="$PROJECT_DIR$/examples/test_pycecream.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/examples/test_pycecream_background_polynomials.py" />
         <option value="$PROJECT_DIR$/pycecream/__init__.py" />
+        <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="99" />
+    <option name="x" value="720" />
     <option name="y" value="23" />
-    <option name="width" value="1113" />
+    <option name="width" value="720" />
     <option name="height" value="816" />
   </component>
   <component name="ProjectView">
@@ -189,6 +202,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -221,7 +235,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,10 +272,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="99" y="23" width="1113" height="816" extended-state="0" />
-    <editor active="true" />
+    <frame x="720" y="23" width="720" height="816" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17086835" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27433628" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -458,10 +470,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pycecream/creaminpar.par">
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_background_polynomial_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        <state relative-caret-position="-278">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="4318" column="1" selection-start-line="4318" selection-start-column="1" selection-end-line="4318" selection-end-column="1" />
+          <folding>
+            <marker date="1579117711189" expanded="true" signature="23902:24042" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="24135:24169" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="24740:24795" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="25192:25312" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="27489:27616" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="31822:31896" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="33538:33605" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="34053:34171" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="34369:34539" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="34897:34996" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="35198:35283" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="63330:63402" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="64162:64245" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="345027:345230" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="348538:348584" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="353820:353881" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="353906:353965" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="354083:354151" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="360455:360501" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="368991:369027" ph="..." />
+            <marker date="1579117711189" expanded="true" signature="369243:369311" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -475,39 +520,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
+    <entry file="file://$PROJECT_DIR$/pycecream/creaminpar.par">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="8151" column="10" selection-start-line="8151" selection-end-line="8151" selection-end-column="10" />
-          <folding>
-            <marker date="1574937164334" expanded="true" signature="23902:24042" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="24135:24169" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="24740:24795" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="25192:25312" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="27489:27616" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="31822:31896" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="33538:33605" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="34053:34171" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="34369:34539" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="34897:34996" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="35198:35283" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="63330:63402" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="64162:64245" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="345024:345227" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="348535:348581" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="353817:353878" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="353903:353962" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="354080:354148" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="360452:360498" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="368988:369024" ph="..." />
-            <marker date="1574937164334" expanded="true" signature="369240:369308" ph="..." />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
+        <state relative-caret-position="15">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
@@ -517,11 +539,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="446" column="50" selection-start-line="446" selection-start-column="50" selection-end-line="446" selection-end-column="50" />
+        <state relative-caret-position="-1865">
+          <caret line="442" column="13" selection-start-line="442" selection-start-column="13" selection-end-line="442" selection-end-column="13" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/test_pycecream_background_polynomials.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>

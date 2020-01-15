@@ -440,9 +440,9 @@ class pycecream:
                 NPpoly = max(NPpoly,len(p))
         poly_coefs = np.zeros((Nwavs,NPpoly))
         for i in range(Nwavs):
-            if all_polys[i] is not None:
-                Npoly_now = len(all_polys[i])
-                poly_coefs[i,:Npoly_now] = all_polys[i]
+            if all_polys.iloc[i] is not None:
+                Npoly_now = len(all_polys.iloc[i])
+                poly_coefs[i,:Npoly_now] = all_polys.iloc[i]
 
         #populate the cream file creaminpar_bg.par
         if NPpoly > 0:
