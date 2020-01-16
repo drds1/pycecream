@@ -524,6 +524,7 @@ class pycecream:
         #locate the simulation results
         simulation_dir = self.get_simulation_dir(location=location)
         lcnames = self.lightcurve_input_params['name']
+        n_lightcurves = len(lcnames)
         results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
         '''
         Begin loading the simulation results from the various stored locations
@@ -553,6 +554,22 @@ class pycecream:
                          ['top hat centroid '+l for l in lcnames] + \
                          ['top hat width '+l for l in lcnames]
         p_output = np.hstack((p_output,dat_output[:,:2*self.count_lightcurves]))
+
+
+        #load the polynomial background parameters if present
+        file_polynomial_background = results_dir + '/outputpars_bgvary.dat'
+        polynomial_background_exists = os.path.isfile(file_polynomial_background)
+        if polynomial_background_exists is True:
+            dat_pbg = np.loadtxt(file_polynomial_background,ndim=2)
+            nrows,ncols = np.shape(dat_pbg)
+            n_pbg = ncols/2
+            p_pbg = dat_pbg[:,n_pbg]
+            norder = n_pbg/n_lightcurves
+            p_pbg_names = []
+            for i in range(n_lightcurves):
+                p_bg_names += [lcnames[i]+' ng polynomial order '+str(i2+1) for i2 in range(norder)]
+            p_output_names = p_output_names + p_pbg_names
+            p_output = np.hstack((p_output,p_pbg))
 
         #save all results for each MCMC iteration to a pandas data frame
         self.output_parameters = pd.DataFrame(data = p_output,columns = p_output_names)

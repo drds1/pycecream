@@ -6246,6 +6246,12 @@ close(1)
 endif
 
 
+if bgvary then
+    open(unit=1,file = 'outputpars_bgvary.dat',access='append')
+    write(1,*) p(NPpolyidx:NPpolyidx+Nppolytot),pscale(Nppolyidx:Nppolytot)
+end if
+
+
 
 
 
