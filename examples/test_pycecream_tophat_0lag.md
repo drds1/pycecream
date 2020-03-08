@@ -87,7 +87,7 @@ NOTE: Each new cream simulation must have a new name for "output_directory argum
 otherwise an excpetion is raised. This is to prevent accidentally overwriting previous simulations. 
 I might change this in a future version 
 '''
-a.output_directory = 'fit_synthetic_lightcurves'
+a.project_folder = 'fit_synthetic_lightcurves'
 
 
 

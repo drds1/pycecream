@@ -61,7 +61,7 @@ class Test_synthetic_data(unittest.TestCase):
         synthetic_data = get_synthetic_data()
 
         a = pycecream.pycecream()
-        a.output_directory = 'test_pycecream'
+        a.project_folder = 'test_pycecream'
 
         #step accretion rate?
         a.p_accretion_rate_step = 0.1

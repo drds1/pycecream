@@ -96,7 +96,7 @@ NOTE: Each new cream simulation must have a new name for "output_directory argum
 otherwise an excpetion is raised. This is to prevent accidentally overwriting previous simulations. 
 I might change this in a future version 
 '''
-a.output_directory = 'fit_synthetic_lightcurves'
+a.project_folder = 'fit_synthetic_lightcurves'
 
 
 
@@ -419,7 +419,7 @@ I don't bother here with all the setup commands like a.fortran_caller. Please se
 #instantiate a pycecream object
 a = pycecream.pycecream()
 
-a.output_directory = 'merge_line_lightcurves'
+a.project_folder = 'merge_line_lightcurves'
 
 
 '''

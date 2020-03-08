@@ -1,7 +1,7 @@
 import pycecream
 import astropy_stark.myfake as mf
 import matplotlib.pylab as plt
-
+import os
 
 
 
@@ -36,16 +36,17 @@ class test_pc:
         self.dat = synthetic_data['echo light curves']
 
 
-    def run_pycecream(self):
+    def run_pycecream(self,test_project_folder = 'test_pycecream_output'):
         '''
         test pycecream using yasamans script
         :return:
         '''
         cream_lc0, cream_lc1, cream_lc4, cream_lc2, cream_lc3, cream_lc8, cream_lc5, cream_lc6, cream_lc7 = self.dat
 
-
-
+        #instantiate and remove previous test if present
+        os.system('rm -rf '+test_project_folder)
         a = pycecream.pycecream()
+        a.project_folder = test_project_folder
 
         #step accretion rate?
         a.p_accretion_rate_step = 0.1
@@ -65,7 +66,7 @@ class test_pc:
         a.add_lc(cream_lc8,name='continuum (SynthPhot)',kind='continuum', wavelength = 7480,share_previous_lag=True)
         a.hi_frequency = 0.5
         a.N_iterations = 20
-        a.run()
+        a.run(ncores = 4)
 
         self.pc = a
 
@@ -90,4 +91,4 @@ if __name__ == '__main__':
     x = test_pc()
     x.gen_fake()
     x.run_pycecream()
-    x.post_run()
+    #x.post_run()

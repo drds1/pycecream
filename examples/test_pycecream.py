@@ -61,7 +61,7 @@ NOTE: Each new cream simulation must have a new name for "output_directory argum
 otherwise an excpetion is raised. This is to prevent accidentally overwriting previous simulations. 
 I might change this in a future version 
 '''
-a.output_directory = output_directory
+a.project_folder = output_directory
 
 #test the merging by adding offset to dat1
 d1 = np.array(dat[1])

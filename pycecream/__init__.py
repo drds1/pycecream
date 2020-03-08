@@ -5,6 +5,9 @@ import glob
 import astropy_stark.cream_lcplot as cream_plot
 import astropy_stark.cream_plotlibrary as cpl
 import matplotlib.pylab as plt
+import multiprocessing as mp
+import time
+
 
 class pycecream:
     '''
@@ -42,7 +45,7 @@ class pycecream:
         print('pycecream path... ' + self.module_path)
 
         #convention parameters
-        self.output_directory = 'pycecream'
+        self.project_folder = 'pycecream'
         self.append_date_to_output_directory = False
         self.save_ALL_parameters = True
 
@@ -103,9 +106,9 @@ class pycecream:
         :return:
         '''
         #make a directory into which to store the cream results
-        dir_pycecream = self.output_directory
+        dir_pycecream = self.project_folder
         if self.append_date_to_output_directory is True:
-            dir_pycecream = self.output_directory+'_'+str(pd.datetime.today().strftime("%d_%m_%Y"))+'_'
+            dir_pycecream = self.project_folder+'_'+str(pd.datetime.today().strftime("%d_%m_%Y"))+'_'
             child_dirs = next(os.walk('.'))[1]
             number_of_pyceream_dirs = len( [c for c in child_dirs if dir_pycecream in c] )
             dir_pycecream = dir_pycecream+str(number_of_pyceream_dirs)
@@ -476,7 +479,7 @@ class pycecream:
 
 
 
-    def run(self):
+    def run(self,ncores = 1):
         '''
         run the cream code. Make sure input above is correct first
         :return:
@@ -496,9 +499,22 @@ class pycecream:
         self.lightcurve_input_params.to_csv('./simulation_files/input_lightcurve_settings.csv')
 
         #compile and run
+        # with mp.Pool(ncores) as p:
+        #    p.map(_run_cmd,[('./creamrun.exe',self.dir_pwd)]*ncores)
+
         os.system(self.fortran_compile_command)
-        os.system('./creamrun.exe')
+        jobs = []
+        for i in range(ncores):
+            p = mp.Process(target = _run_cmd, args=('./creamrun.exe',))
+            jobs.append(p)
+            p.start()
+            time.sleep(0.4)
+        #wait for jobs to finish before continuing
+        for j in jobs:
+            j.join()
         os.chdir(self.dir_pwd)
+
+    #def run_parallel(self,ncores=1):
 
 
     def get_simulation_dir(self,location=None):
@@ -525,55 +541,61 @@ class pycecream:
         simulation_dir = self.get_simulation_dir(location=location)
         lcnames = self.lightcurve_input_params['name']
         n_lightcurves = len(lcnames)
-        results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
-        '''
-        Begin loading the simulation results from the various stored locations
-        '''
+        results_dir_list = glob.glob(simulation_dir + '/simulation_files/output_2*')
 
-        #load the disk parameters
-        dat_output = np.loadtxt(results_dir + '/outputpars.dat')
-        p_output_names = ['Mdot','cos i','Tr_alpha']
-        p_output = dat_output[:,[2,3,4]]
+        self.output_parameters = pd.DataFrame()
+        idx_chain = 0
+        for results_dir in results_dir_list:
+            '''
+            Begin loading the simulation results from the various stored locations
+            '''
 
-        #load the stretch, offset and multiplicative error bar rescaling parameters
-        dat_output = np.loadtxt(results_dir + '/outputpars2.dat')
-        p_output_names = p_output_names + ['stretch '+l for l in lcnames] + \
-                         ['offset '+l for l in lcnames] + \
-                         ['noise m '+l for l in lcnames]
-        p_output = np.hstack((p_output,dat_output[:,:3*self.count_lightcurves]))
+            #load the disk parameters
+            dat_output = np.loadtxt(results_dir + '/outputpars.dat')
+            p_output_names = ['Mdot','cos i','Tr_alpha']
+            p_output = dat_output[:,[2,3,4]]
 
-        #load the extra variance noise parameters
-        dat_output = np.loadtxt(results_dir + '/outputpars_varexpand.dat')
-        p_output_names = p_output_names + \
-                         ['noise var '+l for l in lcnames]
-        p_output = np.hstack((p_output,dat_output))
+            #load the stretch, offset and multiplicative error bar rescaling parameters
+            dat_output = np.loadtxt(results_dir + '/outputpars2.dat')
+            p_output_names = p_output_names + ['stretch '+l for l in lcnames] + \
+                             ['offset '+l for l in lcnames] + \
+                             ['noise m '+l for l in lcnames]
+            p_output = np.hstack((p_output,dat_output[:,:3*self.count_lightcurves]))
 
-        #load the top hat centroid parameters
-        dat_output = np.loadtxt(results_dir + '/outputpars_th.dat')
-        p_output_names = p_output_names + \
-                         ['top hat centroid '+l for l in lcnames] + \
-                         ['top hat width '+l for l in lcnames]
-        p_output = np.hstack((p_output,dat_output[:,:2*self.count_lightcurves]))
+            #load the extra variance noise parameters
+            dat_output = np.loadtxt(results_dir + '/outputpars_varexpand.dat')
+            p_output_names = p_output_names + \
+                             ['noise var '+l for l in lcnames]
+            p_output = np.hstack((p_output,dat_output))
+
+            #load the top hat centroid parameters
+            dat_output = np.loadtxt(results_dir + '/outputpars_th.dat')
+            p_output_names = p_output_names + \
+                             ['top hat centroid '+l for l in lcnames] + \
+                             ['top hat width '+l for l in lcnames]
+            p_output = np.hstack((p_output,dat_output[:,:2*self.count_lightcurves]))
 
 
-        #load the polynomial background parameters if present
-        file_polynomial_background = results_dir + '/outputpars_bgvary.dat'
-        polynomial_background_exists = os.path.isfile(file_polynomial_background)
-        if polynomial_background_exists is True:
-            dat_pbg = np.loadtxt(file_polynomial_background,ndim=2)
-            nrows,ncols = np.shape(dat_pbg)
-            n_pbg = ncols/2
-            p_pbg = dat_pbg[:,n_pbg]
-            norder = n_pbg/n_lightcurves
-            p_pbg_names = []
-            for i in range(n_lightcurves):
-                p_bg_names += [lcnames[i]+' ng polynomial order '+str(i2+1) for i2 in range(norder)]
-            p_output_names = p_output_names + p_pbg_names
-            p_output = np.hstack((p_output,p_pbg))
+            #load the polynomial background parameters if present
+            file_polynomial_background = results_dir + '/outputpars_bgvary.dat'
+            polynomial_background_exists = os.path.isfile(file_polynomial_background)
+            if polynomial_background_exists is True:
+                dat_pbg = np.loadtxt(file_polynomial_background,ndim=2)
+                nrows,ncols = np.shape(dat_pbg)
+                n_pbg = ncols/2
+                p_pbg = dat_pbg[:,n_pbg]
+                norder = n_pbg/n_lightcurves
+                p_pbg_names = []
+                for i in range(n_lightcurves):
+                    p_bg_names += [lcnames[i]+' ng polynomial order '+str(i2+1) for i2 in range(norder)]
+                p_output_names = p_output_names + p_pbg_names
+                p_output = np.hstack((p_output,p_pbg))
 
-        #save all results for each MCMC iteration to a pandas data frame
-        self.output_parameters = pd.DataFrame(data = p_output,columns = p_output_names)
-
+            #save all results for each MCMC iteration to a pandas data frame
+            p_output = pd.DataFrame(data = p_output,columns = p_output_names)
+            p_output['chain number'] = idx_chain
+            self.output_parameters = self.output_parameters.append(p_output)
+            idx_chain += 1
         return(self.output_parameters)
 
 
@@ -585,22 +607,30 @@ class pycecream:
         '''
         #locate the simulation results
         simulation_dir = self.get_simulation_dir(location=location)
-        results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
 
-        #try loading fourier chains
-        fourier_info = np.loadtxt(results_dir + '/cream_gvalues.dat',skiprows = 1)
-        self.fourier_info = pd.DataFrame(fourier_info,columns = ['angular frequency','prior std',
-                                                                 'gvalue sine','gvalue cos'])
-        ang_freq = list(self.fourier_info['angular frequency'])
-        Nfreq = len(self.fourier_info)
-        dat_fourier = pd.DataFrame(np.loadtxt(results_dir + '/CREAM_allpars_BIG.dat')[:, :2*Nfreq])
-        fourier_cols_sine = ['sine '+str(af) for af in ang_freq]
-        fourier_cols_cos = ['cos ' + str(af) for af in ang_freq]
-        fourier_cols = []
-        for i in range(len(fourier_cols_sine)):
-            fourier_cols.append(fourier_cols_sine[i])
-            fourier_cols.append(fourier_cols_cos[i])
-        dat_fourier.columns = fourier_cols
+        results_dir_list = glob.glob(simulation_dir + '/simulation_files/output_2*')
+
+        self.output_parameters = pd.DataFrame()
+        idx_chain = 0
+        for results_dir in results_dir_list:
+            if idx_chain == 1:
+                #try loading fourier chains (only do once)
+                fourier_info = np.loadtxt(results_dir + '/cream_gvalues.dat',skiprows = 1)
+                self.fourier_info = pd.DataFrame(fourier_info,columns = ['angular frequency','prior std',
+                                                                         'gvalue sine','gvalue cos'])
+                ang_freq = list(self.fourier_info['angular frequency'])
+                Nfreq = len(self.fourier_info)
+
+            dat_fourier = pd.DataFrame(np.loadtxt(results_dir + '/CREAM_allpars_BIG.dat')[:, :2*Nfreq])
+            fourier_cols_sine = ['sine '+str(af) for af in ang_freq]
+            fourier_cols_cos = ['cos ' + str(af) for af in ang_freq]
+            fourier_cols = []
+            for i in range(len(fourier_cols_sine)):
+                fourier_cols.append(fourier_cols_sine[i])
+                fourier_cols.append(fourier_cols_cos[i])
+            dat_fourier.columns = fourier_cols
+            dat_fourier['chain number'] = idx_chain
+            idx_chain += 1
 
         return {'fourier_chains':dat_fourier,
                 'fourier_stats':fourier_info}
@@ -839,6 +869,14 @@ class pycecream:
 
 
 
+
+def _run_cmd(cmd):
+    '''
+    run the fortran code
+    :param cmd:
+    :return:
+    '''
+    os.system(cmd)
 
 
 
