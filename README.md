@@ -14,17 +14,19 @@ Please send questions to ds207@st-andrews.ac.uk. Though I am currently taking a 
 
 ## Requirements & Installation
 
-Please ensure that you have a fortran compiler installed. I use Gfortran. If you have an alternate (e.g ifort), please indicate the standard command used to call the fortran compiler using the ```fortran_caller``` argument (default is ```fortran_caller = gfortran```).
+#### Install Fortran compiler (see macports / wget)
+I use Gfortran. If you have an alternate (e.g ifort), 
+please indicate the standard command used to call 
+the fortran compiler using the ```fortran_caller``` argument 
+(default ```fortran_caller = gfortran```).
 
-
-command These are fairly easy to install from macports or wget etc. Also a Python version is required (I am using 3.7 but even 2 should be fine). The it's just...
-
+#### Install Pycecream
 ```
 pip install pycecream
 ```
 
 
-#  Section 1: Generate Synthetic Light Curves
+##  Section 1 (Optional): Generate test synthetic light curves
 
 In this example we generate 4 disk light curves and 2 emission-line light curves modelled as a top-hat with a 20-day lag. The code below generates a list where each index contains an Nx3 numpy array for each light curve. The 3 vertical axis for each light curve are the time, flux and noise respectively (query synthetic_data['echo lightcurves'][0] for an example of the format required when inputting your own light curve data).
 
@@ -60,7 +62,7 @@ synthetic_data = mf.myfake(
 dat = synthetic_data['echo light curves']
 ```
 
-#  Section 2: Settup and run PyceCREAM
+##  Section 2: Settup and run PyceCREAM
 
 
 
@@ -92,8 +94,10 @@ a.project_folder = 'fit_synthetic_lightcurves'
 
 
 '''
-Add each of the light curves in the simulation. 
-In this case we are using the "dat" output from the synthetic data above.
+Add the light curves to be modeled. Inputs should be a 3 column numpy
+ array of `time`, `flux`, `error`. 
+In this case we are using the "dat" output 
+from the synthetic data above.
 '''
 a.add_lc(dat[0], name = 'continuum 4000')
 a.add_lc(dat[1], name = 'continuum 5000')
@@ -131,39 +135,11 @@ RUN! specify ncores (default = 1) to parallelise with 1 chain per core
 a.run(ncores = 4)
 ```
 
-    pycecream path... /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pycecream
-    copying file...
-    /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pycecream
-                       name  type  wavelength            noise model  \
-    0        continuum 4000  line        -1.0  [var, multiplicative]   
-    0        continuum 5000  line        -1.0  [var, multiplicative]   
-    0    continuum 5000 (b)  line        -1.0  [var, multiplicative]   
-    0        continuum 7000  line        -1.0  [var, multiplicative]   
-    0           test line 1  line        -1.0  [var, multiplicative]   
-    0  test line 1 (shared)  line        -1.0  [var, multiplicative]   
-    
-      share previous lag temporary file name      mean  standard deviation  \
-    0              False          line_0.dat  3.800485            0.796293   
-    0              False          line_1.dat  3.590073            0.675132   
-    0              False          line_2.dat  3.593360            0.696788   
-    0              False          line_3.dat  3.277164            0.524617   
-    0              False          line_4.dat -0.000530            1.001517   
-    0               True          line_5.dat  0.003286            1.025419   
-    
-       tophat centroid  tophat centroid step  tophat width  tophat width step  
-    0              0.0                   5.0           2.0                0.0  
-    0              0.0                   5.1           2.0                0.0  
-    0              0.0                   5.2           2.0                0.0  
-    0              0.0                   5.3           2.0                0.0  
-    0              0.0                   5.4           2.0                0.0  
-    0              0.0                   5.4           2.0                0.0  
+## Section 3: Outputs
 
+The main outputs are stored in two dataframes.
 
-# Examine the output
-
-There are 2 output dataframes.
-
-## 1) output_lightcurves = a.get_light_curve_fits():
+### 1) output_lightcurves = a.get_light_curve_fits():
 This a dictionary of 3 data frames.
 
     1.1) output_lightcurves['model']: standard time, model, error envelope for each file
@@ -172,7 +148,7 @@ This a dictionary of 3 data frames.
 
     1.3) output_lightcurves['merged data'] DICTIONARY (since the input data light curves can be different sizes) The same transformations but applied to the input light curve data. useful if using cream only to merge the orriginal light curves from different telescopes to a new scale for further study elsewhere
 
-## 2) output_chains = a.get_MCMC_chains(): 
+### 2) output_chains = a.get_MCMC_chains(): 
 These are the MCMC chains for each parameter.
 
 
@@ -233,53 +209,7 @@ a.plot_posterior()
 plt.show()
 
 
-
 ```
 
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files
-    -15.825983 [3.80048513 3.80048513 3.80048513 3.80048513 3.80048513] 0
-    -15.825983 [3.59007335 3.59007335 3.59007335 3.59007335 3.59007335] 1
-    -15.825983 [3.59336019 3.59336019 3.59336019 3.59336019 3.59336019] 2
-    -15.825983 [3.27716422 3.27716422 3.27716422 3.27716422 3.27716422] 3
-    making posterior plot.... posterior_fit_figures__1.pdf
-    unable to make covariance plot for disc posteriors. Please check at least some of these are set to varyin the fit.
-    fit_synthetic_lightcurves/simulation_files/output_20190406_001/G_plot.pdf
-    Nth  6  Ndisk 1
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
-    -15.825983 [3.80048513 3.80048513 3.80048513 3.80048513 3.80048513] 0
-    -15.825983 [3.59007335 3.59007335 3.59007335 3.59007335 3.59007335] 1
-    -15.825983 [3.59336019 3.59336019 3.59336019 3.59336019 3.59336019] 2
-    -15.825983 [3.27716422 3.27716422 3.27716422 3.27716422 3.27716422] 3
 
 
-
-![png](test_pycecream_tophat_0lag_files/test_pycecream_tophat_0lag_6_1.png)
-
-
-
-![png](test_pycecream_tophat_0lag_files/test_pycecream_tophat_0lag_6_2.png)
-
-
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
-
-
-
-![png](test_pycecream_tophat_0lag_files/test_pycecream_tophat_0lag_6_4.png)
-
-
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
-
-
-
-![png](test_pycecream_tophat_0lag_files/test_pycecream_tophat_0lag_6_6.png)
-
-
-    cream_lcplot plotting results from... fit_synthetic_lightcurves/simulation_files/output_20190406_001
-
-
-
-```python
-# how to install python 3 environment (skip the netcdf4 line) matplotlib should be ok now
-# https://salishsea-meopar-docs.readthedocs.io/en/latest/work_env/python3_conda_environment.html
-
-```
