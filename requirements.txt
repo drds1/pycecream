@@ -4,3 +4,5 @@ matplotlib
 scipy
 astropy_stark
 glob
+mkdocs
+pydoc-markdown

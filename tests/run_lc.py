@@ -52,7 +52,7 @@ class test_pc:
         a.p_accretion_rate_step = 0.1
 
         # MgII Line lightcurve
-        a.add_lc(cream_lc0, name='line 0  (MgII)', kind='line')
+        a.add_lc(cream_lc0, name='line 0  (MgII)', kind='line',background_polynomials=[0.1,0.1])
         a.p_linelag_centroids_step = 0.0
         # g-band photometric lightcurves
         a.add_lc(cream_lc1,name='continuum (Bok)', kind='continuum', wavelength = 4680)
@@ -60,7 +60,7 @@ class test_pc:
         a.add_lc(cream_lc3,name='continuum 4720 (CFHT 2)',kind='continuum', wavelength = 4720, share_previous_lag=True)
         a.add_lc(cream_lc4,name='continuum 4686  (SynthPhot)',kind='continuum', wavelength = 4686, share_previous_lag=True)
         # i-band photometric lightcurves
-        a.add_lc(cream_lc5,name='continuum (Bok)', kind='continuum', wavelength= 7760, share_previous_lag = True)
+        a.add_lc(cream_lc5,name='continuum (Bok)', kind='continuum', wavelength= 7760, share_previous_lag = False)
         a.add_lc(cream_lc6,name='continuum (CFHT 1)',kind='continuum', wavelength = 7764, share_previous_lag=True)
         a.add_lc(cream_lc7,name='continuum (CFHT 2)',kind='continuum', wavelength = 7764, share_previous_lag=True)
         a.add_lc(cream_lc8,name='continuum (SynthPhot)',kind='continuum', wavelength = 7480,share_previous_lag=True)
@@ -91,4 +91,4 @@ if __name__ == '__main__':
     x = test_pc()
     x.gen_fake()
     x.run_pycecream()
-    #x.post_run()
+    x.post_run()

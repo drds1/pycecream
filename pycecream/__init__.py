@@ -580,14 +580,14 @@ class pycecream:
             file_polynomial_background = results_dir + '/outputpars_bgvary.dat'
             polynomial_background_exists = os.path.isfile(file_polynomial_background)
             if polynomial_background_exists is True:
-                dat_pbg = np.loadtxt(file_polynomial_background,ndim=2)
+                dat_pbg = np.loadtxt(file_polynomial_background,ndmin=2)
                 nrows,ncols = np.shape(dat_pbg)
-                n_pbg = ncols/2
+                n_pbg = int(ncols/2)
                 p_pbg = dat_pbg[:,n_pbg]
                 norder = n_pbg/n_lightcurves
                 p_pbg_names = []
                 for i in range(n_lightcurves):
-                    p_bg_names += [lcnames[i]+' ng polynomial order '+str(i2+1) for i2 in range(norder)]
+                    p_pbg_names += [lcnames[i]+' ng polynomial order '+str(i2+1) for i2 in range(norder)]
                 p_output_names = p_output_names + p_pbg_names
                 p_output = np.hstack((p_output,p_pbg))
 

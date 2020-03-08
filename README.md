@@ -126,9 +126,9 @@ Check the input settings are ok prior to running
 print(a.lightcurve_input_params)
 
 '''
-RUN!
+RUN! specify ncores (default = 1) to parallelise with 1 chain per core
 '''
-a.run()
+a.run(ncores = 4)
 ```
 
     pycecream path... /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pycecream
