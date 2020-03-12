@@ -651,7 +651,8 @@ class pycecream:
         '''
         #locate the simulation results
         simulation_dir = self.get_simulation_dir(location=location)
-        results_dir = glob.glob(simulation_dir + '/simulation_files/output_2*')[0]
+        results_dir_list = glob.glob(simulation_dir + '/simulation_files/output_2*')
+        ncores = len(results_dir_list)
         '''
         Begin loading the simulation results from the various stored locations
         '''
@@ -659,17 +660,30 @@ class pycecream:
         '''
         the merged models for each wavelength
         '''
-        count = 0
-        output_merged_model = {}
-        for tf in self.lightcurve_input_params['temporary file name'].values:
-            dat = np.loadtxt(results_dir+'/plots/merged_mod_'+tf+'.dat')
-            name = self.lightcurve_input_params['name'].values[count]
-            if count == 0:
-                output_merged_model['time']=dat[:,0]
-            output_merged_model[name+' model'] = dat[:,1]
-            output_merged_model[name+' uncerts'] = dat[:, 2]
-            count = count + 1
-        self.output_merged_model = pd.DataFrame(output_merged_model)
+        output_merged_model_chains = []
+        output_merged_uncertainties_chains = []
+        for results_dir in results_dir_list:
+            count = 0
+            output_merged_model = []
+            output_merged_uncertainties = []
+            for tf in self.lightcurve_input_params['temporary file name'].values:
+                dat = np.loadtxt(results_dir+'/plots/merged_mod_'+tf+'.dat')
+                output_merged_model += [dat[:,1]]
+                output_merged_uncertainties += [dat[:, 2]]
+                count = count + 1
+            output_merged_model_chains += np.array(output_merged_model)
+            output_merged_uncertainties_chains += np.array(output_merged_uncertainties)
+        print(np.shape(output_merged_model_chains))
+        print(np.shape(output_merged_model_uncertainties_chains))
+
+        names = list(self.lightcurve_input_params['name'])
+        y = np.mean(output_merged_model,axis=0)
+        sig = np.sqrt(np.sum(output_merged_uncertainties**2,axis=0))/ncores
+        self.output_merged_model = {'time':dat[:,0],
+                                    'light curve':pd.DataFrame(y,columns = names),
+                                    'light curve uncertainties':pd.DataFrame(sig,columns = names)}
+
+
         '''
         the merged data points for each file (this just takes the
         original light curves and applies the errorbar rescaling,
@@ -679,7 +693,7 @@ class pycecream:
         count = 0
         output_merged_data = {}
         for tf in self.lightcurve_input_params['temporary file name'].values:
-            dat = np.loadtxt(results_dir+'/plots/merged_dat_'+tf+'.dat')
+            dat = np.loadtxt(results_dir_list[0]+'/plots/merged_dat_'+tf+'.dat')
             name = self.lightcurve_input_params['name'].values[count]
             output_merged_data[name+' time']=dat[:,0]
             output_merged_data[name+' data'] = dat[:,1]
@@ -691,10 +705,19 @@ class pycecream:
         load the unmerged model (easier). This is just the model (with error bar rescalings)
         evaluated at each wavelength without rescaling relative to reference light curve
         '''
-        dat = np.loadtxt(results_dir+'/plots/modellc.dat')
-        dat_sig = np.loadtxt(results_dir + '/plots/modellc_sig.dat')
+        dat = []
+        dat_sig = []
         count = 0
-        output_model = {'time':dat[:,0]}
+        for results_dir in results_dir_list:
+            dat += [np.loadtxt(results_dir+'/plots/modellc.dat')]
+            dat_sig += [np.loadtxt(results_dir + '/plots/modellc_sig.dat')]
+            if count == 0:
+                output_model = {'time': dat[:, 0]}
+            count += 1
+        dat = np.mean(np.array(dat),axis=0)
+        dat_sig = np.sqrt(np.sum(np.array(dat_sig)**2,axis=0))/ncores
+
+        count = 0
         for name in self.lightcurve_input_params['name'].values:
             output_model[name+' model'] = dat[:,count+1]
             output_model[name + ' uncerts'] = dat_sig[:, count + 1]
@@ -705,10 +728,16 @@ class pycecream:
         '''
         append the driving light curve to the output_model dataframe
         '''
-        driver = np.loadtxt(results_dir+'/plots/modeldrive.dat')
+        drivemoditp = []
+        drivemodsigitp = []
         timemod = self.output_model['time'].values
-        drivemoditp = np.interp(timemod,driver[:,0],driver[:,1])
-        drivemodsigitp = np.interp(timemod,driver[:,0],driver[:,2])
+        for results_dir in results_dir_list:
+            driver = np.loadtxt(results_dir+'/plots/modeldrive.dat')
+            drivemoditp += [np.interp(timemod,driver[:,0],driver[:,1])]
+            drivemodsigitp += [np.interp(timemod,driver[:,0],driver[:,2])]
+        drivemoditp = np.mean(np.array(drivemoditp),axis=0)
+        drivemodsigitp = np.sqrt(np.sum(np.array(drivemodsigitp),axis=1))/ncores
+
         self.output_model.insert(loc=1,column='driver',value = drivemoditp)
         self.output_model.insert(loc=2, column='driver uncerts', value=drivemodsigitp)
 
