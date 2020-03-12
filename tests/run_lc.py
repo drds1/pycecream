@@ -50,6 +50,7 @@ class test_pc:
 
         #step accretion rate?
         a.p_accretion_rate_step = 0.1
+        a.bh_mass = 6.6e8
 
         # MgII Line lightcurve
         a.add_lc(cream_lc0, name='line 0  (MgII)', kind='line',background_polynomials=[0.1,0.1])

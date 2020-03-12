@@ -283,6 +283,8 @@ class pycecream:
         # lines for each of the input parameters in creaminpar.par (dont change)
         idcos = 37
         idmdot = 31
+        idmass = 32
+        idefficiency = 25
         idslope = 70
         idsig = 22
         idnits = 10
@@ -299,8 +301,10 @@ class pycecream:
             content[0] = './'+np.str(self.dir_sim)
             f.close()
         content[idcos] = np.str(self.p_inclination)
+        content[idefficiency] = np.str(self.bh_efficieny)
         content[idcos+1] = np.str(self.p_inclination_step)
         content[idmdot] = np.str(self.p_accretion_rate)
+        content[idmass] = np.str(self.bh_mass)
         content[idmdot+3] = np.str(self.p_accretion_rate_step)
         content[idslope] = np.str(self.p_viscous_slope)
         content[idslope+2] = np.str(self.p_viscous_slope_step)
@@ -539,7 +543,7 @@ class pycecream:
         '''
         #locate the simulation results
         simulation_dir = self.get_simulation_dir(location=location)
-        lcnames = self.lightcurve_input_params['name']
+        lcnames = list(self.lightcurve_input_params['name'])
         n_lightcurves = len(lcnames)
         results_dir_list = glob.glob(simulation_dir + '/simulation_files/output_2*')
 
@@ -583,8 +587,8 @@ class pycecream:
                 dat_pbg = np.loadtxt(file_polynomial_background,ndmin=2)
                 nrows,ncols = np.shape(dat_pbg)
                 n_pbg = int(ncols/2)
-                p_pbg = dat_pbg[:,n_pbg]
-                norder = n_pbg/n_lightcurves
+                p_pbg = dat_pbg[:,:n_pbg]
+                norder = int(n_pbg/n_lightcurves)
                 p_pbg_names = []
                 for i in range(n_lightcurves):
                     p_pbg_names += [lcnames[i]+' ng polynomial order '+str(i2+1) for i2 in range(norder)]
@@ -592,6 +596,8 @@ class pycecream:
                 p_output = np.hstack((p_output,p_pbg))
 
             #save all results for each MCMC iteration to a pandas data frame
+            print(np.shape(p_output))
+            print(len(p_output_names))
             p_output = pd.DataFrame(data = p_output,columns = p_output_names)
             p_output['chain number'] = idx_chain
             self.output_parameters = self.output_parameters.append(p_output)
