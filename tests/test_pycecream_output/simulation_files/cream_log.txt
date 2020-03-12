@@ -1,4 +1,0 @@
- ./output_20200312_001,, NLC=9, mmdot, sigexpand, whi =0.5
- ./output_20200312_002,, NLC=9, mmdot, sigexpand, whi =0.5
- ./output_20200312_003,, NLC=9, mmdot, sigexpand, whi =0.5
- ./output_20200312_004,, NLC=9, mmdot, sigexpand, whi =0.5
