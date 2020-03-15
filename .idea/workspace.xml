@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycecream/cream_f90.f90" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/cream_f90.f90" afterDir="false" />
-    </list>
+    <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="55">
-              <caret line="106" column="11" lean-forward="true" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
+              <caret line="106" column="11" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -78,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="11099" column="18" selection-start-line="11099" selection-start-column="18" selection-end-line="11099" selection-end-column="18" />
+            <state relative-caret-position="326">
+              <caret line="6243" column="8" lean-forward="true" selection-start-line="6243" selection-start-column="8" selection-end-line="6243" selection-end-column="8" />
               <folding>
                 <marker date="1584291503497" expanded="true" signature="23902:24042" ph="..." />
                 <marker date="1584291503497" expanded="true" signature="24135:24169" ph="..." />
@@ -112,7 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>outputpars.dat</find>
       <find>bgvary</find>
       <find>run()</find>
       <find>dir_pycecream</find>
@@ -142,6 +138,7 @@
       <find>istarttime</find>
       <find>iseed</find>
       <find>iseed=</find>
+      <find>outputpars.dat</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -259,6 +256,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="167" y="23" width="1165" height="816" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18699911" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -522,7 +520,7 @@
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55">
-          <caret line="106" column="11" lean-forward="true" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
+          <caret line="106" column="11" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -531,8 +529,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="11099" column="18" selection-start-line="11099" selection-start-column="18" selection-end-line="11099" selection-end-column="18" />
+        <state relative-caret-position="326">
+          <caret line="6243" column="8" lean-forward="true" selection-start-line="6243" selection-start-column="8" selection-end-line="6243" selection-end-column="8" />
           <folding>
             <marker date="1584291503497" expanded="true" signature="23902:24042" ph="..." />
             <marker date="1584291503497" expanded="true" signature="24135:24169" ph="..." />
