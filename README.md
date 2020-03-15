@@ -1,6 +1,6 @@
 # PyceCREAM
 
-Here is a python implementaiton of my accretion disc and emission line lightcurve-fitting code (previously CREAM). This guide briefly covers generating synthetic data and calling a new pycecream object to ingest and fit the accretion disc model (or emission line model) to a set of input light curves. I also demonstrate how to access the output of the pycecream fit. The output includes the fitted light curves, any new light curve data points after merging, fitted response functions and parameter MCMC chain histories for the disc and/or tophat response parameters.
+Here is a python implementation of my accretion disc and emission line lightcurve-fitting code (previously CREAM). This guide briefly covers generating synthetic data and calling a new pycecream object to ingest and fit the accretion disc model (or emission line model) to a set of input light curves. I also demonstrate how to access the output of the pycecream fit. The output includes the fitted light curves, any new light curve data points after merging, fitted response functions and parameter MCMC chain histories for the disc and/or tophat response parameters.
 
 Most of these features are used in some form or another from a previous f90 version of this code (CREAM) in the following literature
 
@@ -9,7 +9,9 @@ Most of these features are used in some form or another from a previous f90 vers
 * Starkey et al 2017  https://ui.adsabs.harvard.edu/#abs/arXiv:1611.06051
 * Starkey et al 2016  https://ui.adsabs.harvard.edu/#abs/arXiv:1511.06162
 
-Please send questions to ds207@st-andrews.ac.uk. Though I am currently taking a break from academia and may take some time to respond, I will try to do so as soon as possible.
+Please send questions to ds207@st-andrews.ac.uk.
+
+#### Docs available [here](https://dstarkey23.github.io/pycecream/)
 
 
 ## Requirements & Installation
