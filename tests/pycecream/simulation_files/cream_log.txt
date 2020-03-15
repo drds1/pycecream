@@ -1,1 +1,0 @@
- ./output_20200308_001,, NLC=9, mmdot, sigexpand, whi =0.5

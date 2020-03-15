@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resamp_" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/run_lc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/run_lc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycecream/cream_f90.f90" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/cream_f90.f90" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +36,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
+            <state relative-caret-position="1380">
               <caret line="95" column="31" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="31" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
@@ -64,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="597" column="76" selection-start-line="597" selection-start-column="76" selection-end-line="597" selection-end-column="76" />
+            <state relative-caret-position="55">
+              <caret line="106" column="11" lean-forward="true" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -76,34 +75,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93735">
-              <caret line="6249" column="37" selection-start-line="6249" selection-start-column="24" selection-end-line="6249" selection-end-column="37" />
+            <state relative-caret-position="356">
+              <caret line="11099" column="18" selection-start-line="11099" selection-start-column="18" selection-end-line="11099" selection-end-column="18" />
               <folding>
-                <marker date="1584011189482" expanded="true" signature="23902:24042" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="24135:24169" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="24740:24795" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="25192:25312" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="27489:27616" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="31822:31896" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="33538:33605" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="34053:34171" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="34369:34539" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="34897:34996" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="35198:35283" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="63330:63402" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="64162:64245" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="149682:149683" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="345193:345396" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="348704:348750" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="353986:354047" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="354072:354131" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="354249:354317" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="360621:360667" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="369157:369193" ph="..." />
-                <marker date="1584011189482" expanded="true" signature="369409:369477" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="23902:24042" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="24135:24169" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="24740:24795" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="25192:25312" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="27489:27616" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="31822:31896" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="33538:33605" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="34053:34171" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="34369:34539" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="34897:34996" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="35198:35283" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="63330:63402" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="64162:64245" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="149682:149683" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="345297:345500" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="348808:348854" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="354090:354151" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="354176:354235" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="354353:354421" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="360725:360771" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="369261:369297" ph="..." />
+                <marker date="1584291503497" expanded="true" signature="369513:369581" ph="..." />
               </folding>
             </state>
           </provider>
@@ -113,11 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>polyin_pri</find>
-      <find>set_var</find>
-      <find>set_backgr</find>
-      <find>cehcing</find>
-      <find>background_polynom</find>
       <find>outputpars.dat</find>
       <find>bgvary</find>
       <find>run()</find>
@@ -143,6 +137,11 @@
       <find>p_bg</find>
       <find>get_light</find>
       <find>print(</find>
+      <find>creaminpar.par</find>
+      <find>rang</find>
+      <find>istarttime</find>
+      <find>iseed</find>
+      <find>iseed=</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -174,7 +173,6 @@
         <option value="$PROJECT_DIR$/examples/test_pycecream.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/examples/test_pycecream_background_polynomials.py" />
-        <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
         <option value="$PROJECT_DIR$/tests/test_pycecream_output/cream_f90.f90" />
         <option value="$PROJECT_DIR$/tests/scratch_multiprocesstest.py" />
         <option value="$PROJECT_DIR$/docs/_build/pydocmd/index.md" />
@@ -190,6 +188,7 @@
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/attention_CAM.py" />
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/model_vessel_detection_classifier.py" />
         <option value="$PROJECT_DIR$/pycecream/__init__.py" />
+        <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
       </list>
     </option>
   </component>
@@ -204,6 +203,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,16 +216,10 @@
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,10 +258,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="111" y="23" width="1165" height="816" extended-state="0" />
-    <editor active="true" />
+    <frame x="167" y="23" width="1165" height="816" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18432769" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18699911" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -479,6 +472,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/learning_rate_utils.py" />
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/preprocessing.py" />
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/visualisation.py" />
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/basic_image_label_generator.py" />
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/attention_CAM.py" />
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/model_vessel_detection_classifier.py" />
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/prepare_image_set_on_disk.py" />
     <entry file="file://$PROJECT_DIR$/docs/autogen.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -495,41 +495,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
+    <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93735">
-          <caret line="6249" column="37" selection-start-line="6249" selection-start-column="24" selection-end-line="6249" selection-end-column="37" />
+        <state relative-caret-position="1380">
+          <caret line="95" column="31" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="31" />
           <folding>
-            <marker date="1584011189482" expanded="true" signature="23902:24042" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="24135:24169" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="24740:24795" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="25192:25312" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="27489:27616" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="31822:31896" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="33538:33605" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="34053:34171" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="34369:34539" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="34897:34996" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="35198:35283" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="63330:63402" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="64162:64245" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="149682:149683" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="345193:345396" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="348704:348750" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="353986:354047" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="354072:354131" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="354249:354317" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="360621:360667" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="369157:369193" ph="..." />
-            <marker date="1584011189482" expanded="true" signature="369409:369477" ph="..." />
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -540,92 +512,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="95" column="31" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/learning_rate_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="235" column="71" selection-start-line="235" selection-start-column="71" selection-end-line="235" selection-end-column="71" />
-          <folding>
-            <element signature="e#468#486#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/preprocessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="164" column="30" selection-start-line="164" selection-start-column="30" selection-end-line="164" selection-end-column="30" />
-          <folding>
-            <element signature="e#18#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/visualisation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="83" column="19" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/basic_image_label_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/attention_CAM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="87" column="10" selection-start-line="87" selection-start-column="10" selection-end-line="87" selection-end-column="10" />
-          <folding>
-            <element signature="e#112#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/model_vessel_detection_classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2145">
-          <caret line="143" column="14" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/prepare_image_set_on_disk.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="597" column="76" selection-start-line="597" selection-start-column="76" selection-end-line="597" selection-end-column="76" />
+        <state relative-caret-position="55">
+          <caret line="106" column="11" lean-forward="true" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="11099" column="18" selection-start-line="11099" selection-start-column="18" selection-end-line="11099" selection-end-column="18" />
+          <folding>
+            <marker date="1584291503497" expanded="true" signature="23902:24042" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="24135:24169" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="24740:24795" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="25192:25312" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="27489:27616" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="31822:31896" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="33538:33605" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="34053:34171" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="34369:34539" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="34897:34996" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="35198:35283" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="63330:63402" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="64162:64245" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="149682:149683" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="345297:345500" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="348808:348854" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="354090:354151" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="354176:354235" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="354353:354421" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="360725:360771" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="369261:369297" ph="..." />
+            <marker date="1584291503497" expanded="true" signature="369513:369581" ph="..." />
           </folding>
         </state>
       </provider>

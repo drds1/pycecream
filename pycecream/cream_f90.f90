@@ -7990,7 +7990,8 @@ sumk, s1, s2
 
 
 version=3
-iseed=2131412
+!iseed=2131412
+call system_clock(iseed)
 call getcwd(dirmain)
 
 
@@ -10561,7 +10562,8 @@ subroutine disksim(uD,h0,omega_m,omega_lam,um,umdot,urlo,urhi,nr,uinc,k,alpha,ef
 real cgs,ranu,bnu,k,dl_zoo,uD ! functions
 logical outputtr /.True./, fastmode/.false./
 
-iseed=13123414
+!iseed=13123414
+call system_clock(iseed)
 !!! sub parms
 !urlo=3.0
 !urhi=10000.0
@@ -10834,7 +10836,8 @@ real dl_zoo,cgs,ranu,bnu
 integer iseed,nr,ir,iversion,idx
 logical outputtr /.False./, fastmode/.false./, ranoff/.true./
 
-iseed=13123414
+!iseed=13123414
+call system_clock(iseed)
 !!! sub parms
 !urlo=3.0
 !urhi=10000.0
@@ -11080,7 +11083,8 @@ fastmode = .false.
 if ((eff .eq. 0) .and. (alpha .eq. 0) .and. (k .eq. 0)) fastmode = .true.
 
 
-iseed=13123414
+!iseed=13123414
+call system_clock(iseed)
 !!! sub parms
 !urlo=3.0
 !urhi=10000.0
@@ -22881,7 +22885,8 @@ subroutine affine_step(NP,Niter,p_past,cov,pnew,icovcalc,stepchange,icmean)
 integer NP,Niter,icovcalc,icmean
 real pnew(NP),p_past(Niter,NP), cov(NP,NP),&
 eval(NP), evec(NP,NP), ave(NP),gaus_0_v(NP),u_gaus_0_v(NP,NP),stepchange
-iseed=332423532
+!iseed=332423532
+call system_clock(iseed)
 !icmean = 1
 
 if (icmean .eq. 0) then
