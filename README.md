@@ -62,7 +62,7 @@ synthetic_data = mf.myfake(
 dat = synthetic_data['echo light curves']
 ```
 
-##  Section 2: Settup and run PyceCREAM
+##  Section 2: Set-up and run PyceCREAM
 
 
 

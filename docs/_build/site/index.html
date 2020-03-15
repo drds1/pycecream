@@ -60,9 +60,9 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#section-1-optional-generate-test-synthetic-light-curves">Section 1 (Optional): Generate test synthetic light curves</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#section-2-settup-and-run-pycecream">Section 2: Settup and run PyceCREAM</a>
+    <li class="toctree-l2"><a class="reference internal" href="#section-2-set-up-and-run-pycecream">Section 2: Set-up and run PyceCREAM</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a>
+    <li class="toctree-l2"><a class="reference internal" href="#section-3-outputs">Section 3: Outputs</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#1-output_lightcurves-aget_light_curve_fits">1) output_lightcurves = a.get_light_curve_fits():</a>
     </li>
@@ -163,7 +163,7 @@ synthetic_data = mf.myfake(
 dat = synthetic_data['echo light curves']
 </code></pre>
 
-<h2 id="section-2-settup-and-run-pycecream">Section 2: Settup and run PyceCREAM</h2>
+<h2 id="section-2-set-up-and-run-pycecream">Section 2: Set-up and run PyceCREAM</h2>
 <pre><code class="python">import pycecream
 
 #instantiate a pycecream object
@@ -231,7 +231,7 @@ RUN! specify ncores (default = 1) to parallelise with 1 chain per core
 a.run(ncores = 4)
 </code></pre>
 
-<h2 id="outputs">Outputs</h2>
+<h2 id="section-3-outputs">Section 3: Outputs</h2>
 <p>The main outputs are stored in two dataframes.</p>
 <h3 id="1-output_lightcurves-aget_light_curve_fits">1) output_lightcurves = a.get_light_curve_fits():</h3>
 <p>This a dictionary of 3 data frames.</p>
@@ -354,5 +354,5 @@ plt.show()
 
 <!--
 MkDocs version : 1.1
-Build Date UTC : 2020-03-08 19:06:52
+Build Date UTC : 2020-03-15 17:33:20
 -->

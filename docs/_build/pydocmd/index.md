@@ -62,7 +62,7 @@ synthetic_data = mf.myfake(
 dat = synthetic_data['echo light curves']
 ```
 
-##  Section 2: Settup and run PyceCREAM
+##  Section 2: Set-up and run PyceCREAM
 
 
 
@@ -135,7 +135,7 @@ RUN! specify ncores (default = 1) to parallelise with 1 chain per core
 a.run(ncores = 4)
 ```
 
-## Outputs
+## Section 3: Outputs
 
 The main outputs are stored in two dataframes.
 
