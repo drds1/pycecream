@@ -93,3 +93,4 @@ if __name__ == '__main__':
     x.gen_fake()
     x.run_pycecream()
     x.post_run()
+    lcop = x.output_lightcurves

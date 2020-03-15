@@ -596,8 +596,6 @@ class pycecream:
                 p_output = np.hstack((p_output,p_pbg))
 
             #save all results for each MCMC iteration to a pandas data frame
-            print(np.shape(p_output))
-            print(len(p_output_names))
             p_output = pd.DataFrame(data = p_output,columns = p_output_names)
             p_output['chain number'] = idx_chain
             self.output_parameters = self.output_parameters.append(p_output)
@@ -671,14 +669,12 @@ class pycecream:
                 output_merged_model += [dat[:,1]]
                 output_merged_uncertainties += [dat[:, 2]]
                 count = count + 1
-            output_merged_model_chains += np.array(output_merged_model)
-            output_merged_uncertainties_chains += np.array(output_merged_uncertainties)
-        print(np.shape(output_merged_model_chains))
-        print(np.shape(output_merged_model_uncertainties_chains))
+            output_merged_model_chains += [np.array(output_merged_model).T]
+            output_merged_uncertainties_chains += [np.array(output_merged_uncertainties).T]
 
         names = list(self.lightcurve_input_params['name'])
-        y = np.mean(output_merged_model,axis=0)
-        sig = np.sqrt(np.sum(output_merged_uncertainties**2,axis=0))/ncores
+        y = np.mean(np.array(output_merged_model_chains),axis=0)
+        sig = np.sqrt(np.sum(np.array(output_merged_uncertainties_chains)**2,axis=0))/ncores
         self.output_merged_model = {'time':dat[:,0],
                                     'light curve':pd.DataFrame(y,columns = names),
                                     'light curve uncertainties':pd.DataFrame(sig,columns = names)}
@@ -712,7 +708,7 @@ class pycecream:
             dat += [np.loadtxt(results_dir+'/plots/modellc.dat')]
             dat_sig += [np.loadtxt(results_dir + '/plots/modellc_sig.dat')]
             if count == 0:
-                output_model = {'time': dat[:, 0]}
+                output_model = {'time': dat[0][:, 0]}
             count += 1
         dat = np.mean(np.array(dat),axis=0)
         dat_sig = np.sqrt(np.sum(np.array(dat_sig)**2,axis=0))/ncores
@@ -736,8 +732,7 @@ class pycecream:
             drivemoditp += [np.interp(timemod,driver[:,0],driver[:,1])]
             drivemodsigitp += [np.interp(timemod,driver[:,0],driver[:,2])]
         drivemoditp = np.mean(np.array(drivemoditp),axis=0)
-        drivemodsigitp = np.sqrt(np.sum(np.array(drivemodsigitp),axis=1))/ncores
-
+        drivemodsigitp = np.sqrt(np.sum(np.array(drivemodsigitp),axis=0))/ncores
         self.output_model.insert(loc=1,column='driver',value = drivemoditp)
         self.output_model.insert(loc=2, column='driver uncerts', value=drivemodsigitp)
 
@@ -862,7 +857,6 @@ class pycecream:
         ax1 = fig.add_subplot(111)
         for c in cols:
             c5 = c[:-5]
-            print(model.columns)
             flux_m = model[c].values
             flux_m_sort = flux_m[idsort]
             flux_d = data[c5+'data']

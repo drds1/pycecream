@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pycecream.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resamp_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/run_lc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/run_lc.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,35 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/build_docs.sh">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="2205">
-                <caret line="147" selection-start-line="147" selection-end-line="147" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/test_pycecream.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/autogen.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+            <state relative-caret-position="343">
+              <caret line="95" column="31" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="31" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -77,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-227">
-              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="41" />
+            <state relative-caret-position="75">
+              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -95,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="717" column="50" selection-start-line="717" selection-start-column="50" selection-end-line="717" selection-end-column="50" />
+            <state relative-caret-position="140">
+              <caret line="597" column="76" selection-start-line="597" selection-start-column="76" selection-end-line="597" selection-end-column="76" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -107,7 +79,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
+            <state relative-caret-position="93735">
               <caret line="6249" column="37" selection-start-line="6249" selection-start-column="24" selection-end-line="6249" selection-end-column="37" />
               <folding>
                 <marker date="1584011189482" expanded="true" signature="23902:24042" ph="..." />
@@ -141,8 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>background_po</find>
-      <find>polyin</find>
       <find>polyin_pri</find>
       <find>set_var</find>
       <find>set_backgr</find>
@@ -171,6 +141,8 @@
       <find>lcnames</find>
       <find>outputpars_bg</find>
       <find>p_bg</find>
+      <find>get_light</find>
+      <find>print(</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -208,8 +180,15 @@
         <option value="$PROJECT_DIR$/docs/_build/pydocmd/index.md" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/tests/run_lc.py" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/tests/run_lc.py" />
+        <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/learning_rate_utils.py" />
+        <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/preprocessing.py" />
+        <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/visualisation.py" />
+        <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/basic_image_label_generator.py" />
+        <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/prepare_image_set_on_disk.py" />
+        <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/attention_CAM.py" />
+        <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/model_vessel_detection_classifier.py" />
         <option value="$PROJECT_DIR$/pycecream/__init__.py" />
       </list>
     </option>
@@ -225,7 +204,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,10 +216,16 @@
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,10 +264,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="167" y="23" width="1165" height="816" extended-state="0" />
+    <frame x="111" y="23" width="1165" height="816" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18165627" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18432769" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -306,10 +290,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pycecream_test/test_pycecream.py" />
-    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/cream_var.par" />
-    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/output_20190619_001/outputpars2.dat" />
-    <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/creaminpar.par" />
     <entry file="file://$PROJECT_DIR$/../academic_projects_public/pycecream_test/fit_synthetic_lightcurves/simulation_files/pricream.par" />
     <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/arma_experiment/arma_experiment.py" />
     <entry file="file://$PROJECT_DIR$/../../github_datascience/projects/regressor_comparison/regressors_2.py" />
@@ -517,7 +497,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
+        <state relative-caret-position="93735">
           <caret line="6249" column="37" selection-start-line="6249" selection-start-column="24" selection-end-line="6249" selection-end-column="37" />
           <folding>
             <marker date="1584011189482" expanded="true" signature="23902:24042" ph="..." />
@@ -546,16 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -565,15 +535,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-227">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="41" />
+        <state relative-caret-position="75">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/run_lc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="95" column="31" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/learning_rate_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="235" column="71" selection-start-line="235" selection-start-column="71" selection-end-line="235" selection-end-column="71" />
+          <folding>
+            <element signature="e#468#486#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="164" column="30" selection-start-line="164" selection-start-column="30" selection-end-line="164" selection-end-column="30" />
+          <folding>
+            <element signature="e#18#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/visualisation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="83" column="19" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/basic_image_label_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/attention_CAM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="87" column="10" selection-start-line="87" selection-start-column="10" selection-end-line="87" selection-end-column="10" />
+          <folding>
+            <element signature="e#112#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/model_vessel_detection_classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2145">
+          <caret line="143" column="14" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/prepare_image_set_on_disk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="717" column="50" selection-start-line="717" selection-start-column="50" selection-end-line="717" selection-end-column="50" />
+        <state relative-caret-position="140">
+          <caret line="597" column="76" selection-start-line="597" selection-start-column="76" selection-end-line="597" selection-end-column="76" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
