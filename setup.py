@@ -3,17 +3,15 @@ from setuptools import setup
 #upload to pip
 #pip install .
 #python setup.py sdist
-#twine upload dist/pycecream-1.4.0.tar.gz
+#twine upload dist/pycecream-1.4.1.tar.gz
 
 setup(name='pycecream',
-      version='1.4.0',
+      version='1.4.1',
       description='python implementation of the cream accretion disc fitting code '
                   'https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF'
       ,
-      long_description= 'now allows parallelisation with ncores argument in ".run()" command, '
-                        'bug fixes previous problem where black hole mass was ignored, '
-                        'background lightcurve flux now allows polynomial background rather than constant offset (dont use yet still buggy)',
-      url='https://github.com/dstarkey23/pycecream',
+      long_description= 'parallelised using pycecream.run(ncores = 4)'
+      ,url='https://github.com/dstarkey23/pycecream',
       author='dstarkey23',
       author_email='ds207@st-andrews.ac.uk',
       license='MIT',
