@@ -3,7 +3,7 @@ import astropy_stark.myfake as mf
 import matplotlib.pylab as plt
 import os
 import numpy as np
-
+import pickle
 
 
 class test_pc:
@@ -146,19 +146,43 @@ class test_pc:
 
 
 if __name__ == '__main__':
+
+    newsim = False
     x = test_pc()
     x.gen_fake()
     x.transform_fake(plot=False)
 
-    # setup pycecream object
-    pc = x.setup_pycecream(test_project_folder='test_pycecream_output')
 
-    #run pycecream
-    pc.run(ncores = 1)
+    '''
+    setup and run new lightcurve-merging test
+    '''
+    #only do these steps if running a new simulation (takes times)
+    #for diagnostic plots and analysis just reload previous
+    if newsim is True:
+        #setup pycecream object
+        pc = x.setup_pycecream(test_project_folder='test_pycecream_output')
 
+        #run pycecream
+        pc.run(ncores = 1)
+
+        #save to pickle for reloading later
+        pickle_out = open('merge_test_pcObj.pickle', "wb")
+        pickle.dump(pc, pickle_out)
+        pickle_out.close()
+    else:
+        pickle_in = open('merge_test_pcObj.pickle', "rb")
+        pc = pickle.load(pickle_in)
+
+
+
+    '''
+    Post-simulation analysis
+    gather merged light curves, compare with inputs, generate diagnostic plots
+    '''
     #gather simulation outputs
     output_chains = pc.get_MCMC_chains(location=None)
     output_lightcurves = pc.get_light_curve_fits(location=None)
+
 
     #compare the input light curves with merged light curves
     input_lightcurves = {}
@@ -166,18 +190,19 @@ if __name__ == '__main__':
         input_lightcurves[x.datnorm['name'][i]] = x.datnorm['light curve'][i]
     merged_lightcurves = output_lightcurves['merged data']
 
-
+    
     #plot one wavelength at a time
     wavelengths = np.array(x.datnorm['wavelength'])
     unique_wavelengths = np.unique(wavelengths)
-    nwavs = len(wavelengths)
+    nwavs = len(unique_wavelengths)
+
     fig = plt.figure()
-    idx = 0
+    idx = 1
     for w in unique_wavelengths:
         ax1 = fig.add_subplot(nwavs,1,idx)
-        ax1.add_ylabel('flux')
-        ax1.add_xlabel('time')
-        ax1.title(str(w)+'Å')
+        ax1.set_ylabel('flux')
+        ax1.set_xlabel('time')
+        ax1.set_title(str(w)+'Å')
 
         #assemble the input and output (merged) lightcurves for each wavelength
         lc_idx = np.where(wavelengths == w)[0]
@@ -186,14 +211,17 @@ if __name__ == '__main__':
         for lci in lc_idx:
             name = x.datnorm['name'][lci]
             datmerged = np.vstack([datmerged,merged_lightcurves[name]])
-            datinput = np.vstack([datinput,x.datnorm['light curve'][lci]])
+            lcin = x.datnorm['light curve'][lci]
+            datinput = np.vstack([datinput,lcin])
+            ax1.scatter(lcin[:, 0], lcin[:, 1], label=name)
         datmerged = datmerged[np.argsort(datmerged[:,0]),:]
         datinput = datinput[np.argsort(datinput[:, 0]), :]
 
-        #plot the merged and input light curves for each wavelength
-        ax1.plot(datinput[:, 0], datinput[:, 1], label='input')
+        #plot the merged light curves for each wavelength
         ax1.plot(datmerged[:, 0], datmerged[:, 1], label='merged')
-
+        ax1.legend(fontsize='xx-small')
+        idx += 1
+    plt.tight_layout()
     plt.show()
 
 
