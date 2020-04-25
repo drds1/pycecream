@@ -4,6 +4,7 @@ import matplotlib.pylab as plt
 import os
 import numpy as np
 import pickle
+from matplotlib.backends.backend_pdf import PdfPages
 
 
 class test_pc:
@@ -196,33 +197,77 @@ if __name__ == '__main__':
     unique_wavelengths = np.unique(wavelengths)
     nwavs = len(unique_wavelengths)
 
-    fig = plt.figure()
-    idx = 1
-    for w in unique_wavelengths:
-        ax1 = fig.add_subplot(nwavs,1,idx)
-        ax1.set_ylabel('flux')
-        ax1.set_xlabel('time')
-        ax1.set_title(str(w)+'Å')
+    #save diagnostics as multipage pdf
+    with PdfPages('merge_test_diagnostic.pdf') as pdf:
+        fig = plt.figure()
+        idx = 1
+        for w in unique_wavelengths:
+            ax1 = fig.add_subplot(nwavs,1,idx)
+            ax1.set_ylabel('flux')
+            ax1.set_xlabel('time')
+            ax1.set_title(str(w)+'Å')
 
-        #assemble the input and output (merged) lightcurves for each wavelength
-        lc_idx = np.where(wavelengths == w)[0]
-        datmerged = np.zeros((0,3))
-        datinput = np.zeros((0, 3))
-        for lci in lc_idx:
-            name = x.datnorm['name'][lci]
-            datmerged = np.vstack([datmerged,merged_lightcurves[name]])
-            lcin = x.datnorm['light curve'][lci]
-            datinput = np.vstack([datinput,lcin])
-            ax1.scatter(lcin[:, 0], lcin[:, 1], label=name)
-        datmerged = datmerged[np.argsort(datmerged[:,0]),:]
-        datinput = datinput[np.argsort(datinput[:, 0]), :]
+            #assemble the input and output (merged) lightcurves for each wavelength
+            lc_idx = np.where(wavelengths == w)[0]
+            datmerged = np.zeros((0,3))
+            datinput = np.zeros((0, 3))
+            for lci in lc_idx:
+                name = x.datnorm['name'][lci]
+                datmerged = np.vstack([datmerged,merged_lightcurves[name]])
+                lcin = x.datnorm['light curve'][lci]
+                datinput = np.vstack([datinput,lcin])
+                ax1.scatter(lcin[:, 0], lcin[:, 1], label=name)
+            datmerged = datmerged[np.argsort(datmerged[:,0]),:]
+            datinput = datinput[np.argsort(datinput[:, 0]), :]
 
-        #plot the merged light curves for each wavelength
-        ax1.plot(datmerged[:, 0], datmerged[:, 1], label='merged')
-        ax1.legend(fontsize='xx-small')
-        idx += 1
-    plt.tight_layout()
-    plt.show()
+            #plot the merged light curves for each wavelength
+            ax1.plot(datmerged[:, 0], datmerged[:, 1], label='merged')
+            ax1.legend(fontsize='xx-small')
+            idx += 1
+        plt.tight_layout()
+        pdf.savefig()
+        plt.close()
+
+
+
+        #now plot the trace plots for the stretch and offset parameters
+        #on a new page
+        fig = plt.figure()
+        idx = 1
+        for w in unique_wavelengths:
+            ax1 = fig.add_subplot(nwavs,2,idx)
+            ax1.set_xlabel('Iteration')
+            ax1.set_title('Offset Parameter\n'+str(w)+'Å')
+            ax2 = fig.add_subplot(nwavs, 2, idx+1)
+            ax2.set_xlabel('Iteration')
+            ax2.set_title('Vertical Stretch Parameter\n' + str(w) + 'Å')
+            for lci in lc_idx:
+                name = x.datnorm['name'][lci]
+                ax1.plot(output_chains['offset '+name].values,label=name)
+                ax2.plot(output_chains['stretch ' + name].values, label=name)
+            idx += 2
+        pdf.savefig()
+        plt.close()
+
+        #now plot the trace plots for the error bar noise parameters
+        #on a third page
+        fig = plt.figure()
+        idx = 1
+        for w in unique_wavelengths:
+            ax1 = fig.add_subplot(nwavs, 2, idx)
+            ax1.set_xlabel('Iteration')
+            ax1.set_title('Multiplicative Noise Parameter\n' + str(w) + 'Å')
+            ax2 = fig.add_subplot(nwavs, 2, idx + 1)
+            ax2.set_xlabel('Iteration')
+            ax2.set_title('Extra Variance Noise Parameter\n' + str(w) + 'Å')
+            for lci in lc_idx:
+                name = x.datnorm['name'][lci]
+                ax1.plot(output_chains['noise m ' + name].values, label=name)
+                ax2.plot(output_chains['noise var ' + name].values, label=name)
+            idx += 2
+        pdf.savefig()
+        plt.close()
+
 
 
 
