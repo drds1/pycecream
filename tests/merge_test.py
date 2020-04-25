@@ -150,13 +150,19 @@ if __name__ == '__main__':
     x.gen_fake()
     x.transform_fake(plot=False)
 
-    # instantiate and remove previous test if present
-    test_project_folder = 'test_pycecream_output'
-    os.system('rm -rf ' + test_project_folder)
+    # setup pycecream object
+    pc = x.setup_pycecream(test_project_folder='test_pycecream_output')
 
-    pc = x.setup_pycecream()
+    #run pycecream
     pc.run(ncores = 1)
 
+    #gather simulation outputs
     output_chains = pc.get_MCMC_chains(location=None)
     output_lightcurves = pc.get_light_curve_fits(location=None)
+
+    #compare the input light curves with merged light curves
+    input_lightcurves = {}
+    for i in range(len(x.datnorm['wavelength'])):
+        input_lightcurves[x.datnorm['name'][i]] = x.datnorm['light curve'][i]
+    merged_lightcurves = output_lightcurves['merged data']
 

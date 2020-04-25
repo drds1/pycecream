@@ -691,9 +691,10 @@ class pycecream:
         for tf in self.lightcurve_input_params['temporary file name'].values:
             dat = np.loadtxt(results_dir_list[0]+'/plots/merged_dat_'+tf+'.dat')
             name = self.lightcurve_input_params['name'].values[count]
-            output_merged_data[name+' time']=dat[:,0]
-            output_merged_data[name+' data'] = dat[:,1]
-            output_merged_data[name+' uncerts'] = dat[:, 3]
+            output_merged_data[name] = dat[:,[0,1,3]]
+            #output_merged_data[name+' time']=dat[:,0]
+            #output_merged_data[name+' data'] = dat[:,1]
+            #output_merged_data[name+' uncerts'] = dat[:, 3]
             count = count + 1
         self.output_merged_data = output_merged_data
 
