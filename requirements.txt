@@ -1,8 +1,8 @@
+.
 pandas
 numpy
 matplotlib
 scipy
 astropy_stark
-glob
-mkdocs
-pydoc-markdown
+#mkdocs
+#pydoc-markdown

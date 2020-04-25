@@ -100,8 +100,11 @@ class test_pc:
 
         #add the light curves one at a time
         previous_wavelength = np.nan
-        for name, LightCurveData in self.datnorm.items():
-            lc, wavelength = LightCurveData[0], LightCurveData[1]
+        wavelengths = self.datnorm['wavelength']
+        names = self.datnorm['name']
+        LightCurveData = self.datnorm['light curve']
+        for i in range(len(names)):
+            wavelength, lc, name = wavelengths[i],  LightCurveData[i], names[i]
             if wavelength == previous_wavelength:
                 share_previous_lag = True
             else:
@@ -123,7 +126,6 @@ class test_pc:
         #a.add_lc(cream_lc8,name='continuum (SynthPhot)',kind='continuum', wavelength = 7480,share_previous_lag=True)
         a.hi_frequency = 0.5
         a.N_iterations = 20
-        a.run(ncores = 4)
         return a
 
 
@@ -146,11 +148,15 @@ class test_pc:
 if __name__ == '__main__':
     x = test_pc()
     x.gen_fake()
-    x.transform_fake(plot=True)
+    x.transform_fake(plot=False)
 
     # instantiate and remove previous test if present
     test_project_folder = 'test_pycecream_output'
     os.system('rm -rf ' + test_project_folder)
 
     pc = x.setup_pycecream()
-    #pc.run(ncores = 1)
+    pc.run(ncores = 1)
+
+    output_chains = pc.get_MCMC_chains(location=None)
+    output_lightcurves = pc.get_light_curve_fits(location=None)
+
