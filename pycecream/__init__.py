@@ -556,7 +556,7 @@ class pycecream:
 
             #load the disk parameters
             dat_output = np.loadtxt(results_dir + '/outputpars.dat')
-            p_output_names = ['Mdot','cos i','Tr_alpha']
+            p_output_names = ['disk Mdot','disk cos i','disk Tr_alpha']
             p_output = dat_output[:,[2,3,4]]
 
             #load the stretch, offset and multiplicative error bar rescaling parameters

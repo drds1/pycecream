@@ -6,6 +6,8 @@ import numpy as np
 import pickle
 from matplotlib.backends.backend_pdf import PdfPages
 import corner
+import pandas as pd
+import itertools
 
 class test_pc:
 
@@ -45,7 +47,9 @@ class test_pc:
         ncuts = self.ncuts
         self.datnorm = {'name':[],
                         'wavelength':[],
-                        'light curve':[]}
+                        'light curve':[],
+                        'offset true':[],
+                        'stretch true':[]}
 
 
         idxwavelength = 0
@@ -75,6 +79,8 @@ class test_pc:
                 self.datnorm['name'].append(title)
                 self.datnorm['wavelength'].append(int(self.fake_wavelength[idxwavelength]))
                 self.datnorm['light curve'].append(d[idx,:])
+                self.datnorm['offset true'].append(newmean)
+                self.datnorm['stretch true'].append(newsd)
             idxwavelength += 1
             if plot is True:
                 plt.scatter(d[:,0],d[:,1])
@@ -168,8 +174,17 @@ def _plotpage(parameter_names, xdatnorm, parameter_nicenames, output_chains):
             ax1.set_xlabel('Iteration')
             ax1.set_title(parameter_nicenames[i2]+'\n' + str(w) + 'Å')
             for lci in lc_idx:
+                color = next(ax1._get_lines.prop_cycler)['color']
                 name = xdatnorm['name'][lci]
-                ax1.plot(output_chains[parameter_names[i2] + name].values, label=name)
+                ax1.plot(output_chains[parameter_names[i2] + name].values, label=name, color=color)
+                try:
+                    true = xdatnorm[parameter_names[i2]+'true'][lci]
+                    print(name+' '+parameter_names[i2]+'true value = '+str(true))
+                    ax1.plot([0,len(output_chains)],[true]*2,label=None,ls=':',color = color)
+                except:
+                    print(parameter_names[i2]+'true: key not found in xdatnorm')
+                    pass
+
         idx += npars
     plt.tight_layout()
     pdf.savefig()
@@ -233,10 +248,10 @@ if __name__ == '__main__':
         fig = plt.figure()
         idx = 1
         for w in unique_wavelengths:
-            ax1 = fig.add_subplot(nwavs,1,idx)
+            ax1 = fig.add_subplot(nwavs,2,idx)
             ax1.set_ylabel('flux')
             ax1.set_xlabel('time')
-            ax1.set_title(str(w)+'Å')
+            ax1.set_title(str(w)+'Å\n Input')
 
             #assemble the input and output (merged) lightcurves for each wavelength
             lc_idx = np.where(wavelengths == w)[0]
@@ -250,20 +265,27 @@ if __name__ == '__main__':
                 ax1.scatter(lcin[:, 0], lcin[:, 1], label=name)
             datmerged = datmerged[np.argsort(datmerged[:,0]),:]
             datinput = datinput[np.argsort(datinput[:, 0]), :]
+            ax1.legend(fontsize='xx-small')
 
             #plot the merged light curves for each wavelength
-            ax1.plot(datmerged[:, 0], datmerged[:, 1], label='merged')
-            ax1.legend(fontsize='xx-small')
-            idx += 1
+            ax2 = fig.add_subplot(nwavs, 2, idx+1)
+            ax2.set_ylabel('flux')
+            ax2.set_xlabel('time')
+            ax2.set_title(str(w) + 'Å\n Merged')
+            ax2.plot(datmerged[:, 0], datmerged[:, 1], color='k', label='merged')
+            ax2.legend(fontsize='xx-small')
+            idx += 2
         plt.tight_layout()
         pdf.savefig()
         plt.close()
 
 
         #parms
-        parms = ['offset ','stretch ','noise m ', 'noise var ']
+        parms = ['offset ','stretch ','noise m ', 'noise var ','disk ']
         parms_nicenames = ['Offset Parameter','Vertical Stretch Parameter',
-                           'Multiplicative Noise Parameter', 'Extra Variance Noise Parameter']
+                           'Multiplicative Noise Parameters',
+                           'Extra Variance Noise Parameters',
+                           'Accretion Disk Parameterss']
         #now plot the trace plots for the stretch and offset parameters
         #on a new page
         _plotpage(parms[:2],
@@ -285,9 +307,12 @@ if __name__ == '__main__':
             new_corner_columns = [c.replace(Parm,'') for c in corner_columns]
             df = output_chains[corner_columns].copy()
             df.columns = new_corner_columns
-            fig = corner.corner(df,plot_contours = False)
+            dfstd = df.std()
+            varied_cols = list(dfstd[dfstd > 0].index)
+            fig = corner.corner(df[varied_cols],plot_contours = False)
             fig.suptitle('Covariance Plots: '+ParmNicename, fontsize=16)
-            plt.tight_layout()
+            fig.tight_layout()
+            #plt.tight_layout()
             pdf.savefig()
             plt.close()
 
