@@ -6,3 +6,4 @@ scipy
 astropy_stark
 #mkdocs
 #pydoc-markdown
+corner

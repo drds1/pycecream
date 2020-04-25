@@ -5,7 +5,7 @@ import os
 import numpy as np
 import pickle
 from matplotlib.backends.backend_pdf import PdfPages
-
+import corner
 
 class test_pc:
 
@@ -146,6 +146,37 @@ class test_pc:
         print(self.pc.lightcurve_input_params)
 
 
+def _plotpage(parameter_names, xdatnorm, parameter_nicenames, output_chains):
+    '''
+    script-specific plotting routines for diagnosis
+    :param names:
+    :param nicenames:
+    :param unique_wavelengths:
+    :param output_chains:
+    :return:
+    '''
+    wavelengths = np.array(xdatnorm['wavelength'])
+    unique_wavelengths = np.unique(wavelengths)
+    nwavs = len(unique_wavelengths)
+    fig = plt.figure()
+    idx = 1
+    npars = len(parameter_names)
+    for w in unique_wavelengths:
+        lc_idx = np.where(wavelengths == w)[0]
+        for i2 in range(npars):
+            ax1 = fig.add_subplot(nwavs, npars, idx+i2)
+            ax1.set_xlabel('Iteration')
+            ax1.set_title(parameter_nicenames[i2]+'\n' + str(w) + 'Å')
+            for lci in lc_idx:
+                name = xdatnorm['name'][lci]
+                ax1.plot(output_chains[parameter_names[i2] + name].values, label=name)
+        idx += npars
+    plt.tight_layout()
+    pdf.savefig()
+    plt.close()
+
+
+
 if __name__ == '__main__':
 
     newsim = False
@@ -229,44 +260,36 @@ if __name__ == '__main__':
         plt.close()
 
 
-
+        #parms
+        parms = ['offset ','stretch ','noise m ', 'noise var ']
+        parms_nicenames = ['Offset Parameter','Vertical Stretch Parameter',
+                           'Multiplicative Noise Parameter', 'Extra Variance Noise Parameter']
         #now plot the trace plots for the stretch and offset parameters
         #on a new page
-        fig = plt.figure()
-        idx = 1
-        for w in unique_wavelengths:
-            ax1 = fig.add_subplot(nwavs,2,idx)
-            ax1.set_xlabel('Iteration')
-            ax1.set_title('Offset Parameter\n'+str(w)+'Å')
-            ax2 = fig.add_subplot(nwavs, 2, idx+1)
-            ax2.set_xlabel('Iteration')
-            ax2.set_title('Vertical Stretch Parameter\n' + str(w) + 'Å')
-            for lci in lc_idx:
-                name = x.datnorm['name'][lci]
-                ax1.plot(output_chains['offset '+name].values,label=name)
-                ax2.plot(output_chains['stretch ' + name].values, label=name)
-            idx += 2
-        pdf.savefig()
-        plt.close()
+        _plotpage(parms[:2],
+                  x.datnorm,
+                  parms_nicenames[:2],
+                  output_chains)
 
         #now plot the trace plots for the error bar noise parameters
         #on a third page
-        fig = plt.figure()
-        idx = 1
-        for w in unique_wavelengths:
-            ax1 = fig.add_subplot(nwavs, 2, idx)
-            ax1.set_xlabel('Iteration')
-            ax1.set_title('Multiplicative Noise Parameter\n' + str(w) + 'Å')
-            ax2 = fig.add_subplot(nwavs, 2, idx + 1)
-            ax2.set_xlabel('Iteration')
-            ax2.set_title('Extra Variance Noise Parameter\n' + str(w) + 'Å')
-            for lci in lc_idx:
-                name = x.datnorm['name'][lci]
-                ax1.plot(output_chains['noise m ' + name].values, label=name)
-                ax2.plot(output_chains['noise var ' + name].values, label=name)
-            idx += 2
-        pdf.savefig()
-        plt.close()
+        _plotpage(parms[2:4],
+                  x.datnorm,
+                  parms_nicenames[2:4],
+                  output_chains)
+
+        #make covariance corner plots
+        colnames_output_chains = list(output_chains.columns)
+        for Parm, ParmNicename in zip(parms,parms_nicenames):
+            corner_columns = [c for c in colnames_output_chains if Parm in c]
+            new_corner_columns = [c.replace(Parm,'') for c in corner_columns]
+            df = output_chains[corner_columns].copy()
+            df.columns = new_corner_columns
+            fig = corner.corner(df,plot_contours = False)
+            fig.suptitle('Covariance Plots: '+ParmNicename, fontsize=16)
+            plt.tight_layout()
+            pdf.savefig()
+            plt.close()
 
 
 

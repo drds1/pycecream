@@ -24,7 +24,8 @@ setup(name='pycecream',
       'scipy',
       'astropy_stark',
       'glob3',
-      'PyQt5'
+      'PyQt5',
+      'corner'
       ],
 extras_require={
         'tests': [

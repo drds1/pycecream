@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/merge_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/merge_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resamp_" afterDir="false" />
     </list>
@@ -73,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="263" column="45" lean-forward="true" selection-start-line="263" selection-start-column="45" selection-end-line="263" selection-end-column="45" />
+            <state relative-caret-position="253">
+              <caret line="281" column="60" selection-start-line="281" selection-start-column="60" selection-end-line="281" selection-end-column="60" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -94,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="283">
+              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -103,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" selection-start-column="1" selection-end-column="1" />
+            <state relative-caret-position="120">
+              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -201,9 +204,9 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/disease_spread/scratch.py" />
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/disease_spread/epispread.py" />
+        <option value="$PROJECT_DIR$/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/tests/merge_test.py" />
       </list>
     </option>
@@ -231,6 +234,11 @@
               <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -512,20 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -543,10 +537,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="263" column="45" lean-forward="true" selection-start-line="263" selection-start-column="45" selection-end-line="263" selection-end-column="45" />
+        <state relative-caret-position="253">
+          <caret line="281" column="60" selection-start-line="281" selection-start-column="60" selection-end-line="281" selection-end-column="60" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
