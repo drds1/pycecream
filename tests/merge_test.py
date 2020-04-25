@@ -11,7 +11,7 @@ class test_pc:
     def __init__(self):
         '''input arguments'''
         self.fake_wavelength = [4720.,7480.0]
-        self.fake_snr = [10.,10.0]
+        self.fake_snr = [10.]*len(self.fake_wavelength)
         self.fake_cadence = [1.0]*len(self.fake_snr)
 
     def gen_fake(self):
@@ -44,25 +44,30 @@ class test_pc:
 
         for d in self.dat:
             ndat = len(d)
-            Nseg = int(np.floor(ndat / ncuts))
             y = d[:, 1]
             y = (y - np.mean(y)) / np.std(y)
             d[:, 1] = y
             d[:, 2] = d[:, 2] / np.std(y)
+
+            #randomly select points for each simulated calibration offset
+            random_order = np.arange(ndat)
+            np.random.shuffle(random_order)
+            selected_points = np.array_split(random_order,ncuts)
+
+            #apply artificial offset for each chunk of points
             for i in range(ncuts):
-                idxlo = i*Nseg
-                idxhi = (i+1)*Nseg
+                idx = selected_points[i]
                 newmean = i*offset
                 newsd = i*sd + 1
-                y = d[idxlo:idxhi,1]
+                y = d[idx,1]
                 ynew = (y - 0)/1*newsd + newmean
-                sdnew = d[idxlo:idxhi,2]/1*newsd
-                d[idxlo:idxhi,1] = ynew
-                d[idxlo:idxhi, 2] = sdnew
+                sdnew = d[idx,2]/1*newsd
+                d[idx,1] = ynew
+                d[idx, 2] = sdnew
                 print(ynew.mean(),ynew.std())
-            self.datnorm.append(d[:idxhi,:])
+            self.datnorm.append(d)
             if plot is True:
-                plt.plot(d[:idxhi,0],d[:idxhi,1])
+                plt.scatter(d[:,0],d[:,1])
         if plot is True:
             plt.show()
 
@@ -126,16 +131,10 @@ class test_pc:
 if __name__ == '__main__':
     x = test_pc()
     x.gen_fake()
-    x.transform_fake()
+    x.transform_fake(plot=True)
 
     # instantiate and remove previous test if present
     test_project_folder = 'test_pycecream_output'
     os.system('rm -rf ' + test_project_folder)
     a = pycecream.pycecream()
     a.project_folder = test_project_folder
-
-    #plt.plot(x.datnorm[1][:,1])
-    #plt.show()
-    #x.run_pycecream()
-    #x.post_run()
-    #lcop = x.output_lightcurves
