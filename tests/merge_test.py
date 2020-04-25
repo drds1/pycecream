@@ -166,3 +166,38 @@ if __name__ == '__main__':
         input_lightcurves[x.datnorm['name'][i]] = x.datnorm['light curve'][i]
     merged_lightcurves = output_lightcurves['merged data']
 
+
+    #plot one wavelength at a time
+    wavelengths = np.array(x.datnorm['wavelength'])
+    unique_wavelengths = np.unique(wavelengths)
+    nwavs = len(wavelengths)
+    fig = plt.figure()
+    idx = 0
+    for w in unique_wavelengths:
+        ax1 = fig.add_subplot(nwavs,1,idx)
+        ax1.add_ylabel('flux')
+        ax1.add_xlabel('time')
+        ax1.title(str(w)+'Å')
+
+        #assemble the input and output (merged) lightcurves for each wavelength
+        lc_idx = np.where(wavelengths == w)[0]
+        datmerged = np.zeros((0,3))
+        datinput = np.zeros((0, 3))
+        for lci in lc_idx:
+            name = x.datnorm['name'][lci]
+            datmerged = np.vstack([datmerged,merged_lightcurves[name]])
+            datinput = np.vstack([datinput,x.datnorm['light curve'][lci]])
+        datmerged = datmerged[np.argsort(datmerged[:,0]),:]
+        datinput = datinput[np.argsort(datinput[:, 0]), :]
+
+        #plot the merged and input light curves for each wavelength
+        ax1.plot(datinput[:, 0], datinput[:, 1], label='input')
+        ax1.plot(datmerged[:, 0], datmerged[:, 1], label='merged')
+
+    plt.show()
+
+
+
+
+
+
