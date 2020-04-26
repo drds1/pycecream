@@ -67,7 +67,7 @@ class test_pc:
 
             #apply artificial offset for each chunk of points
             for i in range(ncuts):
-                idx = selected_points[i]
+                idx = np.sort(selected_points[i])
                 newmean = i*offset
                 newsd = i*sd + 1
                 y = d[idx,1]
@@ -195,10 +195,6 @@ def _plotpage(parameter_names, xdatnorm, parameter_nicenames, output_chains):
 if __name__ == '__main__':
 
     newsim = False
-    x = test_pc()
-    x.gen_fake()
-    x.transform_fake(plot=False)
-
 
     '''
     setup and run new lightcurve-merging test
@@ -206,19 +202,27 @@ if __name__ == '__main__':
     #only do these steps if running a new simulation (takes times)
     #for diagnostic plots and analysis just reload previous
     if newsim is True:
+        x = test_pc()
+        x.gen_fake()
+        x.transform_fake(plot=False)
         #setup pycecream object
         pc = x.setup_pycecream(test_project_folder='test_pycecream_output')
+
+        #save the fake data for later use
+        pc.x = x
 
         #run pycecream
         pc.run(ncores = 1)
 
         #save to pickle for reloading later
+        os.system('rm merge_test_pcObj.pickle')
         pickle_out = open('merge_test_pcObj.pickle', "wb")
         pickle.dump(pc, pickle_out)
         pickle_out.close()
     else:
         pickle_in = open('merge_test_pcObj.pickle', "rb")
         pc = pickle.load(pickle_in)
+        x = pc.x
 
 
 
@@ -237,7 +241,22 @@ if __name__ == '__main__':
         input_lightcurves[x.datnorm['name'][i]] = x.datnorm['light curve'][i]
     merged_lightcurves = output_lightcurves['merged data']
 
-    
+
+    #diagnose number of points in input and output light curves
+    #previously there was a bug where the fake data was being
+    #regenerated but not the simulation
+    #making the input lightcurves unrelated to output lightcurves
+    #this checks for same numner of points in each input and output dataset
+    names = list(input_lightcurves.keys())
+    num_points ={'names':names,
+                 'inputs':[],
+                 'outputs':[]}
+    for n in names:
+        num_points['inputs'].append(len(input_lightcurves[n]))
+        num_points['outputs'].append(len(merged_lightcurves[n]))
+    num_points = pd.DataFrame(num_points)
+
+
     #plot one wavelength at a time
     wavelengths = np.array(x.datnorm['wavelength'])
     unique_wavelengths = np.unique(wavelengths)
@@ -262,7 +281,8 @@ if __name__ == '__main__':
                 datmerged = np.vstack([datmerged,merged_lightcurves[name]])
                 lcin = x.datnorm['light curve'][lci]
                 datinput = np.vstack([datinput,lcin])
-                ax1.scatter(lcin[:, 0], lcin[:, 1], label=name)
+                ax1.errorbar(lcin[:, 0], lcin[:, 1], lcin[:, 2],ls='', label=name)
+
             datmerged = datmerged[np.argsort(datmerged[:,0]),:]
             datinput = datinput[np.argsort(datinput[:, 0]), :]
             ax1.legend(fontsize='xx-small')
@@ -272,7 +292,10 @@ if __name__ == '__main__':
             ax2.set_ylabel('flux')
             ax2.set_xlabel('time')
             ax2.set_title(str(w) + 'Å\n Merged')
-            ax2.plot(datmerged[:, 0], datmerged[:, 1], color='k', label='merged')
+            ax2.errorbar(datmerged[:, 0], datmerged[:, 1], datmerged[:, 2], ls='', marker=None,
+                         color='k', label='merged')
+            ax2.errorbar(datmerged[:, 0], datmerged[:, 1], datinput[:, 2], ls='', marker=None,
+                         color='grey', label=None)
             ax2.legend(fontsize='xx-small')
             idx += 2
         plt.tight_layout()
@@ -312,7 +335,6 @@ if __name__ == '__main__':
             fig = corner.corner(df[varied_cols],plot_contours = False)
             fig.suptitle('Covariance Plots: '+ParmNicename, fontsize=16)
             fig.tight_layout()
-            #plt.tight_layout()
             pdf.savefig()
             plt.close()
 
