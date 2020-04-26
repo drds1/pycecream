@@ -224,6 +224,7 @@ def run_one_sim(inputs):
     BHMass = 1.e8
     EddRat = 0.1
     Mdot = None
+    N_iterations = 100000
     BHefficiency = 0.1
     time_baseline = 100
     line_lag = 20
@@ -261,6 +262,9 @@ def run_one_sim(inputs):
 
         # save the fake data for later use
         pc.x = x
+
+        #set number of iterations
+        pc.N_iterations = N_iterations
 
         # run pycecream
         pc.run(ncores=1)
