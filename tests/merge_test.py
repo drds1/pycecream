@@ -9,6 +9,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 import corner
 import pandas as pd
 import itertools
+import multiprocessing as mp
 
 class test_pc:
 
@@ -41,7 +42,7 @@ class test_pc:
 
 
 
-    def gen_fake(self):
+    def gen_fake(self,iseed = -1):
         '''
         make fake lightcurves
         :return:
@@ -64,6 +65,7 @@ class test_pc:
             thcent = self.line_lag,
             degi = self.disk_inc,
             thi=self.time_baseline,
+            iseed = iseed,
             sx = self.disk_TXslope
         )
         self.dat = synthetic_data['echo light curves']
@@ -96,8 +98,9 @@ class test_pc:
             for i in range(ncuts):
                 idx = np.sort(selected_points[i])
                 newmean = offset[i]
-                newsd = sd[i],
+                newsd = sd[i]
                 yold = d[idx,1]
+                print(yold.shape, yold.mean(), yold.std(), newsd, newmean)
                 ynew = (yold - yold.mean())/yold.std()*newsd + newmean
                 sdold = d[idx,2]/yold.std()
                 #assume original errors were underestimated by the inputted noise parameters
@@ -206,126 +209,134 @@ def _plotpage(parameter_names, xdatnorm, parameter_nicenames, output_chains):
                     pass
 
         idx += npars
-    plt.tight_layout()
-    pdf.savefig()
-    plt.close()
 
 
-
-if __name__ == '__main__':
-
-    newsim = True
-
+def run_one_sim(inputs):
     '''
     setup and run new lightcurve-merging test
     '''
-    #only do these steps if running a new simulation (takes times)
-    #for diagnostic plots and analysis just reload previous
+    offset, sd, noise_m, noise_var, simulation_name = inputs
+
+
+    wavelengths = [4720., 7480.0]
+    cadence = [1.0,1.0]
+    snr = [10., 10.]
+    BHMass = 1.e8
+    EddRat = 0.1
+    Mdot = None
+    BHefficiency = 0.1
+    time_baseline = 100
+    line_lag = 20
+    iseed = 1234
+    disk_inc = 0.0
+    disk_TXslope = 0.75
+    newsim = True
+
+    # only do these steps if running a new simulation (takes times)
+    # for diagnostic plots and analysis just reload previous
     if newsim is True:
         # generate fake data. Specify wavelengths, snr, cadence
-        x = test_pc(wavelengths = [4720.,7480.0],
-                    snr = [10.,10.],
-                    cadence = [1.,1,],
-                    BHMass = 1.e8,
-                    EddRat=0.1,
-                    Mdot = None,
-                    BHefficiency = 0.1,
-                    time_baseline = 100,
-                    line_lag = 20,
-                    disk_inc = 0.0,
-                    disk_TXslope = 0.75)
-        x.gen_fake()
+        x = test_pc(wavelengths=wavelengths,
+                    snr=snr,
+                    cadence=cadence,
+                    BHMass=BHMass,
+                    EddRat=EddRat,
+                    Mdot=Mdot,
+                    BHefficiency=BHefficiency,
+                    time_baseline=time_baseline,
+                    line_lag=line_lag,
+                    disk_inc=disk_inc,
+                    disk_TXslope=disk_TXslope)
+        x.gen_fake(iseed = iseed)
 
-        #generate three 'telescopes' for each wavelength with vertical offset, vertical scaling,
-        #multiplicative error bar and additive error bar (variance) calibration differences
-        x.transform_fake(offset = [0,10,20], sd = [1,1,1],
-                       noise_m = [1,1,1],
-                       noise_var = [0,0,0],plot=False)
+        # generate three 'telescopes' for each wavelength with vertical offset, vertical scaling,
+        # multiplicative error bar and additive error bar (variance) calibration differences
+        print(offset, sd,'herererer')
+        x.transform_fake(offset=offset, sd=sd,
+                         noise_m=noise_m,
+                         noise_var=noise_var, plot=False)
 
-        #setup pycecream object
-        pc = x.setup_pycecream(test_project_folder='test_pycecream_output')
+        # setup pycecream object
+        pc = x.setup_pycecream(test_project_folder=simulation_name)
 
-        #save the fake data for later use
+        # save the fake data for later use
         pc.x = x
 
-        #run pycecream
-        pc.run(ncores = 1)
+        # run pycecream
+        pc.run(ncores=1)
 
-        #save to pickle for reloading later
-        os.system('rm merge_test_pcObj.pickle')
-        pickle_out = open('merge_test_pcObj.pickle', "wb")
+        # save to pickle for reloading later
+        file = simulation_name + '.pickle'
+        os.system('rm ' + file)
+        pickle_out = open(file, "wb")
         pickle.dump(pc, pickle_out)
         pickle_out.close()
     else:
-        pickle_in = open('merge_test_pcObj.pickle', "rb")
+        file = simulation_name + '.pickle'
+        pickle_in = open(file, "rb")
         pc = pickle.load(pickle_in)
         x = pc.x
-
-
 
     '''
     Post-simulation analysis
     gather merged light curves, compare with inputs, generate diagnostic plots
     '''
-    #gather simulation outputs
+    # gather simulation outputs
     output_chains = pc.get_MCMC_chains(location=None)
     output_lightcurves = pc.get_light_curve_fits(location=None)
 
-
-    #compare the input light curves with merged light curves
+    # compare the input light curves with merged light curves
     input_lightcurves = {}
     for i in range(len(x.datnorm['wavelength'])):
         input_lightcurves[x.datnorm['name'][i]] = x.datnorm['light curve'][i]
     merged_lightcurves = output_lightcurves['merged data']
 
-
-    #diagnose number of points in input and output light curves
-    #previously there was a bug where the fake data was being
-    #regenerated but not the simulation
-    #making the input lightcurves unrelated to output lightcurves
-    #this checks for same numner of points in each input and output dataset
+    # diagnose number of points in input and output light curves
+    # previously there was a bug where the fake data was being
+    # regenerated but not the simulation
+    # making the input lightcurves unrelated to output lightcurves
+    # this checks for same numner of points in each input and output dataset
     names = list(input_lightcurves.keys())
-    num_points ={'names':names,
-                 'inputs':[],
-                 'outputs':[]}
+    num_points = {'names': names,
+                  'inputs': [],
+                  'outputs': []}
     for n in names:
         num_points['inputs'].append(len(input_lightcurves[n]))
         num_points['outputs'].append(len(merged_lightcurves[n]))
     num_points = pd.DataFrame(num_points)
 
-
-    #plot one wavelength at a time
+    # plot one wavelength at a time
     wavelengths = np.array(x.datnorm['wavelength'])
     unique_wavelengths = np.unique(wavelengths)
     nwavs = len(unique_wavelengths)
 
-    #save diagnostics as multipage pdf
-    with PdfPages('merge_test_diagnostic.pdf') as pdf:
+    # save diagnostics as multipage pdf
+    with PdfPages(simulation_name + '_merge_test_diagnostic.pdf') as pdf:
         fig = plt.figure()
         idx = 1
         for w in unique_wavelengths:
-            ax1 = fig.add_subplot(nwavs,2,idx)
+            ax1 = fig.add_subplot(nwavs, 2, idx)
             ax1.set_ylabel('flux')
             ax1.set_xlabel('time')
-            ax1.set_title(str(w)+'Å\n Input')
+            ax1.set_title(str(w) + 'Å\n Input')
 
-            #assemble the input and output (merged) lightcurves for each wavelength
+            # assemble the input and output (merged) lightcurves for each wavelength
             lc_idx = np.where(wavelengths == w)[0]
-            datmerged = np.zeros((0,3))
+            datmerged = np.zeros((0, 3))
             datinput = np.zeros((0, 3))
             for lci in lc_idx:
                 name = x.datnorm['name'][lci]
-                datmerged = np.vstack([datmerged,merged_lightcurves[name]])
+                datmerged = np.vstack([datmerged, merged_lightcurves[name]])
                 lcin = x.datnorm['light curve'][lci]
-                datinput = np.vstack([datinput,lcin])
-                ax1.errorbar(lcin[:, 0], lcin[:, 1], lcin[:, 2],ls='', label=name)
+                datinput = np.vstack([datinput, lcin])
+                ax1.errorbar(lcin[:, 0], lcin[:, 1], lcin[:, 2], ls='', label=name)
 
-            datmerged = datmerged[np.argsort(datmerged[:,0]),:]
+            datmerged = datmerged[np.argsort(datmerged[:, 0]), :]
             datinput = datinput[np.argsort(datinput[:, 0]), :]
             ax1.legend(fontsize='xx-small')
 
-            #plot the merged light curves for each wavelength
-            ax2 = fig.add_subplot(nwavs, 2, idx+1)
+            # plot the merged light curves for each wavelength
+            ax2 = fig.add_subplot(nwavs, 2, idx + 1)
             ax2.set_ylabel('flux')
             ax2.set_xlabel('time')
             ax2.set_title(str(w) + 'Å\n Merged')
@@ -339,43 +350,45 @@ if __name__ == '__main__':
         pdf.savefig()
         plt.close()
 
-
-        #parms
-        parms = ['offset ','stretch ','noise m ', 'noise var ','disk ']
-        parms_nicenames = ['Offset Parameter','Vertical Stretch Parameter',
+        # parms
+        parms = ['offset ', 'stretch ', 'noise m ', 'noise var ', 'disk ']
+        parms_nicenames = ['Offset Parameter', 'Vertical Stretch Parameter',
                            'Multiplicative Noise Parameters',
                            'Extra Variance Noise Parameters',
                            'Accretion Disk Parameters']
-        #now plot the trace plots for the stretch and offset parameters
-        #on a new page
+        # now plot the trace plots for the stretch and offset parameters
+        # on a new page
         _plotpage(parms[:2],
                   x.datnorm,
                   parms_nicenames[:2],
                   output_chains)
+        plt.tight_layout()
+        pdf.savefig()
+        plt.close()
 
-        #now plot the trace plots for the error bar noise parameters
-        #on a third page
+        # now plot the trace plots for the error bar noise parameters
+        # on a third page
         _plotpage(parms[2:4],
                   x.datnorm,
                   parms_nicenames[2:4],
                   output_chains)
 
-        #make covariance corner plots
+        # make covariance corner plots
         colnames_output_chains = list(output_chains.columns)
         datnormcolumns = list(x.datnorm.keys())
-        for Parm, ParmNicename in zip(parms,parms_nicenames):
+        for Parm, ParmNicename in zip(parms, parms_nicenames):
             corner_columns = [c for c in colnames_output_chains if Parm in c]
-            new_corner_columns = [c.replace(Parm,'') for c in corner_columns]
+            new_corner_columns = [c.replace(Parm, '') for c in corner_columns]
             df = output_chains[corner_columns].copy()
             df.columns = new_corner_columns
 
             # Isolate parameters optimised in MCMC chain
             # if non of the current parameter set are varied then skip
             dfstd = df.std()
-            names_VariedColumns = list(dfstd[dfstd>0].index)
+            names_VariedColumns = list(dfstd[dfstd > 1.e-10].index)
             if len(names_VariedColumns) > 0:
 
-                #add the truths if present
+                # add the truths if present
                 true_parms_all_columns = np.array([c for c in datnormcolumns if Parm in c])
                 if len(true_parms_all_columns) > 0:
                     true_parms_column = true_parms_all_columns[0]
@@ -383,16 +396,77 @@ if __name__ == '__main__':
                 else:
                     truths_Varied = None
 
-                #make the corner covariance plot and add title
-                fig = corner.corner(df[names_VariedColumns],plot_contours = False, truths=truths_Varied)
-                fig.suptitle('Covariance Plots: '+ParmNicename, fontsize=16)
+                # make the corner covariance plot and add title
+                print('making corner plots for ',names_VariedColumns)
+                fig = corner.corner(df[names_VariedColumns], plot_contours=False, truths=truths_Varied)
+                fig.suptitle('Covariance Plots: ' + ParmNicename, fontsize=16)
                 fig.tight_layout()
                 pdf.savefig()
                 plt.close()
+    return pc
 
 
+if __name__ == '__main__':
+
+    '''
+    run several tests varying each of the offset, vertical scaling, multiplicative and variance noise terms
+    in turn 
+    1) offsets
+    2) vertical scaling
+    3) multiplicative noise
+    4) additive noise
+    
+    #default values (change globally in run_one_sim function)
+    wavelengths = [4720., 7480.0],
+    snr = [10., 10.],
+    cadence = [1., 1, ],
+    offset = [0, 10, 20],
+    sd = [1, 1, 1],
+    noise_m = [1, 1, 1],
+    noise_var = [0, 0, 0],
+    BHMass = 1.e8,
+    EddRat = 0.1,
+    Mdot = None,
+    BHefficiency = 0.1,
+    time_baseline = 100,
+    line_lag = 20,
+    iseed = -1,
+    disk_inc = 0.0,
+    disk_TXslope = 0.75,
+    outputdir = 'simulation_results',
+    simulation_name = 'sim_1',
+    newsim = True
+    
+    '''
+    outputdirectory = 'scratch_test_results'
+
+    offset_default = [0,0,0]
+    Alloffset = [[0, 10, 20]] +[offset_default]*3
+
+    sd_default = [1,1,1]
+    Allsd = [sd_default] +[[1,2,3]] + [sd_default]*2
+
+    noise_m_default = [1,1,1]
+    Allnoise_m = [noise_m_default]*2 + [[1,2,3]] + [noise_m_default]
+
+    noise_var_default = [0,0,0]
+    Allnoise_var = [noise_var_default]*3 + [[5,10,15]]
+
+    simnames = ['scratch_offset','scratch_stretch','scratch_noisem','scratch_noisevar']
 
 
+    #run simulations in parallel
+    os.system('rm -rf '+outputdirectory)
+    os.system('mkdir '+outputdirectory)
+    N = len(Alloffset)
+    sim_settings = [(Alloffset[i], Allsd[i], Allnoise_m[i], Allnoise_var[i], outputdirectory+'/'+simnames[i]) for i in range(N)]
 
-
+    jobs = []
+    for i in range(N):
+        p = mp.Process(target=run_one_sim, args=(sim_settings[i],))
+        jobs.append(p)
+        p.start()
+    # wait for jobs to finish before continuing
+    for j in jobs:
+        j.join()
 

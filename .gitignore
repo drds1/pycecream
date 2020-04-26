@@ -4,3 +4,4 @@ pycecream_test/.DS_Store
 .idea
 .idea/workspace
 *venv*
+*scratch_*
