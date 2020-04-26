@@ -1,5 +1,6 @@
 import pycecream
 import astropy_stark.myfake as mf
+import astropy_stark.myedlum as eddington
 import matplotlib.pylab as plt
 import os
 import numpy as np
@@ -11,12 +12,34 @@ import itertools
 
 class test_pc:
 
-    def __init__(self):
+    def __init__(self, wavelengths = [4720.,7480.0],
+                 snr = [10.,10.],
+                 cadence = [1.,1,],
+                 BHMass = 10000000.0,
+                 EddRat=0.1,
+                 Mdot = None,
+                 BHefficiency = 0.1,
+                 time_baseline = 100,
+                 line_lag = 20,
+                 disk_inc = 0.0,
+                 disk_TXslope = 0.75):
         '''input arguments'''
-        self.fake_wavelength = [4720.,7480.0]
-        self.fake_snr = [10.]*len(self.fake_wavelength)
-        self.fake_cadence = [1.0]*len(self.fake_snr)
-        self.ncuts = 3
+        self.fake_wavelength = wavelengths
+        self.fake_snr = snr
+        self.fake_cadence = cadence
+        self.BHMass = BHMass
+        self.EddRat = EddRat
+        self.BHefficiency = BHefficiency
+        self.time_baseline = time_baseline
+        self.line_lag = line_lag
+        self.disk_inc = disk_inc
+        self.disk_TXslope = disk_TXslope
+        if Mdot is None:
+            self.Mdot = eddington.ermin_mdotout(BHMass, EddRat, eta=BHefficiency)
+        else:
+            self.EddRat = eddington.edd(BHMass, Mdot, eta=BHefficiency)
+
+
 
     def gen_fake(self):
         '''
@@ -32,47 +55,53 @@ class test_pc:
 
 
         synthetic_data = mf.myfake(
-        self.fake_wavelength,
-        self.fake_snr,
-        self.fake_cadence,
-        thcent = 20.0,thi=100,
+            self.fake_wavelength,
+            self.fake_snr,
+            self.fake_cadence,
+            embh = self.BHMass,
+            er = self.EddRat,
+            eta = self.BHefficiency,
+            thcent = self.line_lag,
+            degi = self.disk_inc,
+            thi=self.time_baseline,
+            sx = self.disk_TXslope
         )
         self.dat = synthetic_data['echo light curves']
 
-    def transform_fake(self, offset = 10, sd = 0,plot=True):
+    def transform_fake(self, offset, sd,
+                       noise_m,
+                       noise_var,plot=True):
         '''
         simulate noise
         :return:
         '''
-        ncuts = self.ncuts
+        ncuts = len(offset)
         self.datnorm = {'name':[],
                         'wavelength':[],
                         'light curve':[],
                         'offset true':[],
-                        'stretch true':[]}
-
+                        'stretch true':[],
+                        'noise m true':[],
+                        'noise var true':[],
+                        'disk true':[self.Mdot,np.cos(np.pi/180*self.disk_inc), self.disk_TXslope]}
 
         idxwavelength = 0
         for d in self.dat:
-            ndat = len(d)
-            y = d[:, 1]
-            y = (y - np.mean(y)) / np.std(y)
-            d[:, 1] = y
-            d[:, 2] = d[:, 2] / np.std(y)
-
             #randomly select points for each simulated calibration offset
-            random_order = np.arange(ndat)
+            random_order = np.arange(len(d))
             np.random.shuffle(random_order)
             selected_points = np.array_split(random_order,ncuts)
 
             #apply artificial offset for each chunk of points
             for i in range(ncuts):
                 idx = np.sort(selected_points[i])
-                newmean = i*offset
-                newsd = i*sd + 1
-                y = d[idx,1]
-                ynew = (y - 0)/1*newsd + newmean
-                sdnew = d[idx,2]/1*newsd
+                newmean = offset[i]
+                newsd = sd[i],
+                yold = d[idx,1]
+                ynew = (yold - yold.mean())/yold.std()*newsd + newmean
+                sdold = d[idx,2]/yold.std()
+                #assume original errors were underestimated by the inputted noise parameters
+                sdnew = np.sqrt((sdold**2 - noise_var[i])/noise_m[i]**2)
                 d[idx,1] = ynew
                 d[idx, 2] = sdnew
                 title = 'wavelength'+str(int(self.fake_wavelength[idxwavelength])+1)+'_telescope'+str(i+1)
@@ -81,6 +110,8 @@ class test_pc:
                 self.datnorm['light curve'].append(d[idx,:])
                 self.datnorm['offset true'].append(newmean)
                 self.datnorm['stretch true'].append(newsd)
+                self.datnorm['noise m true'].append(noise_m[i])
+                self.datnorm['noise var true'].append(noise_var[i])
             idxwavelength += 1
             if plot is True:
                 plt.scatter(d[:,0],d[:,1])
@@ -101,9 +132,14 @@ class test_pc:
         a = pycecream.pycecream()
         a.project_folder = test_project_folder
 
-        #step accretion rate?
+        #set the hyperparameters
         a.p_accretion_rate_step = 0.1
-        a.bh_mass = 6.6e8
+        a.bh_mass = self.BHMass
+        a.p_inclination = self.disk_inc
+        a.bh_efficieny = self.BHefficiency
+        a.p_inclination_step = 0.0
+        a.hi_frequency = 0.5
+        a.N_iterations = 20
 
         #add the light curves one at a time
         previous_wavelength = np.nan
@@ -117,22 +153,6 @@ class test_pc:
             else:
                 share_previous_lag = False
             a.add_lc(lc,name=name,wavelength=wavelength, share_previous_lag=share_previous_lag)
-
-        # MgII Line lightcurve
-        #a.add_lc(cream_lc0, name='line 0  (MgII)', kind='line',background_polynomials=[0.1,0.1])
-        #a.p_linelag_centroids_step = 0.0
-        ## g-band photometric lightcurves
-        #a.add_lc(cream_lc1,name='continuum (Bok)', kind='continuum', wavelength = 4680)
-        #a.add_lc(cream_lc2,name='continuum 4720 (CFHT 1)',kind='continuum', wavelength  = 4720, share_previous_lag=True)
-        #a.add_lc(cream_lc3,name='continuum 4720 (CFHT 2)',kind='continuum', wavelength = 4720, share_previous_lag=True)
-        #a.add_lc(cream_lc4,name='continuum 4686  (SynthPhot)',kind='continuum', wavelength = 4686, share_previous_lag=True)
-        ## i-band photometric lightcurves
-        #a.add_lc(cream_lc5,name='continuum (Bok)', kind='continuum', wavelength= 7760, share_previous_lag = False)
-        #a.add_lc(cream_lc6,name='continuum (CFHT 1)',kind='continuum', wavelength = 7764, share_previous_lag=True)
-        #a.add_lc(cream_lc7,name='continuum (CFHT 2)',kind='continuum', wavelength = 7764, share_previous_lag=True)
-        #a.add_lc(cream_lc8,name='continuum (SynthPhot)',kind='continuum', wavelength = 7480,share_previous_lag=True)
-        a.hi_frequency = 0.5
-        a.N_iterations = 20
         return a
 
 
@@ -202,9 +222,26 @@ if __name__ == '__main__':
     #only do these steps if running a new simulation (takes times)
     #for diagnostic plots and analysis just reload previous
     if newsim is True:
-        x = test_pc()
+        # generate fake data. Specify wavelengths, snr, cadence
+        x = test_pc(wavelengths = [4720.,7480.0],
+                    snr = [10.,10.],
+                    cadence = [1.,1,],
+                    BHMass = 10000000.0,
+                    EddRat=0.1,
+                    Mdot = None,
+                    BHefficiency = 0.1,
+                    time_baseline = 100,
+                    line_lag = 20,
+                    disk_inc = 0.0,
+                    disk_TXslope = 0.75)
         x.gen_fake()
-        x.transform_fake(plot=False)
+
+        #generate three 'telescopes' for each wavelength with vertical offset, vertical scaling,
+        #multiplicative error bar and additive error bar (variance) calibration differences
+        x.transform_fake(offset = [0,10,20], sd = [1,1,1],
+                       noise_m = [1,1,1],
+                       noise_var = [0,0,0],plot=False)
+
         #setup pycecream object
         pc = x.setup_pycecream(test_project_folder='test_pycecream_output')
 
@@ -308,7 +345,7 @@ if __name__ == '__main__':
         parms_nicenames = ['Offset Parameter','Vertical Stretch Parameter',
                            'Multiplicative Noise Parameters',
                            'Extra Variance Noise Parameters',
-                           'Accretion Disk Parameterss']
+                           'Accretion Disk Parameters']
         #now plot the trace plots for the stretch and offset parameters
         #on a new page
         _plotpage(parms[:2],
@@ -325,18 +362,33 @@ if __name__ == '__main__':
 
         #make covariance corner plots
         colnames_output_chains = list(output_chains.columns)
+        datnormcolumns = list(x.datnorm.keys())
         for Parm, ParmNicename in zip(parms,parms_nicenames):
             corner_columns = [c for c in colnames_output_chains if Parm in c]
             new_corner_columns = [c.replace(Parm,'') for c in corner_columns]
             df = output_chains[corner_columns].copy()
             df.columns = new_corner_columns
+
+            # Isolate parameters optimised in MCMC chain
+            # if non of the current parameter set are varied then skip
             dfstd = df.std()
-            varied_cols = list(dfstd[dfstd > 0].index)
-            fig = corner.corner(df[varied_cols],plot_contours = False)
-            fig.suptitle('Covariance Plots: '+ParmNicename, fontsize=16)
-            fig.tight_layout()
-            pdf.savefig()
-            plt.close()
+            idx_VariedColumns = np.where(dfstd.values > 0)[0]
+            if len(idx_VariedColumns) > 0:
+
+                #add the truths if present
+                true_parms_all_columns = np.array([c for c in datnormcolumns if Parm in c])
+                if len(true_parms_all_columns) > 0:
+                    true_parms_column = true_parms_all_columns[idx_VariedColumns[0]]
+                    truths_Varied = x.datnorm[true_parms_column]
+                else:
+                    truths_Varied = None
+
+                #make the corner covariance plot and add title
+                fig = corner.corner(df[idx_VariedColumns],plot_contours = False, truths=truths_Varied)
+                fig.suptitle('Covariance Plots: '+ParmNicename, fontsize=16)
+                fig.tight_layout()
+                pdf.savefig()
+                plt.close()
 
 
 

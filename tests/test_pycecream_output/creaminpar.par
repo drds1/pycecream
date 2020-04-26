@@ -30,7 +30,7 @@ T
 3.0         !!! innner radius (rs)
 1.0         !!! lamppost height (rs)
 0.1
-660000000.0
+10000000.0
 -6.0 -0.1    !!! prior on mmdot (mean and sd of gaussian (in log 10 units, set sd -ve to exclude prior)
 0.1
 

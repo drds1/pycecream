@@ -7,7 +7,7 @@
       <change beforePath="$PROJECT_DIR$/tests/merge_test_diagnostic.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/merge_test_diagnostic.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/merge_test_pcObj.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/tests/merge_test_pcObj.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resamp_" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/cream_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/cream_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/creaminpar.par" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/creaminpar.par" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/cream_var.par" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/cream_var.par" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/disksimsave.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/disksimsave.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/disksimtrop.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/disksimtrop.dat" afterDir="false" />
@@ -18,58 +18,52 @@
       <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_3.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_3.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_4.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_4.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_5.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_5.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/CREAM_allpars_BIG.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_fluxflux.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_furparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_gvalues.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_osparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_redcisq.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_renorm_const.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_resume.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_sigexpand_parms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_stretchparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_tfparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/cream_th.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/creaminpar.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/fileinfo.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/furfreq.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/outputpars.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/outputpars2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/outputpars3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/outputpars_th.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/outputpars_varexpand.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/paridx.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/cream_miscpar.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/data_echo_dat_line_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/data_echo_dat_line_1.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/data_echo_dat_line_2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/data_echo_dat_line_3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/data_echo_dat_line_4.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/data_echo_dat_line_5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_0.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_1.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_2.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_3.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_4.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_5.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_mod_line_0.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_mod_line_1.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_mod_line_2.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_mod_line_3.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_mod_line_4.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_mod_line_5.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/modeldrive.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/modellc.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/modellc_bg.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/modellc_bgsig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/modellc_sig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/modeltf.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/modeltf_sig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/savelc_list.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/pricream.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/pythoncov.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/testbofs.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/xray_plot_mod.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/CREAM_allpars_BIG.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/CREAM_allpars_BIG.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_fluxflux.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_fluxflux.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_furparms.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_furparms.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_gvalues.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_gvalues.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_osparms.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_osparms.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_redcisq.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_redcisq.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_renorm_const.par" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_renorm_const.par" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_resume.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_resume.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_sigexpand_parms.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_sigexpand_parms.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_stretchparms.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_stretchparms.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_tfparms.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/cream_tfparms.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/creaminpar.par" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/creaminpar.par" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/furfreq.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/furfreq.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/outputpars.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/outputpars.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/outputpars2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/outputpars2.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/outputpars3.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/outputpars3.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/outputpars_varexpand.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/outputpars_varexpand.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/paridx.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/paridx.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/cream_miscpar.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/cream_miscpar.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_0.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_0.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_1.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_1.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_2.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_3.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_3.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_4.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_4.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_5.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/data_echo_dat_line_5.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_0.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_0.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_1.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_1.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_2.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_2.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_3.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_3.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_4.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_4.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_5.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_dat_line_5.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_0.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_0.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_1.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_1.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_2.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_2.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_3.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_3.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_4.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_4.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_5.dat.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/merged_mod_line_5.dat.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modeldrive.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modeldrive.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modellc.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modellc.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modellc_bg.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modellc_bg.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modellc_bgsig.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modellc_bgsig.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modellc_sig.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modellc_sig.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modeltf.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/plots/modeltf.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/pythoncov.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/pythoncov.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/testbofs.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/testbofs.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/xray_plot_mod.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200426_001/xray_plot_mod.dat" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,27 +79,27 @@
             <state relative-caret-position="-277">
               <caret line="2205" column="12" selection-start-line="2205" selection-start-column="7" selection-end-line="2205" selection-end-column="12" />
               <folding>
-                <marker date="1587899573985" expanded="true" signature="23902:24042" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="24135:24169" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="24740:24795" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="25192:25312" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="27489:27616" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="31822:31896" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="33538:33605" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="34053:34171" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="34369:34539" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="34897:34996" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="35198:35283" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="63330:63402" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="64162:64245" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="345297:345500" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="348808:348854" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="354090:354151" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="354176:354235" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="354353:354421" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="360725:360771" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="369261:369297" ph="..." />
-                <marker date="1587899573985" expanded="true" signature="369513:369581" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="23902:24042" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="24135:24169" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="24740:24795" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="25192:25312" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="27489:27616" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="31822:31896" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="33538:33605" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="34053:34171" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="34369:34539" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="34897:34996" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="35198:35283" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="63330:63402" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="64162:64245" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="345297:345500" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="348808:348854" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="354090:354151" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="354176:354235" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="354353:354421" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="360725:360771" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="369261:369297" ph="..." />
+                <marker date="1587906494406" expanded="true" signature="369513:369581" ph="..." />
               </folding>
             </state>
           </provider>
@@ -114,8 +108,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="286" column="35" selection-start-line="286" selection-start-column="35" selection-end-line="286" selection-end-column="35" />
+            <state relative-caret-position="214">
+              <caret line="380" column="42" selection-start-line="380" selection-start-column="42" selection-end-line="380" selection-end-column="42" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -127,9 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_run_cmd</find>
-      <find>sleep</find>
-      <find>backgrou</find>
       <find>background_pol</find>
       <find>blar</find>
       <find>poly</find>
@@ -157,6 +148,9 @@
       <find>'merged data'</find>
       <find>merge</find>
       <find>names</find>
+      <find>true</find>
+      <find>ncuts</find>
+      <find>ndat</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -534,27 +528,27 @@
         <state relative-caret-position="-277">
           <caret line="2205" column="12" selection-start-line="2205" selection-start-column="7" selection-end-line="2205" selection-end-column="12" />
           <folding>
-            <marker date="1587899573985" expanded="true" signature="23902:24042" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="24135:24169" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="24740:24795" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="25192:25312" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="27489:27616" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="31822:31896" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="33538:33605" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="34053:34171" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="34369:34539" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="34897:34996" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="35198:35283" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="63330:63402" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="64162:64245" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="345297:345500" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="348808:348854" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="354090:354151" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="354176:354235" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="354353:354421" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="360725:360771" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="369261:369297" ph="..." />
-            <marker date="1587899573985" expanded="true" signature="369513:369581" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="23902:24042" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="24135:24169" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="24740:24795" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="25192:25312" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="27489:27616" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="31822:31896" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="33538:33605" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="34053:34171" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="34369:34539" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="34897:34996" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="35198:35283" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="63330:63402" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="64162:64245" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="345297:345500" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="348808:348854" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="354090:354151" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="354176:354235" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="354353:354421" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="360725:360771" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="369261:369297" ph="..." />
+            <marker date="1587906494406" expanded="true" signature="369513:369581" ph="..." />
           </folding>
         </state>
       </provider>
@@ -594,8 +588,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="286" column="35" selection-start-line="286" selection-start-column="35" selection-end-line="286" selection-end-column="35" />
+        <state relative-caret-position="214">
+          <caret line="380" column="42" selection-start-line="380" selection-start-column="42" selection-end-line="380" selection-end-column="42" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
