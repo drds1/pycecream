@@ -214,7 +214,7 @@ def _plotpage(parameter_names, xdatnorm, parameter_nicenames, output_chains):
 
 if __name__ == '__main__':
 
-    newsim = False
+    newsim = True
 
     '''
     setup and run new lightcurve-merging test
@@ -226,7 +226,7 @@ if __name__ == '__main__':
         x = test_pc(wavelengths = [4720.,7480.0],
                     snr = [10.,10.],
                     cadence = [1.,1,],
-                    BHMass = 10000000.0,
+                    BHMass = 1.e8,
                     EddRat=0.1,
                     Mdot = None,
                     BHefficiency = 0.1,
@@ -372,19 +372,19 @@ if __name__ == '__main__':
             # Isolate parameters optimised in MCMC chain
             # if non of the current parameter set are varied then skip
             dfstd = df.std()
-            idx_VariedColumns = np.where(dfstd.values > 0)[0]
-            if len(idx_VariedColumns) > 0:
+            names_VariedColumns = list(dfstd[dfstd>0].index)
+            if len(names_VariedColumns) > 0:
 
                 #add the truths if present
                 true_parms_all_columns = np.array([c for c in datnormcolumns if Parm in c])
                 if len(true_parms_all_columns) > 0:
-                    true_parms_column = true_parms_all_columns[idx_VariedColumns[0]]
+                    true_parms_column = true_parms_all_columns[0]
                     truths_Varied = x.datnorm[true_parms_column]
                 else:
                     truths_Varied = None
 
                 #make the corner covariance plot and add title
-                fig = corner.corner(df[idx_VariedColumns],plot_contours = False, truths=truths_Varied)
+                fig = corner.corner(df[names_VariedColumns],plot_contours = False, truths=truths_Varied)
                 fig.suptitle('Covariance Plots: '+ParmNicename, fontsize=16)
                 fig.tight_layout()
                 pdf.savefig()
