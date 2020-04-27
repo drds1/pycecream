@@ -124,7 +124,7 @@ class test_pc:
 
 
 
-    def setup_pycecream(self,test_project_folder = 'test_pycecream_output'):
+    def setup_pycecream(self,test_project_folder = 'test_pycecream_output', dream = False):
         '''
         test pycecream using yasamans script
         :return:
@@ -149,13 +149,28 @@ class test_pc:
         wavelengths = self.datnorm['wavelength']
         names = self.datnorm['name']
         LightCurveData = self.datnorm['light curve']
-        for i in range(len(names)):
-            wavelength, lc, name = wavelengths[i],  LightCurveData[i], names[i]
-            if wavelength == previous_wavelength:
-                share_previous_lag = True
-            else:
-                share_previous_lag = False
-            a.add_lc(lc,name=name,wavelength=wavelength, share_previous_lag=share_previous_lag)
+
+
+        if dream is False:
+            for i in range(len(names)):
+                wavelength, lc, name = wavelengths[i],  LightCurveData[i], names[i]
+                if wavelength == previous_wavelength:
+                    share_previous_lag = True
+                else:
+                    share_previous_lag = False
+                a.add_lc(lc,kind = 'continuum',
+                         name=name,wavelength=wavelength,
+                         share_previous_lag=share_previous_lag)
+
+        elif dream is True:
+            for i in range(len(names)):
+                wavelength, lc, name = wavelengths[i],  LightCurveData[i], names[i]
+                if wavelength == previous_wavelength:
+                    share_previous_lag = True
+                else:
+                    share_previous_lag = False
+                a.add_lc(lc,kind='line',name=name,wavelength=-1, share_previous_lag=share_previous_lag)
+
         return a
 
 
@@ -215,7 +230,7 @@ def run_one_sim(inputs):
     '''
     setup and run new lightcurve-merging test
     '''
-    offset, sd, noise_m, noise_var, simulation_name = inputs
+    offset, sd, noise_m, noise_var, simulation_name, dream = inputs
 
 
     wavelengths = [4720., 7480.0]
@@ -258,7 +273,7 @@ def run_one_sim(inputs):
                          noise_var=noise_var, plot=False)
 
         # setup pycecream object
-        pc = x.setup_pycecream(test_project_folder=simulation_name)
+        pc = x.setup_pycecream(test_project_folder=simulation_name,dream = dream)
 
         # save the fake data for later use
         pc.x = x
@@ -442,7 +457,8 @@ if __name__ == '__main__':
     newsim = True
     
     '''
-    outputdirectory = 'scratch_test_results'
+    outputdirectory = 'dream_tests'
+    dream = True
 
     offset_default = [0,0,0]
     Alloffset = [[0, 10, 20]] +[offset_default]*3
@@ -463,7 +479,7 @@ if __name__ == '__main__':
     os.system('rm -rf '+outputdirectory)
     os.system('mkdir '+outputdirectory)
     N = len(Alloffset)
-    sim_settings = [(Alloffset[i], Allsd[i], Allnoise_m[i], Allnoise_var[i], outputdirectory+'/'+simnames[i]) for i in range(N)]
+    sim_settings = [(Alloffset[i], Allsd[i], Allnoise_m[i], Allnoise_var[i], outputdirectory+'/'+simnames[i], dream) for i in range(N)]
 
     jobs = []
     for i in range(N):

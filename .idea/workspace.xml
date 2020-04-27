@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/merge_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/merge_test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="56" column="25" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="25" />
+            <state relative-caret-position="-158">
+              <caret line="126" column="14" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="14" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="252" column="17" lean-forward="true" selection-start-line="252" selection-start-column="17" selection-end-line="252" selection-end-column="17" />
+            <state relative-caret-position="150">
+              <caret line="375" column="24" lean-forward="true" selection-start-line="375" selection-start-column="24" selection-end-line="375" selection-end-column="24" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -39,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_parallel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="15">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -52,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -71,7 +72,6 @@
       <find>iseed=</find>
       <find>outputpars.dat</find>
       <find>pricream</find>
-      <find>add_lc</find>
       <find>glob</find>
       <find>merged_data</find>
       <find>plt.s</find>
@@ -91,6 +91,7 @@
       <find>_run_cm</find>
       <find>outputdir</find>
       <find>N_iterations</find>
+      <find>add_lc</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -146,8 +147,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="245" />
-    <option name="y" value="26" />
+    <option name="x" value="275" />
+    <option name="y" value="27" />
     <option name="width" value="1165" />
     <option name="height" value="815" />
   </component>
@@ -216,10 +217,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="245" y="26" width="1165" height="815" extended-state="0" />
+    <frame x="275" y="27" width="1165" height="815" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21727516" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22083704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -232,7 +233,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3208852" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3208852" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32918397" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -412,92 +413,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_1.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_2.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_4.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_5.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_3.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/cream_f90.f90">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-277">
-          <caret line="2205" column="12" selection-start-line="2205" selection-start-column="7" selection-end-line="2205" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_0.dat.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_1.dat.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_2.dat.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_3.dat.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_4.dat.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_5.dat.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_0.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_1.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_2.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_4.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_5.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_3.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/cream_f90.f90" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_0.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_1.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_2.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_3.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_4.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/output_20200425_001/plots/merged_dat_line_5.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/test_pycecream_output/simulation_files/line_0.dat" />
     <entry file="file://$PROJECT_DIR$/tests/test_parallel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="15">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="56" column="25" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="25" />
+        <state relative-caret-position="-158">
+          <caret line="126" column="14" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="14" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -506,8 +455,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="252" column="17" lean-forward="true" selection-start-line="252" selection-start-column="17" selection-end-line="252" selection-end-column="17" />
+        <state relative-caret-position="150">
+          <caret line="375" column="24" lean-forward="true" selection-start-line="375" selection-start-column="24" selection-end-line="375" selection-end-column="24" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
