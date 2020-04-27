@@ -161,6 +161,7 @@ class test_pc:
                 a.add_lc(lc,kind = 'continuum',
                          name=name,wavelength=wavelength,
                          share_previous_lag=share_previous_lag)
+                previous_wavelength = wavelength
 
         elif dream is True:
             for i in range(len(names)):
@@ -170,6 +171,7 @@ class test_pc:
                 else:
                     share_previous_lag = False
                 a.add_lc(lc,kind='line',name=name,wavelength=-1, share_previous_lag=share_previous_lag)
+                previous_wavelength = wavelength
 
         return a
 
@@ -226,80 +228,13 @@ def _plotpage(parameter_names, xdatnorm, parameter_nicenames, output_chains):
         idx += npars
 
 
-def run_one_sim(inputs):
+
+
+def _postsim_plot(pc, x, simulation_name):
     '''
-    setup and run new lightcurve-merging test
-    '''
-    offset, sd, noise_m, noise_var, simulation_name, dream = inputs
-
-
-    wavelengths = [4720., 7480.0]
-    cadence = [1.0,1.0]
-    snr = [10., 10.]
-    BHMass = 1.e8
-    EddRat = 0.1
-    Mdot = None
-    N_iterations = 100000
-    BHefficiency = 0.1
-    time_baseline = 100
-    line_lag = 20
-    iseed = 1234
-    disk_inc = 0.0
-    disk_TXslope = 0.75
-    newsim = True
-
-    # only do these steps if running a new simulation (takes times)
-    # for diagnostic plots and analysis just reload previous
-    if newsim is True:
-        # generate fake data. Specify wavelengths, snr, cadence
-        x = test_pc(wavelengths=wavelengths,
-                    snr=snr,
-                    cadence=cadence,
-                    BHMass=BHMass,
-                    EddRat=EddRat,
-                    Mdot=Mdot,
-                    BHefficiency=BHefficiency,
-                    time_baseline=time_baseline,
-                    line_lag=line_lag,
-                    disk_inc=disk_inc,
-                    disk_TXslope=disk_TXslope)
-        x.gen_fake(iseed = iseed)
-
-        # generate three 'telescopes' for each wavelength with vertical offset, vertical scaling,
-        # multiplicative error bar and additive error bar (variance) calibration differences
-        print(offset, sd,'herererer')
-        x.transform_fake(offset=offset, sd=sd,
-                         noise_m=noise_m,
-                         noise_var=noise_var, plot=False)
-
-        # setup pycecream object
-        pc = x.setup_pycecream(test_project_folder=simulation_name,dream = dream)
-
-        # save the fake data for later use
-        pc.x = x
-
-        #set number of iterations
-        pc.N_iterations = N_iterations
-
-        # run pycecream
-        pc.run(ncores=1)
-
-        # save to pickle for reloading later
-        file = simulation_name + '.pickle'
-        os.system('rm ' + file)
-        pickle_out = open(file, "wb")
-        pickle.dump(pc, pickle_out)
-        pickle_out.close()
-    else:
-        file = simulation_name + '.pickle'
-        pickle_in = open(file, "rb")
-        pc = pickle.load(pickle_in)
-        x = pc.x
-
-    '''
-    Post-simulation analysis
-    gather merged light curves, compare with inputs, generate diagnostic plots
-    '''
+        Post-simulation analysis
+        gather merged light curves, compare with inputs, generate diagnostic plots
+        '''
     # gather simulation outputs
     output_chains = pc.get_MCMC_chains(location=None)
     output_lightcurves = pc.get_light_curve_fits(location=None)
@@ -416,13 +351,90 @@ def run_one_sim(inputs):
                     truths_Varied = None
 
                 # make the corner covariance plot and add title
-                print('making corner plots for ',names_VariedColumns)
+                print('making corner plots for ', names_VariedColumns)
                 fig = corner.corner(df[names_VariedColumns], plot_contours=False, truths=truths_Varied)
                 fig.suptitle('Covariance Plots: ' + ParmNicename, fontsize=16)
                 fig.tight_layout()
                 pdf.savefig()
                 plt.close()
+
+def run_one_sim(inputs):
+    '''
+    setup and run new lightcurve-merging test
+    '''
+    offset, sd, noise_m, noise_var, simulation_name, dream = inputs
+
+
+    wavelengths = [4720., 7480.0]
+    cadence = [1.0,1.0]
+    snr = [10., 10.]
+    BHMass = 1.e8
+    EddRat = 0.1
+    Mdot = None
+    N_iterations = 20
+    BHefficiency = 0.1
+    time_baseline = 100
+    line_lag = 20
+    iseed = 1234
+    disk_inc = 0.0
+    disk_TXslope = 0.75
+    newsim = True
+
+    # only do these steps if running a new simulation (takes times)
+    # for diagnostic plots and analysis just reload previous
+    if newsim is True:
+        # generate fake data. Specify wavelengths, snr, cadence
+        x = test_pc(wavelengths=wavelengths,
+                    snr=snr,
+                    cadence=cadence,
+                    BHMass=BHMass,
+                    EddRat=EddRat,
+                    Mdot=Mdot,
+                    BHefficiency=BHefficiency,
+                    time_baseline=time_baseline,
+                    line_lag=line_lag,
+                    disk_inc=disk_inc,
+                    disk_TXslope=disk_TXslope)
+        x.gen_fake(iseed = iseed)
+
+        # generate three 'telescopes' for each wavelength with vertical offset, vertical scaling,
+        # multiplicative error bar and additive error bar (variance) calibration differences
+        print(offset, sd,'herererer')
+        x.transform_fake(offset=offset, sd=sd,
+                         noise_m=noise_m,
+                         noise_var=noise_var, plot=False)
+
+        # setup pycecream object
+        pc = x.setup_pycecream(test_project_folder=simulation_name,dream = dream)
+
+        # save the fake data for later use
+        pc.x = x
+
+        #set number of iterations
+        pc.N_iterations = N_iterations
+
+        # run pycecream
+        pc.run(ncores=1)
+
+        # save to pickle for reloading later
+        file = simulation_name + '.pickle'
+        os.system('rm ' + file)
+        pickle_out = open(file, "wb")
+        pickle.dump(pc, pickle_out)
+        pickle_out.close()
+    else:
+        file = simulation_name + '.pickle'
+        pickle_in = open(file, "rb")
+        pc = pickle.load(pickle_in)
+        x = pc.x
+
+
+    _postsim_plot(pc, x, simulation_name)
+
+
     return pc
+
+
 
 
 if __name__ == '__main__':
@@ -457,6 +469,8 @@ if __name__ == '__main__':
     newsim = True
     
     '''
+
+
     outputdirectory = 'scratch_dream_tests'
     dream = True
 
@@ -476,11 +490,12 @@ if __name__ == '__main__':
 
 
     #run simulations in parallel
-    os.system('rm -rf '+outputdirectory)
-    os.system('mkdir '+outputdirectory)
-    N = len(Alloffset)
+    N = 1#len(Alloffset)
     sim_settings = [(Alloffset[i], Allsd[i], Allnoise_m[i], Allnoise_var[i], outputdirectory+'/'+simnames[i], dream) for i in range(N)]
 
+    '''
+    os.system('rm -rf '+outputdirectory)
+    os.system('mkdir '+outputdirectory)
     jobs = []
     for i in range(N):
         p = mp.Process(target=run_one_sim, args=(sim_settings[i],))
@@ -489,4 +504,17 @@ if __name__ == '__main__':
     # wait for jobs to finish before continuing
     for j in jobs:
         j.join()
+    '''
 
+
+    #load the output
+    results = []
+    for i in range(N):
+        file = outputdirectory+'/'+simnames[i] + '.pickle'
+        pickle_in = open(file, "rb")
+        results.append(pickle.load(pickle_in))
+
+    pc = results[0]
+    x = pc.x
+
+    _postsim_plot(pc, x, outputdirectory+'/'+simnames[0])
