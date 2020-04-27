@@ -457,7 +457,7 @@ if __name__ == '__main__':
     newsim = True
     
     '''
-    outputdirectory = 'dream_tests'
+    outputdirectory = 'scratch_dream_tests'
     dream = True
 
     offset_default = [0,0,0]
