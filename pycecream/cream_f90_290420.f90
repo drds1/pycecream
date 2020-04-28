@@ -3103,7 +3103,7 @@ write(*,*) ''
 !! do not step mmdot, tridx or inc if using only top hat tf
 ilccount = 0
 do ilc =1,NLC
-if (wavobs(ilc) .lt. 0.0) ilccount = ilccount + 1
+if (wavobs(ilc) == -1.0) ilccount = ilccount + 1
 enddo
 if (ilccount == NLC) then
 pversion(NPcosincidx) = .false.
@@ -3134,15 +3134,11 @@ allocate(isharelc(NLC),psimeansave(NLC),bg_now(Ntgrid))
 isharelc(1:NLC) = 0
 do ilc = 2,NLC
 do ilc2 = 1,ilc-1
-if ((wavobs(ilc) .eq. wavobs(ilc2))) then! .and. (wavobs(ilc) .ne. -1.0)) then
+if ((wavobs(ilc) .eq. wavobs(ilc2)) .and. (wavobs(ilc) .ne. -1.0)) then
 isharelc(ilc) = 1
 endif
 enddo
 enddo
-open(unit=121,file='ishareinfo.dat',access='append')
-write(121,*) isharelc(1:NLC)
-close(121)
-
 
 do ilc = 1,NLC
 
@@ -3782,7 +3778,7 @@ endif
 
 
 !!! condition for tophat transfer function
-if (wavobs(ilc) .lt. 0.0) then!condition for top hat transfer function
+if (wavobs(ilc) .eq. -1.0) then!condition for top hat transfer function
 taucentnow = p(NPthcentidx+ilc-1)
 taufwhmnow = p(NPthcentidx+NLC+ilc-1)
 if ((taucentnow - taufwhmnow .lt. taugrid(1)) .or. &
@@ -3840,7 +3836,7 @@ else
 if (step_visc_irad_together) p(NPtridx+1) = p(NPtridx)
 
 ! Top hat transfer function
-if (wavobs(ilc) .lt. 0.0) then!condition for top hat transfer function
+if (wavobs(ilc) .eq. -1.0) then!condition for top hat transfer function
 taucentnow = p(NPthcentidx+ilc-1)
 taufwhmnow = p(NPthcentidx+NLC+ilc-1)
 
@@ -3982,6 +3978,9 @@ endif !! end if altertf ...
 !!
 
 
+
+!write(*,*) ip,iteration,'end of alter tf itaumin',itaumin
+!write(*,*) ip,iteration,'end of alter tf itaumax',itaumax
 firstpsi=.false.
 call system_clock(iendtf)
 
@@ -3992,6 +3991,21 @@ if ((noconvolve .eqv. .false.) .and. &
 
 do ilc=1,NLC
 
+
+!write(*,*) iterastion,ip,'pspec ',rms(xgrid(1:Ntgrid),Ntgrid),&
+!sqrt(p(NPpspecidx)/w(1))*p(NPpspecidx+1)
+!we force the stretch factors to the light curve rms if the first iteration help
+!need the area of the driving light curve (echo light curve already normalised by response function area)
+!sum2 = 0.d0
+!do itau = 1,Ntau
+!sum2 = sum2 + psi(
+!enddo
+!p(NPscaleidx+ilc-1)=rms(x(lo(ilc):hi(ilc)),hi(ilc)-lo(ilc)+1)/rms1 * stretch1
+
+
+
+
+!
 
 !! nlc_shareos if > 0 then the difference between some offset parmeters
 ! must remain fixed. Apply this here 05/01/2018
@@ -4143,11 +4157,22 @@ xgridop(it) = xopsum/psinorm(ilc)! * stretch + offset
 enddo
 
 else
+!else if no skipping
+!write(*,*) 'where is the fault 3',interpidxmin,interpidxmax,idxskip
 
+
+!do it=lo(ilc),hi(ilc)
+!itpidxnow = interpidx(it)
+!if (ip .eq. NPcosincidx .and. ilc .eq. 1) write(*,*) xinterp(it),it,ilc !help
+!xinterp(it)=xgridop(itpidxnow-1)
 
 !quick_conv_itp: convolve grid only on points adjacent to data 02/04/2018
 if (quick_conv_itp) then
 
+!write(*,*) interpidxmax-interpidxmin,(hi(ilc) - lo(ilc))*2
+!do it = interpidxmin,interpidxmax
+! xgridop(it) = offset
+!enddo
 
 do it = lo(ilc),hi(ilc)
 ithi = interpidx(it)
@@ -4165,9 +4190,14 @@ xopsum = 0.0
 do itau=Ntaumin,Ntaumax
 idx=itlo-(itau-1) - idxtaulo
 xopsum=xopsum+psigrid(itau,ilc)*xgrid(idx)
+!write(*,*) idx,itau,xopsum,xgrid(idx),psigrid(itau,ilc),'crap'
 enddo
 xgridop(itlo) = xopsum/psinorm(ilc)
+
+!write(*,*) tgrid(itlo),t(it),xgridop(itlo),xgridop(ithi),'quick_conv',&
+!ilc,Ntaumin,Ntaumax,psinorm(ilc)
 enddo
+!read(*,*)
 
 else
 
@@ -4321,19 +4351,55 @@ endif
 
 
 
+
+
+
+
+!!!!!!!
+!do it = 1,Ntgrid
+! xgridplot(it,ilc)=xgridop(it)
+! if ( (xgridop(it) .ne. xgridop(it)) .or. (1./xgridop(it) .eq. 0) ) then
+!  write(*,*) 'problem with model',it,tgrid(it),xgridop(it),ilc
+!  stop
+! endif
+!enddo
+
+
 !!! only go from +/- 4 psisig to save computation time
 !if (ip.eq. 1) write(*,*)'fractest'
 do it=lo(ilc),hi(ilc)
 itpidxnow = interpidx(it)
+!if (ip .eq. NPcosincidx .and. ilc .eq. 1) write(*,*) xinterp(it),it,ilc !help
 xinterp(it)=xgridop(itpidxnow-1) + fracalong(it)*(xgridop(itpidxnow)-xgridop(itpidxnow-1))
 xinterp(it)=xinterp(it)
+
+!if (xinterp(it) .ne. xinterp(it)) then
+!write(*,*) xinterp(it),it,t(it),ilc,iteration,ip,'oh no nan problem again',&
+!xgridop(itpidxnow-1),xgridop(itpidxnow),fracalong(it)
+!stop
+!
+!endif
+!if (ip .eq. NPcosincidx .and. ilc .eq. 1) write(*,*) xinterp(it),it,ilc !help
 enddo
 
+
+!write(*,*) ilc, xinterp(lo(ilc):hi(ilc)), xgridop(interpidx(1:10)-1)
+!read(*,*) !tomtom
 enddo !!! end ilc loop
 
 
 
 end if !! end if we care about echo light curves (noconvolve) (i.e if noconvolve = false, do above)
+
+
+
+
+
+!do itau = 1,Ntaugrid
+!write(*,*) taugrid(itau),ilc, 'glargeffdsfsdfd', psigrid(itau,ilc)
+!enddo
+!write(*,*) ip,iteration
+!read(*,*)
 
 
 
@@ -4661,7 +4727,7 @@ endif
 bof10 = 0
 bof11 = 0
 do ilc = 1,NLC
-if (wavobs(ilc) .gt. 0.0) then
+if (wavobs(ilc) .ne. -1.0) then
 cycle
 else
 
@@ -4813,6 +4879,21 @@ endif
 
 bofreject(IP)=bofnew
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!if ((bofnew .ne. bofnew) .and. (rejvar .eqv. .false.) .and. (rejth .eqv. .false.)&
+!.and. (rejsig .eqv. .false.)) then
+!open(unit=12,file='bofnan_info.dat',access='append')
+!write(12,*) 'parameter indices: mmdot,cos,pspec,sigexpand,varexpand,thcent',rejvar,rejth,rejsig
+!write(12,*) NPumbhidx,NPcosincidx,NPpspecidx,NPsigexpandidx,Npvarexpandidx,NPthcentidx
+!write(12,*) 'parameter',ip,p(ip),pold, pscale(ip)
+!write(12,*) 'bof nan', bof1,bof1sigexpand,bof2,bof3,bof4, cisqxray
+!write(12,*) 'bof2 stuff', p0temp,dw,w0mean,alphatemp
+!write(12,*) 'fancy expansion stuff',bof1/(fx*fx),alog(f) * 2*(Nxray+NT),fx
+!write(12,*) 'priorbofs..p0,w0,alpha,beta,cosinc,mmdot',bof4,bof5,bof6,bof7,bof8,bof9
+!write(12,*) ''
+!close(12)
+!endif
+
 
 
 pnew_save(ip) = p(ip)
@@ -4829,6 +4910,182 @@ endif
 
 
 
+
+!! save
+!if (ip .eq. NPcosincidx) then
+!open(unit=1,file='embhbofs_pre.dat',access='append')
+!write(1,*) iteration, bofnew, bofold, p(ip), pold, pscale(ip),bof1, bof2, bof3, bof4, bof5, &
+!bof6, bof7, bo8temp, bof9, p(NPscaleidx), psinorm(1)
+!close(1)
+!open(unit=1,file='embhlcs_pre.dat',access='append')
+!write(1,*) t(lo(1):hi(1))
+!write(1,*) x(lo(1):hi(1))
+!write(1,*) xinterp(lo(1):hi(1))
+!write(1,*) t(lo(2):hi(2))
+!write(1,*) x(lo(2):hi(2))
+!write(1,*) xinterp(lo(2):hi(2))
+!write(1,*) t(lo(3):hi(3))
+!write(1,*) x(lo(3):hi(3))
+!write(1,*) xinterp(lo(3):hi(3))
+!close(1)
+!endif
+!if (ip .lt. 3 .or. ip .ge. NPthcentidx) then
+!
+! sum = 0.d0
+! sum1 = 0.d0
+! do ilc = 1,NLC
+! !write(*,*) cisq(x(lo(ilc):hi(ilc)),xinterp(lo(ilc):hi(ilc)),ervar(lo(ilc):hi(ilc)),Ndat),&
+! !cisq(x(lo(ilc):hi(ilc)),xinterp(lo(ilc):hi(ilc)),er(lo(ilc):hi(ilc)),Ndat)
+! Ndat=hi(ilc)-lo(ilc)+1
+! sum = sum + cisq(x(lo(ilc):hi(ilc)),xinterp(lo(ilc):hi(ilc)),ervar(lo(ilc):hi(ilc)),Ndat)
+! sum1 = sum1 + cisq(x(lo(ilc):hi(ilc)),xinterp(lo(ilc):hi(ilc)),er(lo(ilc):hi(ilc)),Ndat)
+! enddo
+! sum = sum
+! sum1 = sum1
+! write(*,*) ip, sum,bof1,bofnew,'checking',bofold!yesxray,varexpand,sigexpand
+! !iteration,ip,NPvarexpandidx,bof1,bofold
+!
+!! ier = pgopen('/Xserve')
+!! call pgsvp(0.3,0.9,0.55,0.9)
+!! call pgswin(t(1),t(NT),0.5,3.5)
+!! call pgbox('bcnst',0.0,0,'bcnst',0.0,0)
+!! call pgerrb(6,hi(1)-lo(1)+1,t(lo(1):hi(1)),x(lo(1):hi(1)),er(lo(1):hi(1)),1.0)
+!! call pgline(hi(1)-lo(1)+1,t(lo(1):hi(1)),xinterp(lo(1):hi(1)))
+!! call pgline(NTgrid,tgrid,xgridplot(1:Ntgrid,1))
+!
+!! call pgsvp(0.05,0.25,0.55,0.9)
+!! call pgswin(-2.,2.,0.0,1.0)
+!! call pgbox('bcnst',0.0,0,'bcnst',0.0,0)
+!! call pgline(Ntaugrid,taugrid,psigrid(1:Ntaugrid,1))
+!
+!! call pgsvp(0.3,0.9,0.1,0.5)
+!! call pgswin(t(1),t(NT),24.0,28.0)
+!! call pgbox('bcnst',0.0,0,'bcnst',0.0,0)
+!! call pgerrb(6,hi(2)-lo(2)+1,t(lo(2):hi(2)),x(lo(2):hi(2)),er(lo(2):hi(2)),1.0)
+!! call pgline(hi(2)-lo(2)+1,t(lo(2):hi(2)),xinterp(lo(2):hi(2)))
+!! call pgline(NTgrid,tgrid,xgridplot(1:Ntgrid,2))
+!
+!! call pgsvp(0.05,0.25,0.1,0.5)
+!! call pgswin(-2.,2.,0.0,1.0)
+!! call pgbox('bcnst',0.0,0,'bcnst',0.0,0)
+!! call pgline(Ntaugrid,taugrid,psigrid(1:Ntaugrid,2))
+!
+! write(*,*)
+! read(*,*)
+!! call pgend
+!endif
+
+!if (ip .eq. NPthcentidx+4) then
+!open(unit = 1, file='thbofs.dat',access='append')
+!write(1,*) iteration, bofnew, bofold, p(ip), pold, pscale(ip)
+!close(1)
+!endif
+
+
+
+!if (ip .eq. NPumbhidx) then
+!open(unit=1,file='embhbofs.dat',access='append')
+!write(1,*) iteration, bofnew, bofold, p(ip), pold, pscale(ip),bof1, bof2, bof3, bof4, bof5, &
+!bof6, bof7, bo8temp, bof9, p(NPscaleidx), psinorm(1)
+!close(1)
+!open(unit=1,file='embhlcs.dat',access='append')
+!write(1,*) t(lo(1):hi(1))
+!write(1,*) x(lo(1):hi(1))
+!write(1,*) xinterp(lo(1):hi(1))
+!write(1,*) t(lo(2):hi(2))
+!write(1,*) x(lo(2):hi(2))
+!write(1,*) xinterp(lo(2):hi(2))
+!write(1,*) t(lo(3):hi(3))
+!write(1,*) x(lo(3):hi(3))
+!write(1,*) xinterp(lo(3):hi(3))
+!
+!!write(1,*) er(lo(1):hi(1))
+!close(1)
+!open(unit=1,file='embhlcs_mod.dat',access='append')
+!write(1,*) tgrid(1:Ntgrid)
+!write(1,*) xgridplot(1:Ntgrid,1)
+!write(1,*) xgridplotsave(1:Ntgrid,1)
+!close(1)
+!open(unit=1,file='embhtf.dat',access='append')
+!write(1,*) psigrid(1:Ntaugrid,1)
+!close(1)
+!open(unit=1,file='ihatescience.dat',access='append')
+!if (yesxray) then
+!write(1,*) stretch, offset, 1, idxshare, xgrid(1:Ntgrid)
+!else
+!write(1,*) stretch, offset, 0, idxshare, xgrid(1:Ntgrid)
+!endif
+!
+!close(1)
+!endif
+
+!!!!!!!!!!!!!!! Compare the Badness of fits
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! ACCEPT!
+
+
+
+!if (ip .ge. NPvarexpandidx) then
+!write(*,*)
+!write(*,*) 'test new var parms'
+!write(*,*) ip,bof1, bofnew,bofold,p(ip), pold
+!write(*,*) varerlnxray, varerlnxrayold
+!write(*,*) varerln, varerlnold
+!write(*,*) er(1:10)
+!write(*,*) ervar(1:10)
+!write(*,*) p(NPsigexpandidx),p(NPsigexpandidx+1)
+!!read(*,*)
+!endif
+!
+!if ((ip .eq. NPthcentidx) .or. (ip .eq. NPthfwhmidx)) then
+!write(*,*)
+!write(*,*) 'test new th parms'
+!write(*,*) ip,bof1,bofnew,bofold,p(ip), pold
+!!read(*,*)
+!endif
+!
+!if (ip .eq. NPumbhidx) then
+!write(*,*)
+!write(*,*) 'test emmdot parameter'
+!write(*,*) ip,bof1, bofnew, bofold, p(ip), pold
+!!read(*,*)
+!endif
+
+!do ilc = 1,NLC
+!if ((ip .eq. p(NPthcentidx+NLC+ilc-1))) then
+!write(*,*) ilc,ip,NPthcentidx,iteration
+!write(*,*) "FWHM", p(NPthcentidx+NLC+ilc-1),'old=',pold
+!write(*,*) "Cent", p(NPthcentidx+ilc-1)
+!write(*,*) 'bofnew, bofold', bofnew, bofold
+!
+!
+!endif
+!enddo
+
+!if (iteration .le. 110) then!if (iaffinenow .eq. 0 .and. iteration .le. 104) then
+!write(*,*) ip, bofnew, bofold
+!endif
+
+
+!if ((ip .eq. NPthcentidx) .and. (ip .lt. NPthcentidx + NLC)) then
+!write(*,*) p(ip), pold, 'th parameter',ilc
+!read(*,*)
+!endif
+
+
+
+!if (ip .ge. NPumbhidx - 10 .and. ip .le. NPcosincidx) then
+!write(*,*) xgridop(Ntgrid/2:Ntgrid/2+10)
+!write(*,*)xinterp(1:10)
+!write(*,*) x(1:10)
+!write(*,*) ervar(1:10)
+!write(*,*) ip,p(ip), pold,'mbh and cos parms', bofnew,bofold,&
+!NPumbhidx, NPcosincidx
+!write(*,*) 'cisq',csq
+!write(*,*)
+!read(*,*)
+!endif
 if (iaffine_count .eq. N_affine .and. iaffinenow .eq. 1) then
 
 write(*,*) 'stepping affine parameters.... checking--> stepchange_affine',stepchange_affine,&
@@ -4839,6 +5096,39 @@ write(*,*) ip_affine(id),p(ip_affine(id)),parsave(ip_affine(id),iteration-1),bof
 enddo
 endif
 
+
+!if (iaffinenow .eq. 1 .and. iaffine_count .gt. 1) then
+!write(*,*) bofnew,bofold,ip,'do we accept?...',NPvarexpandidx,iteration, bof1,csq,varerln,&
+! bof2, bof3
+!read(*,*)
+!endif
+
+!if ((ip .ge. NPthcentidx) .and. (ip .lt. NPthcentidx + NLC)) then
+!write(*,*) iteration,ip,'TOP HAT INF',p(ip),pold,bofnew,bofold
+!endif
+
+
+!if ((ip .ge. NPsigexpandidx) .and. (ip .le. NPsigexpandidx+NPsigexpand)) then
+!write(*,*) 'new sig expand test',p(ip),pold,bofnew,bofold
+!endif
+
+!do ip2 = 1,NP
+!if ((pscale(ip2) .gt. 0) .or. (pversion(ip2) .eqv. .true.)) iplast = ip2
+!enddo
+!!write(*,*) ip,iplast
+!if (ip .eq. iplast) then
+!do ilc = 1,NLC
+!write(ctit,'(I10.2)') ilc!! bug fix 16/09/2014 now removes old backups properly
+!open(unit = 1,file = 'xinterptest_'//trim(adjustl(ctit))//'.dat')
+!do it = lo(ilc),hi(ilc)
+!write(1,*) t(it),x(it),er(it),xinterp(it)
+!enddo
+!close(1)
+!enddo
+!write(*,*) 'outputing interpolated model for testing to xinterptest_',iteration,ip
+!!read(*,*)
+!endif
+!
 
 
 if ( (( (( (bofnew < bofold) .or. (exp(-0.5*(bofnew-bofold)/T_ann) .gt. ran3(iseed))) &
@@ -5616,6 +5906,7 @@ else
 do it=1,NWres
 a = twopi*fres(it)/p(NPpspecidx+1)
 psres(it)=p0temp* dw /(a**P(NPpspecidx+2))  !! new change august 8 14 df = dw*0.5/pi
+!write(*,*) p0temp,dw,p(NPpspecidx+1),p(NPpspecidx),p0temp* dw,(a**P(NPpspecidx+2)),'help'
 enddo
 endif
 
@@ -6466,7 +6757,7 @@ endif
 
 write(*,*)
 do ilc = 1,NLC
-if (wavobs(ilc) .lt. 0.0) then
+if (wavobs(ilc) .eq. -1.0) then
 write(*,*) 'parcent tf 1:NLC', p(NPthcentidx:NPthcentidx+NLC-1)
 write(*,*) 'stepcen tf 1:NLC', pscale(NPthcentidx:NPthcentidx+NLC-1)
 write(*,*) 'parfwhm tf 1:NLC', p(NPthfwhmidx:NPthfwhmidx+NLC-1)
@@ -9485,7 +9776,7 @@ enddo
 
 !give a warning message to user
 do ilc = 1,NLC
-if (wavobs(ilc) .lt. 0.0) then
+if (wavobs(ilc) == -1.0) then
 write(*,*)
 write(*,*) 'YOU have turned on the TOP HAT TF FUNCTION'
 write(*,*) '(by setting one or more of the wavelengths to -1 in "creamnames.dat"),'
@@ -9533,7 +9824,7 @@ enddo
 ilcnow = 1
 do ip = NPthcentidx, NPthcentidx + NLC - 1
 !write(*,*) 'setting shit',ilcnow,wavobs(ilcnow),thtempcent(ilcnow),thtempcent_scale(ilcnow)
-if (wavobs(ilcnow) .lt. 0) then !then we turn on top hat tf
+if (wavobs(ilcnow) .eq. -1) then !then we turn on top hat tf
 p(ip) = thtempcent(ilcnow)
 pscale(ip) = thtempcent_scale(ilcnow)
 pversion(ip) = .true.

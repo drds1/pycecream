@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pycecream/cream_f90_290420.f90" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycecream/cream_f90.f90" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/cream_f90.f90" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/merge_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/merge_test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,59 +16,58 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_5.dat.dat">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/outputpars_th.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_0.dat.dat">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/creamnames.dat">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_1.dat.dat">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/cream_th.par">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_2.dat.dat">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/line_0.dat">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_3.dat.dat">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/line_1.dat">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_4.dat.dat">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_0.dat.dat">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_5.dat.dat">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_1.dat.dat">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_mod_line_3.dat.dat">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_2.dat.dat">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_3.dat.dat">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_mod_line_1.dat.dat">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/F9test/F9dream.py">
+        <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/modellc.dat">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-2478" />
           </provider>
         </entry>
       </file>
@@ -73,14 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>creaminpar.par</find>
-      <find>rang</find>
-      <find>istarttime</find>
-      <find>iseed</find>
-      <find>iseed=</find>
-      <find>outputpars.dat</find>
-      <find>pricream</find>
-      <find>glob</find>
       <find>merged_data</find>
       <find>plt.s</find>
       <find>load</find>
@@ -103,6 +97,14 @@
       <find>setup_</find>
       <find>pickle</find>
       <find>dream</find>
+      <find>-1</find>
+      <find>if (wavob</find>
+      <find>if (wavobs</find>
+      <find>tophat</find>
+      <find>isharelc</find>
+      <find>help</find>
+      <find>close(</find>
+      <find>isharein</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -143,7 +145,6 @@
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/prepare_image_set_on_disk.py" />
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/attention_CAM.py" />
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/model_vessel_detection_classifier.py" />
-        <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
         <option value="$PROJECT_DIR$/docs/pydocmd.yml" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/disease_spread/scratch.py" />
@@ -153,15 +154,16 @@
         <option value="$PROJECT_DIR$/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/tests/test_parallel.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/tests/merge_test.py" />
         <option value="$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_3.dat.dat" />
         <option value="$PROJECT_DIR$/tests/F9test/F9dream.py" />
+        <option value="$PROJECT_DIR$/tests/merge_test.py" />
+        <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="275" />
-    <option name="y" value="27" />
+    <option name="x" value="170" />
+    <option name="y" value="31" />
     <option name="width" value="1165" />
     <option name="height" value="815" />
   </component>
@@ -180,7 +182,52 @@
             <path>
               <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_dream_tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_dream_tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_offset" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_dream_tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_offset" type="462c0819:PsiDirectoryNode" />
+              <item name="simulation_files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_dream_tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_offset" type="462c0819:PsiDirectoryNode" />
+              <item name="simulation_files" type="462c0819:PsiDirectoryNode" />
+              <item name="output_20200428_001" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_dream_tests" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch_offset" type="462c0819:PsiDirectoryNode" />
+              <item name="simulation_files" type="462c0819:PsiDirectoryNode" />
+              <item name="output_20200428_001" type="462c0819:PsiDirectoryNode" />
+              <item name="plots" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -195,6 +242,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pycecream" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -225,10 +273,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="275" y="27" width="1165" height="815" extended-state="0" />
-    <editor active="true" />
+    <frame x="170" y="31" width="1165" height="815" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22439893" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22796082" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -249,63 +296,30 @@
       <window_info anchor="right" id="R Graphics" order="3" />
       <window_info anchor="right" id="R Packages" order="4" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22796082" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3208852" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.32918397" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
+    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../datascience_projects/private_projects/ship_detection/detection/superseded/prepare_image_set_on_disk.py" />
-    <entry file="file://$PROJECT_DIR$/docs/examples/pyceream_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/deploy_docs.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/build_docs.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/autogen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/_build/site/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docsbc/build_docs.sh" />
-    <entry file="file://$PROJECT_DIR$/docsbc/deploy_docs.sh" />
-    <entry file="file://$PROJECT_DIR$/docsbc/serve_docs.sh" />
-    <entry file="file://$PROJECT_DIR$/docsbc/examples/pyceream_test.py" />
-    <entry file="file://$PROJECT_DIR$/docsbc/autogen.py" />
-    <entry file="file://$PROJECT_DIR$/docsbc/_build/pydocmd/pycecream.md" />
-    <entry file="file://$PROJECT_DIR$/docsbc/_build/pydocmd/index.md" />
-    <entry file="file://$PROJECT_DIR$/docs/mkdocs.yml" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="195">
-            <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/serve_docs.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/pydocmd.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -317,37 +331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33960">
-          <caret line="2264" column="11" selection-start-line="2264" selection-start-column="6" selection-end-line="2264" selection-end-column="11" />
-          <folding>
-            <marker date="1584294155263" expanded="true" signature="23902:24042" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="24135:24169" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="24740:24795" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="25192:25312" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="27489:27616" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="31822:31896" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="33538:33605" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="34053:34171" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="34369:34539" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="34897:34996" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="35198:35283" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="63330:63402" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="64162:64245" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="149682:149683" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="345297:345500" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="348808:348854" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="354090:354151" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="354176:354235" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="354353:354421" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="360725:360771" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="369261:369297" ph="..." />
-            <marker date="1584294155263" expanded="true" signature="369513:369581" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -428,26 +411,7 @@
     <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_4.dat.dat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7425">
-          <caret line="506" column="7" selection-start-line="506" selection-start-column="7" selection-end-line="506" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_5.dat.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/creamnames.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/cream_th.par">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/line_0.dat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/line_1.dat">
@@ -467,12 +431,143 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/F9test/F9dream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+        <state relative-caret-position="276">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/outputpars_th.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/outputpars_th.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/cream_th.par">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pycecream/cream_f90_290420.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="3862" column="9" selection-start-line="3862" selection-end-line="3862" selection-end-column="9" />
+          <folding>
+            <marker date="1588081435000" expanded="true" signature="23902:24042" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="24135:24169" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="24740:24795" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="25192:25312" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="27489:27616" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="31822:31896" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="33538:33605" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="34053:34171" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="34369:34539" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="34897:34996" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="35198:35283" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="63330:63402" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="64162:64245" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="345297:345500" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="348808:348854" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="354090:354151" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="354176:354235" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="354353:354421" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="360725:360771" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="369261:369297" ph="..." />
+            <marker date="1588081435000" expanded="true" signature="369513:369581" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/line_0.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/creaminpar.par">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/creamnames.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/cream_th.par">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="508" lean-forward="true" selection-start-line="508" selection-end-line="508" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/ishareinfo.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pycecream/cream_f90.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="3139" column="5" lean-forward="true" selection-start-line="3139" selection-start-column="5" selection-end-line="3139" selection-end-column="5" />
+          <folding>
+            <marker date="1588082969817" expanded="true" signature="23902:24042" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="24135:24169" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="24740:24795" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="25192:25312" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="27489:27616" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="31822:31896" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="33538:33605" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="34053:34171" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="34369:34539" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="34897:34996" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="35198:35283" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="63330:63402" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="64162:64245" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="140926:140927" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="336540:336743" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="340051:340097" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="345333:345394" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="345419:345478" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="345596:345664" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="351968:352014" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="360504:360540" ph="..." />
+            <marker date="1588082969817" expanded="true" signature="360756:360824" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/outputpars_th.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_0.dat.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_1.dat.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_2.dat.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_3.dat.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_4.dat.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_dat_line_5.dat.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_mod_line_3.dat.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/merged_mod_line_1.dat.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/plots/modellc.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2478" />
       </provider>
     </entry>
   </component>

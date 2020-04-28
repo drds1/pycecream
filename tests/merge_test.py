@@ -164,13 +164,15 @@ class test_pc:
                 previous_wavelength = wavelength
 
         elif dream is True:
+            wav_tophat = 0.0
             for i in range(len(names)):
                 wavelength, lc, name = wavelengths[i],  LightCurveData[i], names[i]
                 if wavelength == previous_wavelength:
                     share_previous_lag = True
                 else:
                     share_previous_lag = False
-                a.add_lc(lc,kind='line',name=name,wavelength=-1, share_previous_lag=share_previous_lag)
+                    wav_tophat += -1.0
+                a.add_lc(lc,kind='line',name=name,wavelength=np.round(wav_tophat,1), share_previous_lag=share_previous_lag)
                 previous_wavelength = wavelength
 
         return a
@@ -399,7 +401,6 @@ def run_one_sim(inputs):
 
         # generate three 'telescopes' for each wavelength with vertical offset, vertical scaling,
         # multiplicative error bar and additive error bar (variance) calibration differences
-        print(offset, sd,'herererer')
         x.transform_fake(offset=offset, sd=sd,
                          noise_m=noise_m,
                          noise_var=noise_var, plot=False)
@@ -493,7 +494,7 @@ if __name__ == '__main__':
     N = 1#len(Alloffset)
     sim_settings = [(Alloffset[i], Allsd[i], Allnoise_m[i], Allnoise_var[i], outputdirectory+'/'+simnames[i], dream) for i in range(N)]
 
-    '''
+    #'''
     os.system('rm -rf '+outputdirectory)
     os.system('mkdir '+outputdirectory)
     jobs = []
@@ -504,7 +505,7 @@ if __name__ == '__main__':
     # wait for jobs to finish before continuing
     for j in jobs:
         j.join()
-    '''
+    #'''
 
 
     #load the output
