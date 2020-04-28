@@ -899,6 +899,118 @@ class pycecream:
 
 
 
+class dream:
+
+    def __init__(self,Niterations = 1000):
+        '''
+        Simplified version of pycecream to create a single light combined
+        light curve from multiple observatories at a single wavelength
+        multiple telescopes at a single wavelength
+        '''
+        self.pc = pycecream()
+        self.Niterations = Niterations
+        self.numlc = 0
+        self._op = None
+        self.lcinput = {}
+
+    def add_lc(self, lc, name, errorbar_variance, errorbar_rescale):
+        '''
+        add a single light curve to the simulation
+        :param lc: numpy light curve array (N x 3) where each of the three columns are the time, flux, errorbars
+        :param name: reference name of light curve
+        :param errorbar_variance: TRUE/FALSE optimise error bars by a constant additive variance parameter
+        :param errorbar_rescale: TRUE/FALSE optimise error bars by a multiplicative rescaling parameter
+        :return:
+        '''
+
+        #record the input lightcurve
+        self.lcinput[name] = lc
+
+        #configure the error bar adjustment parameters
+        errorbar_parameters = []
+        if errorbar_variance is True:
+            errorbar_parameters.append('var')
+        if errorbar_rescale is True:
+            errorbar_parameters.append('multiplicative')
+
+        #add the light curve to the pycecream instance
+        if self.numlc == 0:
+            sharelag = False
+        else:
+            sharelag = True
+        self.pc.add_lc(lc, name=name, wavelength=-1.0,
+                       expand_errors = errorbar_parameters, share_previous_lag=sharelag)
+        self.numlc += 1
+
+
+
+    def run(self,ncores = 1):
+        '''
+        run the dream-pycecream simulation
+        :return:
+        '''
+        #setup and run the simplified pycecream simulation
+        self.pc.p_inclination_step=0.0
+        self.pc.N_iterations = self.Niterations
+        self.pc.run(ncores=ncores)
+
+        #return the individual output light curves and merge these into a single array
+        op = self.pc.get_light_curve_fits(location=None)
+        lc_model = op['model']
+        lc_merged_model = op['merged model']
+        self.lc_merged_individual = op['merged data']
+        self._op = self.__combine_individual_output_lightcurves()
+        self.lc_combined = self._op['combined_output']
+
+    def __combine_individual_output_lightcurves(self):
+        '''
+        combine the individual merged light curves (now on the correct scsale)
+        into a single light curve
+        :return:
+        '''
+        datinput = np.zeros((0, 3))
+        datmerged = np.zeros((0, 3))
+        for name, lc in self.lc_merged_individual.items():
+            datmerged = np.vstack([datmerged,self.lc_merged_individual[name]])
+            datinput = np.vstack([datinput, self.lcinput[name]])
+        return {'combined_input':datinput[np.argsort(datinput[:, 0]), :]
+            'combined_output':datmerged[np.argsort(datmerged[:, 0]), :]}
+
+    def plot_merged(self):
+        '''
+        plot the merged light curves return figure, axis object
+        :return:
+        '''
+        lc_out = self._op['combined_output']
+        lc_in = self._op['combined_input']
+        plt.close()
+        fig = plt.add_figure()
+        ax1 = fig.add_subplot(111)
+        ax1.set_xlabel('Time')
+        ax1.set_ylabel('Flux')
+        Nt = len(lc_in)
+
+        #identify the correct plotting order (smaller error bars should be plotted on to)
+        for it in range(Nt):
+            if lc_in[it,2] >= lc_out[it,2]:
+                order_in = 1
+                order_out = 2
+            else:
+                order_in = 2
+                order_out = 1
+            ax1.plot([lc_out[it,0]], [lc_out[it,1]], [lc_in[it,2]],
+                     ls='',marker='',color='k',zorder=order_in, label=None)
+            ax1.plot([lc_out[it, 0]], [lc_out[it, 1]], [lc_out[it, 2]],
+                     ls='', marker='', color='grey', zorder=order_out, label=None)
+        return [ax1, fig]
+
+
+
+
+
+
+
+
 
 def _run_cmd(cmd):
     '''

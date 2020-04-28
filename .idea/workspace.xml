@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycecream/cream_f90.f90" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/cream_f90.f90" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/F9dream.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/F9dream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/F9test/F9dream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="55" column="36" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+            <state relative-caret-position="325">
+              <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -29,10 +28,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="149" column="17" lean-forward="true" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
+            <state relative-caret-position="365">
+              <caret line="992" column="40" lean-forward="true" selection-start-line="992" selection-start-column="40" selection-end-line="992" selection-end-column="40" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="286" column="54" lean-forward="true" selection-start-line="286" selection-start-column="16" selection-end-line="286" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,10 +53,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>xgridop(</find>
-      <find>xgridplotsave</find>
-      <find>senv1(</find>
-      <find>xinterp</find>
       <find>xgridop</find>
       <find>xgridplot(</find>
       <find>xgridplot(it</find>
@@ -70,8 +77,12 @@
       <find>no conv</find>
       <find>xgridplot</find>
       <find>write(*,*) 'problem with model',it,tgrid(it),xgridop(it)</find>
-      <find>add_lc</find>
       <find>share_previous_lag</find>
+      <find>add_lc</find>
+      <find>def add_lc</find>
+      <find>.output_lightcurves</find>
+      <find>def run</find>
+      <find>merged_lgi</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -118,7 +129,6 @@
         <option value="$PROJECT_DIR$/../../datascience_projects/private_projects/disease_spread/epispread.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/tests/test_parallel.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_3.dat.dat" />
@@ -126,12 +136,13 @@
         <option value="$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/cream_f90.f90" />
         <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
         <option value="$PROJECT_DIR$/tests/F9test/F9dream.py" />
+        <option value="$PROJECT_DIR$/pycecream/__init__.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="197" />
-    <option name="y" value="48" />
+    <option name="y" value="24" />
     <option name="width" value="1165" />
     <option name="height" value="815" />
   </component>
@@ -140,6 +151,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,45 +162,12 @@
             <path>
               <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="F9test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="scratch_dream_tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="scratch_dream_tests" type="462c0819:PsiDirectoryNode" />
-              <item name="scratch_offset" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="scratch_dream_tests" type="462c0819:PsiDirectoryNode" />
-              <item name="scratch_offset" type="462c0819:PsiDirectoryNode" />
-              <item name="simulation_files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -228,10 +207,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="197" y="48" width="1165" height="815" extended-state="0" />
+    <frame x="197" y="24" width="1165" height="815" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22796082" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23152271" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -281,16 +260,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/cream_th.par">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="508" lean-forward="true" selection-start-line="508" selection-end-line="508" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/outputpars_th.dat">
       <provider selected="true" editor-type-id="text-editor">
@@ -368,58 +337,20 @@
         <state relative-caret-position="-3367" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/echosave_diag_overflow.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/modellc.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5819" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_mod_line_4.dat.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_mod_line_2.dat.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_mod_line_1.dat.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_dat_line_1.dat.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_dat_line_4.dat.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/data_echo_dat_line_2.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/data_echo_dat_line_5.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/data_echo_dat_line_4.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_005/plots/plotinput_diag.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1870" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_006/plots/diag_senv.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12738" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_007/diag_xgridplotsave.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8458" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_008/plots/modellc.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4656" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/echosave_diag_overflow.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/modellc.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_mod_line_4.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_mod_line_2.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_mod_line_1.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_dat_line_1.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/merged_dat_line_4.dat.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/data_echo_dat_line_2.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/data_echo_dat_line_5.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_004/plots/data_echo_dat_line_4.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_005/plots/plotinput_diag.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_006/plots/diag_senv.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_007/diag_xgridplotsave.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_008/plots/modellc.dat" />
     <entry file="file://$PROJECT_DIR$/pycecream/cream_f90_220919.f90">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -480,38 +411,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_009/plots/modellc.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3494" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_010/plots/diag_senv.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2906" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_011/plots/diag_xplotsave.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7942" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_021/plots/modellc.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6398" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_022/plots/modellc.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7497" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_023/plots/modellc.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="440" column="44" selection-start-line="440" selection-start-column="44" selection-end-line="440" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_009/plots/modellc.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_010/plots/diag_senv.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_011/plots/diag_xplotsave.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_021/plots/modellc.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_022/plots/modellc.dat" />
+    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_023/plots/modellc.dat" />
     <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/cream_f90.f90">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339540">
@@ -616,18 +521,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/F9test/F9dream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="55" column="36" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+        <state relative-caret-position="325">
+          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="286" column="54" lean-forward="true" selection-start-line="286" selection-start-column="16" selection-end-line="286" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="149" column="17" lean-forward="true" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
+        <state relative-caret-position="365">
+          <caret line="992" column="40" lean-forward="true" selection-start-line="992" selection-start-column="40" selection-end-line="992" selection-end-column="40" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
