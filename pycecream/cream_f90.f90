@@ -278,6 +278,7 @@ xres,xmod_itp,x_temp,t_temp,errtemp
 
 
 
+
 !initialize required arrays to 0
 do ilc = 1,NLC
 sigechosave(1:Ntgrid,ilc) = 0
@@ -391,19 +392,8 @@ endif
 !tgridplotmax=tmax
 !tgridplotmin=tmin-taumax
 bl1=bl0 + (tmin-tstart)/(tmax-tstart)*(br0-bl0)!*(taumax/redshiftadd1)/(tgridplotmax-tgridplotmin)+bl0!bl0+taumax/(taumax+(tgridplotmax-tgridplotmin))*(br0-bl0)
-!bl1 = tmin -
-
-!write(*,*) tmin
-!write(*,*) tstart + bl1*(tmax-tstart)
-!stop
 
 br1=br0!bl1+(tmax-tmin)/(tgridplotmax-tmin) * (br0-bl1)  !! help help
-!! just to properly partition the x and y plots above
-!!!!!!!!!!
-!write(*,*) bl0,bl1,br0
-!write(*,*) taumax*redshiftadd1, tmin,tmax
-!stop
-
 
 
 upy=0.87    !!! set as 0.90 to leave room for plotting information bar at the top of the screen
@@ -414,13 +404,7 @@ write(temp1,"(I10.2)") NP!/ deltabofsave
 deltabofsave=bofmed-bofmin
 write(temp2,"(F10.2)") deltabofsave
 
-!if (sigexpand) then
-!write(temp5,'(F10.2)') f
-!write(temp5step,'(F10.2)') pscale(NPsigexpandidx)
-!temp5=adjustl(temp5)
-!temp5step=adjustl(temp5step)
 
-!endif
 itsubburn=iteration-iburninprev
 iburnin2 = iburninprev
 
@@ -518,11 +502,7 @@ temp5=adjustl(temp5)
 temp6=adjustl(temp6)
 
 
-!'   bofdif='//trim(temp2)&//
-!if (sigexpand) then
-!plotinfo='NP='//trim(temp1)//'   f='//trim(temp5)//' step='//trim(temp5step)//&
-!'    inc='//trim(temp3)//'   log\d10\u(M\dBH\u/M\d\2281\u): '//trim(temp4)//'   Iteration: '//trim(tit)
-!else
+
 plotinfo='N\dP\u='//trim(temp1)//'  i\uo\d='//trim(temp3)//&
 '   MM\u\b\.\d (10\u7\dM\d\(2281)\u\u2\dyr\u-1\d): 10\u'//trim(temp4)//&
 '   \d \ga='//trim(temp5)//'   \ga (irad)='//trim(temp6)
@@ -808,34 +788,20 @@ endif
 if (itsubburn .ge. 1 .and. iburnin2 .gt. 0) then  !!! Decide whether to plot current or average with envelopes
 av=avparm(NPfurconstidx)!senv1furconst/itsubburn
 yw0(1:2)=av
-!call pgsls(1)
-!!call pgsci(icnorm)
-!call pgline(2,xw0,yw0)
 
-sd= sdparm(NPfurconstidx)!sqrt( abs((senv2furconst - senv1furconst*senv1furconst/itsubburn)/(itsubburn) ) )
-!call pgsls(1)
+sd= sdparm(NPfurconstidx)
 !!call pgsci(icenv)
 yw0(1:2)=av + sd
-!call pgline(2,xw0,yw0)
 yw0(1:2)=av - sd
-!call pgline(2,xw0,yw0)
-!call pgsls(1)
 else
-!call pgsls(1)
 yw0(1:2)=p(NPfurconstidx)
-!!call pgsci(icnorm)
-!call pgline(2,xw0,yw0)
-!call pgsls(1)
-
 
 if (reddotslast .eqv. .false.) then
 !! plot a vertical line where the first time point starts
 xw0(1:2)=tmin
 yw0(1)=yminx
 yw0(2)=ymaxx
-!write(*,*) t(1), 'green line'
-!call pgline(2,xw0,yw0)
-!!call pgsci(1)
+
 endif
 
 
@@ -844,13 +810,7 @@ endif
 
 
 if (reddotslast .and. yesxray) then
-!call pgsch(1.0)
-!call pgslw(3)
-!call pgsci(2)
-!call pgpt(Nxray,txray,xxray,6)
-!call pgsci(1)
-!call pgslw(2)
-!call pgslw(0.7)
+
 endif
 
 
@@ -892,18 +852,6 @@ if (iburnin2.gt. 0 .and. itsubburn .ge. 1 ) then
 
 
 
-
-
-!!call pgsci(12)
-!!call pgsci(ic)
-!call pgsls(1)
-!!call pgsci(icenv)
-!call pgline(Ntgrid,tgrid,xgridenvlodrive)
-!call pgline(Ntgrid,tgrid,xgridenvhidrive)
-!!call pgsci(icnorm)
-!call pgsls(1)
-!call pgline(Ntgrid,tgrid,xgridmean)
-!!call pgsci(1)
 
 
 if (savelightcurves) then
@@ -980,9 +928,6 @@ if (cuscol_input) then
 if (cuscol(i) .gt. 0) iclcnow = cuscol(i)
 endif
 
-!if (i .eq. 1) iclcnow = 1
-!if (i .eq. 2) iclcnow = 6
-!if (i .eq. 3) iclcnow = 5
 
 ! if plot ergs true convert the echo light curves to erg/s/cm2/A from mJy
 if (plotergs) then
@@ -1354,6 +1299,9 @@ endif
 
 !write(*,*) 'burnin',iburnin2,itsubburn,iteration
 !read(*,*)
+
+
+
 if (iburnin2 .gt. 0 .and. itsubburn .ge. 1 ) then  !! if past the burnin
 do it=1,Ntgrid
 !itpick =NTgrid-20
@@ -1362,7 +1310,6 @@ do it=1,Ntgrid
 
 
 xgridplotcent(it) = (senv1(it,i)+senv1_bg(it,i)) /itsubburn
-
 
 
 
@@ -1379,6 +1326,10 @@ bgopsig_save(it,i) = sqrt(xgridsd_b)
 bgop_save(it,i)    = senv1_bg(it,i)/itsubburn
 
 enddo
+
+
+
+
 !call pgsls(1)
 !!call pgsci(icenv)
 
@@ -1414,12 +1365,14 @@ else
 endif
 if (savelightcurves) then
 echosave(1:Ntgrid,i)=xgridplotcent(1:Ntgrid)*sd_overflow(i)+ave_overflow(i)
+
+
+
 do itt = 1,Ntgrid
 sigechosave(itt,i) = (xgridenvhi(itt) - xgridenvlo(itt))/2*sd_overflow(i)
 enddo
 endif
 !!call pgsci(icpt)
-
 
 
 
@@ -2165,6 +2118,7 @@ do it=1,Ntgrid
 write(1,*) tgrid(it),echosave(it,1:NLC)
 enddo
 close(1)
+
 
 open(unit=1,file='modellc_sig.dat')
 do it=1,Ntgrid
@@ -4112,14 +4066,6 @@ endif
 
 
 
-!if (ilc ==4) then
-
-!av_gr=avg(xgrid-furconst,Ntgrid)
-!av_op=avg(xgridop,Ntgrid)
-!write(*,*) stretch,offset,ip,xraymean,furconst,av_gr,av_op,'ararara',xgrid(40:42),'fdfdf',xgridop(40:42)
-!endif
-
-
 
 else
 
@@ -4191,42 +4137,6 @@ endif
 endif							    !!!!!!!!
 
 
-!write(*,*) 'performing interpolation between the points'
-!stop
-! perform interpolation on all points between
-
-!if (idxskip .gt. 0) then !filling in the gaps if skipping points
-! !write(*,*) 'where is the fault 4'
-! ioplo = interpidxmin
-! iophi = interpidxmin + idxskip
-! xoplo = xgridop(ioplo)
-! xophi = xgridop(iophi)
-! nextra = mod(interpidxmax - interpidxmin + 1,idxskip)
-! itpmax_temp = interpidxmax - nextra
-!
-! do it = interpidxmin,itpmax_temp!interpidxmax
-! imod_now = mod((it - idxskip),idxskip)
-! if (imod_now .ne. 0) then
-!  f_now = imod_now/idxskip
-!  xgridop(it) = xoplo + f_now*(xophi - xoplo)
-!  else
-!  xoplo = xgridop(it)
-!  xophi = xgridop(min(Ntgrid,it + idxskip))
-! endif
-! enddo
-!
-! if (nextra .gt. 1) then
-! ifrac = 1
-! xophi = xgridop(interpidxmax)
-! xoplo = xgridop(itpmax_temp)
-! dxop  = xophi - xoplo
-! do it = itpmax_temp + 1, itpmax_temp + nextra
-! xgridop(it) = xoplo + dxop*ifrac/nextra
-! ifrac = ifrac + 1
-! enddo
-! endif
-!endif
-
 !dont convolve if a driver
 else if (((wavobs(ilc) .lt. 100.0) .and. (wavobs(ilc) .ge. 0.0))) then
 xgridop(1:Ntgrid) = xgrid(1:Ntgrid)
@@ -4235,29 +4145,11 @@ endif !end if isharelc we do not recalculate convolution if we are just dealing 
 
 
 
-!mod october 30th 2017
-!if (firstcall .and. iteration .eq. 1) then
-!do ilc2 = 1,NLC
-!call avgrms(interpidxmax-interpidxmin+1,xgridop(iterpidxmin:interpidxmax),&
-!xres_bar, xres_std)
-!call avgrms(hi(ilc2)-lo(ilc2)+1,x(lo(ilc2):hi(ilc2)),&
-!xdat_bar, xdat_std)
-!stretch = xdat_std/xres_std
-!p(Npscaleidx+ilc2-1) = stretch
-!enddo
-!stretch = p(NPscaleidx+ilc-1)
-!endif
-
-
 if (quick_conv_itp) then
 do it = lo(ilc),hi(ilc)
 ithi = interpidx(it)
-!write(*,*) 'testing itp before',xgrid(ithi),xgridop(ithi),stretch,offset,x(it),ilc
 xgridop(ithi) = xgridop(ithi)* stretch + offset
 xgridop(ithi-1) = xgridop(ithi-1)* stretch + offset
-!write(*,*) 'testing itp',xgrid(ithi),xgridop(ithi),stretch,offset,x(it),ilc,psinorm(ilc)
-!write(*,*) ip,iteration
-!write(*,*)
 enddo
 else
 do it = interpidxmin,interpidxmax
@@ -4265,9 +4157,6 @@ xgridop(it) = xgridop(it)* stretch + offset
 enddo
 endif
 
-!write(*,*) ilc, stretch, offset
-!write(*,*) ip,iteration,ilc, xgridop(100:110)
-!read(*,*)
 if (bgvary) then
 !write(*,*) ip,'chchch',NPpolyidx,Nppolyidx+NPpolytot,NP
 if ((ip .ge. NPpolyidx) .and. (ip .lt. NPpolyidx+Nppolytot)) then
@@ -4285,21 +4174,14 @@ do itg = 1,Ntgrid
 fchange = (poly_new - poly_old)*(tgrid(itg) - tref_poly(ilc_poly_now))**power
 x_bg = bg_now(itg)  + fchange
 bg_save(itg,ilc_poly_now) =  x_bg
-!write(*,*) x_bg, fchange, poly_new,poly_old,'cehcing shit'
-!read(*,*)
-!if (ip .ge. NPpolyidx) write(*,*) tgrid(itg),bg_now(itg),x_bg,'polycalc',poly_old,poly_new,&
-!ilc_poly_now,ip,NPpolyidx,NPpoly
 enddo
-!read(*,*)
 endif
 endif
 do it = interpidxmin,interpidxmax
 xgridop(it) = xgridop(it) + bg_save(it,ilc)
 enddo
 endif
-!do it = interpidxmin,interpidxmax
-!write(*,*) bg_save(it,ilc),'checking bg'
-!enddo
+
 
 !!!!!! End of Manual Convolution
 
@@ -4318,8 +4200,6 @@ xgridop(it)=xgridop(it)/(redshiftadd1*redshiftadd1) !! redshift to observed fram
 xgridop(it)=dustMW(xgridop(it),wavobs(ilc),ebmvmw) !! apply milky way dust
 enddo
 endif
-
-
 
 !!! only go from +/- 4 psisig to save computation time
 !if (ip.eq. 1) write(*,*)'fractest'
@@ -4341,7 +4221,6 @@ end if !! end if we care about echo light curves (noconvolve) (i.e if noconvolve
 !! another loop for xray data !!
 if (yesxray) then
 do it=1,Nxray
-!fracalong=(tgrid(xrayinterpidx(it))-t(it))/dtgrid  !! potential PROBLEM here when including XRAY data 29th APRIL
 xxrayinterp(it) = xgrid(xrayinterpidx(it)-1) + fracalongxray(it)*(xgrid(xrayinterpidx(it))-xgrid(xrayinterpidx(it)-1))
 enddo
 endif
@@ -4385,19 +4264,6 @@ varerlnxray = sum
 endif
 
 
-!if (yesxray) then
-! ipflo = NPsigexpandidx + 1
-! ipfhi = ipflo + NLC - 1
-! ipvlo = NPvarexpandidx + 1
-! ipvhi = ipvlo + NLC - 1
-!else
-! ipflo = NPsigexpandidx
-! ipfhi = ipflo + NLC - 1
-! ipvlo = NPvarexpandidx
-! ipvhi = ipvlo + NLC - 1
-!endif
-!write(*,*) 'ararararara var expand'
-!p(NPvarexpandidx:NPvarexpandidx+NLC-1) = 0
 if (((ip .ge. ipflo) .and. (ip .le. ipfhi)) .or. &
 ((ip .ge. ipvlo) .and. (ip .le. ipvhi)) .or. &
 (firstcall)) then
@@ -4475,55 +4341,21 @@ endif
 !csq = cisq(x(lo(ilc):hi(ilc)),xinterp(lo(ilc):hi(ilc)),er(lo(ilc):hi(ilc)),Ndat)
 !endif
 
-!if (ip .ge. NPsigexpandidx .and. ip .lt. NPsigexpandidx + NLC) then
-!do idx1 = lo(ilc), hi(ilc)
-!write(*,*) er(idx1),ervar(idx1), p(ip)
-!enddo
-!write(*,*) 'testing sigexpand problem', ilc, sigrej, itmin_sigrej
-!write(*,*) cisq(x(lo(ilc):hi(ilc)),xinterp(lo(ilc):hi(ilc)),ervar(lo(ilc):hi(ilc)),Ndat)
-!write(*,*) csq
-!read(*,*)
-!endif
-
 
 cisqnew(ilc)= csq/Ndat
-!write(*,*) 'sigrejtest...',Npass_sigrej,Ndat,sigrej_k(ilc),sigrej_mode(ilc)
-
-
-!if ((sigexpand .eqv. .true.) .and. (varexpand .eqv. .false.)) then  !!! modify the chi square for each light curve if we expand the error bars
-!if (sigexpand) then
-! if (yesxray) then
-!  f=p(NPsigexpandidx+ilc)
-! else
-!  f=p(NPsigexpandidx+ilc-1)
-! endif
-! !csq=csq + alog(f) * 2*Ndat !csq/(f*f) + alog(f) * 2*Ndat
-! !write(*,*) 'check this here I think you have penalised for f twice. In the above line'
-! !write(*,*) 'and with varerln term'
-! !read(*,*)
-!endif
 
 sum=sum+ csq
 
 enddo
 
-
-!if (ip .lt. 3 .or. ip .ge. NPthcentidx) then
-!write(*,*) 'prechecking-',sum, isharelc(1:NLC)
-!endif
 if (varexpand .or. sigexpand) then !! add on the sum ln(var + f^2sig^^2) term to likelihood
 sum = sum + varerln
 endif
-
-!if (ip .lt. 3 .or. ip .ge. NPthcentidx) then
-!write(*,*) 'postvarerprechecking-',sum
-!endif
 
 end if !end the loop
 
 bof1=sum
 
-!write(*,*) 'bof1 after expansion',bof1
 
 !!!!! deal with x ray data
 if (yesxray) then
@@ -4580,21 +4412,6 @@ iw2=iw2+1
 enddo
 endif
 bof3=bof3*2
-
-!if (bof2 .ne. bof2) then !! error check
-! write(*,*) 'its all bollocks! (bof2 ne bof2)'
-! stop
-!endif
-
-
-
-!if (w0temp .eq. 0) then
-!write(*,*) 'bof check bof2, and 3,' , bof2,bof3,p(NPpspecidx:NPpspecidx+2)
-!read(*,*)
-!endif
-!!!!!!                   !! alpha prior
-
-
 
 
 
@@ -4781,29 +4598,9 @@ endif
 pricream_bofsumnew = pricream_bofsumnew + pricream_bofnow
 pricream_bofnew(ipc) = pricream_bofnow
 
-!if ((ip .ge. NPsigexpandidx) .and. (ip .lt. NPsigexpandidx+NPsigexpand)) then
-!write(*,*) 'testing pricream',npricream,ipc
-
-!write(*,*) ip,p(ip)
-!write(*,*) pricream_idx(ipc)
-!write(*,*) pricream_mean(ipc)
-!write(*,*) pricream_sd(ipc)
-!write(*,*) pricream_bofnow,pricream_bofsumnew,'pricream_bofsum   original bof',bofnew
-
-!endif
-
 
 enddo
 bofnew = bofnew + pricream_bofsumnew
-!write(*,*) pricream_bofnow,pricream_bofsumnew,'pricream_bofsum   original bof',bofnew
-!if ((ip .ge. NPsigexpandidx) .and. (ip .lt. NPsigexpandidx+NPsigexpand)) then
-!write(*,*) pricream_idx
-!write(*,*) pricream_mean
-!write(*,*) pricream_sd
-!write(*,*) pricream_bofnew
-!write(*,*) pricream_bofsumnew,'pricream_bofsum   original bof',bofnew - pricream_bofsumnew
-!!read(*,*)
-!endif
 
 
 endif
@@ -5080,6 +4877,7 @@ enddo
 endif
 
 !!
+
 
 
 if (iaffinenow == 1) then
@@ -5394,12 +5192,9 @@ if (quick_conv_itp) then
 call cream_modop_ps(parsave(1:NP,iteration:iteration),wavem,embhref,redshift,&
 Nlc,NP,NPF,NPumbhidx,NPcosincidx,NPoffsetidx,NPscaleidx,NPthcentidx,NPtridx,&
 1,Ntgrid,Ntaugrid,w,taugrid,tgrid,xgridplot,sigechosave)
-!do it = interpidxmin,interpidxmax
-!write(*,*) it, tgrid(it), xgridplot(it,1:NLC),'aarra'
-!enddo
-!
-!read(*,*)
 endif
+
+
 
 
 do ilc=1,NLC	 !!!! Echo Lightcurve offset
@@ -5421,13 +5216,6 @@ endif
 
 
 
-
-!do it=1,Ntgrid   !!!! Echo Lightcurves
-!if (quick_conv_itp) then
-! a = echosave(it,ilc)
-!else
-! a = xgridplot(it,ilc)
-!endif
 
 ! if we have a bad iteration then just set the disk light curve to the existing mean
 do it = 1,Ntgrid
@@ -5671,6 +5459,10 @@ endif
 
 
 !
+
+
+
+
 
 
 call superfitplot(tgrid,interpidxmin,interpidxmax,xgrid,&
@@ -6366,8 +6158,6 @@ call system_clock(itimehi)
 itimesavebackup = itimehi - itimelo
 endif
 
-
-!write(*,*) 'Finished backing up'!,med(xgridplot(1:Ntgrid,1),Ntgrid),offset,p(NPoffsetidx)
 
 !!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!
@@ -11672,7 +11462,6 @@ i_1stcall = .false.
 endif
 
 
-!write(*,*) 'driving light curve computation',Ntgrid,Nk,T1v,T1i,slope_v,slope_x,embh,deginc,rinsch
 !compute the driving light curve
 do it = 1,Ntgrid
 sum = 0.d0
@@ -11696,9 +11485,8 @@ wavnow = wav(ilc)
 osnow  = os(ilc)
 stnow  = st(ilc)
 thcentnow = thcent(ilc)
-!write(*,*) thcent(1:Nwav),thcentnow,'thcentpars', T1v,T1i
 
-if ((ilc .gt. 1) .and. (wavnow .eq. wavprev) .and. (wavnow .ne. -1.0)) then
+if ((ilc .gt. 1) .and. (wavnow .eq. wavprev)) then
 psiop(1:Ntau,ilc) = psiop(1:Ntau,ilc-1)
 if (diag) write(*,*) 'no convolve (repeat wavelength)',wav(ilc),ilc,Nwav
 else
@@ -11707,28 +11495,14 @@ thcentnow,thwide(ilc)
 
 if ((wavnow .gt. 0) .and. (wavnow .lt. 100.0)) then
 psiop(1:Ntau,ilc) = 0
-else if ((wav(ilc) .eq. -1)) then
+else if ((wav(ilc) .lt. 0)) then
 call tftophat(Ntau, tau, psiop(1:Ntau,ilc), thcentnow, thwide(ilc))
 else if ((T1v .eq. 0) .and. (T1i .eq. 0)) then
-!call tfb(tau,psiop(1:Ntau,ilc),&
-!Ntau,wavnow,embh,emdot,uhx,eff*(1.-alb),&
-!rinsch,deginc,slope_v,slope_x,ur0,diskk,diskka,redshift,1)
 call tfbx(tau,Ntau,wavnow,&
 -1*emdot,-1*emdot,slope_v,slope_x,&
 embh,deginc,rinsch,psiop(1:Ntau,ilc),redshift)
-!write(*,*) 'option 2 ',wavnow,T1v,T1i,slope_v,slope_x,embh,emdot,deginc,rinsch,redshift
-!do itau = 1,Ntau
-!if (tau(itau) .ge. 0) then
-!idzero = itau
-!exit
-!endif
-!enddo
-!write(*,*) tau(idzero-1:idzero+10)
-!write(*,*) psiop(idzero-1:idzero+10,ilc)
-!write(*,*) 'TFBX CANNOT DEAL WITH -VE LAG GRID IF IN DISK MODE! FIX'
-!stop
+
 else
-!write(*,*) 'option 3 ',wavnow,T1v,T1i,slope_v,slope_x,embh,deginc,rinsch,redshift
 call tfbx(tau,Ntau,wavnow,T1v,T1i,slope_v,slope_x,embh,deginc,rinsch,psiop(1:Ntau,ilc),&
 redshift)
 endif
@@ -11753,10 +11527,9 @@ dtau = (tauhi - taulo)/(Ntau-1)
 itlo = max(1,floor(tauhi/dtau))
 ithi = min(Ntgrid,Ntgrid - floor(abs(taulo)/dtau))
 
-!write(*,*) itlo,ithi,Ntgrid
-!stop
 
-if ((ilc .gt. 1) .and. (wavnow .eq. wavprev) .and. (wavnow .ne. -1)) then
+
+if ((ilc .gt. 1) .and. (wavnow .eq. wavprev) ) then
 osprev = os(ilc-1)
 stprev = st(ilc-1)
 do it = itlo,Ntgrid
@@ -11775,12 +11548,9 @@ idnow = min(idnow,Ntgrid)
 psinow = psiop(itau,ilc)
 if (it .eq. itlo) sum2 = sum2 + psinow
 if ((psinow .eq. 0) .and. (psiprev .gt. 0) ) exit
-!write(*,*) idtau,it,idnow,'dsfsd',tgrid(it),tau(max(1,idtau))
-!sum = sum + xmod_d(it-idtau+1)*psinow
 sum = sum + xmod_d(idnow)*psinow
 psiprev = psinow
 enddo
-!read(*,*)
 xmod(it,ilc) = sum/sum2*stnow + osnow
 enddo
 endif
@@ -11792,9 +11562,6 @@ wavprev = wavnow
 enddo
 
 if (diag) then
-!do itau = 1,Ntau
-!write(*,*) tau(itau), psiop(itau,1:Nwav)
-!enddo
 write(*,*) 'T1v, T1i, wavnow,embh,emdot,uhx,eff*(1.-alb),&
 rinsch,deginc,slope_v,slope_x,ur0,diskk,diskka,redshift'
 
@@ -12072,21 +11839,9 @@ logical diag /.False./
 
 pi = 3.141592653589793238462643383
 rad2deg = 180/pi
-!,&
-!sum2_psi(Ntau,Nwav),sum_psi(Ntau,Nwav)
 
-!sum_psi(1:Ntau,1:Nwav) = 0
-!sum2_psi(1:Ntau,1:Nwav) = 0
 sum_xmod(1:Ntgrid,1:Nwav) = 0
 sum2_xmod(1:Ntgrid,1:Nwav) = 0
-
-
-!write covariance matrix out to file
-!open(unit = 1,file = 'filecov.dat')
-!do ip = 1,NP
-!write(1,*) cov(1:NP,ip)
-!enddo
-!close(1)
 
 iseed = -1
 do iter = 1,Nits
@@ -12103,7 +11858,6 @@ write(*,*) umdot,deginc,wav,embh,z,Nwav,NP,NPF,NPumbhidx,NPcosincidx,NPoffsetidx
 NPscaleidx,NPthcentidx,NPtridx,Nits,Ntgrid,Ntau
 write(*,*) 'umdot,deginc,wav,embh,z,Nwav,NP,NPF,NPumbhidx,NPcosincidx,NPoffsetidx'
 write(*,*) 'NPscaleidx,NPthcentidx,NPtridx,Nits,Ntgrid,Ntau'
-!stop
 endif
 
 idxp = 1
@@ -12164,16 +11918,7 @@ endif
 
 sum_xmod(it,ilc) = sum_xmod(it,ilc) + xm
 sum2_xmod(it,ilc) = sum2_xmod(it,ilc) + xm*xm
-!if (sum_xmod(it,ilc) .ne. sum_xmod(it,ilc)) then
-!write(*,*) xm,'xmprob!!!!',sv,si,T1v,T1i,z,embh,deginc
-!read(*,*)
-!endif
 enddo
-!do itau = 1,Ntau
-!xm = psi(itau,ilc)
-!sum_psi(itau,ilc) = sum_psi(itau,ilc) + xm
-!sum2_psi(itau,ilc) = sum2_psi(itau,ilc) + xm*xm
-!enddo
 enddo
 
 enddo !end iteration
@@ -12185,9 +11930,6 @@ avexmod = sum_xmod(it,ilc)/Nitsplot
 
 sxm = sqrt( abs(sum2_xmod(it,ilc)/Nitsplot - (avexmod*avexmod)) )
 
-!if (sxm .ne. sxm) then
-!write(*,*) 'problem with sigxmod',tgrid(it),wav(ilc),sum2_xmod(it,ilc)/nits,avexmod,avexmod**2
-!endif
 sigxmod(it,ilc) = sxm
 xmodop(it,ilc) = avexmod
 enddo
@@ -12198,13 +11940,7 @@ endif
 if (Nits .le. 2) then
 sigxmod(1:Ntgrid,1:Nwav) = 0.0
 endif
-!do ilc = 1,Nwav
-!do it = 1,Ntau
-!avepsi = sum_psi(it,ilc)/Nits
-!sigpsi(it,ilc) = sqrt( sum2_psi(it,ilc)/Nits - avepsi*avepsi )
-!psiop(it,ilc)  = avepsi
-!enddo
-!enddo
+
 
 end subroutine
 
@@ -13005,11 +12741,6 @@ rnow = rprev + ranu(0.0,dr,iseed)
 !time lag
 taulag = rnow*(1.+ sininc*cosaz)
 
-!taulag = (
-!dd=(xhld*xhld+rnow*rnow)
-!d=sqrt(dd)
-!!write(*,*) 'xhld,x_hieght',xhld,x_height
-!taulag=( -xhld*cosinc - r*cosaz*sininc + d )
 
 !temperature (can repeat this for every azimuth but random jitter in r only improves
 !response function smoothness when recomputing the time lag)
@@ -13070,16 +12801,6 @@ sum = sum + weight
 psi(itau) = psi(itau) + weight*resp
 enddo
 
-!write(*,*) tau(iblo:ibhi)
-!write(*,*) psi(iblo:ibhi)
-!write(*,*) X,weight,resp,X,X5,eX_1,dsa,rnr0_si4!a,-a2,sig_gaus,taulag,taubin
-!write(*,*)
-
-!smoothing normalisation doesn't seem to do anything... ignoring it.
-!do itau = iblo,ibhi
-!psi(itau) = psi(itau)/sum
-!enddo
-
 
 
 idxtot = idxtot + 1
@@ -13120,16 +12841,6 @@ do it = 1,Ntau
 psi(it) = psi(it)/psimax
 enddo
 
-!write(*,*) 'tfbxop'
-!write(*,*) tau(1:30)
-!write(*,*)
-!write(*,*) psi(1:30)
-!do the interpolation if necessary
-!if (z > 0.001) then
-! call itp1d(psiop,ichoplo,ichophi,tau,tauz,psi,Ntau,Ntau,0)
-!else
-! psiop(1:Ntau) = psi(1:Ntau)
-!endif
 ! how to deal with any negative time lag bins
 if (ibzero .gt. 1) psi(1:ibzero-1) = 0
 
@@ -20633,14 +20344,6 @@ enddo
 
 endif
 
-!top = 0
-!bot = 0
-!do itau = 1,Ntau
-!top = top +  tau(itau)*psi(itau)
-!bot = bot +  psi(itau)
-!enddo
-!write(*,*) 'i am making a new tfbox, cent=', taucent, top/bot
-!read(*,*)
 
 end subroutine
 
@@ -22889,45 +22592,6 @@ write(*,*) 'too many iterations in jacobi'
 read(*,*)
 return
 END subroutine
-
-
-
-
-
-
-!program testabove
-!
-!real a(3,3), d(3), v(3,3)
-!
-!
-!n = 3
-!np = 3
-!a(1,1) = 0
-!a(2,1) = 1
-!a(3,1) = -1
-!
-!a(1,2) = 1
-!a(2,2) = 2
-!a(3,2) =1
-!
-!a(1,3) = -1
-!a(2,3) = 1
-!a(3,3) = 2
-!
-!
-!
-!call jacobi(a,n,np,d,v,nrot)
-!
-!
-!write(*,*) 'eigen values and vectors'
-!
-!
-!do i = 1,3
-!write(*,*) i, d(i), v(1:3,i)
-!enddo
-!
-!
-!end program
 
 
 

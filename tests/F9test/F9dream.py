@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     unique_wavs = list(raw['wavelengths'].unique())
 
-    DataDictionary = {'name':[],
+    LightcurveDictionary = {'name':[],
                       'wavelength':[],
                       'lightcurve':[]}
     for w in unique_wavs:
@@ -40,14 +40,22 @@ if __name__ == '__main__':
         unique_telobs = list(rawwav['TelObs'].unique())
         for u in unique_telobs:
             lightcurve = rawwav[rawwav['TelObs']==u][['MJD','Flux','Error']].sort_values(by='MJD')
-            DataDictionary['name'].append(u)
-            DataDictionary['wavelength'].append(w)
-            DataDictionary['lightcurve'].append(lightcurve.values)
+            LightcurveDictionary['name'].append(u)
+            LightcurveDictionary['wavelength'].append(w)
+            LightcurveDictionary['lightcurve'].append(lightcurve.values)
 
 
 
 
     # Prepare pycecream
+    pc = pc.pycecream()
+    for (name, wavelength, lcdat) in zip(LightcurveDictionary['name'],
+                                         LightcurveDictionary['wavelength'],
+                                         LightcurveDictionary['lightcurve']):
+
+    pc.add_lc(lcdat,name=name,group=)
+    #pc.add_lc()
+
 
 
 
