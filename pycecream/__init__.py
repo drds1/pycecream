@@ -973,7 +973,7 @@ class dream:
         for name, lc in self.lc_merged_individual.items():
             datmerged = np.vstack([datmerged,self.lc_merged_individual[name]])
             datinput = np.vstack([datinput, self.lcinput[name]])
-        return {'combined_input':datinput[np.argsort(datinput[:, 0]), :]
+        return {'combined_input':datinput[np.argsort(datinput[:, 0]), :],
             'combined_output':datmerged[np.argsort(datmerged[:, 0]), :]}
 
     def plot_merged(self):
@@ -984,7 +984,7 @@ class dream:
         lc_out = self._op['combined_output']
         lc_in = self._op['combined_input']
         plt.close()
-        fig = plt.add_figure()
+        fig = plt.figure()
         ax1 = fig.add_subplot(111)
         ax1.set_xlabel('Time')
         ax1.set_ylabel('Flux')
@@ -1003,13 +1003,6 @@ class dream:
             ax1.plot([lc_out[it, 0]], [lc_out[it, 1]], [lc_out[it, 2]],
                      ls='', marker='', color='grey', zorder=order_out, label=None)
         return [ax1, fig]
-
-
-
-
-
-
-
 
 
 def _run_cmd(cmd):
