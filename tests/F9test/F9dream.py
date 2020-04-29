@@ -10,50 +10,52 @@ if __name__ == '__main__':
     #load data and assemble into pycecream format
     raw = pd.read_csv('scratch_F9lightcurves.csv')
     raw['MJD'] = raw['MJD'] - 58000
-    filter_wavelengths = {
-        'HX':4,
-        'SX':5,
-        'UVW2':100,
-        'UVM2':100,
-        'UVM1':100,
-        'UVW1':100,
-        'U':1,
-        'B':2,
-        'V':3,
-        'u':4,
-        'g':5,
-        'r':6,
-        'i':7,
-        'z':2
+    filter_groups = {
+        'HX':1,
+        'SX':2,
+        'UVW2':3,
+        'UVM2':4,
+        'UVM1':5,
+        'UVW1':6,
+        'U':7,
+        'B':8,
+        'V':9,
+        'u':10,
+        'g':11,
+        'r':12,
+        'i':13,
+        'z':14
     }
 
-    raw['wavelengths'] = raw['Filter'].replace(filter_wavelengths)
+    raw['group'] = raw['Filter'].replace(filter_groups)
     raw['TelObs'] = raw['Tel'] + raw['Obs']
 
-    unique_wavs = list(raw['wavelengths'].unique())
+    unique_groups = list(raw['group'].unique())
 
     LightcurveDictionary = {'name':[],
-                      'wavelength':[],
+                      'group':[],
                       'lightcurve':[]}
-    for w in unique_wavs:
-        rawwav = raw[raw['wavelengths'] == w]
-        unique_telobs = list(rawwav['TelObs'].unique())
+    for g in unique_groups:
+        rawgroup = raw[raw['group'] == g]
+        unique_telobs = list(rawgroup['TelObs'].unique())
         for u in unique_telobs:
-            lightcurve = rawwav[rawwav['TelObs']==u][['MJD','Flux','Error']].sort_values(by='MJD')
+            lightcurve = rawgroup[rawgroup['TelObs']==u][['MJD','Flux','Error']].sort_values(by='MJD')
             LightcurveDictionary['name'].append(u)
-            LightcurveDictionary['wavelength'].append(w)
+            LightcurveDictionary['group'].append(g)
             LightcurveDictionary['lightcurve'].append(lightcurve.values)
 
 
 
 
     # Prepare pycecream
-    pc = pc.pycecream()
-    for (name, wavelength, lcdat) in zip(LightcurveDictionary['name'],
-                                         LightcurveDictionary['wavelength'],
+    pc = pc.dream()
+    for (name, group, lcdat) in zip(LightcurveDictionary['name'],
+                                         LightcurveDictionary['group'],
                                          LightcurveDictionary['lightcurve']):
+        if group == 1:
+            pc.add_lc(lcdat, name, errorbar_variance=True, errorbar_rescale=True)
 
-    pc.add_lc(lcdat,name=name,group=)
+    pc.run()
     #pc.add_lc()
 
 

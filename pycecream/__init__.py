@@ -8,7 +8,6 @@ import matplotlib.pylab as plt
 import multiprocessing as mp
 import time
 
-
 class pycecream:
     '''
     One stop shop for fitting time lags and response functions to AGN
@@ -115,7 +114,12 @@ class pycecream:
 
         self.dir_pycecream = dir_pycecream
         self.dir_sim = 'simulation_files'
-        os.mkdir(self.dir_pycecream)
+        try:
+            os.mkdir(self.dir_pycecream)
+        except:
+            raise Exception('directory...'+self.dir_pycecream+' already exists. '
+                                                              'Please choose another using the '
+                                                              'self.dir_pycecream variable')
         os.mkdir(self.dir_pycecream+'/'+self.dir_sim)
 
         #copy fortran files to pycecream directory
@@ -912,8 +916,16 @@ class dream:
         self.numlc = 0
         self._op = None
         self.lcinput = {}
+        #find an unused directory
+        dir_pycecream = 'simulation_dir_'
+        idx = 0
+        while os.path.isdir(dir_pycecream+str(idx)) is True:
+            idx += 1
+        self.pc.dir_pycecream = dir_pycecream+str(idx)
 
-    def add_lc(self, lc, name, errorbar_variance, errorbar_rescale):
+
+
+    def add_lc(self, lc, name, errorbar_variance = True, errorbar_rescale = True):
         '''
         add a single light curve to the simulation
         :param lc: numpy light curve array (N x 3) where each of the three columns are the time, flux, errorbars
@@ -939,7 +951,8 @@ class dream:
         else:
             sharelag = True
         self.pc.add_lc(lc, name=name, wavelength=-1.0,
-                       expand_errors = errorbar_parameters, share_previous_lag=sharelag)
+                       expand_errors = errorbar_parameters,
+                       share_previous_lag=sharelag, tophat_centroid_step=0.0)
         self.numlc += 1
 
 
