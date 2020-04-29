@@ -8,6 +8,10 @@ import matplotlib.pylab as plt
 import multiprocessing as mp
 import time
 import itertools
+import corner
+from scipy.stats import pearsonr
+import seaborn as sns; sns.set(style="ticks", color_codes=True)
+
 
 class pycecream:
     '''
@@ -995,6 +999,7 @@ class dream:
         plot the input light curves (one colour per light curve
         :return:
         '''
+        assert(lightcurves in ['input','merged'])
         if lightcurves == 'input':
             data = self.lcinput
         else:
@@ -1013,8 +1018,36 @@ class dream:
         for n in names:
             dat = data[n]
             color = next(ax1._get_lines.prop_cycler)['color']
-            ax1.errorbar(dat[:,0], dat[:,1], dat[:,2], ls = '', marker = None, color=color, label = n)
-            if n
+
+            #if plotting the merged light curves want to include initial error bars for comparison
+            if lightcurves == 'merged':
+                Nt = len(dat)
+                lc_in = self.lcinput[n]
+                lc_out = self.lc_merged_individual[n]
+                for it in range(Nt):
+                    if it == 0:
+                        label = n
+                    else:
+                        label = None
+                    if lc_in[it, 2] >= lc_out[it, 2]:
+                        order_in = 1
+                        order_out = 2
+                    else:
+                        order_in = 2
+                        order_out = 1
+                    ax1.errorbar([lc_out[it, 0]], [lc_out[it, 1]], [lc_in[it, 2]],
+                                 ls='', marker='', color=color, zorder=order_in, label=label)
+                    ax1.errorbar([lc_out[it, 0]], [lc_out[it, 1]], [lc_out[it, 2]],
+                                 ls='', marker='', color=color, alpha = 0.4,
+                                 zorder=order_out, label=None)
+
+            #if plotting the input light curves just plot the light curves
+            else:
+                ax1.errorbar(dat[:,0], dat[:,1], dat[:,2], ls = '', marker = None, color=color, label = n)
+            #if lightcurves == 'merged':
+            #    ax1.errorbar(dat[:, 0], dat[:, 1], dat[:, 2], ls='',
+            #                 marker=None, color=color, alpha = 0.4,label=None)
+
         return [fig, ax1]
 
 
@@ -1057,23 +1090,75 @@ class dream:
         plot the merged light curves return figure, axis object
         :return:
         '''
-        lc_out = self._op['combined_output']
-        lc_in = self._op['combined_input']
-        if fig_in is None:
-            fig = plt.figure()
-        else:
-            fig = fig_in
-        if ax_in is None:
-            ax1 = fig.add_subplot(111)
-        else:
-            ax1 = ax_in
-        ax1.set_xlabel('Time')
-        ax1.set_ylabel('Flux')
-        Nt = len(lc_in)
+        return self._plot_individual(fig_in = fig_in, ax_in = ax_in, lightcurves='merged')
 
-        #identify the correct plotting order (smaller error bars should be plotted on to)
+    def plot_input_individual(self, fig_in = None, ax_in = None):
+        '''
+        plot the merged light curves return figure, axis object
+        :return:
+        '''
+        return self._plot_individual(fig_in = fig_in, ax_in = ax_in, lightcurves='input')
 
-        return [fig, ax1]
+    def plot_chains_or_covariances(self,output_chains, Parm, ParmNicename,
+                                   type = 'covarainces', fig_in = None):
+        '''
+
+        :return:
+        '''
+        assert(type in ['covariances','chain'])
+
+        # make covariance corner plots
+        colnames_output_chains = list(output_chains.columns)
+        corner_columns = [c for c in colnames_output_chains if Parm in c]
+        new_corner_columns = [c.replace(Parm, '') for c in corner_columns]
+        df = output_chains[corner_columns].copy()
+        df.columns = new_corner_columns
+
+        # Isolate parameters optimised in MCMC chain
+        # if non of the current parameter set are varied then skip
+        dfstd = df.std()
+        names_VariedColumns = list(dfstd[dfstd > 1.e-10].index)
+        if len(names_VariedColumns) > 0:
+            # make the corner covariance plot and add title
+            print('making corner plots for ', names_VariedColumns)
+            if type == 'covariances':
+                #fig = corner.corner(df[names_VariedColumns], plot_contours=False,
+                #                    quantiles=[0.16, 0.5, 0.84],
+                #                    show_titles=True, title_kwargs={"fontsize": 12},
+                #                    truths=None)
+                g = sns.pairplot(df[names_VariedColumns], corner=True)
+                g.map_lower(corrfunc)
+                fig = g.fig
+                fig.suptitle('Covariance: ' + ParmNicename, fontsize=16)
+                fig.tight_layout()
+            elif type == 'chain':
+                if fig_in is not None:
+                    fig = fig_in
+                else:
+                    fig = plt.figure()
+                n = len(names_VariedColumns)
+                ncols = 2
+                nrows = int(np.ceil(n/ncols))
+                for i in range(n):
+                    ax1 = fig.add_subplot(nrows,ncols,i+1)
+                    ax1.plot(df[names_VariedColumns[i]].values)
+                    ax1.set_title(names_VariedColumns[i])
+                fig.suptitle('MCMC Chains: ' + ParmNicename, fontsize=16)
+
+        return fig
+
+
+
+def corrfunc(x,y, ax=None, **kws):
+    """Plot the correlation coefficient in the top left hand corner of a plot."""
+    #r, _ = pearsonr(x, y)
+    r = np.corrcoef(x,y)[0, 1]
+    ax = ax or plt.gca()
+    # Unicode for lowercase rho (ρ)
+    rho = '\u03C1'
+    ax.annotate(f'{rho} = {r:.2f}', xy=(.1, .9), xycoords=ax.transAxes)
+
+
 
 
 def _run_cmd(cmd):
