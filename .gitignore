@@ -5,3 +5,6 @@ pycecream_test/.DS_Store
 .idea/workspace
 *venv*
 *scratch_*
+*simulation_files*
+*output_2020*
+*.pickle

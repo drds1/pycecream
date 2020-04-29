@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/F9dream.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/F9dream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_fluxflux.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_fluxflux.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_resume.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_resume.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars2.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars3.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars3.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars_th.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars_th.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars_varexpand.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars_varexpand.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/testbofs.dat" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/testbofs.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/test_output.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/test_output.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
@@ -42,6 +33,15 @@
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -139,13 +139,13 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/tests/test_parallel.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200427_001/plots/merged_dat_line_3.dat.dat" />
         <option value="$PROJECT_DIR$/tests/merge_test.py" />
         <option value="$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/cream_f90.f90" />
         <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
         <option value="$PROJECT_DIR$/tests/F9test/F9dream.py" />
         <option value="$PROJECT_DIR$/pycecream/__init__.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -264,9 +264,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/creamnames.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/simulation_files/output_20200428_001/cream_th.par">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -555,6 +552,13 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
         </state>
       </provider>
     </entry>
