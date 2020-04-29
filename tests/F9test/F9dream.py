@@ -4,7 +4,8 @@ import os
 import pickle
 import matplotlib.pylab as plt
 import numpy as np
-
+import corner
+from matplotlib.backends.backend_pdf import PdfPages
 
 
 if __name__ == '__main__':
@@ -68,13 +69,40 @@ if __name__ == '__main__':
     pickle_in = open(picklefile, "rb")
     pc = pickle.load(pickle_in)
 
+    #make combined plot
+    with PdfPages('dream_diagnostic.pdf') as pdf:
 
-    #combine the merged and input light curve plots into a single figure
-    fig = plt.figure()
-    ax1 = fig.add_subplot(2,1,1)
-    fig, ax1 = pc.plot_input(fig_in = fig, ax_in = ax1)
 
-    ax2 = fig.add_subplot(2,1,2)
-    fig, ax2 = pc.plot_merged(fig_in = fig, ax_in = ax2)
+        #combine the merged and input light curve plots into a single figure
+        fig = plt.figure()
+        ax1 = fig.add_subplot(2,1,1)
+        fig, ax1 = pc.plot_input_individual(fig_in = fig, ax_in = ax1)
+        ax1.legend(fontsize='xx-small')
+        ax2 = fig.add_subplot(2, 1, 2)
+        fig, ax1 = pc.plot_merged_individual(fig_in=fig, ax_in=ax2)
+        plt.tight_layout()
+        pdf.savefig()
+        plt.close()
 
-    plt.show()
+        #plot the mcmc chains and covariances
+        output_chains = pc.pc.get_MCMC_chains()
+        parms = ['offset','stretch',
+                 'noise m','noise var']
+        parms_nicenames = ['vertical offset','vertical stretch',
+                           'error bar multiplicative correction','error bar extra variance']
+        #plot the covariances
+        for Parm, ParmNicename in zip(parms,parms_nicenames):
+            fig = plt.figure()
+            fig = pc.plot_chains_or_covariances(output_chains,Parm, ParmNicename, type = 'covariances', fig_in = fig)
+            plt.tight_layout()
+            pdf.savefig()
+            plt.close()
+
+        #plot the chains
+        for Parm, ParmNicename in zip(parms,parms_nicenames):
+            fig = plt.figure()
+            fig = pc.plot_chains_or_covariances(output_chains,Parm, ParmNicename, type = 'chain', fig_in = fig)
+            plt.tight_layout()
+            pdf.savefig()
+            plt.close()
+
