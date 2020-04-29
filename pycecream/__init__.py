@@ -7,6 +7,7 @@ import astropy_stark.cream_plotlibrary as cpl
 import matplotlib.pylab as plt
 import multiprocessing as mp
 import time
+import itertools
 
 class pycecream:
     '''
@@ -988,16 +989,50 @@ class dream:
         return {'combined_input':datinput[np.argsort(datinput[:, 0]), :],
             'combined_output':datmerged[np.argsort(datmerged[:, 0]), :]}
 
-    def plot_merged(self):
+
+    def _plot_individual(self, fig_in = None, ax_in = None, lightcurves = 'input'):
+        '''
+        plot the input light curves (one colour per light curve
+        :return:
+        '''
+        if lightcurves == 'input':
+            data = self.lcinput
+        else:
+            data = self.lc_merged_individual
+        names = list(data.keys())
+        if fig_in is None:
+            fig = plt.figure()
+        else:
+            fig = fig_in
+        if ax_in is None:
+            ax1 = fig.add_subplot(111)
+        else:
+            ax1 = ax_in
+        ax1.set_xlabel('Time')
+        ax1.set_ylabel('Flux')
+        for n in names:
+            dat = data[n]
+            color = next(ax1._get_lines.prop_cycler)['color']
+            ax1.errorbar(dat[:,0], dat[:,1], dat[:,2], ls = '', marker = None, color=color, label = n)
+            if n
+        return [fig, ax1]
+
+
+    def plot_merged_combined(self, fig_in = None, ax_in = None):
         '''
         plot the merged light curves return figure, axis object
         :return:
         '''
         lc_out = self._op['combined_output']
         lc_in = self._op['combined_input']
-        plt.close()
-        fig = plt.figure()
-        ax1 = fig.add_subplot(111)
+        if fig_in is None:
+            fig = plt.figure()
+        else:
+            fig = fig_in
+        if ax_in is None:
+            ax1 = fig.add_subplot(111)
+        else:
+            ax1 = ax_in
         ax1.set_xlabel('Time')
         ax1.set_ylabel('Flux')
         Nt = len(lc_in)
@@ -1010,11 +1045,35 @@ class dream:
             else:
                 order_in = 2
                 order_out = 1
-            ax1.plot([lc_out[it,0]], [lc_out[it,1]], [lc_in[it,2]],
+            ax1.errorbar([lc_out[it,0]], [lc_out[it,1]], [lc_in[it,2]],
                      ls='',marker='',color='k',zorder=order_in, label=None)
-            ax1.plot([lc_out[it, 0]], [lc_out[it, 1]], [lc_out[it, 2]],
+            ax1.errorbar([lc_out[it, 0]], [lc_out[it, 1]], [lc_out[it, 2]],
                      ls='', marker='', color='grey', zorder=order_out, label=None)
-        return [ax1, fig]
+        return [fig, ax1]
+
+
+    def plot_merged_individual(self, fig_in = None, ax_in = None):
+        '''
+        plot the merged light curves return figure, axis object
+        :return:
+        '''
+        lc_out = self._op['combined_output']
+        lc_in = self._op['combined_input']
+        if fig_in is None:
+            fig = plt.figure()
+        else:
+            fig = fig_in
+        if ax_in is None:
+            ax1 = fig.add_subplot(111)
+        else:
+            ax1 = ax_in
+        ax1.set_xlabel('Time')
+        ax1.set_ylabel('Flux')
+        Nt = len(lc_in)
+
+        #identify the correct plotting order (smaller error bars should be plotted on to)
+
+        return [fig, ax1]
 
 
 def _run_cmd(cmd):

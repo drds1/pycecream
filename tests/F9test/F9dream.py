@@ -3,6 +3,7 @@ import pycecream as pc
 import os
 import pickle
 import matplotlib.pylab as plt
+import numpy as np
 
 
 
@@ -13,59 +14,67 @@ if __name__ == '__main__':
     raw['MJD'] = raw['MJD'] - 58000
     raw['TelObs'] = raw['Tel'] + raw['Obs']
     groups = {}
+    means = {}
+    sd_mean = {}
     unique_filters = list(raw['Filter'].unique())
 
     LightcurveDictionary = {'name':[],
                       'group':[],
                       'lightcurve':[]}
+    LightcurveSummary = {'group':[],'names':[],'means':[],'sd_means':[]}
     for g in unique_filters:
         rawgroup = raw[raw['Filter'] == g]
         unique_telobs = list(rawgroup['TelObs'].unique())
-        groups[g] = []
+        LightcurveSummary['group'].append(g)
+        gnames = []
+        gmeans = []
         for u in unique_telobs:
-            groups[g].append(u)
-            lightcurve = rawgroup[rawgroup['TelObs']==u][['MJD','Flux','Error']].sort_values(by='MJD')
+            lightcurve = rawgroup[rawgroup['TelObs'] == u][['MJD', 'Flux', 'Error']].sort_values(by='MJD')
+            gnames.append(u)
+            gmeans.append(lightcurve.values[:,1].mean())
             LightcurveDictionary['name'].append(u)
             LightcurveDictionary['group'].append(g)
             LightcurveDictionary['lightcurve'].append(lightcurve.values)
+        LightcurveSummary['names'].append(gnames)
+        LightcurveSummary['means'].append(gmeans)
+        LightcurveSummary['sd_means'].append(np.std(gmeans))
 
+    #this tells us which filter groups have the greates misalignment (in terms of means)
+    LightcurveSummary = pd.DataFrame(LightcurveSummary).sort_values(by='sd_means',ascending = False)
+    test_group = LightcurveSummary['group'].iloc[0]
+    print('testing on group...',test_group)
     picklefile = 'test_output.pickle'
 
-
+    '''
     # Prepare pycecream
     pc = pc.dream()
     for (name, group, lcdat) in zip(LightcurveDictionary['name'],
                                          LightcurveDictionary['group'],
                                          LightcurveDictionary['lightcurve']):
-        if group == 'g':
+        if group == test_group:
             pc.add_lc(lcdat, name, errorbar_variance=True, errorbar_rescale=True)
 
     pc.run()
-    ax1,fig = pc.plot_merged()
-    #pc.add_lc()
+
     
     #save pickle output
     os.system('rm ' + picklefile)
     pickle_out = open(picklefile, "wb")
     pickle.dump(pc, pickle_out)
     pickle_out.close()
+    '''
 
 
     pickle_in = open(picklefile, "rb")
     pc = pickle.load(pickle_in)
-    x = pc.x
 
-    x = pc._dream__combine_individual_output_lightcurves()
-    df_merged_out = x['combined_output']
-    df_merged_in = x['combined_input']
 
-    plt.close()
+    #combine the merged and input light curve plots into a single figure
     fig = plt.figure()
-    ax1 = fig.add_subplot(111)
-    ax1.scatter(df_merged_in[:,0],df_merged_in[:,1],label='input')
-    ax1.scatter(df_merged_out[:, 0], df_merged_out[:, 1],label='merged')
-    plt.legend()
+    ax1 = fig.add_subplot(2,1,1)
+    fig, ax1 = pc.plot_input(fig_in = fig, ax_in = ax1)
+
+    ax2 = fig.add_subplot(2,1,2)
+    fig, ax2 = pc.plot_merged(fig_in = fig, ax_in = ax2)
+
     plt.show()
-
-
-
