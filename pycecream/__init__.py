@@ -917,12 +917,11 @@ class dream:
         self._op = None
         self.lcinput = {}
         #find an unused directory
-        dir_pycecream = 'simulation_dir_'
+        project_folder = 'simulation_dir_'
         idx = 0
-        while os.path.isdir(dir_pycecream+str(idx)) is True:
+        while os.path.isdir(project_folder+str(idx)) is True:
             idx += 1
-        self.pc.dir_pycecream = dir_pycecream+str(idx)
-
+        self.pc.project_folder = project_folder+str(idx)
 
 
     def add_lc(self, lc, name, errorbar_variance = True, errorbar_rescale = True):
