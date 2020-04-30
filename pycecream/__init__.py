@@ -971,6 +971,7 @@ class dream:
         self.pc.N_iterations = self.Niterations
         self.pc.run(ncores=ncores)
         self._postrun()
+        os.system('rm -rf '+self.pc.project_folder)
 
     def _postrun(self):
         #return the individual output light curves and merge these into a single array
