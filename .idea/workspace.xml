@@ -4,140 +4,6 @@
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/cream_f90.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/creaminpar.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/creammod.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/creamrun.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/cream_log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/cream_th.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/cream_var.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/creamnames.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/disksimsave.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/disksimtrop.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/disksimtropparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/input_lightcurve_settings.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/line_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/offsetstretch_fix.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/CREAM_allpars_BIG.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_fluxflux.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_furparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_gvalues.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_osparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_redcisq.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_renorm_const.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_resume.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_sigexpand_parms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_stretchparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_tfparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/cream_th.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/creaminpar.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/fileinfo.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/furfreq.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/ishareinfo.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/outputpars.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/outputpars2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/outputpars3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/outputpars_th.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/outputpars_varexpand.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/paridx.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/cream_miscpar.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/data_echo_dat_line_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/merged_dat_line_0.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/merged_mod_line_0.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/modeldrive.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/modellc.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/modellc_bg.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/modellc_bgsig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/modellc_sig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/modeltf.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/modeltf_sig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/plots/savelc_list.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/pricream.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/pythoncov.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/testbofs.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/output_20200429_001/xray_plot_mod.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_0/simulation_files/pricream.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/cream_f90.f90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/creaminpar.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/creammod.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/creamrun.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/cream_log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/cream_th.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/cream_var.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/creamnames.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/disksimsave.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/disksimtrop.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/disksimtropparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/input_lightcurve_settings.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/line_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/line_1.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/line_2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/line_3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/line_4.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/line_5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/line_6.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/line_7.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/offsetstretch_fix.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/CREAM_allpars_BIG.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_fluxflux.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_furparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_gvalues.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_osparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_redcisq.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_renorm_const.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_resume.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_sigexpand_parms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_stretchparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_tfparms.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/cream_th.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/creaminpar.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/fileinfo.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/furfreq.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/ishareinfo.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars_th.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/outputpars_varexpand.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/paridx.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/cream_miscpar.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/data_echo_dat_line_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/data_echo_dat_line_1.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/data_echo_dat_line_2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/data_echo_dat_line_3.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/data_echo_dat_line_4.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/data_echo_dat_line_5.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/data_echo_dat_line_6.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/data_echo_dat_line_7.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_dat_line_0.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_dat_line_1.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_dat_line_2.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_dat_line_3.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_dat_line_4.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_dat_line_5.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_dat_line_6.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_dat_line_7.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_mod_line_0.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_mod_line_1.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_mod_line_2.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_mod_line_3.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_mod_line_4.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_mod_line_5.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_mod_line_6.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/merged_mod_line_7.dat.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/modeldrive.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/modellc.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/modellc_bg.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/modellc_bgsig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/modellc_sig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/modeltf.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/modeltf_sig.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/plots/savelc_list.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/pricream.par" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/pythoncov.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/testbofs.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/output_20200429_001/xray_plot_mod.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/simulation_dir_1/simulation_files/pricream.par" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -204,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="150">
+              <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -739,8 +605,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="150">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
         </state>
       </provider>
     </entry>
