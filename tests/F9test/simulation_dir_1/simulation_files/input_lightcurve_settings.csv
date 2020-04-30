@@ -1,9 +1,0 @@
-,name,type,wavelength,noise model,share previous lag,temporary file name,mean,standard deviation,tophat centroid,tophat centroid step,tophat centroid prior cent,tophat centroid prior width,tophat width,tophat width step,tophat width prior cent,tophat width prior width,background offset start,vertical scaling start,extra variance prior,multiplicative errorbar prior,background offset prior,vertical scaling prior,background_polynomials
-0,1m004lsc,line,-1.0,"['var', 'multiplicative']",False,line_0.dat,8.569374,1.2877203,0.0,0.0,0.0,-1.0,2.0,0.0,0.0,-0.1,"[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]",,,
-0,1m005lsc,line,-1.0,"['var', 'multiplicative']",True,line_1.dat,8.625472,1.4437642,0.0,0.0,0.0,-1.0,2.0,0.0,0.0,-0.1,"[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]",,,
-0,1m012cpt,line,-1.0,"['var', 'multiplicative']",True,line_2.dat,7.885372,1.3398868,0.0,0.0,0.0,-1.0,2.0,0.0,0.0,-0.1,"[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]",,,
-0,1m010cpt,line,-1.0,"['var', 'multiplicative']",True,line_3.dat,8.985832,1.4556787,0.0,0.0,0.0,-1.0,2.0,0.0,0.0,-0.1,"[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]",,,
-0,1m011coj,line,-1.0,"['var', 'multiplicative']",True,line_4.dat,8.645191,1.3685597,0.0,0.0,0.0,-1.0,2.0,0.0,0.0,-0.1,"[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]",,,
-0,1m003coj,line,-1.0,"['var', 'multiplicative']",True,line_5.dat,8.35147,1.4024576,0.0,0.0,0.0,-1.0,2.0,0.0,0.0,-0.1,"[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]",,,
-0,1m009lsc,line,-1.0,"['var', 'multiplicative']",True,line_6.dat,8.991632,1.1850662,0.0,0.0,0.0,-1.0,2.0,0.0,0.0,-0.1,"[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]",,,
-0,1m013cpt,line,-1.0,"['var', 'multiplicative']",True,line_7.dat,10.129472,0.5483786,0.0,0.0,0.0,-1.0,2.0,0.0,0.0,-0.1,"[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]","[-1.0, -1.0]",,,
