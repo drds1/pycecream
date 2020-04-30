@@ -970,11 +970,11 @@ class dream:
         self.pc.p_inclination_step=0.0
         self.pc.N_iterations = self.Niterations
         self.pc.run(ncores=ncores)
+        self._postrun()
 
+    def _postrun(self):
         #return the individual output light curves and merge these into a single array
         op = self.pc.get_light_curve_fits(location=None)
-        lc_model = op['model']
-        lc_merged_model = op['merged model']
         self.lc_merged_individual = op['merged data']
         self._op = self.__combine_individual_output_lightcurves()
         self.lc_combined = self._op['combined_output']

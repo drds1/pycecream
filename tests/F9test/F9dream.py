@@ -69,10 +69,29 @@ if __name__ == '__main__':
     pickle_in = open(picklefile, "rb")
     pc = pickle.load(pickle_in)
 
+
+
+    #different way of merging
+    # needs to be integrated in to dream class
+    reference_lc_name = '1m004lsc'
+    model = pc.pc.get_light_curve_fits()['model']
+    merged_data = pc.pc.get_light_curve_fits()['merged data']
+    reference_time = model.values[:,0]
+    reference_lc = model[reference_lc_name+' model'].values[:]
+
+    cols = list(merged_data.keys())
+    for m in cols:
+        dat = merged_data[m]
+        t = dat[:,0]
+        dat[:,1] = np.interp(t,reference_time, reference_lc)
+        merged_data[m] = dat
+    pc.lc_merged_individual = merged_data
+    pc._op = pc._dream__combine_individual_output_lightcurves()
+    pc.lc_combined = pc._op['combined_output']
+
+
     #make combined plot
     with PdfPages('dream_diagnostic.pdf') as pdf:
-
-
         #combine the merged and input light curve plots into a single figure
         fig = plt.figure()
         ax1 = fig.add_subplot(2,1,1)
