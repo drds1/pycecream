@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/F9test/F9dream.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/F9dream.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
@@ -68,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -93,7 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>call pgline(Ntgrid,tgrid</find>
       <find>echosave</find>
       <find>xgridplotcent</find>
       <find>senv1</find>
@@ -123,6 +121,7 @@
       <find>suptit</find>
       <find>pdfpages</find>
       <find>.values</find>
+      <find>sns</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical_scaling_prior</replace>
@@ -172,12 +171,12 @@
         <option value="$PROJECT_DIR$/tests/merge_test.py" />
         <option value="$PROJECT_DIR$/tests/scratch_dream_tests/scratch_offset/cream_f90.f90" />
         <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tests/F9test/cornertest.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/tests/F9test/F9dream.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -199,6 +198,17 @@
             <path>
               <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="F9test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -553,13 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/F9test/cornertest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -597,6 +600,13 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
