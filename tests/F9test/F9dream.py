@@ -10,6 +10,9 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 if __name__ == '__main__':
 
+    '''
+    1: Load F9 light curves and arrange into nice dictionary
+    '''
     #load data and assemble into pycecream format
     raw = pd.read_csv('scratch_F9lightcurves.csv')
     raw['MJD'] = raw['MJD'] - 58000
@@ -42,69 +45,59 @@ if __name__ == '__main__':
 
     #this tells us which filter groups have the greates misalignment (in terms of means)
     LightcurveSummary = pd.DataFrame(LightcurveSummary).sort_values(by='sd_means',ascending = False)
-    test_group = LightcurveSummary['group'].iloc[0]
+
     print('testing on group...',test_group)
     picklefile = 'test_output.pickle'
 
+
     '''
+    2: setup and run a pycecream.dream instance for the light curve with
+    most misaligned telescope points defined by standard deviation of means
+    '''
+    test_group = LightcurveSummary['group'].iloc[0]
+
     # Prepare pycecream
-    pc = pc.dream()
+    dream = pc.dream(Niterations = 200)
     for (name, group, lcdat) in zip(LightcurveDictionary['name'],
                                          LightcurveDictionary['group'],
                                          LightcurveDictionary['lightcurve']):
         if group == test_group:
-            pc.add_lc(lcdat, name, errorbar_variance=True, errorbar_rescale=True)
+            dream.add_lc(lcdat, name, errorbar_variance=True, errorbar_rescale=True)
 
-    pc.run()
+    dream.run()
 
     
-    #save pickle output
+    #save simulation as pickle output
     os.system('rm ' + picklefile)
     pickle_out = open(picklefile, "wb")
-    pickle.dump(pc, pickle_out)
+    pickle.dump(dream, pickle_out)
     pickle_out.close()
-    '''
 
 
+    #load previous simulation
     pickle_in = open(picklefile, "rb")
-    pc = pickle.load(pickle_in)
+    dream = pickle.load(pickle_in)
 
 
-
-    #different way of merging
-    # needs to be integrated in to dream class
-    reference_lc_name = '1m004lsc'
-    model = pc.pc.get_light_curve_fits()['model']
-    merged_data = pc.pc.get_light_curve_fits()['merged data']
-    reference_time = model.values[:,0]
-    reference_lc = model[reference_lc_name+' model'].values[:]
-
-    cols = list(merged_data.keys())
-    for m in cols:
-        dat = merged_data[m]
-        t = dat[:,0]
-        dat[:,1] = np.interp(t,reference_time, reference_lc)
-        merged_data[m] = dat
-    pc.lc_merged_individual = merged_data
-    pc._op = pc._dream__combine_individual_output_lightcurves()
-    pc.lc_combined = pc._op['combined_output']
-
-
-    #make combined plot
+    '''
+    3: Make diagnostic plots for the merged light curves
+    and mcmc parameters
+    '''
+    #make diagnostic plot
     with PdfPages('dream_diagnostic.pdf') as pdf:
         #combine the merged and input light curve plots into a single figure
         fig = plt.figure()
         ax1 = fig.add_subplot(2,1,1)
-        fig, ax1 = pc.plot_input_individual(fig_in = fig, ax_in = ax1)
+        fig, ax1 = dream.plot_input_individual(fig_in = fig, ax_in = ax1)
         ax1.legend(fontsize='xx-small')
         ax2 = fig.add_subplot(2, 1, 2)
-        fig, ax1 = pc.plot_merged_individual(fig_in=fig, ax_in=ax2)
+        fig, ax1 = dream.plot_merged_individual(fig_in=fig, ax_in=ax2)
         plt.tight_layout()
         pdf.savefig()
         plt.close()
 
         #plot the mcmc chains and covariances
-        output_chains = pc.pc.get_MCMC_chains()
+        output_chains = dream.MCMC_chains
         parms = ['offset','stretch',
                  'noise m','noise var']
         parms_nicenames = ['vertical offset','vertical stretch',
@@ -112,7 +105,7 @@ if __name__ == '__main__':
         #plot the covariances
         for Parm, ParmNicename in zip(parms,parms_nicenames):
             fig = plt.figure()
-            fig = pc.plot_chains_or_covariances(output_chains,Parm, ParmNicename, type = 'covariances', fig_in = fig)
+            fig = dream.plot_chains_or_covariances(output_chains,Parm, ParmNicename, type = 'covariances', fig_in = fig)
             plt.tight_layout()
             pdf.savefig()
             plt.close()
@@ -120,7 +113,7 @@ if __name__ == '__main__':
         #plot the chains
         for Parm, ParmNicename in zip(parms,parms_nicenames):
             fig = plt.figure()
-            fig = pc.plot_chains_or_covariances(output_chains,Parm, ParmNicename, type = 'chain', fig_in = fig)
+            fig = dream.plot_chains_or_covariances(output_chains,Parm, ParmNicename, type = 'chain', fig_in = fig)
             plt.tight_layout()
             pdf.savefig()
             plt.close()

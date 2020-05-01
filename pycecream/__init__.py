@@ -917,7 +917,7 @@ class dream:
         multiple telescopes at a single wavelength
         '''
         self.pc = pycecream()
-        self.Niterations = Niterations
+        self.N_iterations = Niterations
         self.numlc = 0
         self._op = None
         self.lcinput = {}
@@ -968,17 +968,45 @@ class dream:
         '''
         #setup and run the simplified pycecream simulation
         self.pc.p_inclination_step=0.0
-        self.pc.N_iterations = self.Niterations
+        self.pc.N_iterations = self.N_iterations
         self.pc.run(ncores=ncores)
-        self._postrun()
+        #self._postrun()
+        self.light_curve_fits = self.pc.get_light_curve_fits()
+        self.MCMC_chains = self.pc.get_MCMC_chains()
+        self._newmerge()
         os.system('rm -rf '+self.pc.project_folder)
 
     def _postrun(self):
         #return the individual output light curves and merge these into a single array
-        op = self.pc.get_light_curve_fits(location=None)
+        op = self.light_curve_fits(location=None)
         self.lc_merged_individual = op['merged data']
         self._op = self.__combine_individual_output_lightcurves()
         self.lc_combined = self._op['combined_output']
+
+    def _newmerge(self):
+        '''
+
+        :return:
+        '''
+        # different way of merging
+        # needs to be integrated in to dream class
+        x = self.light_curve_fits
+        model = x['model']
+        merged_data = x['merged data']
+        cols = list(merged_data.keys())
+        reference_lc_name = cols[0]#'1m004lsc'
+        reference_time = model.values[:, 0]
+        reference_lc = model[reference_lc_name + ' model'].values[:]
+
+        for m in cols:
+            dat = merged_data[m]
+            t = dat[:, 0]
+            dat[:, 1] = np.interp(t, reference_time, reference_lc)
+            merged_data[m] = dat
+        self.lc_merged_individual = merged_data
+        self._op = self.__combine_individual_output_lightcurves()
+        self.lc_combined = self._op['combined_output']
+
 
     def __combine_individual_output_lightcurves(self):
         '''
@@ -1146,7 +1174,7 @@ class dream:
                     ax1.set_title(names_VariedColumns[i])
                 fig.suptitle('MCMC Chains: ' + ParmNicename, fontsize=16)
 
-        return fig
+            return fig
 
 
 
