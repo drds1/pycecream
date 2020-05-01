@@ -5,6 +5,8 @@ scipy
 astropy_stark
 glob3
 PyQt5
+corner
+seaborn
 
 [tests]
 nose2==0.9.1
