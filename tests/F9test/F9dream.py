@@ -29,7 +29,7 @@ if __name__ == '__main__':
     for g in unique_filters:
         rawgroup = raw[raw['Filter'] == g]
         unique_telobs = list(rawgroup['TelObs'].unique())
-        LightcurveSummwary['group'].append(g)
+        LightcurveSummary['group'].append(g)
         gnames = []
         gmeans = []
         for u in unique_telobs:
@@ -43,8 +43,10 @@ if __name__ == '__main__':
         LightcurveSummary['means'].append(gmeans)
         LightcurveSummary['sd_means'].append(np.std(gmeans))
 
+
     #this tells us which filter groups have the greates misalignment (in terms of means)
     LightcurveSummary = pd.DataFrame(LightcurveSummary).sort_values(by='sd_means',ascending = False)
+    test_group = LightcurveSummary['group'].iloc[0]
 
     print('testing on group...',test_group)
     picklefile = 'test_output.pickle'
@@ -53,8 +55,7 @@ if __name__ == '__main__':
     '''
     2: setup and run a pycecream.dream instance for the light curve with
     most misaligned telescope points defined by standard deviation of means
-    '''
-    test_group = LightcurveSummary['group'].iloc[0]
+    
 
     # Prepare pycecream
     dream = pc.dream(Niterations = 200)
@@ -72,7 +73,7 @@ if __name__ == '__main__':
     pickle_out = open(picklefile, "wb")
     pickle.dump(dream, pickle_out)
     pickle_out.close()
-
+    '''
 
     #load previous simulation
     pickle_in = open(picklefile, "rb")
@@ -117,4 +118,7 @@ if __name__ == '__main__':
             plt.tight_layout()
             pdf.savefig()
             plt.close()
+
+
+
 

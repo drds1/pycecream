@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/F9test/F9dream.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/F9test/F9dream.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/F9test/F9dream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="78" column="34" lean-forward="true" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+            <state relative-caret-position="339">
+              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -28,23 +28,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="1035" column="33" lean-forward="true" selection-start-line="1035" selection-start-column="33" selection-end-line="1035" selection-end-column="33" />
+            <state relative-caret-position="-905">
+              <caret line="978" lean-forward="true" selection-start-line="978" selection-end-line="978" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/serve_docs.sh">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/build_docs.sh">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -64,34 +54,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor>
-                <caret selection-end-line="1" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README_dream.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="291">
-                <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -99,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7635">
+            <state relative-caret-position="414">
               <caret line="520" column="4" selection-start-line="520" selection-start-column="4" selection-end-line="520" selection-end-column="4" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
@@ -192,17 +158,17 @@
         <option value="$PROJECT_DIR$/pycecream/cream_f90.f90" />
         <option value="$PROJECT_DIR$/tests/F9test/cornertest.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/pycecream/__init__.py" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/tests/F9test/F9dream.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/README_dream.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/pycecream/__init__.py" />
+        <option value="$PROJECT_DIR$/tests/F9test/F9dream.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="228" />
+    <option name="x" value="85" />
     <option name="y" value="27" />
     <option name="width" value="1165" />
     <option name="height" value="815" />
@@ -224,6 +190,17 @@
               <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
               <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pycecream" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pycecream" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="F9test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -268,7 +245,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="228" y="27" width="1165" height="815" extended-state="0" />
+    <frame x="85" y="27" width="1165" height="815" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25200355" />
@@ -570,16 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7635">
-          <caret line="520" column="4" selection-start-line="520" selection-start-column="4" selection-end-line="520" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/serve_docs.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -594,9 +561,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/examples/pyceream_test.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -618,30 +582,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/F9test/F9dream.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="78" column="34" lean-forward="true" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+        <state relative-caret-position="165">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/merge_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="520" column="4" selection-start-line="520" selection-start-column="4" selection-end-line="520" selection-end-column="4" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/examples/pyceream_test.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pycecream/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="1035" column="33" lean-forward="true" selection-start-line="1035" selection-start-column="33" selection-end-line="1035" selection-end-column="33" />
+        <state relative-caret-position="-905">
+          <caret line="978" lean-forward="true" selection-start-line="978" selection-end-line="978" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/tests/F9test/F9dream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        <state relative-caret-position="339">
+          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -973,7 +973,8 @@ class dream:
         #self._postrun()
         self.light_curve_fits = self.pc.get_light_curve_fits()
         self.MCMC_chains = self.pc.get_MCMC_chains()
-        self._newmerge()
+        #self._newmerge()
+        self._merge_use_model_residue()
         os.system('rm -rf '+self.pc.project_folder)
 
     def _postrun(self):
@@ -1007,6 +1008,45 @@ class dream:
         self._op = self.__combine_individual_output_lightcurves()
         self.lc_combined = self._op['combined_output']
 
+
+    def _merge_use_model_residue(self):
+        '''
+        merge using model residuals
+        :return:
+        '''
+        data = self.lcinput
+        cols = list(data.keys())
+        tmin = []
+        tmax = []
+        # get minimum time ranges
+        for c in cols:
+            tmin.append(data[c][:, 0].min())
+            tmax.append(data[c][:, 0].max())
+        tmax = max(tmax)
+        tmin = min(tmin)
+
+        model = self.light_curve_fits['model']
+        idxmod = np.where((model['time'].values > tmin) & (model['time'].values < tmax))[0]
+        stdref = model[cols[0] + ' model'].values[idxmod].std()
+
+        # merge light curves
+        tmod = model['time'].values[idxmod]
+        xmodref = model[cols[0] + ' model'].values[idxmod]
+        for c in cols:
+            d = data[c]
+            t, x, err = d[:, 0], d[:, 1], d[:, 2]
+            xmod = model[c + ' model'].values[idxmod]
+            residual = x - np.interp(t, tmod, xmod)
+            stdmod = model[c + ' model'].values[idxmod].std()
+            stdratio = stdref / stdmod
+            xnew = np.interp(t, tmod, xmodref) + residual * stdratio
+            errnew = err * stdratio
+            d[:, 1] = xnew
+            d[:, 2] = errnew
+            data[c] = d
+        self.lc_merged_individual = data
+        self._op = self.__combine_individual_output_lightcurves()
+        self.lc_combined = self._op['combined_output']
 
     def __combine_individual_output_lightcurves(self):
         '''
