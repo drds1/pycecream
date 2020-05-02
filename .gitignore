@@ -9,3 +9,4 @@ pycecream_test/.DS_Store
 *output_2020*
 *.pickle
 *simulation_dir*
+.idea
