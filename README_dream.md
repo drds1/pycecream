@@ -25,8 +25,42 @@ The example below shows how to use dream to merge example g-band light curves
 from 5 telescopes and access the merged output. 
 
 ```python
+import pycecream as pc
+import pickle
 
-import pycecream.pydream as dream
+#initialise dream instance
+dream = pc.dream(Niterations = 200)
+
+#add each light curve ('dat' should be a N x 3 array of time, flux, errorbar)
+#errorbar_variance, errorbar_rescale should be True to optimise the 'f' and 'V' error bar parameters 
+dream.add_lc(dat1, 'g-band 1', errorbar_variance=True, errorbar_rescale=True)
+dream.add_lc(dat2, 'g-band 2', errorbar_variance=True, errorbar_rescale=True)
+dream.add_lc(dat3, 'g-band 3', errorbar_variance=True, errorbar_rescale=True)
+dream.add_lc(dat4, 'g-band 4', errorbar_variance=True, errorbar_rescale=True)
+dream.add_lc(dat5, 'g-band 5', errorbar_variance=True, errorbar_rescale=True)
+
+
+
+#run the simulation
+dream.run()
+
+
+#access the input lightcurves
+input = dream.lcinput
+
+#access the combined merged light curve
+merged_combined = dream.lc_combined
+
+#access the individual (but rescaled light curves)
+merged_individual = dream.lc_merged_individual
+
+
+
+#OPTIONAL: Save the output for later
+os.system('rm ' + picklefile)
+pickle_out = open(picklefile, "wb")
+pickle.dump(dream, pickle_out)
+pickle_out.close()
 
 ```
 
