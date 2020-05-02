@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pycecream
-Version: 1.5.1
+Version: 1.5.2
 Summary: python implementation of the cream accretion disc fitting code https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF
 Home-page: https://github.com/dstarkey23/pycecream
 Author: dstarkey23
