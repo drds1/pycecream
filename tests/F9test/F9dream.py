@@ -29,7 +29,7 @@ if __name__ == '__main__':
     for g in unique_filters:
         rawgroup = raw[raw['Filter'] == g]
         unique_telobs = list(rawgroup['TelObs'].unique())
-        LightcurveSummary['group'].append(g)
+        LightcurveSummwary['group'].append(g)
         gnames = []
         gmeans = []
         for u in unique_telobs:

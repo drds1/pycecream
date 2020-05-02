@@ -2,6 +2,16 @@
 
 Here is a python implementation of my accretion disc and emission line lightcurve-fitting code (previously CREAM). This guide briefly covers generating synthetic data and calling a new pycecream object to ingest and fit the accretion disc model (or emission line model) to a set of input light curves. I also demonstrate how to access the output of the pycecream fit. The output includes the fitted light curves, any new light curve data points after merging, fitted response functions and parameter MCMC chain histories for the disc and/or tophat response parameters.
 
+
+The following documentation details the use of pycecream for either 
+1) Continuum Reverberation Mapping: Fitting the AGN lamppost model to continuum light curves for continuum reverberation mapping.
+
+2) Line Reverberation Mapping: Fitting a tophat lag function to line light curves for line reverberation mapping 
+
+3) Multi-telescope lightcurve merging: Another application of this code merges light curves taken from multiple telescopes, models the calibration differences between these light curves and produces a single combined light curve. This implementation is known as DREAM. Please see here for DREAM merging instructions.
+
+
+
 Most of these features are used in some form or another from a previous f90 version of this code (CREAM) in the following literature
 
 * Grier et al in prep
