@@ -14,7 +14,7 @@ Here Pycecream is used to combine light curves in a more sophisticated way by re
 to pycecreams random walk model fit. In addition to correcting the calibration fluxes, 
 dream also modifies the input error bars with a multiplicative (f) and additive (V) parameter.
 
-$\sigma = \sqrt{(f \sigma_0)^2 + V}$
+\sigma^{2} = \left ( f \sigma_0 \right )^{2} + V
 
 
 ## g-band merging example
