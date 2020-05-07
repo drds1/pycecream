@@ -1,4 +1,4 @@
-# PyceCREAM
+# PyceCREAM - DREAM
 
 
 Reverberation Mapping requires telescope images to be converted to light curves. These images are often taken 
