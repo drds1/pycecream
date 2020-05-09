@@ -2,6 +2,7 @@
 pycecream/.DS_Store
 pycecream_test/.DS_Store
 .idea
+.idea/
 .idea/workspace
 *venv*
 *scratch_*
@@ -10,3 +11,4 @@ pycecream_test/.DS_Store
 *.pickle
 *simulation_dir*
 .idea
+*.pdf
