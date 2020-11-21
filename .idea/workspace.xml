@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycecream/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/resamp_" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resamp_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/run_lc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/run_lc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,5 +50,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="667" y="272" key="search.everywhere.popup" timestamp="1605979496295">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="667" y="272" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1605979496295" />
   </component>
 </project>

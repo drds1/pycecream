@@ -74,7 +74,7 @@ varerlnxrayold,varerlnxrayold_affine, sdprior
 
 real,allocatable::xxray(:),txray(:),erxray(:),cisqplot(:),xgridold(:),cisqnew(:),fracalongxray(:),&
 erxrayvar(:),ervar(:),erxrayvarold(:),ervarold(:),&
-ervarold_affine(:),erxrayvarold_affine(:), bg_now(:,:),p_affine(:)
+ervarold_affine(:),erxrayvarold_affine(:), bg_now(:),p_affine(:)
 real,allocatable:: fdisk(:),xgridplot(:,:),xgridplotsave(:,:),&
 xgridplotsave_affine(:,:),bofsave(:),bofrejectnew(:),bofreject(:),&
 shareos_diff(:)
@@ -3084,7 +3084,7 @@ enddo
 !pscale(1:NPF) = 1.e-8
 allocate(echosave(NTgrid,NLC),sigechosave(NTgrid,NLC))
 
-allocate(isharelc(NLC),psimeansave(NLC),bg_now(Ntgrid,NLC))
+allocate(isharelc(NLC),psimeansave(NLC),bg_now(Ntgrid))
 isharelc(1:NLC) = 0
 do ilc = 2,NLC
 do ilc2 = 1,ilc-1
@@ -3229,7 +3229,7 @@ summmdot=0.d0
 
 !!assign background
 bg_save(:,:) = 0
-bg_now(:,:) = 0
+bg_now(:) = 0
 
 
 
@@ -3944,26 +3944,30 @@ if ((noconvolve .eqv. .false.) .and. &
 ((iaffine_count .eq. N_affine) .or. (iaffinenow .eq. 0))) then
 
 
-    !loop over each light curve
 do ilc=1,NLC
 
 
-    !! nlc_shareos if > 0 then the difference between some offset parmeters
-    ! must remain fixed. Apply this here 05/01/2018
-    if (((nlc_shareos > 0) .and. (ip .ge. NPoffsetidx) .and. (ip .lt. NPoffsetidx + nlc)) &
-    .or. firstcall ) then
-        do ilcs = 1,nlc_shareos
-        ilc_shareos_b_now = ilc_shareos_b(ilcs)
-        ilc_shareos_a_now = ilc_shareos_a(ilcs)
-        if ((ilc_shareos_b_now == ilc) .or. (ilc_shareos_a_now == ilc)) then
-        p_os_a = p(NPoffsetidx + ilc_shareos_a_now - 1)
-        p_os_b = p(NPoffsetidx + ilc_shareos_b_now - 1)
-        p_os_diff = shareos_diff(ilcs)
-        p(NPoffsetidx + ilc_shareos_b_now - 1) = p_os_a + p_os_diff
-        exit
-        endif
-        enddo
-    endif
+!! nlc_shareos if > 0 then the difference between some offset parmeters
+! must remain fixed. Apply this here 05/01/2018
+!write(*,*) nlc_shareos, ip, NPoffsetidx, nlc, firstcall
+!read(*,*)
+if (((nlc_shareos > 0) .and. (ip .ge. NPoffsetidx) .and. (ip .lt. NPoffsetidx + nlc)) &
+.or. firstcall ) then
+do ilcs = 1,nlc_shareos
+ilc_shareos_b_now = ilc_shareos_b(ilcs)
+ilc_shareos_a_now = ilc_shareos_a(ilcs)
+if ((ilc_shareos_b_now == ilc) .or. (ilc_shareos_a_now == ilc)) then
+p_os_a = p(NPoffsetidx + ilc_shareos_a_now - 1)
+p_os_b = p(NPoffsetidx + ilc_shareos_b_now - 1)
+p_os_diff = shareos_diff(ilcs)
+p(NPoffsetidx + ilc_shareos_b_now - 1) = p_os_a + p_os_diff
+!write(*,*) ilc, ilc_shareos_a_now, ilc_shareos_b_now,&
+!p_os_a,p_os_b,p_os_diff
+!read(*,*)
+exit
+endif
+enddo
+endif
 
 
 
@@ -3972,82 +3976,238 @@ do ilc=1,NLC
 
 
 
-    if (ip .ge. NPscaleidx .and. ip .le. NPscaleidx+NLC-1) then  !! do not allow -ve stretch factors
-    if (p(ip) .lt. 0) p(ip)=p(ip)*(-1)
-    endif
+if (ip .ge. NPscaleidx .and. ip .le. NPscaleidx+NLC-1) then  !! do not allow -ve stretch factors
+if (p(ip) .lt. 0) p(ip)=p(ip)*(-1)
+endif
 
-    idxshare = 1
-    do ilc2 = ilc,1, -1
-    if ((isharelc(ilc2) == 0) .or. (samescale .eqv. .false.)) exit
-    idxshare = idxshare + 1
-    enddo
+idxshare = 1
+do ilc2 = ilc,1, -1
+if ((isharelc(ilc2) == 0) .or. (samescale .eqv. .false.)) exit
+idxshare = idxshare + 1
+enddo
 
-    stretch=P(NPscaleidx+(ilc-idxshare))
-    offset=p(NPoffsetidx+ilc-idxshare)
+if (version .eq. 1) then
+stretch=P(NPscaleidx+(ilc-idxshare))
+offset=P(NPgalidx+ilc-idxshare)+fdisk(ilc)    !! the galaxy and disk contribution are degenerate
+else if (version .eq. 3) then  			!! test for fake data by setting fgal to zero
+stretch=P(NPscaleidx+(ilc-idxshare))
+offset=p(NPoffsetidx+ilc-idxshare)
+endif
 
 
 
-    !!!!!! manual convolution
-    Ntaumax = itaumax(ilc)
-    Ntaumin = itaumin(ilc)
-    Ntau_hr = min(Ntaumax,Ntaumin + Ntau_hr_in)
-    if ( (wavobs(ilc) .gt. 100.0) .or. (wavobs(ilc) .lt. 0.0) ) then       !!!!!!!! Only recalculate convolution if we are dealing with a different waveleng
-        do it = lo(ilc),hi(ilc)
-            ithi = interpidx(it)
-            xopsum = 0.0
-            do itau=Ntaumin,Ntaumax
-            idx=ithi-(itau-1) - idxtaulo
-            xopsum=xopsum+psigrid(itau,ilc)*xgrid(idx)
-            enddo
-            xgridop(ithi) = xopsum/psinorm(ilc)
-            itlo = ithi - 1
-            xopsum = 0.0
-            do itau=Ntaumin,Ntaumax
-            idx=itlo-(itau-1) - idxtaulo
-            xopsum=xopsum+psigrid(itau,ilc)*xgrid(idx)
-            enddo
-            xgridop(itlo) = xopsum/psinorm(ilc)
-        enddo
-    else !dont convolve if a driver
-        xgridop(1:Ntgrid) = xgrid(1:Ntgrid)
-    endif !end if isharelc we do not recalculate convolution if we are just dealing separate telescopes at the same wavelength
-    !!!!!! End of Manual Convolution
+!!!!!! manual convolution
+!xgridop(1:Ntgrid)=0
+Ntaumax = itaumax(ilc)
+Ntaumin = itaumin(ilc)
 
-    !!! apply stretch offset
-    do it = lo(ilc),hi(ilc)
-    ithi = interpidx(it)
-    xgridop(ithi) = xgridop(ithi)* stretch + offset
-    xgridop(ithi-1) = xgridop(ithi-1)* stretch + offset
-    enddo
+!how many to skip??? dtau part 18dec 2015
+psimeannow = psimeansave(ilc)
 
-    !!! add background
-    if (bgvary) then
-        if ((ip .ge. NPpolyidx) .and. (ip .lt. NPpolyidx+Nppolytot)) then
-            ipoly = mod(ip-NPpolyidx,NPpoly)
-            power = 1.+ipoly
-            poly_old = pold
-            poly_new = p(ip)
-            ilc_poly_now = floor(real(ip - NPpolyidx)/NPpoly) + 1
-            if (ilc .eq. ilc_poly_now) then
-                do itg = interpidxmin, interpidxmax
-                    x_bg = bg_save(itg,ilc_poly_now)
-                    fchange = (poly_new - poly_old)*(tgrid(itg) - tref_poly(ilc_poly_now))**power
-                    x_bg = x_bg  + fchange
-                    bg_now(itg, ilc_poly_now) = x_bg
-                    xgridop(itg) = xgridop(itg) + x_bg
-                enddo
-            endif
+! if (dtauskip) then
+! if (psimeannow .le. 2.0) then
+!  idxskip = 2 !do all lookbacks
+!  else if (psimeannow .le. 3.0) then
+!   idxskip = 4
+!  else if (psimeannow .le. 4.0) then
+!   idxskip = 6
+!  else
+!   idxskip = 8
+! endif
+!else
+! idxskip = 1
+!
+! endif
 
-        endif
 
-    endif
+!
+! write(*,*) Ntaumin,Ntaumax,ip,ilc,itaumax
+Ntau_hr = min(Ntaumax,Ntaumin + Ntau_hr_in)
+if (((isharelc(ilc) == 0) .or. (quick_conv_itp)) .and. &
+( (wavobs(ilc) .gt. 100.0) .or. (wavobs(ilc) .lt. 0.0) )) then       !!!!!!!! Only recalculate convolution if we are dealing with a different wavelength
 
-    !!! Interpolate
-    do it=lo(ilc),hi(ilc)
-        itpidxnow = interpidx(it)
-        xinterp(it)=xgridop(itpidxnow-1) + fracalong(it)*(xgridop(itpidxnow)-xgridop(itpidxnow-1))
-        xinterp(it)=xinterp(it)
-    enddo
+if (yesxray) then
+!write(*,*) interpidxmin,Ntaugrid,Ntgrid,'fsdfasdfas'
+
+
+if (idxskip .gt. 0) then
+!write(*,*) 'where is the fault 1'
+do it=interpidxmin,interpidxmax,idxskip!Ntgrid
+!new as 15/6/017 re-introduce skipping of high res response function after 10 grid spacings
+!start skipping points after index Ntau_hr in response function to save time (should solve resolution issue at low delays without increasing computation time)
+xopsum=0.0
+do itau=Ntaumin,Ntau_hr
+idx=it-(itau-1) - idxtaulo
+xopsum=xopsum+psigrid(itau,ilc)*(xgrid(idx) - furconst)
+enddo
+if (Ntau_hr .lt. Ntaumax) then
+do itau=Ntau_hr+1,Ntaumax,idxskip
+idx=it-(itau-1) - idxtaulo
+xopsum=xopsum+psigrid(itau,ilc)*(xgrid(idx) - furconst)*idxskip
+enddo
+endif
+xgridop(it) = xopsum/psinorm(ilc)! * stretch + offset
+
+enddo
+
+else
+
+do it=interpidxmin,interpidxmax
+!new as 15/6/017 re-introduce skipping of high res response function after 10 grid spacings
+!start skipping points after index Ntau_hr in response function to save time (should solve resolution issue at low delays without increasing computation time)
+xopsum=0.0
+do itau=Ntaumin,Ntaumax
+idx=it-(itau-1) - idxtaulo
+xopsum=xopsum+psigrid(itau,ilc)*(xgrid(idx) - furconst)
+enddo
+xgridop(it) = xopsum/psinorm(ilc)! * stretch + offset
+enddo
+endif
+
+
+
+
+else
+
+
+if (idxskip .gt. 0) then
+!write(*,*) 'where is the fault 2'
+!what to do if we are skipping points
+do it = interpidxmin,interpidxmax,idxskip
+xopsum=0.0
+do itau=Ntaumin,Ntau_hr
+idx=it-(itau-1) - idxtaulo
+xopsum=xopsum+psigrid(itau,ilc)*xgrid(idx)
+enddo
+if (Ntau_hr .lt. Ntaumax) then
+do itau=Ntau_hr + 1, Ntaumax, idxskip
+idx=it-(itau-1) - idxtaulo
+xopsum=xopsum+psigrid(itau,ilc)*xgrid(idx)*idxskip
+enddo
+endif
+xgridop(it) = xopsum/psinorm(ilc)! * stretch + offset
+enddo
+
+else
+
+
+!quick_conv_itp: convolve grid only on points adjacent to data 02/04/2018
+if (quick_conv_itp) then
+
+
+do it = lo(ilc),hi(ilc)
+ithi = interpidx(it)
+xopsum = 0.0
+do itau=Ntaumin,Ntaumax
+idx=ithi-(itau-1) - idxtaulo
+xopsum=xopsum+psigrid(itau,ilc)*xgrid(idx)
+enddo
+xgridop(ithi) = xopsum/psinorm(ilc)
+
+
+
+itlo = ithi - 1
+xopsum = 0.0
+do itau=Ntaumin,Ntaumax
+idx=itlo-(itau-1) - idxtaulo
+xopsum=xopsum+psigrid(itau,ilc)*xgrid(idx)
+enddo
+xgridop(itlo) = xopsum/psinorm(ilc)
+enddo
+
+else
+
+do it = interpidxmin,interpidxmax
+xopsum=0.0
+do itau=Ntaumin,Ntaumax
+idx=it-(itau-1) - idxtaulo
+xopsum=xopsum+psigrid(itau,ilc)*xgrid(idx)
+enddo
+xgridop(it) = xopsum/psinorm(ilc)
+enddo
+
+
+endif
+!if (ip.lt.4 .and. ilc == 1)write(*,*) 'xgridop check',xgridop(Ntgrid/2:ntgrid/2+10)
+
+endif
+
+
+
+endif							    !!!!!!!!
+
+
+!dont convolve if a driver
+else if (((wavobs(ilc) .lt. 100.0) .and. (wavobs(ilc) .ge. 0.0))) then
+xgridop(1:Ntgrid) = xgrid(1:Ntgrid)
+
+endif !end if isharelc we do not recalculate convolution if we are just dealing separate telescopes at the same wavelength
+
+
+
+if (quick_conv_itp) then
+do it = lo(ilc),hi(ilc)
+ithi = interpidx(it)
+xgridop(ithi) = xgridop(ithi)* stretch + offset
+xgridop(ithi-1) = xgridop(ithi-1)* stretch + offset
+enddo
+else
+do it = interpidxmin,interpidxmax
+xgridop(it) = xgridop(it)* stretch + offset
+enddo
+endif
+
+if (bgvary) then
+!write(*,*) ip,'chchch',NPpolyidx,Nppolyidx+NPpolytot,NP
+if ((ip .ge. NPpolyidx) .and. (ip .lt. NPpolyidx+Nppolytot)) then
+
+
+ipoly = mod(ip-NPpolyidx,NPpoly)
+power = 1.+ipoly
+poly_old = pold
+poly_new = p(ip)
+ilc_poly_now = floor(real(ip - NPpolyidx)/NPpoly) + 1
+
+if (ilc .eq. ilc_poly_now) then
+bg_now(1:Ntgrid) = bg_save(1:Ntgrid,ilc_poly_now)
+do itg = 1,Ntgrid
+fchange = (poly_new - poly_old)*(tgrid(itg) - tref_poly(ilc_poly_now))**power
+x_bg = bg_now(itg)  + fchange
+bg_save(itg,ilc_poly_now) =  x_bg
+enddo
+endif
+endif
+do it = interpidxmin,interpidxmax
+xgridop(it) = xgridop(it) + bg_save(it,ilc)
+enddo
+endif
+
+
+!!!!!! End of Manual Convolution
+
+
+
+
+!! the next steps are if dust is involved
+!!! dust corrections will affect the determination of the luminosity distance
+!! this is turned off in version 3.
+
+
+if (version .eq. 1) then
+do it = 1,Ntgrid
+xgridop(it)=dustAGN(xgrid(it),wavem(ilc),p(NPebmvidx)) !! AGN dust (Gaskel et al 2004)
+xgridop(it)=xgridop(it)/(redshiftadd1*redshiftadd1) !! redshift to observed frame
+xgridop(it)=dustMW(xgridop(it),wavobs(ilc),ebmvmw) !! apply milky way dust
+enddo
+endif
+
+!!! only go from +/- 4 psisig to save computation time
+!if (ip.eq. 1) write(*,*)'fractest'
+do it=lo(ilc),hi(ilc)
+itpidxnow = interpidx(it)
+xinterp(it)=xgridop(itpidxnow-1) + fracalong(it)*(xgridop(itpidxnow)-xgridop(itpidxnow-1))
+xinterp(it)=xinterp(it)
+enddo
 
 enddo !!! end ilc loop
 
@@ -4058,30 +4218,83 @@ end if !! end if we care about echo light curves (noconvolve) (i.e if noconvolve
 
 
 
+!! another loop for xray data !!
+if (yesxray) then
+do it=1,Nxray
+xxrayinterp(it) = xgrid(xrayinterpidx(it)-1) + fracalongxray(it)*(xgrid(xrayinterpidx(it))-xgrid(xrayinterpidx(it)-1))
+enddo
+endif
+!if (ip.eq. 1) read(*,*)
 
-!!!! calculate the varerln and varlnxray if we are optimising the error bar changing parameters
+
+
+
+
+
+
+
+
+if (timeon) then
+call system_clock(itimehimain)
+itimemain = itimemain + itimehimain - itimelomain
+endif
+
+
+
+
+if (timeon) call system_clock(itimelobof) !! test the time for all the components of the code comeback
+
+
+!!!! calculate the varerln and varlnxray if we are on one of the error bar changing parameters
 if (varexpand .or. sigexpand ) then
-    if (((ip .ge. ipflo) .and. (ip .le. ipfhi)) .or. &
-    ((ip .ge. ipvlo) .and. (ip .le. ipvhi)) .or. &
-    (firstcall)) then
-        sum = 0.d0
-        do ilc = 1,NLC !and for other wavelengths
-            fnow   = p(NPsigexpandidx+ilc-1)
-            varnow = p(NPvarexpandidx+ilc-1)
-            ilo = lo(ilc)
-            ihi = hi(ilc)
-            do it = ilo,ihi
-                aaa = er(it)*fnow
-                ernew2 = aaa*aaa + varnow
-                ernew = sqrt(ernew2)
-                ervar(it) = ernew
-                sum = sum + alog(ernew2)
-            enddo
-        enddo
-        varerln = sum
-    endif
+!write(*,*) 'ipflo',ipflo,ipfhi,ipiteration
+if ((yesxray) .and. ((ip .eq. NPsigexpandidx) .or. (ip .eq. NPvarexpandidx) .or. &
+(firstcall .eqv. .true.))) then !adjust the X-ray varerlnxray
+sum = 0.d0
+fxnow = p(NPsigexpandidx)
+varexnow = p(NPvarexpandidx)
+do it = 1,Nxray
+aaa = erxray(it)*fxnow
+erxnew2 = aaa*aaa + varexnow
+erxnew = sqrt(erxnew2)
+erxrayvar(it) = erxnew
+sum  = sum + alog(erxnew2)
+enddo
+varerlnxray = sum
+endif
+
+
+if (((ip .ge. ipflo) .and. (ip .le. ipfhi)) .or. &
+((ip .ge. ipvlo) .and. (ip .le. ipvhi)) .or. &
+(firstcall)) then
+
+
+sum = 0.d0
+do ilc = 1,NLC !and for other wavelengths
+if (yesxray) then
+fnow   = p(NPsigexpandidx+ilc)
+varnow = p(NPvarexpandidx+ilc)
+else
+fnow   = p(NPsigexpandidx+ilc-1)
+varnow = p(NPvarexpandidx+ilc-1)
+endif
+ilo = lo(ilc)
+ihi = hi(ilc)
+do it = ilo,ihi
+aaa = er(it)*fnow
+ernew2 = aaa*aaa + varnow
+ernew = sqrt(ernew2)
+ervar(it) = ernew
+sum = sum + alog(ernew2)
+enddo
+!write(*,*) 'varerln info',ilc,alog(ernew2),sum,fnow,varnow
+enddo
+varerln = sum
+
+endif
+
 else if (firstcall .or. sigrej) then
-    ervar(1:Npoints(NLC+1)) = er(1:Npoints(NLC+1))
+ervar(1:Npoints(NLC+1)) = er(1:Npoints(NLC+1))
 endif
 !!!!
 
@@ -4097,6 +4310,13 @@ w0temp    = p(NPpspecidx+1)
 alphatemp = p(NPpspecidx+2)
 betatemp  = p(NPpspecidx+3)
 !!!!!!
+
+!do it=1,NT
+
+!if ((ip .ge. NPscaleidx) .and. (ip .lt. NPscaleidx + NLC)) then
+! write(*,*) stretch, P(NPscaleidx+(ilc-1)), ip, iteration, 'MMMMLLAAAAARGGG!'
+!read(*,*)
+!endif
 
 sum=0.d0
 
@@ -4390,32 +4610,6 @@ endif
 
 bofreject(IP)=bofnew
 
-!perform diagnosis of any strange changes in badnes of fit
-if (bofnew > 20*bofold .and. iteration > 10) then
-open(unit=134, file = 'extreme_bof_rejection_report.txt')!, access='replace')
-write(134,*) iteration, ip, p(ip), pold, bof1, bofnew, bofold
-write(134,*) NPumbhidx, NPcosincidx, NPtridx, NPsigexpandidx, NPvarexpandidx, NPoffsetidx
-do ilc = 1,NLC
-    do it = lo(ilc), hi(ilc)
-        write(134, *) ilc, t(it), x(it),xinterp(it), ervar(it)
-    end do
-end do
-!if (ip == NPumbhidx) then
-!    write(134,*) 'emdot'
-!    else if (ip == NPcosincidx) then
-!    write(134,*) 'cosinc idx'
-!    else if (ip == NPtridx) then
-!    write(134,*) 'trslope idx'
-!    else if (ip == NPtridx+1) then
-!    write(134,*) 'trirad idx'
-!    else
-!    write(134,*) 'other'
-!end if
-!write(134,*) iteration, ip, p(ip), pold, bof1, bofnew, bofold
-close(134)
-
-end if
-
 
 
 pnew_save(ip) = p(ip)
@@ -4570,7 +4764,7 @@ endif
 if ((ip .ge. NPpolyidx) .and. (ip .lt. NPpolyidx + NPpolytot)) then
 ilc_poly_now = floor(real(ip - NPpolyidx)/NPpoly) + 1
 do it = 1,Ntgrid
-bg_save(it,ilc_poly_now) = bg_now(it, ilc_poly_now)
+bg_save(it,ilc_poly_now) = bg_now(it)
 enddo
 endif
 

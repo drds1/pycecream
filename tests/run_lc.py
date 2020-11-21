@@ -36,7 +36,7 @@ class test_pc:
         self.dat = synthetic_data['echo light curves']
 
 
-    def run_pycecream(self,test_project_folder = 'test_pycecream_output'):
+    def prep_pycecream(self,test_project_folder = 'test_pycecream_output'):
         '''
         test pycecream using yasamans script
         :return:
@@ -67,13 +67,15 @@ class test_pc:
         a.add_lc(cream_lc8,name='continuum (SynthPhot)',kind='continuum', wavelength = 7480,share_previous_lag=True)
         a.hi_frequency = 0.5
         a.N_iterations = 20
-        a.run(ncores = 4)
-
         self.pc = a
 
 
-
-
+    def run_pycecream(self):
+        '''
+        run prepared pycecream instance
+        :return:
+        '''
+        self.pc.run(ncores = 4)
 
     def post_run(self):
         '''
@@ -91,6 +93,42 @@ class test_pc:
 if __name__ == '__main__':
     x = test_pc()
     x.gen_fake()
+    x.prep_pycecream(test_project_folder = 'test_pycecream_output_sub')
+
+    '''
+    set step sizes and add priors
+    '''
+    # accretion rate
+    x.pc.p_accretion_rate = 0.1
+    x.pc.p_accretion_rate_step = 0.3
+    x.pc.p_accretion_rate_priorcentroid = 1.2
+    x.pc.p_accretion_rate_priorwidth = 0.004
+
+    # inclination
+    x.pc.p_inclination = 0.0
+    x.pc.p_inclination_step = 0.1
+    x.pc.p_inclination_priorcentroid = 30.0
+    x.pc.p_inclination_priorwidth = 0.0001
+
+    # viscous slope
+    x.pc.p_viscous_slope = 0.8
+    x.pc.p_viscous_slope_step = 0.1
+    x.pc.p_viscous_slope_priorcentroid = 0.75
+    x.pc.p_viscous_slope_priorcentroid = 0.0001
+
+    # irradiation slope
+    x.pc.p_irradiation_slope = 0.81
+    x.pc.p_irradiation_slope_step = 0.11
+    x.pc.p_irradiation_slope_priorcentroid = 0.75
+    x.pc.p_irradiation_slope_priorcentroid = 0.0001
+
+    #dial up number of iterations
+    x.pc.N_iterations = 1000
+
+    # turn on priors (once we confirm this works the priors will be turned on by default)
+    x.pc.custom_priors = False
+
     x.run_pycecream()
     x.post_run()
     lcop = x.output_lightcurves
+    chains = x.output_chains
