@@ -72,6 +72,8 @@ class pycecream:
         self.p_accretion_rate_priorwidth = None
         self.p_viscous_slope = 0.75
         self.p_viscous_slope_step = 0.0
+        self.p_irradiation_slope = 0.75
+        self.p_irradiation_slope_step = 0.0
         self.p_extra_variance_step = 0.1
 
         #non configureable parameters
@@ -295,6 +297,7 @@ class pycecream:
         idmass = 32
         idefficiency = 25
         idslope = 70
+        idslope_irradiation = idslope + 1
         idsig = 22
         idnits = 10
         idplot = 4
@@ -317,6 +320,8 @@ class pycecream:
         content[idmdot+3] = np.str(self.p_accretion_rate_step)
         content[idslope] = np.str(self.p_viscous_slope)
         content[idslope+2] = np.str(self.p_viscous_slope_step)
+        content[idslope_irradiation] = np.str(self.p_irradiation_slope)
+        content[idslope_irradiation+2] = np.str(self.p_irradiation_slope_step)
         content[idhifreq] = np.str(self.high_frequency)
         content[idnits] = np.str(self.N_iterations)
         content[idlaglim] = np.str(self.lag_lims[0]) + ' ' + np.str(self.lag_lims[1]) + '       ! lower and upper lag limits'
