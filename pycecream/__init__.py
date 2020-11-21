@@ -46,6 +46,7 @@ class pycecream:
         self.module_path = os.path.dirname(os.path.realpath(__file__))
         self.fortran_caller = 'gfortran'
         self.fortran_compile_command = self.fortran_caller+' cream_f90.f90 -o creamrun.exe'
+        self.custom_priors = False
         print('pycecream path... ' + self.module_path)
 
         #convention parameters
@@ -72,8 +73,12 @@ class pycecream:
         self.p_accretion_rate_priorwidth = None
         self.p_viscous_slope = 0.75
         self.p_viscous_slope_step = 0.0
+        self.p_viscous_slope_priorcentroid = None
+        self.p_viscous_slope_priorwidth = None
         self.p_irradiation_slope = 0.75
         self.p_irradiation_slope_step = 0.0
+        self.p_irradiation_slope_priorcentroid = None
+        self.p_irradiation_slope_priorwidth = None
         self.p_extra_variance_step = 0.1
 
         #non configureable parameters
@@ -376,13 +381,21 @@ class pycecream:
         apply the priors in vertical offset and scaling if required
         :return:
         '''
-        custom_priors = False
+        custom_priors = self.custom_priors
+
+        # light curve priors
         idp = [-8, -7, -5, -6]
         dfp = [self.lightcurve_input_params['background offset prior'],
                self.lightcurve_input_params['vertical scaling prior'],
                self.lightcurve_input_params['multiplicative errorbar prior'],
                self.lightcurve_input_params['extra variance prior']]
 
+        # accretion priors [-1: Mdot, -2: cosinc, -3: viscous tr slope, '-4: irradiation tr slope]
+        idp_accretion = [-1, -2, -3, -4]
+        dfp_accretion = [[self.p_accretion_rate_priorcentroid, self.p_accretion_rate_priorwidth],
+                         [self.p_inclination_priorcentroid, self.p_inclination_priorwidth],
+                         [self.p_viscous_slope_priorcentroid, self.p_viscous_slope_priorwidth],
+                         [self.p_irradiation_slope_priorcentroid, self.p_irradiation_slope_priorwidth]]
 
 
         for i in range(self.count_lightcurves):
@@ -403,6 +416,14 @@ class pycecream:
                         prior_centroid,prior_scale = [-1.0,-1.0]
                     line = np.str(idxprior) + ' -1.0 -1.0 ' + np.str(prior_centroid) + ' ' + np.str(prior_scale)
                     f.write(line+'\n')
+
+            # apply accretion disc priors if present
+            for idpa, dfpa in zip(idp_accretion, dfp_accretion):
+                if dfpa[0] is not None:
+                    prior_centroid, prior_scale = list(dfpa)
+                    line = np.str(idpa) + ' -1.0 -1.0 ' + np.str(prior_centroid) + ' ' + np.str(prior_scale)
+                    f.write(line+'\n')
+
             f.close()
 
 
