@@ -158,7 +158,7 @@ class pycecream:
                tophat_width = None,
                tophat_width_step = None,
                tophat_width_prior=[0.0, -0.1],
-               background_polynomials = None):
+               background_polynomial_order = None):
         '''
         This is the go to command to add a new light curve into the
         simulation.
@@ -174,8 +174,7 @@ class pycecream:
         :param vertical_scaling_start: as above but for vertical scaling parameter.
         :param background_offset_prior: [mean,sd] of gaussian prior. Leave as None to ignore priors
         :param vertical_scaling_prior: as above but for the vertical scaling parameter
-        :param background_polynomials: add variable background list of starting coefficients for each level of polynomial
-        (advise [0.1,0.1] to add a quadratic polynomial )
+        :param background_polynomial_order: add variable background polynomial (advise 2 to add a quadratic polynomial )
         :return:
         '''
         #assertion errors
@@ -235,6 +234,11 @@ class pycecream:
         else:
             tophat_centroid_step = self.lightcurve_input_params['tophat centroid step'].values[-1]
 
+        #set parameter instructions for adding background polynomials
+        if background_polynomial_order is None:
+            background_polynomials = None
+        else:
+            background_polynomials = [-0.1]*background_polynomial_order
 
         #update the lightcurve_input_params table of records
         df = pd.DataFrame(data = [name_ann,kind,wavelength,expand_errors,

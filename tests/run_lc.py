@@ -2,7 +2,7 @@ import pycecream
 import astropy_stark.myfake as mf
 import matplotlib.pylab as plt
 import os
-
+import numpy as np
 
 
 
@@ -51,6 +51,7 @@ class test_pc:
         #step accretion rate?
         a.p_accretion_rate_step = 0.1
         a.bh_mass = 6.6e8
+        a.redshift = 0.1
 
         # MgII Line lightcurve
         a.add_lc(cream_lc0, name='line 0  (MgII)', kind='line',background_polynomials=[0.1,0.1])
@@ -107,26 +108,26 @@ if __name__ == '__main__':
     # inclination
     x.pc.p_inclination = 0.0
     x.pc.p_inclination_step = 0.1
-    x.pc.p_inclination_priorcentroid = 30.0
-    x.pc.p_inclination_priorwidth = 0.0001
+    x.pc.p_inclination_priorcentroid = np.cos(30*np.pi/180)#30.0
+    x.pc.p_inclination_priorwidth = 0.01
 
     # viscous slope
     x.pc.p_viscous_slope = 0.8
     x.pc.p_viscous_slope_step = 0.1
     x.pc.p_viscous_slope_priorcentroid = 0.75
-    x.pc.p_viscous_slope_priorcentroid = 0.0001
+    x.pc.p_viscous_slope_priorwidth = 0.0001
 
     # irradiation slope
     x.pc.p_irradiation_slope = 0.81
     x.pc.p_irradiation_slope_step = 0.11
     x.pc.p_irradiation_slope_priorcentroid = 0.75
-    x.pc.p_irradiation_slope_priorcentroid = 0.0001
+    x.pc.p_irradiation_slope_priorwidth = 0.0001
 
     #dial up number of iterations
     x.pc.N_iterations = 1000
 
     # turn on priors (once we confirm this works the priors will be turned on by default)
-    x.pc.custom_priors = False
+    x.pc.custom_priors = True
 
     x.run_pycecream()
     x.post_run()
