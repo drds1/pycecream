@@ -2,51 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>cream_modop_ps</find>
-      <find>diag_</find>
-      <find>isharein</find>
-      <find>no c</find>
-      <find>tftophat</find>
-      <find>no conv</find>
-      <find>xgridplot</find>
-      <find>write(*,*) 'problem with model',it,tgrid(it),xgridop(it)</find>
-      <find>share_previous_lag</find>
-      <find>add_lc</find>
-      <find>.output_lightcurves</find>
-      <find>def run</find>
-      <find>merged_lgi</find>
-      <find>pycecream</find>
-      <find>def add_lc</find>
-      <find>pickle</find>
-      <find>tophat_centroid_step</find>
-      <find>color</find>
-      <find>corner</find>
-      <find>next</find>
-      <find>suptit</find>
-      <find>pdfpages</find>
-      <find>.values</find>
-      <find>sns</find>
-      <find>c</find>
-      <find>pc.</find>
-      <find>fits()</find>
-      <find>corrfun</find>
-      <find>sup</find>
-      <find>sns.</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>vertical_scaling_prior</replace>
-      <replace>.project_folder</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,7 +20,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
@@ -79,10 +47,17 @@
       <option name="presentableId" value="Default" />
       <updated>1560762203620</updated>
       <workItem from="1589037259332" duration="195000" />
+      <workItem from="1612982976576" duration="488000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="422" y="195" width="595" height="474" key="find.popup" timestamp="1612983005854">
+      <screen x="0" y="25" width="1440" height="815" />
+    </state>
+    <state x="422" y="195" width="595" height="474" key="find.popup/0.25.1440.815@0.25.1440.815" timestamp="1612983005854" />
   </component>
 </project>
