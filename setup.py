@@ -3,10 +3,10 @@ from setuptools import setup
 #upload to pip
 #pip install .
 #python setup.py sdist
-#twine upload dist/pycecream-1.5.3.tar.gz
+#twine upload dist/pycecream-1.5.4.tar.gz
 
 setup(name='pycecream',
-      version='1.5.3',
+      version='1.5.4',
       description='python implementation of the cream accretion disc fitting code '
                   'https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF'
       ,

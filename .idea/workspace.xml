@@ -3,7 +3,152 @@
   <component name="ChangeListManager">
     <list default="true" id="4faa2d48-6106-4ebf-8b3c-fda3b96ce32a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.3.5.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.3.6.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.3.7.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.3.8.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.4.0.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.4.1.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.5.1.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.5.2.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pycecream-1.5.3.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/pycecream-1.5.3.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycecream.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pycecream.egg-info/SOURCES.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.idea/libraries/R_User_Library.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.idea/pycecream_test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.ipynb_checkpoints/test_pycecream-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.ipynb_checkpoints/test_pycecream_tophat_0lag-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/F9test/F9dream.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/F9test/cornertest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/merge_test_pcObj.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/cream_f90.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/creaminpar.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/creammod.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/creamrun.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/cream_th.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/cream_var.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/creamnames.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/input_lightcurve_settings.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/line_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/line_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/line_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/line_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/line_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/line_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/offsetstretch_fix.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisem/simulation_files/pricream.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/cream_f90.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/creaminpar.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/creammod.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/creamrun.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/cream_th.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/cream_var.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/creamnames.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/input_lightcurve_settings.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/line_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/line_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/line_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/line_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/line_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/line_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/offsetstretch_fix.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/noisevar/simulation_files/pricream.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/cream_f90.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/creaminpar.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/creammod.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/creamrun.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/cream_log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/cream_th.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/cream_var.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/creamnames.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/disksimsave.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/disksimtrop.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/disksimtropparms.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/input_lightcurve_settings.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/line_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/line_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/line_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/line_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/line_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/line_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/offsetstretch_fix.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/CREAM_allpars_BIG.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_fluxflux.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_furparms.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_gvalues.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_osparms.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_redcisq.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_renorm_const.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_resume.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_sigexpand_parms.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_stretchparms.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_tfparms.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/cream_th.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/creaminpar.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/fileinfo.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/furfreq.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/outputpars.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/outputpars2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/outputpars3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/outputpars_th.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/outputpars_varexpand.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/paridx.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/cream_miscpar.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/data_echo_dat_line_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/data_echo_dat_line_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/data_echo_dat_line_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/data_echo_dat_line_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/data_echo_dat_line_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/data_echo_dat_line_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_dat_line_0.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_dat_line_1.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_dat_line_2.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_dat_line_3.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_dat_line_4.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_dat_line_5.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_mod_line_0.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_mod_line_1.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_mod_line_2.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_mod_line_3.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_mod_line_4.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/merged_mod_line_5.dat.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/modeldrive.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/modellc.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/modellc_bg.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/modellc_bgsig.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/modellc_sig.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/modeltf.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/modeltf_sig.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/plots/savelc_list.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/pricream.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/pythoncov.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/testbofs.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/output_20200426_001/xray_plot_mod.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/offset/simulation_files/pricream.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/resamp_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/cream_f90.f90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/creaminpar.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/creammod.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/creamrun.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/cream_th.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/cream_var.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/creamnames.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/input_lightcurve_settings.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/line_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/line_1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/line_2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/line_3.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/line_4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/line_5.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/offsetstretch_fix.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stretch/simulation_files/pricream.par" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pycecream_output" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +164,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -47,7 +193,8 @@
       <option name="presentableId" value="Default" />
       <updated>1560762203620</updated>
       <workItem from="1589037259332" duration="195000" />
-      <workItem from="1612982976576" duration="488000" />
+      <workItem from="1612982976576" duration="988000" />
+      <workItem from="1612985678406" duration="526000" />
     </task>
     <servers />
   </component>
