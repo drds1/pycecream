@@ -158,8 +158,9 @@ class pycecream:
         :param wavelength: The centroid wavelength of the contuum light curve
         
         :param expand_errors: Whether to apply MCMC parameters to rescale the error bars. 
-        Can apply additive 'var' or 'multiplicative' scaling Default None. Apply one or both using a list
-        e.g. ['var','multiplicative'] to apply both, or just ['multiplicative'] to apply just one
+        Can apply additive 'var' or 'multiplicative' noise model. Apply one or both using a list
+        e.g. ['var','multiplicative'] to apply both, or e.g. ['multiplicative'] to apply just one.
+        Default None
 
         :param share_previous_lag:
         :param name: optional to set name for a light curve to annotate on plots and in data frames.
