@@ -7,10 +7,7 @@ import astropy_stark.cream_plotlibrary as cpl
 import matplotlib.pylab as plt
 import multiprocessing as mp
 import time
-import itertools
-import corner
-from scipy.stats import pearsonr
-import seaborn as sns; sns.set(style="ticks", color_codes=True)
+import seaborn as sns; sns.set_theme(style="ticks", color_codes=True)
 
 
 class pycecream:
@@ -1121,9 +1118,6 @@ class dream:
             #if plotting the input light curves just plot the light curves
             else:
                 ax1.errorbar(dat[:,0], dat[:,1], dat[:,2], ls = '', marker = None, color=color, label = n)
-            #if lightcurves == 'merged':
-            #    ax1.errorbar(dat[:, 0], dat[:, 1], dat[:, 2], ls='',
-            #                 marker=None, color=color, alpha = 0.4,label=None)
 
         return [fig, ax1]
 
@@ -1199,13 +1193,9 @@ class dream:
             # make the corner covariance plot and add title
             print('making corner plots for ', names_VariedColumns)
             if type == 'covariances':
-                #fig = corner.corner(df[names_VariedColumns], plot_contours=False,
-                #                    quantiles=[0.16, 0.5, 0.84],
-                #                    show_titles=True, title_kwargs={"fontsize": 12},
-                #                    truths=None)
                 g = sns.pairplot(df[names_VariedColumns], corner=True)
                 g.map_lower(corrfunc)
-                fig = g.fig
+                fig = g.figure
                 fig.suptitle('Covariance: ' + ParmNicename, fontsize=16)
                 fig.tight_layout()
             elif type == 'chain':
@@ -1228,7 +1218,6 @@ class dream:
 
 def corrfunc(x,y, ax=None, **kws):
     """Plot the correlation coefficient in the top left hand corner of a plot."""
-    #r, _ = pearsonr(x, y)
     r = np.corrcoef(x,y)[0, 1]
     ax = ax or plt.gca()
     # Unicode for lowercase rho (ρ)
