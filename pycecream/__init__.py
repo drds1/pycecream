@@ -67,7 +67,7 @@ class pycecream:
         self.p_inclination_priorcentroid = None
         self.p_inclination_priorwidth = None
         self.p_accretion_rate = 0.1
-        self.p_accretion_rate_step = 0.0
+        self.p_accretion_rate_step = 0.12
         self.p_accretion_rate_priorcentroid = None
         self.p_accretion_rate_priorwidth = None
         self.p_viscous_slope = 0.75
@@ -136,7 +136,7 @@ class pycecream:
     def add_lc(self,input,
                kind = 'line',
                wavelength = -1.0,
-               expand_errors = ['var','multiplicative'],
+               expand_errors:list = None,
                extra_variance_prior = [-1.0,-1.0],
                multiplicative_errorbar_prior = [-1.0,-1.0],
                name = None,
@@ -159,7 +159,11 @@ class pycecream:
         :param kind: 'line' or 'continuum'. If continuum, must specify
         wavelegnth
         :param wavelength: The centroid wavelength of the contuum light curve
-        :param expand_errors:
+        
+        :param expand_errors: Whether to apply MCMC parameters to rescale the error bars. 
+        Can apply additive 'var' or 'multiplicative' scaling Default None. Apply one or both using a list
+        e.g. ['var','multiplicative'] to apply both, or just ['multiplicative'] to apply just one
+
         :param share_previous_lag:
         :param name: optional to set name for a light curve to annotate on plots and in data frames.
         :param background_offset_start:[value,stepsize] start value and step size for the background offset parameter.
@@ -171,6 +175,10 @@ class pycecream:
         (advise [0.1,0.1] to add a quadratic polynomial )
         :return:
         '''
+        expand_errors = [] if expand_errors is None else expand_errors
+        for noise_model in expand_errors:
+            assert(noise_model in ('var','multiplicative'))
+
         #assertion errors
         assert(type(share_previous_lag) == bool)
 

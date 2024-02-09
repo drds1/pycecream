@@ -6,6 +6,9 @@ Home-page: https://github.com/dstarkey23/pycecream
 Author: dstarkey23
 Author-email: ds207@st-andrews.ac.uk
 License: MIT
-Description: add pycecream.dream light curve merging feature
 Platform: UNKNOWN
 Provides-Extra: tests
+License-File: LICENSE
+
+add pycecream.dream light curve merging feature
+

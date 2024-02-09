@@ -5441,29 +5441,6 @@ call chdir('./plots') ! change to plot directory
 
 if (plotsave) then
 
-!!new 10jun2016 save correlation plot and correlation matrix for offset, stretch and error bar expansion parameters
-if (pythonplot) then
-if (sigexpand) then
-call system('cp ../../../cream_python/pycov_f_stretch_offset.py ./')
-call system('python pycov_f_stretch_offset.py')
-call system('rm pycov_f_stretch_offset.py')
-endif
-
-if (varexpand) then
-call system('cp ../../../cream_python/pycov_f_var.py ./')
-call system('python pycov_f_var.py')
-call system('rm pycov_f_var.py')
-endif
-endif
-!
-
-
-!
-
-
-
-
-
 
 call superfitplot(tgrid,interpidxmin,interpidxmax,xgrid,&
 taugrid,psigrid,Npoints,t,x,er,p,pscale,psafe,w,iteration)
