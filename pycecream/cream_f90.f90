@@ -6175,16 +6175,6 @@ endif
 
 
 
-
-
-
-
-
-
-
-
-
-
 call system_clock(iendtime)
 secs_it = (iendtime-istarttime)*0.001
 
