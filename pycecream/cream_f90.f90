@@ -6179,61 +6179,6 @@ endif
 
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!
-! use the new python plotting script. I think you still need to run the superfit plot to make the plotfiles
-if (plotsave) then
-call chdir('./plots')
-call system('cp ../../../cream_python/pyplot_cream_easy_2.py ./')
-call system('cp ../../../cream_python/pyplot_parm.py ./')
-call system('cp ../../../cream_python/creamconvert.py ./')
-call system('cp ../../../cream_python/creamfvg.py ./')
-call system('cp ../../../cream_python/cream_pythonsubs.py ./')
-
-call system('python creamconvert.py')
-if (pythonplot) then
-call system('python pyplot_cream_easy_2.py')
-call system('python pyplot_parm.py')
-call system('python creamfvg.py')
-endif
-
-call system('rm creamconvert.py')
-call system('rm creamfvg.py')
-call system('rm pyplot_cream_easy_2.py')
-call system('rm pyplot_parm.py')
-call system('rm cream_pythonsubs.py')
-call chdir('../')
-endif
-!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
