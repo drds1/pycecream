@@ -13,3 +13,4 @@ pycecream_test/.DS_Store
 *.pickle
 *simulation_dir*
 *.pdf
+__pycache__/
