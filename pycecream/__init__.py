@@ -814,7 +814,7 @@ class pycecream:
 
 
 
-    def plot_results(self,file_prefix=None,location=None):
+    def plot_results(self,location=None):
         '''
         make plots for all relevant quantities including lightcurves,
         trace plots, covariance plots etc
