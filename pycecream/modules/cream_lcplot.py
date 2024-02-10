@@ -97,7 +97,7 @@ def lcplot(
     """
  load data from relevant files
  """
-    logger.info("cream_lcplot plotting results from...", dnow)
+    logger.info("cream_lcplot plotting results from... {}".format(dnow))
     fileth = "/outputpars_th.dat"
     filetf = "/plots/modeltf.dat"
     filetfsig = "/plots/modeltf_sig.dat"
@@ -183,9 +183,7 @@ def lcplot(
             ]  # sorted(glob.glob(dnow+'/plots/data_echo_dat_*'))
             drej = [np.loadtxt(fileoutrej[idx]) for idx in range(nwav)]
         except:
-            logger.info(
-                "no outlier rejection found in...", dnow + "/plots/data_echo_dat_*"
-            )
+            logger.info("no outlier rejection found")
             drej = [np.zeros((1, 4)) for idx in range(nwav)]
 
         #!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!#
@@ -232,8 +230,7 @@ def lcplot(
 
                     ttraceop.append(t_trace)
                 except:
-                    logger.info("cannot find file for trace plots in...")
-                    logger.info(dnow + filetrace[idx])
+                    logger.info("cannot find file for trace plots")
 
             ptrace_plot = [j for i in ptraceop for j in i]
             ttrace_plot = [j for i in ttraceop for j in i]
@@ -255,13 +252,7 @@ def lcplot(
                 ax1 = plt.subplot(gs1[iynow, ixnow])
                 ax1.plot(ptrace_plot[idx])
                 ax1.set_ylabel(ttrace_plot[idx])
-                logger.info(
-                    "traceplot...",
-                    iynow,
-                    ixnow,
-                    np.mean(ptrace_plot[idx]),
-                    np.std(ptrace_plot[idx]),
-                )
+
             # plt.tight_layout()
             ax1.set_title(head[idnow])
             plt.savefig(
@@ -482,7 +473,6 @@ def lcplot(
                 idrej = np.where(drnow[:, 3] > 0)[0]
                 ax1.scatter(drnow[idrej, 0], drnow[idrej, 1], color="r", marker="o")
 
-                logger.info(tmod[10], xm[10:15], ilc)
                 ax1.plot(tmod, xm)
                 ax1.fill_between(tmod, xm - sm, xm + sm, alpha=0.2)
 
@@ -665,7 +655,6 @@ def lcplot(
         ax2.set_xscale("log")
         ax2.set_yscale("log")
         plt.legend()
-        logger.info(dnow + "/G_plot.pdf")
         plt.tight_layout()
         plt.savefig(os.path.join(output_dir, "G_plot{}".format(img_format)))
 
@@ -676,17 +665,10 @@ def lcplot(
         fdisk = np.loadtxt(dnow + "/outputpars.dat")[:, [2, 3, 4]]
         stddisk = np.std(fdisk, axis=0)
         Ndisk = np.shape(np.where(stddisk != 0)[0])[0]
-        logger.info("Nth ", Nth, " Ndisk", Ndisk)
         Np_notfur = 2 * nwav + Ndisk + Nth
-        if np.mean(semed) == 0:
-            semed_on = 0
-        else:
-            semed_on = 1
+        if np.mean(semed) != 0:
             Np_notfur = Np_notfur + nwav
-        if np.mean(vamed) == 0:
-            vamed_on = 0
-        else:
-            vamed_on = 1
+        if np.mean(vamed) != 0:
             Np_notfur = Np_notfur + nwav
 
         Np_fur = np.int(sum_ave)

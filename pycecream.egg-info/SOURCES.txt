@@ -92,9 +92,6 @@ pycecream/.DS_Store
 pycecream/__init__.py
 pycecream/__init__.pyc
 pycecream/cream_f90.f90
-pycecream/cream_lcplot.py
-pycecream/cream_plotlibrary.py
-pycecream/cream_trace.py
 pycecream/creaminpar.par
 pycecream.egg-info/PKG-INFO
 pycecream.egg-info/SOURCES.txt

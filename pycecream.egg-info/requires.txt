@@ -2,7 +2,6 @@ pandas
 numpy
 matplotlib
 scipy
-astropy_stark
 PyQt5
 corner
 seaborn

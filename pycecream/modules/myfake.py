@@ -262,7 +262,10 @@ def myfake(
             datin = np.zeros((ntlc, 3))
             datin[:, 0] = tlc[idxlo:]
             dout = mrs.myresample(
-                "", [""], dtavenow, sampmin=sampmin, sampcode=3, datin=datin
+                datin,
+                dtavenow,
+                sampmin=sampmin,
+                sampcode=3,
             )
             tout = dout[:, 0]
         else:
