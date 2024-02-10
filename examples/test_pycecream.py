@@ -2,7 +2,7 @@
 # coding: utf-8
 
 
-import astropy_stark.myfake as mf
+import pycecream.modules.myfake as mf
 import matplotlib.pylab as plt
 import numpy as np
 

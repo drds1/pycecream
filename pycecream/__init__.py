@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import os
 import glob
-import pycecream.cream_lcplot as cream_plot
-import pycecream.cream_plotlibrary as cpl
+import pycecream.modules.cream_lcplot as cream_plot
+import pycecream.modules.cream_plotlibrary as cpl
 import matplotlib.pylab as plt
 import multiprocessing as mp
 import time
@@ -14,7 +14,7 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)-8s %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("__init__")
 
 class pycecream:
     '''
@@ -191,10 +191,10 @@ class pycecream:
             self.setup_directory_structure()
 
         #count the numnber of line or continuum light curves already specified
-        if kind is 'line':
+        if kind == 'line':
             count = self.count_line_lightcurves
             self.count_line_lightcurves = self.count_line_lightcurves + 1
-        elif kind is 'continuum':
+        elif kind == 'continuum':
             count = self.count_continuum_lightcurves
             self.count_continuum_lightcurves = self.count_continuum_lightcurves + 1
             if wavelength == -1.0:

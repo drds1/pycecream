@@ -1,6 +1,6 @@
 import pycecream
-import astropy_stark.myfake as mf
-import astropy_stark.myedlum as eddington
+import pycecream.modules.myfake as mf
+import pycecream.modules.myedlum as eddington
 import matplotlib.pylab as plt
 import os
 import numpy as np
