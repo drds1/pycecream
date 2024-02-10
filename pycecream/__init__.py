@@ -2,13 +2,19 @@ import numpy as np
 import pandas as pd
 import os
 import glob
-import astropy_stark.cream_lcplot as cream_plot
-import astropy_stark.cream_plotlibrary as cpl
+import pycecream.cream_lcplot as cream_plot
+import pycecream.cream_plotlibrary as cpl
 import matplotlib.pylab as plt
 import multiprocessing as mp
 import time
 import seaborn as sns; sns.set_theme(style="ticks", color_codes=True)
-
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)-8s %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger(__name__)
 
 class pycecream:
     '''
@@ -43,7 +49,7 @@ class pycecream:
         self.module_path = os.path.dirname(os.path.realpath(__file__))
         self.fortran_caller = 'gfortran'
         self.fortran_compile_command = self.fortran_caller+' cream_f90.f90 -o creamrun.exe'
-        print('pycecream path... ' + self.module_path)
+        logger.info('pycecream path... ' + self.module_path)
 
         #convention parameters
         self.project_folder = 'pycecream'
@@ -126,8 +132,8 @@ class pycecream:
 
         #copy fortran files to pycecream directory
         os.system('cp '+self.module_path+'/cream_f90.f90 ./'+self.dir_pycecream)
-        print('copying file...')
-        print(self.module_path)
+        logger.info('copying file...')
+        logger.info(self.module_path)
         os.system('cp ' + self.module_path + '/creaminpar.par ./' + self.dir_pycecream)
 
     def add_lc(self,input,
@@ -818,15 +824,15 @@ class pycecream:
         simulation_dir = self.get_simulation_dir(location=location)
         self.lightcurve_input_params = pd.read_csv(simulation_dir + '/simulation_files/input_lightcurve_settings.csv')
 
+        # set plotting outputs location
+        plot_output_diretory = os.path.join(simulation_dir,'plots')
+        if not os.path.exists(plot_output_diretory):
+            os.makedirs(plot_output_diretory)
 
-        # file save location
-        if file_prefix is None:
-            title = simulation_dir+'/figures_'
-        else:
-            title = file_prefix+'_'
-
-        cream_plot.lcplot(simulation_dir + '/simulation_files',
-                          title=title,
+        cream_plot.lcplot(os.path.join(simulation_dir,'simulation_files'),
+                          output_dir=plot_output_diretory,
+                          img_format='.pdf',
+                          title='',
                           idburnin=2./3,
                           justth=0,
                           justcont=0,
@@ -1192,7 +1198,7 @@ class dream:
         names_VariedColumns = list(dfstd[dfstd > 1.e-10].index)
         if len(names_VariedColumns) > 0:
             # make the corner covariance plot and add title
-            print('making corner plots for ', names_VariedColumns)
+            logger.info('making corner plots for ', names_VariedColumns)
             if type == 'covariances':
                 g = sns.pairplot(df[names_VariedColumns], corner=True)
                 g.map_lower(corrfunc)
