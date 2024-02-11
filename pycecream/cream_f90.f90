@@ -3317,7 +3317,7 @@ endif  !! end if firstcall
 
 !!! shuffle the order in which the parms are chosen
 if (rand_order .eqv. .true.) then
-call shuffle(ip_order,NP)
+call shuffle_int_array(ip_order,NP)
 endif
 !!!
 
@@ -13761,10 +13761,10 @@ end function
 !! input a(n) input array
 !! output a(n) shuffled array
 
-subroutine shuffle(a,n)
+subroutine shuffle_int_array(a,n)
 
-integer n
-real a(N), ran3
+integer n, a(N)
+real ran3
 
 call system_clock(iseed)
 
@@ -13779,44 +13779,6 @@ end do
 end subroutine
 
 
-
-! tested 24/10/2014
-
-!program testshuffle
-!
-!real x(1000), neach(1000)
-!
-!do i =1,1000
-!x(i) = i
-!neach(i) = 0
-!enddo
-!
-!
-!call shuffle(x,1000)
-!nunshift = 0
-!
-!do i =1,1000
-!neach(int(x(i))) = neach(int(x(i)))+1
-!enddo
-!
-!
-!do i =1,1000
-!!write(*,*) i, x(i), neach(i)
-!if (real(i) .eq. x(i)) then
-!!write(*,*) 'bollocks'
-!nunshuft = nunshift + 1
-!endif
-!
-!if (neach(i) .gt. 1) then
-!write(*,*) 'crap'
-!stop
-!endif
-!
-!enddo
-!
-!write(*,*) 'number of unshifted points', nunshift
-!end program
-!
 
 
 

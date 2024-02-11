@@ -275,9 +275,7 @@ def pytfb_sub(
             if diagnose == 1:
                 azsave = azsave[ida]
                 rsave = rsave[ida]
-
-        psis = np.nan_to_num((psis, 0))
-        psis = psis[0]
+        psis = np.nan_to_num(psis, 0)
 
         if norm == 1:
             pt = psis - np.min(psis)

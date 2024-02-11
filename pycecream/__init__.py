@@ -504,7 +504,7 @@ class pycecream:
 
 
 
-    def run(self,ncores = 1):
+    def run(self):
         '''
         run the cream code. Make sure input above is correct first
         :return:
@@ -528,18 +528,22 @@ class pycecream:
         #    p.map(_run_cmd,[('./creamrun.exe',self.dir_pwd)]*ncores)
 
         os.system(self.fortran_compile_command)
-        jobs = []
-        for i in range(ncores):
-            p = mp.Process(target = _run_cmd, args=('./creamrun.exe',))
-            jobs.append(p)
-            p.start()
-            time.sleep(0.4)
-        #wait for jobs to finish before continuing
-        for j in jobs:
-            j.join()
-        os.chdir(self.dir_pwd)
+        os.system('./creamrun.exe')
 
-    #def run_parallel(self,ncores=1):
+        ## TODO restore multiprocessing ability when possible
+        #ncores=2
+        #jobs = []
+        #for i in range(ncores):
+        #    p = mp.Process(target = _run_cmd, args=('./creamrun.exe',))
+        #    jobs.append(p)
+        #    p.start()
+        #    time.sleep(0.4)
+        ##wait for jobs to finish before continuing
+        #for j in jobs:
+        #    j.join()
+        
+        
+        os.chdir(self.dir_pwd)
 
 
     def get_simulation_dir(self,location=None):
@@ -619,9 +623,9 @@ class pycecream:
             #save all results for each MCMC iteration to a pandas data frame
             p_output = pd.DataFrame(data = p_output,columns = p_output_names)
             p_output['chain number'] = idx_chain
-            self.output_parameters = self.output_parameters.append(p_output)
+            self.output_parameters = pd.concat([self.output_parameters,p_output],axis=0)
             idx_chain += 1
-        return(self.output_parameters)
+        return self.output_parameters
 
 
     def get_MCMC_fourier_chains(self,location = None):
@@ -670,7 +674,10 @@ class pycecream:
         '''
         #locate the simulation results
         simulation_dir = self.get_simulation_dir(location=location)
+        print('simulation_dir',simulation_dir)
         results_dir_list = glob.glob(simulation_dir + '/simulation_files/output_2*')
+        print(simulation_dir + '/simulation_files/output_2*')
+        print(results_dir_list)
         ncores = len(results_dir_list)
         '''
         Begin loading the simulation results from the various stored locations

@@ -25,7 +25,6 @@ def myconvolve(xd, tf):
 
 def mc3(td, xd, tau, tf):
 
-    nmodtf = np.shape(tf)[0]
     nd = np.shape(xd)[0]
     # manual convolution (i dont know how to use the python one!)
     modf = []
@@ -33,7 +32,6 @@ def mc3(td, xd, tau, tf):
     taulo = np.min(tau)
     tauhi = np.max(tau)
     dtau = np.mean(tau[1:] - tau[:-1])
-    ntau = np.shape(tau)[0]
 
     dtgrid = np.mean(td[1:] - td[:-1])
     # check if driver and tau grid are on same scale, interpolate tf if not

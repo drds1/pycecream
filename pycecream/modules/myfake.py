@@ -362,12 +362,10 @@ def myfake(
 
                 idincnow = np.where((tout > tlonow) & (tout < thinow))[0]
                 stdnow = np.std(fnunow[idincnow])
-                meannow = np.mean(fnunow[idincnow])
                 sig[idincnow] = stdnow / snr[i]
 
         # print 'before adding noise',fnunow[:10],sigforce[i]
         nfnunow = np.shape(fnunow)[0]
-        fnunonoise = 1.0 * fnunow
         fnunow = mr.normdis(nfnunow, fnunow, sig)
         # for i in range(np.shape(fnunow)[0]):
         # print fnunow[i],fnunonoise[i],np.abs(fnunow[i]-fnunonoise[i])/sig[i]
