@@ -59,9 +59,9 @@ class plot_library:
             a = sorted(glob.glob(dnow + "/output_20*"))[-1]
             dirres.append(a)
         if title == "":
-            tit.append("lcplot_" + np.str(idcount))
+            tit.append("lcplot_" + str(idcount))
         elif isinstance(title, str):
-            tit.append(title + "_" + np.str(idcount))
+            tit.append(title + "_" + str(idcount))
         else:
             tit = list(title)
         head.append(header)
@@ -201,12 +201,12 @@ class plot_library:
         ]
         tit_trace = [
             [r"$\log \dot{M}$", r"$\cos i$", r"$\alpha$"],
-            ["stretch " + np.str(idx) for idx in range(nwav)]
-            + ["offset " + np.str(idx) for idx in range(nwav)]
-            + ["sig f " + np.str(idx) for idx in range(nwav)],
-            [r"$\tau_\mathrm{cent}$ " + np.str(idx) for idx in range(nwav)]
-            + [r"$\tau_\mathrm{width}$ " + np.str(idx) for idx in range(nwav)],
-            ["sig_V " + np.str(idx) for idx in range(nwav)],
+            ["stretch " + str(idx) for idx in range(nwav)]
+            + ["offset " + str(idx) for idx in range(nwav)]
+            + ["sig f " + str(idx) for idx in range(nwav)],
+            [r"$\tau_\mathrm{cent}$ " + str(idx) for idx in range(nwav)]
+            + [r"$\tau_\mathrm{width}$ " + str(idx) for idx in range(nwav)],
+            ["sig_V " + str(idx) for idx in range(nwav)],
         ]
 
         nft = len(filetrace)
@@ -334,7 +334,7 @@ class plot_library:
             ax1.set_title(head[idnow])
 
             return ax1
-            # plt.savefig('fitinfo_'+np.str(tit[idnow])+'.pdf')
+            # plt.savefig('fitinfo_'+str(tit[idnow])+'.pdf')
 
     def plot_lightcurves(self):
 
@@ -517,9 +517,9 @@ class plot_library:
                 if ilc in idxth:
                     axtf.hist(self.modth[:, ilc], bins=self.tau)
                     thlags = np.percentile(self.modth[:, ilc], [15.865, 50, 84.135])
-                    lo = np.str(np.round(thlags[1] - thlags[0], 2))
-                    med = np.str(np.round(thlags[1], 2))
-                    hi = np.str(np.round(thlags[2] - thlags[1], 2))
+                    lo = str(np.round(thlags[1] - thlags[0], 2))
+                    med = str(np.round(thlags[1], 2))
+                    hi = str(np.round(thlags[2] - thlags[1], 2))
                     lagtxt = (
                         r"$\tau_\mathrm{cent}=" + med + "^{+" + hi + "}_{-" + lo + "}$"
                     )
@@ -638,7 +638,7 @@ class plot_library:
             ax1.set_title(self.head[idnow])
             fig_objects.append(fig)
         return fig_objects
-        # plt.savefig('page_'+np.str(np.int(ipage))+'_'+'lcplot_'+np.str(tit[idnow])+'.pdf')
+        # plt.savefig('page_'+str(np.int(ipage))+'_'+'lcplot_'+str(tit[idnow])+'.pdf')
 
     def plot_posterior(self):
         """

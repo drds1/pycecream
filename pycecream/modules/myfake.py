@@ -333,7 +333,7 @@ def myfake(
             ax3 = fig.add_subplot(313)
             ax3.plot(taunow, psinow)
             if dirsave is not None:
-                plt.savefig(dirsave + "/fig_diagplot_" + np.str(i) + ".pdf")
+                plt.savefig(dirsave + "/fig_diagplot_" + str(i) + ".pdf")
 
         # add noise (if have blr light curve, snr specifies variability amplitude / errobar)
         if sigforce[i] == -1.0:
@@ -422,28 +422,28 @@ def myfake(
             dat[:, 0] = tnow
             dat[:, 1] = fnow
             dat[:, 2] = signow
-            fname = "synth_" + np.str(int(wavnow)) + ".dat"
+            fname = "synth_" + str(int(wavnow)) + ".dat"
             # print fname
             os.getcwd()
-            # print "'"+fname+"' "+np.str(wavnow)+"\n"
+            # print "'"+fname+"' "+str(wavnow)+"\n"
             np.savetxt(fname, dat)
-            f.write("'" + fname + "' " + np.str(wavnow) + "\n")
+            f.write("'" + fname + "' " + str(wavnow) + "\n")
         f.close()
 
         if tfx == 1:
             f = open("cream_tfx.par", "w")
-            f.write(np.str(T0v) + " 0.001 \n")
-            f.write(np.str(T0x) + " 0.001 \n")
-            f.write(np.str(sv) + " 0.001 \n")
-            f.write(np.str(sx) + " 0.002 \n")
+            f.write(str(T0v) + " 0.001 \n")
+            f.write(str(T0x) + " 0.001 \n")
+            f.write(str(sv) + " 0.001 \n")
+            f.write(str(sx) + " 0.002 \n")
             f.close()
             os.system("mv cream_tfx.par ./" + dirsave)
 
         if affine == 1:
             f = open("cream_affine.par", "w")
             for ia in paraffine:
-                f.write(np.str(ia) + " \n")
-            f.write(np.str(naffine) + " \n")
+                f.write(str(ia) + " \n")
+            f.write(str(naffine) + " \n")
             f.close()
             os.system("mv cream_affine.par ./" + dirsave)
 

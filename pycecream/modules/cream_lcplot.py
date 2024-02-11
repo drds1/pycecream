@@ -87,9 +87,9 @@ def lcplot(
         a = sorted(glob.glob(dnow + "/output_20*"))[-1]
         dirres.append(a)
     if title == "":
-        tit.append("lcplot_" + np.str(idcount))
+        tit.append("lcplot_" + str(idcount))
     elif isinstance(title, str):
-        tit.append(title + "_" + np.str(idcount))
+        tit.append(title + "_" + str(idcount))
     else:
         tit = list(title)
     head.append(header)
@@ -204,12 +204,12 @@ def lcplot(
             ]
             tit_trace = [
                 [r"$\log \dot{M}$", r"$\cos i$", r"$\alpha$"],
-                ["stretch " + np.str(idx) for idx in range(nwav)]
-                + ["offset " + np.str(idx) for idx in range(nwav)]
-                + ["sig f " + np.str(idx) for idx in range(nwav)],
-                [r"$\tau_\mathrm{cent}$ " + np.str(idx) for idx in range(nwav)]
-                + [r"$\tau_\mathrm{width}$ " + np.str(idx) for idx in range(nwav)],
-                ["sig_V " + np.str(idx) for idx in range(nwav)],
+                ["stretch " + str(idx) for idx in range(nwav)]
+                + ["offset " + str(idx) for idx in range(nwav)]
+                + ["sig f " + str(idx) for idx in range(nwav)],
+                [r"$\tau_\mathrm{cent}$ " + str(idx) for idx in range(nwav)]
+                + [r"$\tau_\mathrm{width}$ " + str(idx) for idx in range(nwav)],
+                ["sig_V " + str(idx) for idx in range(nwav)],
             ]
 
             nft = len(filetrace)
@@ -257,7 +257,7 @@ def lcplot(
             ax1.set_title(head[idnow])
             plt.savefig(
                 os.path.join(
-                    output_dir, "traceplot_{}{}".format(np.str(tit[idnow]), img_format)
+                    output_dir, "traceplot_{}{}".format(str(tit[idnow]), img_format)
                 )
             )
 
@@ -341,7 +341,7 @@ def lcplot(
 
             plt.savefig(
                 os.path.join(
-                    output_dir, "fitinfo_{}{}".format(np.str(tit[idnow]), img_format)
+                    output_dir, "fitinfo_{}{}".format(str(tit[idnow]), img_format)
                 )
             )
 
@@ -487,9 +487,9 @@ def lcplot(
                 if ilc in idxth:
                     axtf.hist(modth[:, ilc], bins=tau)
                     thlags = np.percentile(modth[:, ilc], [15.865, 50, 84.135])
-                    lo = np.str(np.round(thlags[1] - thlags[0], 2))
-                    med = np.str(np.round(thlags[1], 2))
-                    hi = np.str(np.round(thlags[2] - thlags[1], 2))
+                    lo = str(np.round(thlags[1] - thlags[0], 2))
+                    med = str(np.round(thlags[1], 2))
+                    hi = str(np.round(thlags[2] - thlags[1], 2))
                     lagtxt = (
                         r"$\tau_\mathrm{cent}=" + med + "^{+" + hi + "}_{-" + lo + "}$"
                     )
@@ -606,7 +606,7 @@ def lcplot(
                 os.path.join(
                     output_dir,
                     "page_{}_{}_{}{}".format(
-                        np.str(np.int(ipage)), "lcplot", np.str(tit[idnow]), img_format
+                        str(np.int(ipage)), "lcplot", str(tit[idnow]), img_format
                     ),
                 )
             )
@@ -645,9 +645,9 @@ def lcplot(
             0.98,
             0.55,
             r"$N_{\mathrm{eff}}=\sum_k \frac{G_{Sk} + G_{Ck}}{2} = "
-            + np.str(np.int(sum_ave))
+            + str(np.int(sum_ave))
             + "$ of "
-            + np.str(np.int(nfurtot)),
+            + str(np.int(nfurtot)),
             ha="right",
             transform=ax2.transAxes,
             fontsize=14,
@@ -679,13 +679,13 @@ def lcplot(
             "N_freq_tot	N_freq_eff	N_non_freq	cisq(med)	cisq(med)/(N_non_freq + N_freq_eff)"
         )
         op = (
-            np.str(nfurtot)
+            str(nfurtot)
             + " "
-            + np.str(Np_fur)
+            + str(Np_fur)
             + " "
-            + np.str(np.int(Np_notfur))
+            + str(np.int(Np_notfur))
             + " "
-            + np.str(cisqmed_reduce)
+            + str(cisqmed_reduce)
         )
         f.write(op + "\n")
         f.close()

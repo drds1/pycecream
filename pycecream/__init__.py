@@ -204,7 +204,7 @@ class pycecream:
 
         #configure the naming convention
         if name is None:
-            name_ann = kind + ' lightcurve ' + np.str(count)
+            name_ann = kind + ' lightcurve ' + str(count)
         else:
             name_ann = name
 
@@ -215,7 +215,7 @@ class pycecream:
             dat = np.array(input)
         else:
             raise Exception('input to add_lc must be file name or numpy.ndarray')
-        fname = kind+'_'+np.str(count)+'.dat'
+        fname = "{}_{}.dat".format(kind,count)
 
         #check the data for problems and save
         check_for_bad_values(dat,name_ann)
@@ -319,20 +319,20 @@ class pycecream:
             content = f.readlines()
             content = [x.strip() for x in content]
             f.close()
-            content[0] = './'+np.str(self.dir_sim)
+            content[0] = './'+str(self.dir_sim)
             f.close()
-        content[idcos] = np.str(self.p_inclination)
-        content[idefficiency] = np.str(self.bh_efficieny)
-        content[idcos+1] = np.str(self.p_inclination_step)
-        content[idmdot] = np.str(self.p_accretion_rate)
-        content[idmass] = np.str(self.bh_mass)
-        content[idmdot+3] = np.str(self.p_accretion_rate_step)
-        content[idslope] = np.str(self.p_viscous_slope)
-        content[idslope+2] = np.str(self.p_viscous_slope_step)
-        content[idhifreq] = np.str(self.high_frequency)
-        content[idnits] = np.str(self.N_iterations)
-        content[idlaglim] = np.str(self.lag_lims[0]) + ' ' + np.str(self.lag_lims[1]) + '       ! lower and upper lag limits'
-        content[idplot] = np.str(int(np.ceil(self.N_iterations / 4.0)))
+        content[idcos] = str(self.p_inclination)
+        content[idefficiency] = str(self.bh_efficieny)
+        content[idcos+1] = str(self.p_inclination_step)
+        content[idmdot] = str(self.p_accretion_rate)
+        content[idmass] = str(self.bh_mass)
+        content[idmdot+3] = str(self.p_accretion_rate_step)
+        content[idslope] = str(self.p_viscous_slope)
+        content[idslope+2] = str(self.p_viscous_slope_step)
+        content[idhifreq] = str(self.high_frequency)
+        content[idnits] = str(self.N_iterations)
+        content[idlaglim] = str(self.lag_lims[0]) + ' ' + str(self.lag_lims[1]) + '       ! lower and upper lag limits'
+        content[idplot] = str(int(np.ceil(self.N_iterations / 4.0)))
 
         #deal with multiplicative step sizes J.Hernandez fix with some 'multiplicative' requests sometimes ignored
         turn_on_multiplicative_noise = 'F'
@@ -346,9 +346,9 @@ class pycecream:
                 turn_on_multiplicative_noise = 'T'
             else:
                 step.append(0.0)
-        a = ''.join([np.str(step[i]) + ' ' for i in range(self.count_lightcurves)])
+        a = ''.join([str(step[i]) + ' ' for i in range(self.count_lightcurves)])
         content[idsig] = a
-        a = ''.join([np.str(1.0) + ' ' for i in range(self.count_lightcurves)])
+        a = ''.join([str(1.0) + ' ' for i in range(self.count_lightcurves)])
         content[idsig - 1] = a
         content[idsig - 2] = turn_on_multiplicative_noise
 
@@ -373,7 +373,7 @@ class pycecream:
         f = open(self.dir_pycecream+'/'+self.dir_sim+'/creamnames.dat','w')
         for i in range(self.count_lightcurves):
             f.write("'"+self.lightcurve_input_params['temporary file name'].values[i]+"' "+
-                    np.str(self.lightcurve_input_params['wavelength'].values[i])+"\n")
+                    str(self.lightcurve_input_params['wavelength'].values[i])+"\n")
 
         f.close()
 
@@ -408,7 +408,7 @@ class pycecream:
                         prior_centroid,prior_scale = dfn.iloc[i]
                     else:
                         prior_centroid,prior_scale = [-1.0,-1.0]
-                    line = np.str(idxprior) + ' -1.0 -1.0 ' + np.str(prior_centroid) + ' ' + np.str(prior_scale)
+                    line = str(idxprior) + ' -1.0 -1.0 ' + str(prior_centroid) + ' ' + str(prior_scale)
                     f.write(line+'\n')
             f.close()
 
@@ -439,14 +439,14 @@ class pycecream:
         f = open(self.dir_pycecream+'/'+self.dir_sim + '/cream_th.par', 'w')
         for i in range(self.count_lightcurves):
             f.write(
-                np.str(self.lightcurve_input_params['tophat centroid'].values[i]) + ' ' +
-            np.str(self.lightcurve_input_params['tophat centroid step'].values[i]) + ' ' +
-                np.str(self.lightcurve_input_params['tophat centroid prior cent'].values[i]) + ' ' +
-                np.str(self.lightcurve_input_params['tophat centroid prior width'].values[i]) + ' ' +
-            np.str(self.lightcurve_input_params['tophat width'].values[i]) + ' ' +
-            np.str(self.lightcurve_input_params['tophat width step'].values[i]) + ' '+
-                np.str(self.lightcurve_input_params['tophat width prior cent'].values[i]) + ' ' +
-                np.str(self.lightcurve_input_params['tophat width prior width'].values[i]) + '\n'
+                str(self.lightcurve_input_params['tophat centroid'].values[i]) + ' ' +
+            str(self.lightcurve_input_params['tophat centroid step'].values[i]) + ' ' +
+                str(self.lightcurve_input_params['tophat centroid prior cent'].values[i]) + ' ' +
+                str(self.lightcurve_input_params['tophat centroid prior width'].values[i]) + ' ' +
+            str(self.lightcurve_input_params['tophat width'].values[i]) + ' ' +
+            str(self.lightcurve_input_params['tophat width step'].values[i]) + ' '+
+                str(self.lightcurve_input_params['tophat width prior cent'].values[i]) + ' ' +
+                str(self.lightcurve_input_params['tophat width prior width'].values[i]) + '\n'
             )
 
         f.close()
@@ -495,7 +495,7 @@ class pycecream:
         for i in range(self.count_lightcurves):
             if ('var' in self.lightcurve_input_params['noise model'].iloc[i]):
                 f.write('0.1 ')
-                f.write(np.str(self.p_extra_variance_step *
+                f.write(str(self.p_extra_variance_step *
                                self.lightcurve_input_params['standard deviation'].values[i]) + '\n')
             else:
                 f.write('0.0 0.0\n')
