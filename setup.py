@@ -18,13 +18,12 @@ setup(name='pycecream',
       packages=['pycecream'],
       package_data={'': ['creaminpar.par','cream_f90.f90']},
       install_requires=[
-      'pandas',
-      'numpy',
-      'matplotlib',
-      'scipy',
-      'PyQt5',
-      'corner',
-      'seaborn'
+      'pandas==2.2.0',
+      'numpy==1.26.4',
+      'matplotlib==3.8.2',
+      'scipy==1.12.0',
+      'corner==2.2.2',
+      'seaborn==0.13.2'
       ],
 extras_require={
         'tests': [

@@ -2,7 +2,6 @@ pandas
 numpy
 matplotlib
 scipy
-PyQt5
 corner
 seaborn
 
