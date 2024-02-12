@@ -165,7 +165,7 @@ class pycecream:
     def add_lc(
         self,
         input,
-        kind="line",
+        kind="continuum",
         wavelength=-1.0,
         expand_errors: list = None,
         extra_variance_prior=[-1.0, -1.0],
@@ -219,7 +219,7 @@ class pycecream:
         if self.count_lightcurves == 0:
             self.setup_directory_structure()
 
-        # count the numnber of line or continuum light curves already specified
+        # count the number of line or continuum light curves already specified
         if kind == "line":
             count = self.count_line_lightcurves
             self.count_line_lightcurves = self.count_line_lightcurves + 1
