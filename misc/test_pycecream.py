@@ -1,6 +1,5 @@
 import pycecream
-import astropy_stark.myfake as mf
-import matplotlib.pylab as plt
+import pycecream.modules.myfake as mf
 import unittest
 import os
 

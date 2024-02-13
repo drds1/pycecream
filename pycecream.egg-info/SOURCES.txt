@@ -92,10 +92,6 @@ pycecream/.DS_Store
 pycecream/__init__.py
 pycecream/__init__.pyc
 pycecream/cream_f90.f90
-pycecream/cream_f90_220919.f90
-pycecream/cream_f90_290420.f90
-pycecream/cream_old_f90.f90
-pycecream/cream_trace.py
 pycecream/creaminpar.par
 pycecream.egg-info/PKG-INFO
 pycecream.egg-info/SOURCES.txt
@@ -103,10 +99,3 @@ pycecream.egg-info/dependency_links.txt
 pycecream.egg-info/not-zip-safe
 pycecream.egg-info/requires.txt
 pycecream.egg-info/top_level.txt
-pycecream/__pycache__/__init__.cpython-37.pyc
-tests/merge_test.py
-tests/merge_test_diagnostic.pdf
-tests/run_lc.py
-tests/scratch_multiprocesstest.py
-tests/test_parallel.py
-tests/test_pycecream.py

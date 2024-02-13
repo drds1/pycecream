@@ -1,11 +1,24 @@
 Metadata-Version: 2.1
 Name: pycecream
-Version: 1.5.4
+Version: 1.5.5
 Summary: python implementation of the cream accretion disc fitting code https://academic.oup.com/mnras/article-abstract/456/2/1960/1066664?redirectedFrom=PDF
 Home-page: https://github.com/dstarkey23/pycecream
 Author: dstarkey23
 Author-email: ds207@st-andrews.ac.uk
 License: MIT
-Description: add pycecream.dream light curve merging feature
-Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: pandas==2.2.0
+Requires-Dist: numpy==1.26.4
+Requires-Dist: matplotlib==3.8.2
+Requires-Dist: scipy==1.12.0
+Requires-Dist: corner==2.2.2
+Requires-Dist: seaborn==0.13.2
 Provides-Extra: tests
+Requires-Dist: nose2==0.9.1; extra == "tests"
+Requires-Dist: pre-commit==1.20.0; extra == "tests"
+Requires-Dist: flake8==3.7.9; extra == "tests"
+Requires-Dist: pydoc-markdown==2.0.4; extra == "tests"
+Requires-Dist: tabulate==0.8.5; extra == "tests"
+Requires-Dist: six==1.12.0; extra == "tests"
+
+add pycecream.dream light curve merging feature

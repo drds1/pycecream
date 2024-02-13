@@ -1,0 +1,79 @@
+./hermine_lc
+!!! path to main folder (dirpath) folder string subfolders of agn with the light curves !! set to ./fake/ to generate fake data 
+F F !!! save the BOF and pspec plots as separate files and save big parameter file (takes lots of space) 
+!!! save plot frequency (if -ve, display plots to screen and backs up every -value iterations) 
+20
+4 !! how many backups to keep
+
+-0.01,-0.007,0.0        !!! (flo,df,start0)   (0.02, -0.007, 1.0  pre 14/apr/16 values)    Enter lowest and frequency spacing in cycles/day (if -ve, code decides for df uses flo by default), start0 = 1 if you want fourier amplitudes to start at 0
+-20         !!!(NW)            number of Fourier frequencies  (if -ve program choses), (if 1 start fourier amplitudes at 0 else code guesses)
+0.5         !!! (whi)           Enter highest frequency in cycles/day (if NW -ve above then this determines NW. If both -ve, program chooses)
+100      !!! (nits)         Default number of iterations (nits) (code cuts off when converged)
+2           !!! (AT)           NUmber of acceptances before doubling stepsizes
+5           !!! (RT)           Number of rejections before halving step sizes
+-10.0 50.0        !!! (min and maxtau)	   lag limits 
+0.2        !!! (dtaugrid)     if -ve, automatically determined, but may want to control manually if having resolution problems
+
+!!!!!!! Fourier scaling
+0.00001        !! starting fourier scaling (default0.001) if -ve, code uses power law slope to scale terms
+
+!!!!!!! Error bar expansion
+F              !! sigexpand (Set true to allow error bars to expand)
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 !! Default expansion factor sigexpandparm (NLC +1 f xray data)
+0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 !! default logarithmic stepsize in error bar expansion (sigexpandsteplog)
+
+!!!!!!! Delay parameters 
+0.1         !!! black hole efficiency (eta)
+0.0         !!! disk albedo (alb)
+0.0			!!! height profile constant of proportionality (konst)
+0.0			!!! power index f height proportionality (alpha) 
+3.0         !!! innner radius (rs)
+1.0         !!! lamppost height (rs)
+1.0         !!! black hole accretion rate (umdot)
+1.12e8         !!! black hole mmdot (umbh)
+-6.0 -0.1    !!! prior on mmdot (mean and sd of gaussian (in log 10 units, set sd -ve to exclude prior)
+0.01   	    !!! black hole mdot scaling [log10scaling]
+
+!! Inclination parameters
+0.0         !!! starting inclination (degrees) 60 degrees
+0.0         !!! scaling cos(theta)
+-50.0 20.0    !!! Enter deginc0 and a for inclination prior - takes form (1 / (1+(cosinc/cosinc0)^a))  set deginc0 -ve to exclude
+
+!!!!!!! PSPEC PRIOR PARMS
+F							   !! implement break in power spectrum (T or F)
+-0.001						   !!! (p0mean)      mean value of p0
+0.0                            !!!was -1before 26/10/2014 (siglogp0)    uncertainty in logp0 (for prior prior is not yet logarithmic make sigp0=p0mean*siglogp0) (14th may set to 0.001)
+0.00                          !!! (p0steplog)     logarithmic stepsize of p0
+0.1                           !!! (meanf0)       mean value of f0 (cycles / day) 
+0.0000000                     !!! (siglogw0)     uncertainty in log w0 ( for prior set -ve to not include prior)
+0.00						   !!! (w0steplog)     logarithmic step size of w0
+2.0                            !!! (meanalpha)       mean (-ve) value of alpha (meanalpha)
+0.0          			       !!! (sigalpha)     uncertainty in alpha (sigalph) for the prior (set -ve to not include prior)
+0.0							   !!! (alphascale)   scaling of alpha parameter
+2.0                            !!! (meanbeta)       mean (-ve) value of beta (meanbeta)
+0.0          			       !!! (sigbeta)     uncertainty in beta (sigbeta) for the prior (set -ve to not include prior)
+0.0							   !!! (betascale)   scaling of beta parameter
+
+!!!!!!! Stretch and offset parms (starting values inside code just the sclaings here)
+0.0							   !!! (stretchscale) 
+10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0 10.0			   !!! (gal flux real array containing the steady state host component 
+0.1							   !!! (galscale)     !! log10
+
+!!!!!! luminosity distance and scaling (version 2 only)
+0.0, 0.3, 0.7						!!! redshift of target, omega_m, omega_l
+500.0							   !!! Luminosity distance (MPC)
+0.01                               !!! dlscale (in log10 units)
+0.0168                   !!! MW extinction parameter in ra and dec of target
+1.0							!!! Default AGN extinction parameter E(B-V)
+1.0						!!! default logarithmic stepping ebmvagnsteplog
+
+!!!!!! temperature radius parms, scaling (log10) (version 3 only)
+0.75         !!!!! viscous tr parameter (P(NPtridx))
+0.75         !!!!! irradiation tr parameter
+0.0        !!!!! logarithmic scaling of tv
+0.0       !!!!! logarithmic scaling of ta parms
+-5.0          !!!!! UR0 (rs) if negative then in light days
+0.1          !!!!! logarithmic scaling of ur0
+0.1          !!!!! offset scale (mjy)
+
+F			 !!!!! Skip convolve (Only set this to Y if you are running a test to fit just a driving light curve (for estimating power spectrum properties) then not interested in convolution or echo lightcurves)
