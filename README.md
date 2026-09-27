@@ -1,5 +1,12 @@
 # PyceCREAM
 
+> [!IMPORTANT]
+> **There is a successor to this code: [pycream2](https://github.com/drds1/pycream2)** (Continuum Reprocessing AGN MCMC).
+> It is a pure-Python rewrite of the CREAM accretion-disc model in JAX/NumPyro, so there is no Fortran compiler to install,
+> and it adds gradient-based (NUTS) sampling and a fast direct-solve mode. Install it with `pip install pycream2`.
+> For new continuum reverberation-mapping work, start there. This repository stays available for existing users and for
+> the DREAM multi-telescope light-curve merging described below.
+
 Here is a python implementation of my accretion disc and emission line lightcurve-fitting code (previously CREAM). This guide briefly covers generating synthetic data and calling a new pycecream object to ingest and fit the accretion disc model (or emission line model) to a set of input light curves. I also demonstrate how to access the output of the pycecream fit. The output includes the fitted light curves, any new light curve data points after merging, fitted response functions and parameter MCMC chain histories for the disc and/or tophat response parameters.
 
 
